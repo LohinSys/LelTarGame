@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://uhet6otsp7ly"]
+
+[ext_resource type="Texture2D" uid="uid://cu11o3rxixdfc" path="res://assets/backgrounds/placeholder-bg1_1.png" id="1_cryoe"]
+[ext_resource type="PackedScene" uid="uid://6tnyxq2pf060" path="res://scenes/overlay.tscn" id="1_hwvuu"]
+[ext_resource type="PackedScene" uid="uid://bkehd1u16qw8d" path="res://scenes/boss.tscn" id="1_wpnpv"]
+[ext_resource type="PackedScene" uid="uid://b2r4pwv4w2hpe" path="res://scenes/player.tscn" id="2_hwvuu"]
+
+[node name="BossRoom" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_cryoe")
+
+[node name="Boss" parent="." instance=ExtResource("1_wpnpv")]
+position = Vector2(400, 90)
+motion_mode = 1
+alpha = 1.3
+
+[node name="Player" parent="." instance=ExtResource("2_hwvuu")]
+position = Vector2(400, 500)
+
+[node name="Overlay" parent="." instance=ExtResource("1_hwvuu")]
