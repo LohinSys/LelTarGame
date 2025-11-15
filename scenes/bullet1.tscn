@@ -11,7 +11,7 @@
 
 [node name="Bullet1" type="Area2D"]
 script = ExtResource("1_4ghaq")
-texture_array = Array[Texture2D]([ExtResource("2_03vxw"), ExtResource("3_t28ld"), ExtResource("4_v7ack"), ExtResource("5_4lo0j")])
+texture_array = Array[Texture2D]([ExtResource("2_03vxw"), ExtResource("4_v7ack"), ExtResource("5_4lo0j"), ExtResource("3_t28ld")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_4vnlm")

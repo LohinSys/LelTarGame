@@ -1,14 +1,17 @@
-[gd_scene format=3 uid="uid://6tnyxq2pf060"]
+[gd_scene load_steps=2 format=3 uid="uid://6tnyxq2pf060"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14nai"]
+size = Vector2(175, 600)
 
 [node name="CanvasLayer" type="CanvasLayer"]
 layer = 420
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="CR_Left" type="ColorRect" parent="."]
 offset_right = 175.0
 offset_bottom = 600.0
 color = Color(0, 0, 0, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="."]
+[node name="CR_Right" type="ColorRect" parent="."]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -16,3 +19,13 @@ offset_left = -175.0
 offset_bottom = 600.0
 grow_horizontal = 0
 color = Color(0, 0, 0, 1)
+
+[node name="CS2D_Left" type="CollisionShape2D" parent="."]
+position = Vector2(87.5, 300)
+shape = SubResource("RectangleShape2D_14nai")
+debug_color = Color(0.7, 0, 0.7, 0.41960785)
+
+[node name="CS2D_Right" type="CollisionShape2D" parent="."]
+position = Vector2(712.5, 300)
+shape = SubResource("RectangleShape2D_14nai")
+debug_color = Color(0.7, 0, 0.7, 0.41960785)

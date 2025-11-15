@@ -13,6 +13,7 @@ config_version=5
 config/name="LelTar"
 config/description="szar volt a régi ezért újrakezdtem az egészet"
 config/version="v0.0.1-reset"
+config/tags=PackedStringArray("schkewl")
 run/main_scene="uid://uhet6otsp7ly"
 config/features=PackedStringArray("4.5", "Mobile")
 run/max_fps=60
