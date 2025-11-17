@@ -37,12 +37,13 @@ bullet1_node = ExtResource("2_lnbgr")
 sprite_frames = SubResource("SpriteFrames_sh265")
 
 [node name="Speed" type="Timer" parent="."]
-wait_time = 0.05
+wait_time = 0.5
 
 [node name="Duration" type="Timer" parent="."]
 wait_time = 4.0
 
 [node name="debug" type="Label" parent="."]
+visible = false
 offset_left = -33.0
 offset_top = -99.0
 offset_right = 33.0

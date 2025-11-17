@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b2r4pwv4w2hpe"]
+[gd_scene load_steps=7 format=3 uid="uid://b2r4pwv4w2hpe"]
 
 [ext_resource type="Texture2D" uid="uid://6wb1cbuwukt3" path="res://assets/sprites/placeholder-reimu.png" id="1_g2els"]
 [ext_resource type="Script" uid="uid://gsbnvmadiu55" path="res://scenes/player.gd" id="1_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://d0j3gfqmx73c0" path="res://assets/sprites/placeholder-reimu-1.png" id="2_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://dh656uwtcc2xj" path="res://assets/sprites/bullet.png" id="4_dqkch"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u8vuu"]
 animations = [{
@@ -30,8 +31,16 @@ sprite_frames = SubResource("SpriteFrames_u8vuu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_g2els")
+debug_color = Color(1, 1, 1, 0.41960785)
 
-[node name="debug" type="Label" parent="."]
+[node name="VisibleCS2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(2.9802322e-07, -2.9802322e-07)
+scale = Vector2(1.1666666, 1.1666666)
+texture = ExtResource("4_dqkch")
+
+[node name="playerDbg" type="Label" parent="."]
+visible = false
 offset_left = -40.0
 offset_top = -124.0
 offset_right = 40.0
@@ -39,13 +48,3 @@ offset_bottom = -101.0
 text = "playerDbg"
 horizontal_alignment = 1
 vertical_alignment = 2
-
-[node name="ProgressBar" type="ProgressBar" parent="."]
-offset_left = -64.0
-offset_top = -96.0
-offset_right = 64.0
-offset_bottom = -75.0
-theme_override_font_sizes/font_size = 12
-value = 100.0
-allow_greater = true
-allow_lesser = true

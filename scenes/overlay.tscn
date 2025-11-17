@@ -1,10 +1,143 @@
-[gd_scene load_steps=2 format=3 uid="uid://6tnyxq2pf060"]
+[gd_scene load_steps=20 format=3 uid="uid://6tnyxq2pf060"]
+
+[ext_resource type="Script" uid="uid://cilxi7ctnnwg7" path="res://scenes/overlay.gd" id="1_d607a"]
+[ext_resource type="FontFile" uid="uid://dgp5nboly025j" path="res://assets/fonts/WendyNeue.ttf" id="2_r2eog"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nx175"]
+font_size = 64
+font_color = Color(1, 0.7529412, 0.7529412, 1)
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 0.6431373)
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tn5s6"]
+font_size = 32
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 0.6431373)
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lhcu8"]
+font_size = 48
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.6431373)
+shadow_offset = Vector2(4, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14nai"]
 size = Vector2(175, 600)
 
+[sub_resource type="LabelSettings" id="LabelSettings_d607a"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_r2eog"]
+font = ExtResource("2_r2eog")
+font_size = 36
+
+[sub_resource type="Gradient" id="Gradient_sfd0e"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_p5j10"]
+gradient = SubResource("Gradient_sfd0e")
+height = 1
+
+[sub_resource type="Gradient" id="Gradient_r2eog"]
+colors = PackedColorArray(1, 0, 0, 1, 0.2509804, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_sfd0e"]
+seed = 77989
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_d607a"]
+width = 165
+height = 20
+noise = SubResource("FastNoiseLite_sfd0e")
+color_ramp = SubResource("Gradient_r2eog")
+
+[sub_resource type="Gradient" id="Gradient_p5j10"]
+colors = PackedColorArray(0, 0.2509804, 0, 1, 0, 1, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0miq5"]
+seed = 145456
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_r2eog"]
+width = 165
+height = 20
+noise = SubResource("FastNoiseLite_0miq5")
+color_ramp = SubResource("Gradient_p5j10")
+
+[sub_resource type="LabelSettings" id="LabelSettings_sfd0e"]
+font = ExtResource("2_r2eog")
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_p5j10"]
+font = ExtResource("2_r2eog")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_0miq5"]
+
 [node name="CanvasLayer" type="CanvasLayer"]
-layer = 420
+layer = 9001
+script = ExtResource("1_d607a")
+
+[node name="GameOver" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 800.0
+offset_bottom = 600.0
+
+[node name="GameOverBG" type="ColorRect" parent="GameOver"]
+layout_mode = 0
+offset_right = 800.0
+offset_bottom = 600.0
+size_flags_vertical = 3
+color = Color(0, 0, 0, 0.5019608)
+
+[node name="GameOverContainer" type="VBoxContainer" parent="GameOver"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOverTitle" type="Label" parent="GameOver/GameOverContainer"]
+layout_mode = 2
+text = "You died!
+"
+label_settings = SubResource("LabelSettings_nx175")
+horizontal_alignment = 1
+
+[node name="GameOverFSTitle" type="Label" parent="GameOver/GameOverContainer"]
+layout_mode = 2
+text = "Final score:"
+label_settings = SubResource("LabelSettings_tn5s6")
+horizontal_alignment = 1
+
+[node name="GameOverFSCount" type="Label" parent="GameOver/GameOverContainer"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_lhcu8")
+horizontal_alignment = 1
+
+[node name="PlayerBoundaryDetection" type="Area2D" parent="."]
+position = Vector2(87.5, 300)
+
+[node name="CS2D_Left" type="CollisionShape2D" parent="PlayerBoundaryDetection"]
+unique_name_in_owner = true
+shape = SubResource("RectangleShape2D_14nai")
+debug_color = Color(0.7, 0, 0.7, 0.41960785)
+
+[node name="CS2D_Right" type="CollisionShape2D" parent="PlayerBoundaryDetection"]
+unique_name_in_owner = true
+position = Vector2(625, 0)
+shape = SubResource("RectangleShape2D_14nai")
+debug_color = Color(0.7, 0, 0.7, 0.41960785)
 
 [node name="CR_Left" type="ColorRect" parent="."]
 offset_right = 175.0
@@ -12,20 +145,181 @@ offset_bottom = 600.0
 color = Color(0, 0, 0, 1)
 
 [node name="CR_Right" type="ColorRect" parent="."]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -175.0
+offset_left = 625.0
+offset_right = 800.0
 offset_bottom = 600.0
-grow_horizontal = 0
 color = Color(0, 0, 0, 1)
 
-[node name="CS2D_Left" type="CollisionShape2D" parent="."]
-position = Vector2(87.5, 300)
-shape = SubResource("RectangleShape2D_14nai")
-debug_color = Color(0.7, 0, 0.7, 0.41960785)
+[node name="MenuButton" type="Button" parent="."]
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 172.0
+offset_bottom = 29.0
+text = "Menu (coming soon!)"
 
-[node name="CS2D_Right" type="CollisionShape2D" parent="."]
-position = Vector2(712.5, 300)
-shape = SubResource("RectangleShape2D_14nai")
-debug_color = Color(0.7, 0, 0.7, 0.41960785)
+[node name="scoreContainer" type="VBoxContainer" parent="."]
+offset_left = 5.0
+offset_top = 55.0
+offset_right = 170.0
+offset_bottom = 95.0
+
+[node name="hiScoreLabel" type="Label" parent="scoreContainer"]
+layout_mode = 2
+text = "High Score"
+label_settings = SubResource("LabelSettings_d607a")
+
+[node name="hiScoreCount" type="Label" parent="scoreContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+text = "000000000"
+label_settings = SubResource("LabelSettings_r2eog")
+
+[node name="Separator" type="TextureRect" parent="scoreContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_p5j10")
+
+[node name="scoreLabel" type="Label" parent="scoreContainer"]
+layout_mode = 2
+text = "Score"
+label_settings = SubResource("LabelSettings_d607a")
+
+[node name="scoreCount" type="Label" parent="scoreContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+text = "000000000"
+label_settings = SubResource("LabelSettings_r2eog")
+
+[node name="playerStatsContainer" type="VBoxContainer" parent="."]
+offset_left = 630.0
+offset_top = 55.0
+offset_right = 795.0
+offset_bottom = 234.0
+
+[node name="healthLbl" type="Label" parent="playerStatsContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Player"
+
+[node name="healthBar" type="TextureProgressBar" parent="playerStatsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+value = 100.0
+rounded = true
+allow_greater = true
+texture_progress = SubResource("NoiseTexture2D_d607a")
+
+[node name="bombLbl" type="Label" parent="playerStatsContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Bomb"
+
+[node name="bombBar" type="TextureProgressBar" parent="playerStatsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 5.0
+value = 3.0
+rounded = true
+allow_greater = true
+texture_progress = SubResource("NoiseTexture2D_r2eog")
+
+[node name="Separator" type="TextureRect" parent="playerStatsContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_p5j10")
+
+[node name="powerContainer" type="HSplitContainer" parent="playerStatsContainer"]
+layout_mode = 2
+dragging_enabled = false
+dragger_visibility = 1
+
+[node name="powerLbl" type="Label" parent="playerStatsContainer/powerContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 24
+text = "Power"
+
+[node name="powerCountContainer" type="HBoxContainer" parent="playerStatsContainer/powerContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="powerCount" type="Label" parent="playerStatsContainer/powerContainer/powerCountContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 24
+text = "0"
+label_settings = SubResource("LabelSettings_sfd0e")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="powerCountDecimalPoint" type="Label" parent="playerStatsContainer/powerContainer/powerCountContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 24
+text = "."
+label_settings = SubResource("LabelSettings_p5j10")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="powerCountDecimal" type="Label" parent="playerStatsContainer/powerContainer/powerCountContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 24
+text = "0 / 4.0"
+label_settings = SubResource("LabelSettings_p5j10")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Separator2" type="TextureRect" parent="playerStatsContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_p5j10")
+
+[node name="grazeContainer" type="HSplitContainer" parent="playerStatsContainer"]
+layout_mode = 2
+dragging_enabled = false
+
+[node name="grazeLbl" type="Label" parent="playerStatsContainer/grazeContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 24
+text = "Graze"
+
+[node name="grazeCount" type="Label" parent="playerStatsContainer/grazeContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "0"
+label_settings = SubResource("LabelSettings_sfd0e")
+horizontal_alignment = 2
+
+[node name="version" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -18.0
+offset_right = 45.0
+grow_vertical = 0
+text = "v0"
+label_settings = SubResource("LabelSettings_0miq5")
+vertical_alignment = 2
+
+[node name="debugInfo" type="Label" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -45.0
+offset_top = -18.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0 fps"
+label_settings = SubResource("LabelSettings_0miq5")
+horizontal_alignment = 2
+vertical_alignment = 2

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcqacxesymdnc"]
+
+[ext_resource type="Texture2D" uid="uid://cu11o3rxixdfc" path="res://assets/backgrounds/placeholder-bg1_1.png" id="1_bkp1e"]
+
+[node name="Background" type="Node2D"]
+
+[node name="backgroundImg" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_bkp1e")
