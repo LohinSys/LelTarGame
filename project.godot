@@ -28,8 +28,6 @@ Global="*res://scenes/global.gd"
 
 window/size/viewport_width=800
 window/size/viewport_height=600
-window/size/resizable=false
-window/size/maximize_disabled=true
 window/stretch/mode="canvas_items"
 
 [dotnet]

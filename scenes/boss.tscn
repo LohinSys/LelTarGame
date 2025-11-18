@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bkehd1u16qw8d"]
+[gd_scene load_steps=16 format=3 uid="uid://bkehd1u16qw8d"]
 
 [ext_resource type="Script" uid="uid://cnbh8k0u2okum" path="res://scenes/boss.gd" id="1_skx2t"]
 [ext_resource type="PackedScene" uid="uid://d3x0bcklojts" path="res://scenes/bullet1.tscn" id="2_lnbgr"]
@@ -10,6 +10,9 @@
 [ext_resource type="Script" uid="uid://nlrdf1s7jq3t" path="res://scenes/4leaf.gd" id="8_2avx2"]
 [ext_resource type="Script" uid="uid://87j3wd0o6lb8" path="res://scenes/3leaf.gd" id="9_5f346"]
 [ext_resource type="Script" uid="uid://bs28rescyfspn" path="res://scenes/2leaf.gd" id="10_5f346"]
+[ext_resource type="Script" uid="uid://brirunjeh4m3b" path="res://scenes/rain_from_top.gd" id="11_0onds"]
+[ext_resource type="Script" uid="uid://darsdrau7u5fh" path="res://scenes/rain_from_bottom.gd" id="12_lfs1x"]
+[ext_resource type="Script" uid="uid://xyb8ardm7dw6" path="res://scenes/rain_from_both.gd" id="13_8eiau"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sh265"]
 animations = [{
@@ -76,6 +79,18 @@ script = ExtResource("9_5f346")
 
 [node name="2Leaf" type="Node2D" parent="FiniteStateMachine"]
 script = ExtResource("10_5f346")
+
+[node name="RainFromTop" type="Node2D" parent="FiniteStateMachine"]
+script = ExtResource("11_0onds")
+metadata/_custom_type_script = "uid://tws4ljccwr0"
+
+[node name="RainFromBottom" type="Node2D" parent="FiniteStateMachine"]
+script = ExtResource("12_lfs1x")
+metadata/_custom_type_script = "uid://tws4ljccwr0"
+
+[node name="RainFromTB" type="Node2D" parent="FiniteStateMachine"]
+script = ExtResource("13_8eiau")
+metadata/_custom_type_script = "uid://tws4ljccwr0"
 
 [connection signal="timeout" from="Speed" to="." method="_on_speed_timeout"]
 [connection signal="timeout" from="Duration" to="." method="_on_duration_timeout"]

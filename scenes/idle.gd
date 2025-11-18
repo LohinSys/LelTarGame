@@ -13,4 +13,4 @@ func _on_player_entered(_body) -> void:
 
 func transition() -> void:
 	if player_entered:
-		get_parent().change_state("5Leaf")
+		get_parent().change_state("RainFromTop")

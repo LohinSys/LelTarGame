@@ -11,9 +11,9 @@ func _ready() -> void:
 func change_state(state) -> void:
 	if state == previous_state.name:
 		return
-	
+
 	current_state = find_child(state) as State
 	current_state.enter()
-	
+
 	previous_state.exit()
 	previous_state = current_state

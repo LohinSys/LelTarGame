@@ -20,3 +20,7 @@ var power = 0.0:
 var graze = 0:
 	set(value):
 		graze = value
+
+
+var current_attack_pattern_type: String = ""
+var random_bullets = false

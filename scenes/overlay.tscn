@@ -172,7 +172,7 @@ label_settings = SubResource("LabelSettings_d607a")
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 0
-text = "000000000"
+text = "000500000"
 label_settings = SubResource("LabelSettings_r2eog")
 
 [node name="Separator" type="TextureRect" parent="scoreContainer"]
@@ -270,14 +270,20 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 24
-text = "0 / 4.0"
+text = "0"
 label_settings = SubResource("LabelSettings_p5j10")
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="Separator2" type="TextureRect" parent="playerStatsContainer"]
+[node name="powerCountCapDisp" type="Label" parent="playerStatsContainer/powerContainer/powerCountContainer"]
 layout_mode = 2
-texture = SubResource("GradientTexture2D_p5j10")
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 24
+text = "/ 4.0"
+label_settings = SubResource("LabelSettings_p5j10")
+horizontal_alignment = 2
+vertical_alignment = 2
 
 [node name="grazeContainer" type="HSplitContainer" parent="playerStatsContainer"]
 layout_mode = 2

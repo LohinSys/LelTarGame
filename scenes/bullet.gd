@@ -5,6 +5,7 @@ extends Area2D
 var speed = 300
 var direction = Vector2.RIGHT
 var bullet_type: int = 0
+var random_bullet_giver: int = randi_range(0,3)
 
 func _physics_process(delta: float) -> void:
 	position += direction * speed * delta
@@ -21,4 +22,7 @@ func _on_body_entered(body) -> void:
 
 func _process(_delta) -> void:
 	Global.started = true
-	speed -= 1.45
+	if Global.current_attack_pattern_type == "spiral":
+		speed -= 1.45
+	elif "rain" in Global.current_attack_pattern_type:
+		speed -= 0.45
