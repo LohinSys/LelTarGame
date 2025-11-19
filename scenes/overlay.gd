@@ -10,7 +10,7 @@ extends CanvasLayer
 var score = 0:
 	set(value):
 		score = value
-		%scoreCount.text = str(value).pad_zeros(9)
+		%scoreCount.text = str(value).pad_zeros(9) 
 
 var hi_score = 500_000:
 	set(value):
@@ -52,6 +52,8 @@ func _process(_delta) -> void:
 	if Global.alive and Global.started:
 		$startGameInstruct.hide()
 		%SpellcardTimerContainer.show()
+		$BossBarBackground.show()
+		%BossBarContainer.show()
 		score += (Global.score2give * (Global.graze+1))
 
 		if 200_000 >= score and score >= 50_000:
@@ -66,8 +68,6 @@ func _process(_delta) -> void:
 			Global.power = 3.4
 		elif score >= 1_250_000:
 			Global.power = 4.0
-	else:
-		pass
 
 	if !Global.alive:
 		if score > hi_score:
@@ -89,7 +89,3 @@ func _process(_delta) -> void:
 
 func _on_menu_button_pressed() -> void:
 	$PauseMenu.enableUI()
-
-
-func _on_spellcard_timer_timeout() -> void:
-	pass # Replace with function body.

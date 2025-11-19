@@ -15,7 +15,7 @@ config/name_localized={
 "hu_HU": "lel.tár"
 }
 config/description="The endless search for the missing package..."
-config/version="0.0.2.1"
+config/version="0.0.2.2"
 config/tags=PackedStringArray("schkewl")
 run/main_scene="uid://uhet6otsp7ly"
 config/features=PackedStringArray("4.5", "Mobile")

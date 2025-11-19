@@ -41,12 +41,18 @@ func shoot(angle) -> void:
 
 func _on_speed_timeout() -> void:
 	shoot(theta)
+	if Global.started and $Speed.wait_time == 0.500:
+		%Spellcard.start()
+		%Spellcard.autostart = true
+		Global.boss_spellcard_time += 0.5
 	if Global.started and $Speed.wait_time >= 0.025:
 		$Speed.wait_time -= 0.001
 		Global.score2give += 1
 		print("Current bullet speed: ", str($Speed.wait_time).pad_decimals(3), " seconds for next shot")
-	if !Global.alive and $Speed.wait_time != 0.025:
-		$Speed.wait_time = 0.001
+	if !Global.alive:
+		if $Speed.wait_time == 0.025:
+			$Speed.wait_time = 0.001
+		%Spellcard.stop()
 
 func _ready() -> void:
 	$AnimatedSprite2D.play()
