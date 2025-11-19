@@ -24,7 +24,7 @@ animations = [{
 "texture": ExtResource("4_5f346")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle",
 "speed": 5.0
 }]
 
@@ -38,12 +38,17 @@ bullet1_node = ExtResource("2_lnbgr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_sh265")
+animation = &"idle"
 
 [node name="Speed" type="Timer" parent="."]
 wait_time = 0.5
 
 [node name="Duration" type="Timer" parent="."]
 wait_time = 4.0
+
+[node name="Spellcard" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.1
 
 [node name="debug" type="Label" parent="."]
 visible = false
@@ -94,4 +99,5 @@ metadata/_custom_type_script = "uid://tws4ljccwr0"
 
 [connection signal="timeout" from="Speed" to="." method="_on_speed_timeout"]
 [connection signal="timeout" from="Duration" to="." method="_on_duration_timeout"]
+[connection signal="timeout" from="Spellcard" to="." method="_on_spellcard_timeout"]
 [connection signal="body_entered" from="PlayerDetection" to="FiniteStateMachine/Idle" method="_on_player_entered"]

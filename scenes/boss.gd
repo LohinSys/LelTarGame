@@ -45,3 +45,11 @@ func _on_speed_timeout() -> void:
 		$Speed.wait_time -= 0.001
 		Global.score2give += 1
 		print("Current bullet speed: ", str($Speed.wait_time).pad_decimals(3), " seconds for next shot")
+	if !Global.alive and $Speed.wait_time != 0.025:
+		$Speed.wait_time = 0.001
+
+func _ready() -> void:
+	$AnimatedSprite2D.play()
+
+func _on_spellcard_timeout() -> void:
+	Global.boss_spellcard_time += 0.1

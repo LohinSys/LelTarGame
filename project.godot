@@ -10,15 +10,20 @@ config_version=5
 
 [application]
 
-config/name="LelTar"
-config/description="szar volt a régi ezért újrakezdtem az egészet"
-config/version="v0.0.1-reset"
+config/name="lel.tar"
+config/name_localized={
+"hu_HU": "lel.tár"
+}
+config/description="The endless search for the missing package..."
+config/version="0.0.2.1"
 config/tags=PackedStringArray("schkewl")
 run/main_scene="uid://uhet6otsp7ly"
 config/features=PackedStringArray("4.5", "Mobile")
 run/max_fps=60
 boot_splash/bg_color=Color(0, 0, 0, 1)
-config/icon="uid://ljkhws600osj"
+config/icon="uid://rxhb1uaqlsk8"
+config/macos_native_icon="res://assets/icons/app/icon.icns"
+config/windows_native_icon="res://assets/icons/app/icon.ico"
 
 [autoload]
 

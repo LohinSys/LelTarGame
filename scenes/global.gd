@@ -21,6 +21,9 @@ var graze = 0:
 	set(value):
 		graze = value
 
+var boss_spellcard_time = 0.0:
+	set(value):
+		boss_spellcard_time = value
 
 var current_attack_pattern_type: String = ""
 var random_bullets = false

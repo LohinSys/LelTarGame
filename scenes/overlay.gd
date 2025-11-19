@@ -5,15 +5,23 @@ extends CanvasLayer
 @onready var graze_count = $playerStatsContainer/grazeContainer/grazeCount
 @onready var final_score = $GameOver/GameOverContainer/GameOverFSCount
 
+@export var menu_button : Button
+
 var score = 0:
 	set(value):
 		score = value
 		%scoreCount.text = str(value).pad_zeros(9)
 
-var hi_score = 0:
+var hi_score = 500_000:
 	set(value):
 		hi_score = value
 		%hiScoreCount.text = str(value).pad_zeros(9)
+
+var bs_timer = Global.boss_spellcard_time:
+	set(value):
+		%SpellcardTimerLabel.text = str(value).pad_decimals(0)
+		%SpellcardTimerDecimal.text = str(value).pad_decimals(1).right(1)
+
 
 var dhealth = Global.health:
 	set(value):
@@ -32,47 +40,56 @@ var power_lvl = Global.power:
 		%powerCountDecimal.text = str(value).pad_decimals(1).right(1)
 
 func _input(event):
-	if event.is_action_pressed("use_bomb") and Global.alive:
+	if event.is_action_pressed("use_bomb") and Global.alive and Global.bomb != 0:
 		Global.bomb -= 1
 
 #func set_status() -> void:
 
 func _ready() -> void:
-	$version.set_text(str(ProjectSettings.get_setting("application/config/version")))
+	$version.set_text(str("v",ProjectSettings.get_setting("application/config/version")))
 
 func _process(_delta) -> void:
 	if Global.alive and Global.started:
-		score += Global.score2give
+		$startGameInstruct.hide()
+		%SpellcardTimerContainer.show()
+		score += (Global.score2give * (Global.graze+1))
 
-		if 200000 >= score and score >= 50000:
+		if 200_000 >= score and score >= 50_000:
 			Global.power = 0.5
-		elif 500000 >= score and score >= 200000:
+		elif 500_000 >= score and score >= 200_000:
 			Global.power = 1.2
-		elif 825000 >= score and score >= 500000:
+		elif 825_000 >= score and score >= 500_000:
 			Global.power = 2.0
-		elif 975000 >= score and score >= 825000:
+		elif 975_000 >= score and score >= 825_000:
 			Global.power = 2.9
-		elif 1250000 >= score and score >= 975000:
+		elif 1_250_000 >= score and score >= 975_000:
 			Global.power = 3.4
-		elif score >= 1250000:
+		elif score >= 1_250_000:
 			Global.power = 4.0
 	else:
 		pass
 
-
-
 	if !Global.alive:
-		if score > 500000:
+		if score > hi_score:
 			hi_score = score
 		final_score.text = str(score)
 		$GameOver.visible = true
-		if !Global.started:
+		if Global.started:
 			Global.power = Global.power * 0.625
 			Global.started = false
 
 	dhealth = Global.health
 	bombs = Global.bomb
 	power_lvl = Global.power
+	bs_timer = Global.boss_spellcard_time
 
 
 	$debugInfo.set_text("%d fps" % Engine.get_frames_per_second())
+
+
+func _on_menu_button_pressed() -> void:
+	$PauseMenu.enableUI()
+
+
+func _on_spellcard_timer_timeout() -> void:
+	pass # Replace with function body.

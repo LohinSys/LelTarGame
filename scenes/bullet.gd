@@ -13,6 +13,10 @@ func _physics_process(delta: float) -> void:
 func _on_bullet1_screen_exited() -> void:
 	queue_free()
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("use_bomb") and Global.bomb != 0 and Global.alive:
+		queue_free()
+
 func set_property(type) -> void:
 	bullet_type = type
 	$Sprite2D.texture = texture_array[type]

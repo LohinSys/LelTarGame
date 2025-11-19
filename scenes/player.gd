@@ -14,10 +14,11 @@ var health = Global.health:
 
 # csak egyszer nyomsz meg egy gombot
 func _input(event):
-	if event.is_action_pressed("use_bomb"):
-		pass
-	if event.is_action_pressed("pause"):
-		pass
+	if event.is_action_pressed("use_bomb") and Global.alive and Global.bomb != 0:
+		$BombSfx.play()
+
+func _ready() -> void:
+	$AnimatedSprite2D.play()
 
 # gomb lenyomásra
 func _physics_process(_delta: float) -> void:
@@ -37,7 +38,7 @@ func _physics_process(_delta: float) -> void:
 		$VisibleCS2D.visible = false
 
 	if Global.health <= 0:
-		self.queue_free()
+		self.hide()
 		Global.alive = false
 
 func set_status(bullet_type) -> void:
@@ -61,7 +62,6 @@ func slow() -> void:
 	player_dbg.text = "frostbite"
 	Global.health -= 20
 	await get_tree().create_timer(5).timeout
-	speed = default_speed
 	Global.health += 15
 
 func stun() -> void:
@@ -70,3 +70,9 @@ func stun() -> void:
 	for i in range(25):
 		Global.health += 1
 		await get_tree().create_timer(0.5).timeout
+
+
+func _on_death() -> void:
+	$DeathSfx.play()
+	await get_tree().create_timer(1.2).timeout
+	self.queue_free()
