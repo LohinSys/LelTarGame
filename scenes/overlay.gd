@@ -10,7 +10,7 @@ extends CanvasLayer
 var score = 0:
 	set(value):
 		score = value
-		%scoreCount.text = str(value).pad_zeros(9) 
+		%scoreCount.text = str(value).pad_zeros(9)
 
 var hi_score = 500_000:
 	set(value):

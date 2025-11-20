@@ -160,7 +160,7 @@ offset_top = 10.0
 offset_right = 163.5
 offset_bottom = 33.0
 grow_horizontal = 2
-text = "A játék elkezdéséhez menj közelebb..."
+text = "Get closer to the boss to start the game..."
 label_settings = SubResource("LabelSettings_rqwgw")
 horizontal_alignment = 1
 
