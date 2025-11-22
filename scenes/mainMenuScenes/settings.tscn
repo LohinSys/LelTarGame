@@ -1,0 +1,298 @@
+[gd_scene load_steps=8 format=3 uid="uid://ctscjj5oow5p8"]
+
+[ext_resource type="Script" uid="uid://davhhq6kt2g8x" path="res://scenes/mainMenuScenes/settings.gd" id="1_e430n"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ixrxk"]
+font_size = 40
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.5019608)
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_e430n"]
+font_size = 24
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.5019608)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_caasp"]
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.5019608)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wlyyc"]
+font_size = 24
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.5019608)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ce6t2"]
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.5019608)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ga827"]
+font_size = 12
+font_color = Color(1, 0.88235295, 0.5019608, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.5019608)
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e430n")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -300.0
+offset_right = 400.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.3764706)
+
+[node name="Panel" type="Panel" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -225.0
+offset_right = 300.0
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingsTitle" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -29.0
+offset_top = 20.0
+offset_right = 29.0
+offset_bottom = 38.0
+grow_horizontal = 2
+text = "Settings"
+label_settings = SubResource("LabelSettings_ixrxk")
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -282.5
+offset_top = -155.0
+offset_right = 282.5
+offset_bottom = 155.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingsContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VolTitle" type="Label" parent="Panel/MarginContainer/SettingsContainer"]
+layout_mode = 2
+text = "Volume"
+label_settings = SubResource("LabelSettings_e430n")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="MasterVol" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/SettingsContainer/MasterVol"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+text = "Master"
+label_settings = SubResource("LabelSettings_caasp")
+horizontal_alignment = 2
+
+[node name="HSlider" type="HSlider" parent="Panel/MarginContainer/SettingsContainer/MasterVol"]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 50.0
+
+[node name="Value" type="Label" parent="Panel/MarginContainer/SettingsContainer/MasterVol"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+text = "50%"
+label_settings = SubResource("LabelSettings_caasp")
+
+[node name="SFX" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/SettingsContainer/SFX"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+text = "SFX"
+label_settings = SubResource("LabelSettings_caasp")
+horizontal_alignment = 2
+
+[node name="HSlider" type="HSlider" parent="Panel/MarginContainer/SettingsContainer/SFX"]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 100.0
+rounded = true
+
+[node name="Value" type="Label" parent="Panel/MarginContainer/SettingsContainer/SFX"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+text = "100%"
+label_settings = SubResource("LabelSettings_caasp")
+
+[node name="Music" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/SettingsContainer/Music"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+text = "Music"
+label_settings = SubResource("LabelSettings_caasp")
+horizontal_alignment = 2
+
+[node name="HSlider" type="HSlider" parent="Panel/MarginContainer/SettingsContainer/Music"]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 100.0
+rounded = true
+
+[node name="Value" type="Label" parent="Panel/MarginContainer/SettingsContainer/Music"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+text = "100%"
+label_settings = SubResource("LabelSettings_caasp")
+
+[node name="Graphics" type="Label" parent="Panel/MarginContainer/SettingsContainer"]
+layout_mode = 2
+text = "
+Graphics"
+label_settings = SubResource("LabelSettings_wlyyc")
+horizontal_alignment = 1
+
+[node name="WindowModeContainer" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/SettingsContainer/WindowModeContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Window Mode"
+label_settings = SubResource("LabelSettings_ce6t2")
+
+[node name="CheckBox" type="OptionButton" parent="Panel/MarginContainer/SettingsContainer/WindowModeContainer"]
+custom_minimum_size = Vector2(200, 28)
+layout_mode = 2
+size_flags_horizontal = 0
+selected = 0
+fit_to_longest_item = false
+item_count = 3
+popup/item_0/text = "Windowed"
+popup/item_0/id = 0
+popup/item_0/disabled = true
+popup/item_1/text = "Fullscreen"
+popup/item_1/id = 1
+popup/item_1/disabled = true
+popup/item_2/text = "Borderless Window"
+popup/item_2/id = 2
+popup/item_2/disabled = true
+
+[node name="ResContainer" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/SettingsContainer/ResContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Resolution"
+label_settings = SubResource("LabelSettings_ce6t2")
+
+[node name="CheckBox" type="OptionButton" parent="Panel/MarginContainer/SettingsContainer/ResContainer"]
+custom_minimum_size = Vector2(200, 28)
+layout_mode = 2
+size_flags_horizontal = 0
+selected = 2
+fit_to_longest_item = false
+item_count = 4
+popup/item_0/text = "1280x960"
+popup/item_0/id = 0
+popup/item_0/disabled = true
+popup/item_1/text = "1024x768"
+popup/item_1/id = 1
+popup/item_1/disabled = true
+popup/item_2/text = "800x600"
+popup/item_2/id = 2
+popup/item_2/disabled = true
+popup/item_3/text = "640x480"
+popup/item_3/id = 3
+popup/item_3/disabled = true
+
+[node name="VSyncContainer" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/SettingsContainer/VSyncContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Vertical Sync"
+label_settings = SubResource("LabelSettings_ce6t2")
+
+[node name="CheckBox" type="CheckButton" parent="Panel/MarginContainer/SettingsContainer/VSyncContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Done" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -55.0
+offset_right = 100.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "Done"
+
+[node name="TemporaryNote" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -220.5
+offset_top = -17.0
+offset_right = 220.5
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "This menu does NOT work and will NOT save any settings either! For now, at least..."
+label_settings = SubResource("LabelSettings_ga827")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[connection signal="pressed" from="Panel/Done" to="." method="_on_done_pressed"]

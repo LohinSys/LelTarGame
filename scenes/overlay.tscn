@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://6tnyxq2pf060"]
+[gd_scene load_steps=38 format=3 uid="uid://6tnyxq2pf060"]
 
 [ext_resource type="Script" uid="uid://cilxi7ctnnwg7" path="res://scenes/overlay.gd" id="1_d607a"]
 [ext_resource type="FontFile" uid="uid://by4fv8t0jo01q" path="res://assets/fonts/monkey.ttf" id="2_0miq5"]
@@ -78,6 +78,13 @@ font_color = Color(0.7, 0.7, 0.7, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_qmol3"]
 font = ExtResource("2_0miq5")
 font_size = 44
+
+[sub_resource type="LabelSettings" id="LabelSettings_p5rgw"]
+font_color = Color(0.7019608, 0.7019608, 0.7019608, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8rtgm"]
+font = ExtResource("2_0miq5")
+font_size = 24
 
 [sub_resource type="LabelSettings" id="LabelSettings_cpe4y"]
 font_size = 32
@@ -298,6 +305,23 @@ layout_mode = 2
 text = "000000000"
 label_settings = SubResource("LabelSettings_qmol3")
 horizontal_alignment = 1
+
+[node name="Separator2" type="TextureRect" parent="scoreContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_p5j10")
+
+[node name="playerNameLabel" type="Label" parent="scoreContainer"]
+layout_mode = 2
+text = "Player Name"
+label_settings = SubResource("LabelSettings_p5rgw")
+
+[node name="playerNameValue" type="Label" parent="scoreContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(165, 0)
+layout_mode = 2
+text = "Guest"
+label_settings = SubResource("LabelSettings_8rtgm")
+autowrap_mode = 1
 
 [node name="playerStatsContainer" type="VBoxContainer" parent="."]
 offset_left = 630.0

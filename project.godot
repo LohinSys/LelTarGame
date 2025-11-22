@@ -15,9 +15,9 @@ config/name_localized={
 "hu_HU": "lel.tár"
 }
 config/description="The endless search for the missing package..."
-config/version="0.0.2.2"
+config/version="0.0.2.3"
 config/tags=PackedStringArray("schkewl")
-run/main_scene="uid://uhet6otsp7ly"
+run/main_scene="uid://ct4slj3ni7ajm"
 config/features=PackedStringArray("4.5", "Mobile")
 run/max_fps=60
 boot_splash/bg_color=Color(0, 0, 0, 1)

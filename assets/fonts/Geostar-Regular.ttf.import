@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://cm0x6f1xu3xac"
-path="res://.godot/imported/Terminal F4.ttf-46c01d98aac2c2b59fd8c08f5abffa83.fontdata"
+uid="uid://docj3gfwjg7a3"
+path="res://.godot/imported/Geostar-Regular.ttf-a4080706000cc83c4656b2c7b388861a.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/Terminal F4.ttf"
-dest_files=["res://.godot/imported/Terminal F4.ttf-46c01d98aac2c2b59fd8c08f5abffa83.fontdata"]
+source_file="res://assets/fonts/Geostar-Regular.ttf"
+dest_files=["res://.godot/imported/Geostar-Regular.ttf-a4080706000cc83c4656b2c7b388861a.fontdata"]
 
 [params]
 

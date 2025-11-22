@@ -1,0 +1,200 @@
+[gd_scene load_steps=16 format=3 uid="uid://ct4slj3ni7ajm"]
+
+[ext_resource type="Texture2D" uid="uid://cu11o3rxixdfc" path="res://assets/backgrounds/placeholder-bg1_1.png" id="1_ajxtn"]
+[ext_resource type="Script" uid="uid://bm2ln7ilo358i" path="res://scenes/mainMenuScenes/titleScreen.gd" id="1_r8sye"]
+[ext_resource type="Texture2D" uid="uid://dfv7dtytutrjb" path="res://assets/sprites/logo.png" id="3_tcfyk"]
+[ext_resource type="Texture2D" uid="uid://b35ktn55n6hs6" path="res://assets/icons/menu/login.svg" id="4_ccak3"]
+[ext_resource type="Texture2D" uid="uid://br5pconpfvi31" path="res://assets/icons/menu/quit.svg" id="4_ful2y"]
+[ext_resource type="Texture2D" uid="uid://bfi0g1oemgw0c" path="res://assets/icons/menu/play.svg" id="4_qrvv6"]
+[ext_resource type="Texture2D" uid="uid://eail6ics4jca" path="res://assets/icons/menu/how2play.svg" id="5_c3ue1"]
+[ext_resource type="Texture2D" uid="uid://8i46x07ygs5b" path="res://assets/icons/menu/stats.svg" id="6_2i8gq"]
+[ext_resource type="Texture2D" uid="uid://dn8uyrj5k6rm" path="res://assets/icons/menu/settings.svg" id="7_nwd4p"]
+[ext_resource type="PackedScene" uid="uid://ctscjj5oow5p8" path="res://scenes/mainMenuScenes/settings.tscn" id="10_c3ue1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_c3ue1"]
+font_size = 12
+shadow_color = Color(0, 0, 0, 0.5019608)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vpt7i"]
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.5019608)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qrvv6"]
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.5019608)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tcfyk"]
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.5019608)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wxefk"]
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.5019608)
+
+[node name="TitleScreen" type="CanvasLayer"]
+script = ExtResource("1_r8sye")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_ajxtn")
+
+[node name="Logo" type="TextureRect" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -375.0
+offset_top = 40.0
+offset_right = 375.0
+offset_bottom = 265.0
+grow_horizontal = 2
+texture = ExtResource("3_tcfyk")
+expand_mode = 3
+
+[node name="MenuBtnContainer" type="VBoxContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -180.0
+offset_top = 280.0
+offset_right = 180.0
+offset_bottom = 484.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="StartGame" type="Button" parent="MenuBtnContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Start Game"
+icon = ExtResource("4_qrvv6")
+alignment = 0
+icon_alignment = 2
+expand_icon = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuBtnContainer"]
+layout_mode = 2
+
+[node name="How2Play" type="Button" parent="MenuBtnContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "How to Play"
+icon = ExtResource("5_c3ue1")
+alignment = 0
+icon_alignment = 2
+expand_icon = true
+
+[node name="Statistics" type="Button" parent="MenuBtnContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "Statistics"
+icon = ExtResource("6_2i8gq")
+alignment = 0
+icon_alignment = 2
+expand_icon = true
+
+[node name="Settings" type="Button" parent="MenuBtnContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Settings"
+icon = ExtResource("7_nwd4p")
+alignment = 0
+icon_alignment = 2
+expand_icon = true
+
+[node name="QuitGame" type="Button" parent="MenuBtnContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.88, 0.42240003, 0.42240003, 1)
+theme_override_font_sizes/font_size = 24
+text = "Quit Game"
+icon = ExtResource("4_ful2y")
+alignment = 0
+icon_alignment = 2
+expand_icon = true
+
+[node name="NotImplementedFIY" type="Label" parent="MenuBtnContainer"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+text = "(Grayed out buttons = not implemented yet!)"
+label_settings = SubResource("LabelSettings_c3ue1")
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 3
+
+[node name="AccountContainer" type="VBoxContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="UserLabel" type="Label" parent="AccountContainer"]
+layout_mode = 2
+text = "Welcome, Guest!
+You are not logged in."
+label_settings = SubResource("LabelSettings_vpt7i")
+horizontal_alignment = 2
+
+[node name="Button" type="Button" parent="AccountContainer"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+disabled = true
+text = "Login"
+icon = ExtResource("4_ccak3")
+icon_alignment = 2
+expand_icon = true
+
+[node name="Copyleft" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -84.0
+offset_top = -23.0
+offset_right = 84.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "LohinSys (ɔ) 2024-2025"
+label_settings = SubResource("LabelSettings_qrvv6")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Version" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -18.0
+offset_right = 44.0
+grow_vertical = 0
+text = "v0.0.0"
+label_settings = SubResource("LabelSettings_tcfyk")
+vertical_alignment = 2
+
+[node name="DebugInfo" type="Label" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -18.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0 fps"
+label_settings = SubResource("LabelSettings_wxefk")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Settings" parent="." instance=ExtResource("10_c3ue1")]
+visible = false
+
+[connection signal="pressed" from="MenuBtnContainer/StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="MenuBtnContainer/HBoxContainer/How2Play" to="." method="_on_how2play_pressed"]
+[connection signal="pressed" from="MenuBtnContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="MenuBtnContainer/QuitGame" to="." method="_on_quit_game_pressed"]
