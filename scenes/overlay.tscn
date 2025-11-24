@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://6tnyxq2pf060"]
+[gd_scene load_steps=39 format=3 uid="uid://6tnyxq2pf060"]
 
 [ext_resource type="Script" uid="uid://cilxi7ctnnwg7" path="res://scenes/overlay.gd" id="1_d607a"]
 [ext_resource type="FontFile" uid="uid://by4fv8t0jo01q" path="res://assets/fonts/monkey.ttf" id="2_0miq5"]
@@ -56,14 +56,6 @@ shadow_color = Color(0, 0, 0, 0.5019608)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14nai"]
 size = Vector2(175, 600)
 
-[sub_resource type="LabelSettings" id="LabelSettings_d607a"]
-font_color = Color(1, 0.7529412, 0.3764706, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_r2eog"]
-font = ExtResource("2_0miq5")
-font_size = 44
-font_color = Color(1, 1, 0.5019608, 1)
-
 [sub_resource type="Gradient" id="Gradient_sfd0e"]
 offsets = PackedFloat32Array(0, 0.5, 1)
 colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
@@ -71,6 +63,14 @@ colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_p5j10"]
 gradient = SubResource("Gradient_sfd0e")
 height = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_d607a"]
+font_color = Color(1, 0.7529412, 0.3764706, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_r2eog"]
+font = ExtResource("2_0miq5")
+font_size = 44
+font_color = Color(1, 1, 0.5019608, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_qq5m3"]
 font_color = Color(0.7, 0.7, 0.7, 1)
@@ -151,6 +151,12 @@ shadow_size = 5
 shadow_color = Color(0, 0, 0, 0.6431373)
 shadow_offset = Vector2(4, 4)
 
+[sub_resource type="LabelSettings" id="LabelSettings_vg6n2"]
+font_size = 12
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.6431373)
+shadow_offset = Vector2(2, 2)
+
 [sub_resource type="LabelSettings" id="LabelSettings_0miq5"]
 
 [node name="CanvasLayer" type="CanvasLayer" node_paths=PackedStringArray("menu_button")]
@@ -167,7 +173,7 @@ offset_top = 10.0
 offset_right = 163.5
 offset_bottom = 33.0
 grow_horizontal = 2
-text = "Get closer to the boss to start the game..."
+text = "Get closer to the boss to begin..."
 label_settings = SubResource("LabelSettings_rqwgw")
 horizontal_alignment = 1
 
@@ -269,10 +275,15 @@ offset_bottom = 600.0
 texture = ExtResource("2_sfd0e")
 
 [node name="scoreContainer" type="VBoxContainer" parent="."]
+clip_contents = true
 offset_left = 5.0
-offset_top = 55.0
+offset_top = 47.0
 offset_right = 170.0
-offset_bottom = 95.0
+offset_bottom = 238.0
+
+[node name="Separator" type="TextureRect" parent="scoreContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_p5j10")
 
 [node name="hiScoreLabel" type="Label" parent="scoreContainer"]
 layout_mode = 2
@@ -287,10 +298,6 @@ layout_mode = 2
 text = "000500000"
 label_settings = SubResource("LabelSettings_r2eog")
 horizontal_alignment = 1
-
-[node name="Separator" type="TextureRect" parent="scoreContainer"]
-layout_mode = 2
-texture = SubResource("GradientTexture2D_p5j10")
 
 [node name="scoreLabel" type="Label" parent="scoreContainer"]
 layout_mode = 2
@@ -312,7 +319,7 @@ texture = SubResource("GradientTexture2D_p5j10")
 
 [node name="playerNameLabel" type="Label" parent="scoreContainer"]
 layout_mode = 2
-text = "Player Name"
+text = "Currently Playing"
 label_settings = SubResource("LabelSettings_p5rgw")
 
 [node name="playerNameValue" type="Label" parent="scoreContainer"]
@@ -322,6 +329,10 @@ layout_mode = 2
 text = "Guest"
 label_settings = SubResource("LabelSettings_8rtgm")
 autowrap_mode = 1
+
+[node name="Separator3" type="TextureRect" parent="scoreContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_p5j10")
 
 [node name="playerStatsContainer" type="VBoxContainer" parent="."]
 offset_left = 630.0
@@ -420,13 +431,24 @@ label_settings = SubResource("LabelSettings_p5j10")
 horizontal_alignment = 2
 vertical_alignment = 2
 
+[node name="powerCountCapSep" type="Label" parent="playerStatsContainer/powerContainer/powerCountContainer"]
+custom_minimum_size = Vector2(0, 27)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "/"
+label_settings = SubResource("LabelSettings_p5j10")
+horizontal_alignment = 2
+vertical_alignment = 2
+
 [node name="powerCountCapDisp" type="Label" parent="playerStatsContainer/powerContainer/powerCountContainer"]
 custom_minimum_size = Vector2(0, 27)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 24
-text = "/ 4.0"
+text = "4.0"
 label_settings = SubResource("LabelSettings_p5j10")
 horizontal_alignment = 2
 vertical_alignment = 2
@@ -497,6 +519,13 @@ horizontal_alignment = 1
 layout_mode = 2
 text = "0"
 label_settings = SubResource("LabelSettings_lhcu8")
+horizontal_alignment = 1
+
+[node name="GameOverFSSaveMsg" type="Label" parent="GameOver/GameOverContainer"]
+layout_mode = 2
+text = "(Leaderboard submissions are disabled on guest accounts,
+so your score will only be saved locally.)"
+label_settings = SubResource("LabelSettings_vg6n2")
 horizontal_alignment = 1
 
 [node name="MenuButton" type="Button" parent="."]

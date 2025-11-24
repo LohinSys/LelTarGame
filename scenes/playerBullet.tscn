@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2ne20ls0emkm"]
+
+[ext_resource type="Texture2D" uid="uid://coiheli7ux1sj" path="res://assets/sprites/playerBullet.png" id="1_nqh52"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nqh52"]
+radius = 3.0
+height = 46.0
+
+[node name="PlayerBullet" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -999
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_nqh52")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(-3, -24, 6, 48)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_nqh52")
+debug_color = Color(0, 0.64843607, 0.19073737, 0.41960785)

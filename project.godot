@@ -44,6 +44,23 @@ project/assembly_name="LelTar"
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
 
+[file_customization]
+
+folder_colors={
+"res://addons/": "red",
+"res://assets/": "orange",
+"res://assets/backgrounds/": "red",
+"res://assets/fonts/": "blue",
+"res://assets/icons/": "yellow",
+"res://assets/sfx/": "green",
+"res://assets/sprites/": "purple",
+"res://bin/": "gray",
+"res://nsis/": "yellow",
+"res://scenes/": "blue",
+"res://scenes/mainMenuScenes/": "teal",
+"res://scenes/stages/": "purple"
+}
+
 [gui]
 
 theme/custom_font="uid://g5d2kbpjqht2"

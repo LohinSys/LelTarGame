@@ -1,5 +1,9 @@
 extends Node
 
+var masterVolume = 0.5
+var sfxVolume = 1.0
+var musicVolume = 1.0
+
 var alive = true
 var started = false
 
@@ -27,3 +31,10 @@ var boss_spellcard_time = 0.0:
 
 var current_attack_pattern_type: String = ""
 var random_bullets = false
+
+func change_scene_to_node(node):
+	var tree = get_tree()
+	var cur_scene = tree.get_current_scene()
+	tree.get_root().add_child(node)
+	tree.get_root().remove_child(cur_scene)
+	tree.set_current_scene(node)

@@ -17,6 +17,7 @@ texture_array = Array[Texture2D]([ExtResource("2_03vxw"), ExtResource("4_v7ack")
 texture = ExtResource("2_4vnlm")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(-12, -12, 25, 24)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_v7oki")
