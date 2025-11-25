@@ -10,6 +10,7 @@ shadow_offset = Vector2(3, 3)
 
 [node name="How2Play" type="Control"]
 top_level = true
+z_index = 4090
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

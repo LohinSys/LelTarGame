@@ -102,7 +102,7 @@ Section "Lel.tar" Main
     SetOutPath $INSTDIR
 
     ; Needed files go here...
-    File /r "D:\home\docs\GodotProjects\LelTar\bin\windows\*.*"
+    File /r "C:\Users\Asus2026\Documents\GodotProjects\LelTar\bin\windows\x86\*.*"
 
     WriteRegStr HKCU "Software\LelTarGame" "" $INSTDIR
 

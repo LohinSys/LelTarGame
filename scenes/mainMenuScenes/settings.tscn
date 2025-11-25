@@ -45,6 +45,7 @@ shadow_color = Color(0, 0, 0, 0.5019608)
 
 [node name="Settings" type="Control"]
 top_level = true
+z_index = 4090
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -233,6 +234,7 @@ label_settings = SubResource("LabelSettings_ce6t2")
 horizontal_alignment = 2
 
 [node name="Options" type="OptionButton" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG0/WindowModeContainer"]
+z_index = 4096
 custom_minimum_size = Vector2(135, 28)
 layout_mode = 2
 selected = 0
