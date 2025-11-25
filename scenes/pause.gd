@@ -7,6 +7,7 @@ var ui_enabled : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$LoadingScreen.hide()
 	self.process_mode = Node.PROCESS_MODE_ALWAYS
 	disableUI()
 
@@ -24,6 +25,8 @@ func enableUI() -> void:
 
 
 func disableUI() -> void:
+	$Settings.hide()
+	$How2Play.hide()
 	ui_enabled = false
 	get_tree().paused = false
 	self.visible = false
@@ -33,14 +36,18 @@ func exitGame() -> void:
 
 func _on_resume_pressed() -> void:
 	ui_enabled = false
-	$Settings.hide()
 	disableUI()
 
 func _on_quit_game_pressed() -> void:
 	exitGame()
 
 func _on_back2title_pressed() -> void:
+	$LoadingScreen.show()
+	await get_tree().create_timer(0.1).timeout
 	get_tree().change_scene_to_file("res://scenes/mainMenuScenes/titleScreen.tscn")
 
 func _on_settings_pressed() -> void:
 	$Settings.show()
+
+func _on_how2play_pressed() -> void:
+	$How2Play.show()

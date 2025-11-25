@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8iabuhhf3o4e"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_uvuw3"]
+font_size = 32
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.5019608)
+shadow_offset = Vector2(2, 2)
+
+[node name="LoadingScreen" type="CanvasLayer"]
+
+[node name="BG" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 5
+color = Color(0, 0, 0, 0.7529412)
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -34.0
+offset_right = 83.0
+offset_bottom = -16.0
+grow_vertical = 0
+mouse_default_cursor_shape = 5
+text = "Loading..."
+label_settings = SubResource("LabelSettings_uvuw3")
+vertical_alignment = 2

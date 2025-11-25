@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ct4slj3ni7ajm"]
+[gd_scene load_steps=18 format=3 uid="uid://ct4slj3ni7ajm"]
 
 [ext_resource type="Texture2D" uid="uid://cu11o3rxixdfc" path="res://assets/backgrounds/placeholder-bg1_1.png" id="1_ajxtn"]
 [ext_resource type="Script" uid="uid://bm2ln7ilo358i" path="res://scenes/mainMenuScenes/titleScreen.gd" id="1_r8sye"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://8i46x07ygs5b" path="res://assets/icons/menu/stats.svg" id="6_2i8gq"]
 [ext_resource type="Texture2D" uid="uid://dn8uyrj5k6rm" path="res://assets/icons/menu/settings.svg" id="7_nwd4p"]
 [ext_resource type="PackedScene" uid="uid://ctscjj5oow5p8" path="res://scenes/mainMenuScenes/settings.tscn" id="10_c3ue1"]
+[ext_resource type="PackedScene" uid="uid://baj1kv3f0etgu" path="res://scenes/mainMenuScenes/how2play.tscn" id="10_nwd4p"]
+[ext_resource type="PackedScene" uid="uid://c8iabuhhf3o4e" path="res://scenes/mainMenuScenes/loadingScreen.tscn" id="11_2i8gq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_c3ue1"]
 font_size = 12
@@ -78,7 +80,6 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 24
-disabled = true
 text = "How to Play"
 icon = ExtResource("5_c3ue1")
 alignment = 0
@@ -160,12 +161,20 @@ offset_top = -23.0
 offset_right = 84.0
 grow_horizontal = 2
 grow_vertical = 0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
 text = "LohinSys (ɔ) 2024-2025"
 label_settings = SubResource("LabelSettings_qrvv6")
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="Version" type="Label" parent="."]
+[node name="How2Play" parent="." instance=ExtResource("10_nwd4p")]
+visible = false
+
+[node name="Settings" parent="." instance=ExtResource("10_c3ue1")]
+visible = false
+
+[node name="DbgInfo" type="Label" parent="."]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -176,7 +185,7 @@ text = "v0.0.0"
 label_settings = SubResource("LabelSettings_tcfyk")
 vertical_alignment = 2
 
-[node name="DebugInfo" type="Label" parent="."]
+[node name="Fps" type="Label" parent="."]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -191,7 +200,7 @@ label_settings = SubResource("LabelSettings_wxefk")
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="Settings" parent="." instance=ExtResource("10_c3ue1")]
+[node name="LoadingScreen" parent="." instance=ExtResource("11_2i8gq")]
 visible = false
 
 [connection signal="pressed" from="MenuBtnContainer/StartGame" to="." method="_on_start_game_pressed"]

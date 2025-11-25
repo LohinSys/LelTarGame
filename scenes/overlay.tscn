@@ -56,12 +56,12 @@ shadow_color = Color(0, 0, 0, 0.5019608)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14nai"]
 size = Vector2(175, 600)
 
-[sub_resource type="Gradient" id="Gradient_sfd0e"]
+[sub_resource type="Gradient" id="Gradient_tn5s6"]
 offsets = PackedFloat32Array(0, 0.5, 1)
 colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_p5j10"]
-gradient = SubResource("Gradient_sfd0e")
+gradient = SubResource("Gradient_tn5s6")
 height = 1
 
 [sub_resource type="LabelSettings" id="LabelSettings_d607a"]
@@ -523,8 +523,8 @@ horizontal_alignment = 1
 
 [node name="GameOverFSSaveMsg" type="Label" parent="GameOver/GameOverContainer"]
 layout_mode = 2
-text = "(Leaderboard submissions are disabled on guest accounts,
-so your score will only be saved locally.)"
+text = "(Leaderboard submissions are disabled on guest
+accounts, so your score will only be saved locally.)"
 label_settings = SubResource("LabelSettings_vg6n2")
 horizontal_alignment = 1
 
@@ -541,7 +541,7 @@ expand_icon = true
 [node name="PauseMenu" parent="." instance=ExtResource("4_p5j10")]
 visible = false
 
-[node name="version" type="Label" parent="."]
+[node name="DbgInfo" type="Label" parent="."]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -552,7 +552,7 @@ text = "v0.0.0"
 label_settings = SubResource("LabelSettings_0miq5")
 vertical_alignment = 2
 
-[node name="debugInfo" type="Label" parent="."]
+[node name="Fps" type="Label" parent="."]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0

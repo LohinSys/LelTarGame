@@ -46,7 +46,7 @@ func _input(event):
 #func set_status() -> void:
 
 func _ready() -> void:
-	$version.set_text(str("v",ProjectSettings.get_setting("application/config/version")))
+	$DbgInfo.set_text(str("v",ProjectSettings.get_setting("application/config/version")))
 
 func _process(_delta) -> void:
 	if Global.alive and Global.started:
@@ -84,8 +84,15 @@ func _process(_delta) -> void:
 	bs_timer = Global.boss_spellcard_time
 
 
-	$debugInfo.set_text("%d fps" % Engine.get_frames_per_second())
-
+	if Global.showFps:
+		$Fps.show()
+		$Fps.set_text("%d fps" % Engine.get_frames_per_second())
+	else:
+		$Fps.hide()
+	if Global.showDbgInfo:
+		$DbgInfo.show()
+	else:
+		$DbgInfo.hide()
 
 func _on_menu_button_pressed() -> void:
 	$PauseMenu.enableUI()

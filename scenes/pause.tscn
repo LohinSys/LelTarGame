@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dbrlalqvubg4g"]
+[gd_scene load_steps=13 format=3 uid="uid://dbrlalqvubg4g"]
 
 [ext_resource type="Script" uid="uid://dajk0iw3krqc" path="res://scenes/pause.gd" id="1_f1d2v"]
 [ext_resource type="Texture2D" uid="uid://cmcfibw51jsds" path="res://assets/icons/menu/resume.svg" id="2_aicil"]
@@ -7,7 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://eail6ics4jca" path="res://assets/icons/menu/how2play.svg" id="3_jn4bt"]
 [ext_resource type="Texture2D" uid="uid://cprswblo46w5f" path="res://assets/icons/menu/restart.svg" id="3_wen6a"]
 [ext_resource type="Texture2D" uid="uid://7l1vo3ppdtvn" path="res://assets/icons/menu/back2title.svg" id="5_r1fnm"]
+[ext_resource type="PackedScene" uid="uid://baj1kv3f0etgu" path="res://scenes/mainMenuScenes/how2play.tscn" id="8_1xtef"]
 [ext_resource type="PackedScene" uid="uid://ctscjj5oow5p8" path="res://scenes/mainMenuScenes/settings.tscn" id="8_cml1b"]
+[ext_resource type="PackedScene" uid="uid://c8iabuhhf3o4e" path="res://scenes/mainMenuScenes/loadingScreen.tscn" id="10_xmhi0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_f1d2v"]
 font_size = 64
@@ -87,7 +89,7 @@ expand_icon = true
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="How2Play2" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="Restart" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 28
@@ -102,7 +104,6 @@ expand_icon = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 28
-disabled = true
 text = "How to Play"
 icon = ExtResource("3_jn4bt")
 alignment = 0
@@ -154,11 +155,19 @@ horizontal_alignment = 1
 vertical_alignment = 2
 autowrap_mode = 3
 
+[node name="How2Play" parent="." instance=ExtResource("8_1xtef")]
+visible = false
+layout_mode = 1
+
 [node name="Settings" parent="." instance=ExtResource("8_cml1b")]
 visible = false
 layout_mode = 1
 
+[node name="LoadingScreen" parent="." instance=ExtResource("10_xmhi0")]
+visible = false
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/How2Play" to="." method="_on_how2play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Back2Title" to="." method="_on_back2title_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/QuitGame" to="." method="_on_quit_game_pressed"]
