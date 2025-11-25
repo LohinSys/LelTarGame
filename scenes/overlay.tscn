@@ -1,8 +1,9 @@
-[gd_scene load_steps=39 format=3 uid="uid://6tnyxq2pf060"]
+[gd_scene load_steps=40 format=3 uid="uid://6tnyxq2pf060"]
 
 [ext_resource type="Script" uid="uid://cilxi7ctnnwg7" path="res://scenes/overlay.gd" id="1_d607a"]
 [ext_resource type="FontFile" uid="uid://by4fv8t0jo01q" path="res://assets/fonts/monkey.ttf" id="2_0miq5"]
 [ext_resource type="Texture2D" uid="uid://qvcet5p52aee" path="res://assets/backgrounds/overlay-right-sideart.png" id="2_sfd0e"]
+[ext_resource type="Texture2D" uid="uid://c7q0ymwp88slt" path="res://assets/backgrounds/overlay-left-sideart.png" id="3_0miq5"]
 [ext_resource type="PackedScene" uid="uid://dbrlalqvubg4g" path="res://scenes/pause.tscn" id="4_p5j10"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rqwgw"]
@@ -158,6 +159,8 @@ shadow_color = Color(0, 0, 0, 0.6431373)
 shadow_offset = Vector2(2, 2)
 
 [sub_resource type="LabelSettings" id="LabelSettings_0miq5"]
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.5019608)
 
 [node name="CanvasLayer" type="CanvasLayer" node_paths=PackedStringArray("menu_button")]
 layer = 9001
@@ -263,10 +266,10 @@ position = Vector2(625, 0)
 shape = SubResource("RectangleShape2D_14nai")
 debug_color = Color(0.7, 0, 0.7, 0.41960785)
 
-[node name="CR_Left" type="ColorRect" parent="."]
+[node name="CR_Left" type="TextureRect" parent="."]
 offset_right = 175.0
 offset_bottom = 600.0
-color = Color(0, 0, 0, 1)
+texture = ExtResource("3_0miq5")
 
 [node name="CR_Right" type="TextureRect" parent="."]
 offset_left = 625.0
@@ -477,14 +480,19 @@ horizontal_alignment = 2
 [node name="GameOver" type="Control" parent="."]
 visible = false
 layout_mode = 3
-anchors_preset = 0
-offset_right = 800.0
-offset_bottom = 600.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="GameOverBG" type="ColorRect" parent="GameOver"]
-layout_mode = 0
-offset_right = 800.0
-offset_bottom = 600.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 3
 color = Color(0, 0, 0, 0.5019608)
 
@@ -548,7 +556,8 @@ anchor_bottom = 1.0
 offset_top = -18.0
 offset_right = 45.0
 grow_vertical = 0
-text = "v0.0.0"
+text = "v0.0.0
+Renderer: -"
 label_settings = SubResource("LabelSettings_0miq5")
 vertical_alignment = 2
 

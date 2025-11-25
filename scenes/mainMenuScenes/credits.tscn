@@ -1,29 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://baj1kv3f0etgu"]
+[gd_scene load_steps=3 format=3 uid="uid://blnrook2q0vnj"]
 
-[ext_resource type="Script" uid="uid://bvswfw3dem5il" path="res://scenes/mainMenuScenes/how2play.gd" id="1_je6o6"]
+[ext_resource type="Script" uid="uid://bjgxttqhlcu0n" path="res://scenes/mainMenuScenes/credits.gd" id="1_7nb72"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_nkgue"]
+[sub_resource type="LabelSettings" id="LabelSettings_yihfm"]
 font_size = 40
 shadow_size = 5
 shadow_color = Color(0, 0, 0, 0.5019608)
 shadow_offset = Vector2(3, 3)
 
-[sub_resource type="LabelSettings" id="LabelSettings_je6o6"]
-font_size = 20
-shadow_size = 3
-shadow_color = Color(0, 0, 0, 0.5019608)
-shadow_offset = Vector2(2, 2)
-
-[node name="How2Play" type="Control"]
-top_level = true
-z_index = 4090
+[node name="Credits" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_je6o6")
+script = ExtResource("1_7nb72")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -49,7 +41,7 @@ offset_bottom = 225.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="How2Title" type="Label" parent="Panel"]
+[node name="StatsTitle" type="Label" parent="Panel"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -59,11 +51,12 @@ offset_top = 20.0
 offset_right = 29.0
 offset_bottom = 38.0
 grow_horizontal = 2
-text = "How to Play"
-label_settings = SubResource("LabelSettings_nkgue")
+text = "Credits"
+label_settings = SubResource("LabelSettings_yihfm")
 horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel"]
+clip_contents = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -77,18 +70,19 @@ offset_bottom = 155.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/MarginContainer"]
 layout_mode = 2
-alignment = 1
+bbcode_enabled = true
+text = "Art, Game Design & Programming: B. Szalai
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "WASD/Arrow Keys/Numpad1,2,3,5 - Move
-Y/Z - Shoot (NOT IMPLEMENTED YET!!)
-Shift - Focus; X - Bomb"
-label_settings = SubResource("LabelSettings_je6o6")
+Material Design Icons provided by Google Fonts
+[url]https://fonts.google.com/icons[/url]
+
+Made with Godot Engine 4.5.1"
+fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
+justification_flags = 171
 
 [node name="Exit" type="Button" parent="Panel"]
 layout_mode = 1

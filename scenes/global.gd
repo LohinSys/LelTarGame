@@ -18,6 +18,8 @@ var started = false
 
 var score2give = 1
 
+var dbgInfoPrint = str("v",ProjectSettings.get_setting("application/config/version"),"\nRenderer: ",RenderingServer.get_current_rendering_driver_name())
+
 var health = 100:
 	set(value):
 		health = value
@@ -41,14 +43,15 @@ var boss_spellcard_time = 0.0:
 var current_attack_pattern_type: String = ""
 var random_bullets = false
 
-func update_window_mode():
+func update_window_mode() -> void:
 	match windowMode:
 		0:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 		1:
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
-		2:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+
+func update_fps_display(fpsNode) -> void:
+	fpsNode.set_text("%d fps" % Engine.get_frames_per_second())
 
 func _ready() -> void:
 	var sErr = setting.load("user://settings.ini")

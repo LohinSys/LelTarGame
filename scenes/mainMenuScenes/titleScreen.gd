@@ -4,14 +4,13 @@ func _ready() -> void:
 	$How2Play.hide()
 	$Settings.hide()
 	$LoadingScreen.hide()
-	$DbgInfo.set_text(str("v",ProjectSettings.get_setting("application/config/version")))
+	$DbgInfo.set_text(Global.dbgInfoPrint)
 
 func _process(_delta) -> void:
-	$Fps.set_text("%d fps" % Engine.get_frames_per_second())
+	Global.update_fps_display($Fps)
 
 	if Global.showFps:
 		$Fps.show()
-		$Fps.set_text("%d fps" % Engine.get_frames_per_second())
 	else:
 		$Fps.hide()
 	if Global.showDbgInfo:
@@ -29,9 +28,15 @@ func _on_start_game_pressed() -> void:
 func _on_how2play_pressed() -> void:
 	$How2Play.show()
 
-func _on_quit_game_pressed() -> void:
-	$LoadingScreen.show()
-	get_tree().quit()
+func _on_statistics_pressed() -> void:
+	$Stats.show()
 
 func _on_settings_pressed() -> void:
 	$Settings.show()
+
+func _on_credits_pressed() -> void:
+	$Credits.show()
+
+func _on_quit_game_pressed() -> void:
+	$LoadingScreen.show()
+	get_tree().quit()
