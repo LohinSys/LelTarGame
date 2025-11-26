@@ -16,7 +16,6 @@ shadow_offset = Vector2(2, 2)
 
 [node name="How2Play" type="Control"]
 top_level = true
-z_index = 4090
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -83,9 +82,12 @@ alignment = 1
 
 [node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "WASD/Arrow Keys/Numpad1,2,3,5 - Move
+text = "Controls:
+WASD/Arrow Keys/Numpad1,2,3,5 - Move
 Y/Z - Shoot (NOT IMPLEMENTED YET!!)
-Shift - Focus; X - Bomb"
+Shift - Focus
+X - Bomb
+Esc - Pause"
 label_settings = SubResource("LabelSettings_je6o6")
 horizontal_alignment = 1
 vertical_alignment = 1

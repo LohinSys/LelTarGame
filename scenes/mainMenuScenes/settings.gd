@@ -1,6 +1,7 @@
 extends Control
 
 @onready var window_mode_dd = $Panel/MarginContainer/SettingsContainer/HBoxContainerG0/WindowModeContainer/Options
+@onready var antialias_dd = $Panel/MarginContainer/SettingsContainer/HBoxContainerG0/AntiAliasingContainer/Options
 
 @onready var vsync_btn = $Panel/MarginContainer/SettingsContainer/HBoxContainerG1/VSyncContainer/Option
 @onready var blur_fx_btn = $Panel/MarginContainer/SettingsContainer/HBoxContainerG1/BlurFXContainer/Option
@@ -9,6 +10,7 @@ extends Control
 
 func _ready() -> void:
 	window_mode_dd.selected = Global.windowMode
+	antialias_dd.selected = Global.antiAliasType
 
 	%MasterVolSlider.value = Global.masterVolume
 	%SFXVolSlider.value = Global.sfxVolume
@@ -26,6 +28,10 @@ func _process(_delta: float) -> void:
 func _on_window_mode_selected(index: int) -> void:
 	Global.windowMode = index
 	Global.update_window_mode()
+
+func _on_antialias_selected(index: int) -> void:
+	Global.antiAliasType = index
+	Global.update_antialias_type()
 
 func _on_vsync_pressed() -> void:
 	if Global.vSync:
@@ -59,8 +65,8 @@ func save_settings() -> void:
 	Global.setting.set_value("Volume", "sfx", %SFXVolSlider.value)
 	Global.setting.set_value("Volume", "music", %MusicVolSlider.value)
 
-	Global.setting.set_value("Window", "mode", Global.windowMode)
-
+	Global.setting.set_value("Graphics", "mode", Global.windowMode)
+	Global.setting.set_value("Graphics", "antiAliasType", Global.antiAliasType)
 	Global.setting.set_value("Graphics", "vSync", Global.vSync)
 	Global.setting.set_value("Graphics", "blurFx", Global.blurFx)
 	Global.setting.set_value("Graphics", "showFps", Global.showFps)

@@ -45,7 +45,6 @@ shadow_color = Color(0, 0, 0, 0.5019608)
 
 [node name="Settings" type="Control"]
 top_level = true
-z_index = 4090
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -213,6 +212,7 @@ text = "
 Graphics / Display"
 label_settings = SubResource("LabelSettings_wlyyc")
 horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="Separator2" type="TextureRect" parent="Panel/MarginContainer/SettingsContainer"]
 layout_mode = 2
@@ -245,6 +245,42 @@ popup/item_0/text = "Windowed"
 popup/item_0/id = 0
 popup/item_1/text = "Fullscreen"
 popup/item_1/id = 1
+
+[node name="AntiAliasingContainer" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG0"]
+layout_mode = 2
+size_flags_horizontal = 6
+tooltip_text = "Switch between various types of anti-aliasing, such as:
+- Fast-Approximate Anti-aliasing (FXAA)
+- Subpixel Morphological Anti-aliasing (SMAA)
+- Multisample Anti-aliasing (MSAA 2x,4x,8x)
+(Higher values are not recommended for weaker devices!!)"
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG0/AntiAliasingContainer"]
+layout_mode = 2
+text = "Anti-aliasing"
+label_settings = SubResource("LabelSettings_ce6t2")
+horizontal_alignment = 2
+
+[node name="Options" type="OptionButton" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG0/AntiAliasingContainer"]
+z_index = 4096
+custom_minimum_size = Vector2(135, 28)
+layout_mode = 2
+selected = 0
+fit_to_longest_item = false
+item_count = 6
+popup/item_0/text = "None"
+popup/item_0/id = 0
+popup/item_1/text = "FXAA"
+popup/item_1/id = 1
+popup/item_2/text = "SMAA"
+popup/item_2/id = 2
+popup/item_3/text = "MSAA 2x"
+popup/item_3/id = 3
+popup/item_4/text = "MSAA 4x"
+popup/item_4/id = 4
+popup/item_5/text = "MSAA 8x"
+popup/item_5/id = 5
 
 [node name="HBoxContainerG1" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer"]
 layout_mode = 2
@@ -357,6 +393,7 @@ vertical_alignment = 2
 [connection signal="value_changed" from="Panel/MarginContainer/SettingsContainer/SFX/SFXVolSlider" to="." method="_on_sfx_vol_slider_value_changed"]
 [connection signal="value_changed" from="Panel/MarginContainer/SettingsContainer/Music/MusicVolSlider" to="." method="_on_music_vol_slider_value_changed"]
 [connection signal="item_selected" from="Panel/MarginContainer/SettingsContainer/HBoxContainerG0/WindowModeContainer/Options" to="." method="_on_window_mode_selected"]
+[connection signal="item_selected" from="Panel/MarginContainer/SettingsContainer/HBoxContainerG0/AntiAliasingContainer/Options" to="." method="_on_antialias_selected"]
 [connection signal="pressed" from="Panel/MarginContainer/SettingsContainer/HBoxContainerG1/VSyncContainer/Option" to="." method="_on_vsync_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/SettingsContainer/HBoxContainerG1/BlurFXContainer/Option" to="." method="_on_blurFx_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/SettingsContainer/HBoxContainerG1/ShowFpsContainer/Option" to="." method="_on_showFps_pressed"]

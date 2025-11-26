@@ -32,6 +32,7 @@ func disableUI() -> void:
 	self.visible = false
 
 func exitGame() -> void:
+	$LoadingScreen.show()
 	get_tree().quit()
 
 func _on_resume_pressed() -> void:
