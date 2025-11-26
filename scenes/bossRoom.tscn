@@ -1,11 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://uhet6otsp7ly"]
+[gd_scene load_steps=8 format=3 uid="uid://uhet6otsp7ly"]
 
 [ext_resource type="PackedScene" uid="uid://bcqacxesymdnc" path="res://scenes/background.tscn" id="1_cryoe"]
 [ext_resource type="PackedScene" uid="uid://6tnyxq2pf060" path="res://scenes/overlay.tscn" id="1_hwvuu"]
 [ext_resource type="PackedScene" uid="uid://bkehd1u16qw8d" path="res://scenes/boss.tscn" id="1_wpnpv"]
 [ext_resource type="PackedScene" uid="uid://b2r4pwv4w2hpe" path="res://scenes/player.tscn" id="2_hwvuu"]
 
-[node name="BossRoom" type="Node2D"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cryoe"]
+
+[sub_resource type="Sky" id="Sky_bypsq"]
+sky_material = SubResource("ProceduralSkyMaterial_cryoe")
+
+[sub_resource type="Environment" id="Environment_cryoe"]
+background_mode = 2
+sky = SubResource("Sky_bypsq")
+
+[node name="BossRoom" type="WorldEnvironment"]
+environment = SubResource("Environment_cryoe")
 
 [node name="Background" parent="." instance=ExtResource("1_cryoe")]
 

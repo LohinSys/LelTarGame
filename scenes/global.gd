@@ -18,7 +18,7 @@ var started = false
 
 var score2give = 1
 
-var dbgInfoPrint = str("v",ProjectSettings.get_setting("application/config/version"),"\nRenderer: ",RenderingServer.get_current_rendering_driver_name())
+var dbgInfoPrint = str("v",ProjectSettings.get_setting("application/config/version"),"\nRenderer: ",RenderingServer.get_current_rendering_driver_name(),"\n3D Background Test")
 
 var health = 100:
 	set(value):

@@ -16,7 +16,7 @@ config/name_localized={
 }
 config/description="The endless search for the missing package..."
 config/version="0.0.2.5"
-config/tags=PackedStringArray("schkewl")
+config/tags=PackedStringArray("lohinsys", "schkewl")
 run/main_scene="uid://ct4slj3ni7ajm"
 config/features=PackedStringArray("4.5", "Mobile")
 run/max_fps=60

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://boinwxwd00p4f"]
+
+[sub_resource type="Environment" id="Environment_d2mwv"]
+background_mode = 2
+
+[node name="Stage1Bg" type="WorldEnvironment"]
+environment = SubResource("Environment_d2mwv")
