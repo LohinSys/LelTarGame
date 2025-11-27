@@ -269,7 +269,7 @@ layout_mode = 2
 selected = 0
 fit_to_longest_item = false
 item_count = 6
-popup/item_0/text = "None"
+popup/item_0/text = "Disabled"
 popup/item_0/id = 0
 popup/item_1/text = "FXAA"
 popup/item_1/id = 1
@@ -286,71 +286,145 @@ popup/item_5/id = 5
 layout_mode = 2
 alignment = 1
 
-[node name="VSyncContainer" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG1"]
+[node name="AnisotropyContainer" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG1"]
+layout_mode = 2
+size_flags_horizontal = 6
+tooltip_text = "Switch between Windowed and Fullscreen modes."
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG1/AnisotropyContainer"]
+layout_mode = 2
+text = "Anisotropic Filt."
+label_settings = SubResource("LabelSettings_ce6t2")
+horizontal_alignment = 2
+
+[node name="Options" type="OptionButton" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG1/AnisotropyContainer"]
+z_index = 4096
+custom_minimum_size = Vector2(135, 28)
+layout_mode = 2
+selected = 2
+fit_to_longest_item = false
+item_count = 5
+popup/item_0/text = "Disabled"
+popup/item_0/id = 0
+popup/item_1/text = "2x"
+popup/item_1/id = 1
+popup/item_2/text = "4x"
+popup/item_2/id = 2
+popup/item_3/text = "8x"
+popup/item_3/id = 3
+popup/item_4/text = "16x"
+popup/item_4/id = 4
+
+[node name="Scale3DContainer" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG1"]
+layout_mode = 2
+size_flags_horizontal = 6
+tooltip_text = "Switch between various types of anti-aliasing, such as:
+- Fast-Approximate Anti-aliasing (FXAA)
+- Subpixel Morphological Anti-aliasing (SMAA)
+- Multisample Anti-aliasing (MSAA 2x,4x,8x)
+(Higher values are not recommended for weaker devices!!)"
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG1/Scale3DContainer"]
+layout_mode = 2
+text = "3D Scale"
+label_settings = SubResource("LabelSettings_ce6t2")
+horizontal_alignment = 2
+
+[node name="Options" type="OptionButton" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG1/Scale3DContainer"]
+z_index = 4096
+custom_minimum_size = Vector2(135, 28)
+layout_mode = 2
+selected = 4
+fit_to_longest_item = false
+item_count = 8
+popup/item_0/text = "200%"
+popup/item_0/id = 0
+popup/item_1/text = "175%"
+popup/item_1/id = 1
+popup/item_2/text = "150%"
+popup/item_2/id = 2
+popup/item_3/text = "125%"
+popup/item_3/id = 3
+popup/item_4/text = "100%"
+popup/item_4/id = 4
+popup/item_5/text = "75%"
+popup/item_5/id = 5
+popup/item_6/text = "50%"
+popup/item_6/id = 6
+popup/item_7/text = "25%"
+popup/item_7/id = 7
+
+[node name="HBoxContainerG2" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VSyncContainer" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG2"]
 layout_mode = 2
 size_flags_horizontal = 3
 tooltip_text = "Fixes screen tearing, but can lead to higher input delay."
 alignment = 1
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG1/VSyncContainer"]
+[node name="Label" type="Label" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG2/VSyncContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 text = "Vertical Sync"
 label_settings = SubResource("LabelSettings_ce6t2")
 
-[node name="Option" type="CheckButton" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG1/VSyncContainer"]
+[node name="Option" type="CheckButton" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG2/VSyncContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 button_pressed = true
 
-[node name="BlurFXContainer" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG1"]
+[node name="BlurFXContainer" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG2"]
 layout_mode = 2
 size_flags_horizontal = 3
 tooltip_text = "(Not implemented yet!)
 Toggles blur effects around menus and stage backgrounds."
 alignment = 1
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG1/BlurFXContainer"]
+[node name="Label" type="Label" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG2/BlurFXContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 text = "Blur Effects"
 label_settings = SubResource("LabelSettings_ce6t2")
 
-[node name="Option" type="CheckButton" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG1/BlurFXContainer"]
+[node name="Option" type="CheckButton" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG2/BlurFXContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="ShowFpsContainer" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG1"]
+[node name="ShowFpsContainer" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG2"]
 layout_mode = 2
 size_flags_horizontal = 3
 tooltip_text = "Shows the framerate in the bottom right corner."
 alignment = 1
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG1/ShowFpsContainer"]
+[node name="Label" type="Label" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG2/ShowFpsContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 text = "Show FPS"
 label_settings = SubResource("LabelSettings_ce6t2")
 
-[node name="Option" type="CheckButton" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG1/ShowFpsContainer"]
+[node name="Option" type="CheckButton" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG2/ShowFpsContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 button_pressed = true
 
-[node name="ShowDbgContainer" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG1"]
+[node name="ShowDbgContainer" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG2"]
 layout_mode = 2
 size_flags_horizontal = 3
 tooltip_text = "Show additional debug information on the bottom right corner of the screen,
 like the current game version and the renderer being used."
 alignment = 1
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG1/ShowDbgContainer"]
+[node name="Label" type="Label" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG2/ShowDbgContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 text = "Debug Info"
 label_settings = SubResource("LabelSettings_ce6t2")
 
-[node name="Option" type="CheckButton" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG1/ShowDbgContainer"]
+[node name="Option" type="CheckButton" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG2/ShowDbgContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 button_pressed = true
@@ -394,8 +468,10 @@ vertical_alignment = 2
 [connection signal="value_changed" from="Panel/MarginContainer/SettingsContainer/Music/MusicVolSlider" to="." method="_on_music_vol_slider_value_changed"]
 [connection signal="item_selected" from="Panel/MarginContainer/SettingsContainer/HBoxContainerG0/WindowModeContainer/Options" to="." method="_on_window_mode_selected"]
 [connection signal="item_selected" from="Panel/MarginContainer/SettingsContainer/HBoxContainerG0/AntiAliasingContainer/Options" to="." method="_on_antialias_selected"]
-[connection signal="pressed" from="Panel/MarginContainer/SettingsContainer/HBoxContainerG1/VSyncContainer/Option" to="." method="_on_vsync_pressed"]
-[connection signal="pressed" from="Panel/MarginContainer/SettingsContainer/HBoxContainerG1/BlurFXContainer/Option" to="." method="_on_blurFx_pressed"]
-[connection signal="pressed" from="Panel/MarginContainer/SettingsContainer/HBoxContainerG1/ShowFpsContainer/Option" to="." method="_on_showFps_pressed"]
-[connection signal="pressed" from="Panel/MarginContainer/SettingsContainer/HBoxContainerG1/ShowDbgContainer/Option" to="." method="_on_showDbg_pressed"]
+[connection signal="item_selected" from="Panel/MarginContainer/SettingsContainer/HBoxContainerG1/AnisotropyContainer/Options" to="." method="_on_anisotropy_selected"]
+[connection signal="item_selected" from="Panel/MarginContainer/SettingsContainer/HBoxContainerG1/Scale3DContainer/Options" to="." method="_on_scaling_3d_mode_selected"]
+[connection signal="pressed" from="Panel/MarginContainer/SettingsContainer/HBoxContainerG2/VSyncContainer/Option" to="." method="_on_vsync_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/SettingsContainer/HBoxContainerG2/BlurFXContainer/Option" to="." method="_on_blurFx_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/SettingsContainer/HBoxContainerG2/ShowFpsContainer/Option" to="." method="_on_showFps_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/SettingsContainer/HBoxContainerG2/ShowDbgContainer/Option" to="." method="_on_showDbg_pressed"]
 [connection signal="pressed" from="Panel/Done" to="." method="_on_done_pressed"]

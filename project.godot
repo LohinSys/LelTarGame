@@ -15,15 +15,23 @@ config/name_localized={
 "hu_HU": "lel.tár"
 }
 config/description="The endless search for the missing package..."
-config/version="0.0.2.6"
+config/version="0.0.2.7"
 config/tags=PackedStringArray("lohinsys", "schkewl")
 run/main_scene="uid://ct4slj3ni7ajm"
 config/features=PackedStringArray("4.5", "Mobile")
 run/max_fps=60
 boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/fullsize=false
+boot_splash/use_filter=false
+boot_splash/image="uid://dkxl5goxgt0wi"
 config/icon="uid://rxhb1uaqlsk8"
 config/macos_native_icon="res://assets/icons/app/icon.icns"
 config/windows_native_icon="res://assets/icons/app/icon.ico"
+boot_splash/minimum_display_time=3333
+
+[audio]
+
+buses/default_bus_layout="uid://cefx2qv3f8hqg"
 
 [autoload]
 
@@ -132,6 +140,10 @@ rendering/text_driver="ICU / HarfBuzz / Graphite (Built-in)"
 [memory]
 
 limits/message_queue/max_size_mb=64
+
+[physics]
+
+2d/run_on_separate_thread=true
 
 [rendering]
 

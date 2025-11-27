@@ -76,9 +76,10 @@ bbcode_enabled = true
 text = "Art, Game Design & Programming: B. Szalai
 
 Material Design Icons provided by Google Fonts
-[url]https://fonts.google.com/icons[/url]
+[url]https://fonts.google.com/icons/[/url]
 
-Made with Godot Engine 4.5.1"
+Made with Godot Engine 4.5.1
+[url]https://godotengine.org/[/url]"
 fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1

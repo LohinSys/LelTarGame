@@ -53,9 +53,11 @@ vertical_alignment = 2
 
 [node name="BombSfx" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_qlg0r")
+bus = &"SFX"
 
 [node name="DeathSfx" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_tuyoq")
 volume_db = -4.0
+bus = &"SFX"
 
 [connection signal="hidden" from="." to="." method="_on_death"]
