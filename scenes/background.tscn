@@ -1,61 +1,99 @@
-[gd_scene load_steps=6 format=3 uid="uid://bcqacxesymdnc"]
+[gd_scene load_steps=14 format=3 uid="uid://bcqacxesymdnc"]
 
 [ext_resource type="Texture2D" uid="uid://brhnkdgrfs11a" path="res://assets/backgrounds/bg2dark.png" id="1_bkp1e"]
 [ext_resource type="Script" uid="uid://dh63huqqnfs3n" path="res://scenes/background.gd" id="1_y0upk"]
-[ext_resource type="Texture2D" uid="uid://e3cdemt8lk04" path="res://assets/backgrounds/bg2overlay.png" id="3_jougr"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_bkp1e"]
+size = Vector2(20, 20)
+
+[sub_resource type="Gradient" id="Gradient_y0upk"]
+interpolation_mode = 2
+colors = PackedColorArray(0.3, 0.3, 0.3, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_jougr"]
+noise_type = 0
+seed = 245
+frequency = 1.0
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cbsqf"]
+noise = SubResource("FastNoiseLite_jougr")
+color_ramp = SubResource("Gradient_y0upk")
+bump_strength = 32.0
+
+[sub_resource type="Gradient" id="Gradient_wisxt"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wax1t"]
+noise_type = 0
+seed = 245
+frequency = 1.0
+domain_warp_enabled = true
+domain_warp_amplitude = 43.645
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1tmhi"]
+noise = SubResource("FastNoiseLite_wax1t")
+color_ramp = SubResource("Gradient_wisxt")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jougr"]
+shading_mode = 2
+albedo_color = Color(0.1836, 0.54, 0.20142, 1)
+albedo_texture = SubResource("NoiseTexture2D_cbsqf")
+roughness_texture = SubResource("NoiseTexture2D_1tmhi")
+refraction_enabled = true
+uv1_scale = Vector3(4, 4, 4)
+uv1_world_triplanar = true
+grow_amount = 5.587
+proximity_fade_enabled = true
+stencil_flags = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jougr"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_jougr"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y0upk"]
+metallic = 1.0
+metallic_texture = ExtResource("1_bkp1e")
+metallic_texture_channel = 2
+anisotropy_enabled = true
+anisotropy = 1.0
+
 [node name="Background" type="Node3D"]
 script = ExtResource("1_y0upk")
 
-[node name="Layer1" type="Node2D" parent="."]
+[node name="Ground3D-1" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, -1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground3D-1"]
+mesh = SubResource("PlaneMesh_bkp1e")
+surface_material_override/0 = SubResource("StandardMaterial3D_jougr")
+
+[node name="Ground3D-2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.0000002, 0, 0, 0, 1.0000002, 0, -1, -20)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground3D-2"]
+mesh = SubResource("PlaneMesh_bkp1e")
+surface_material_override/0 = SubResource("StandardMaterial3D_jougr")
+
+[node name="Ground3D-3" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.0000005, 0, 0, 0, 1.0000005, 0, -1, -40)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground3D-3"]
+mesh = SubResource("PlaneMesh_bkp1e")
+surface_material_override/0 = SubResource("StandardMaterial3D_jougr")
+
+[node name="TestCube3D" type="StaticBody3D" parent="."]
 visible = false
 
-[node name="backgroundImg" type="TextureRect" parent="Layer1"]
-texture_repeat = 2
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -1200.0
-offset_right = 800.0
-offset_bottom = 600.0
-grow_vertical = 2
-texture = ExtResource("1_bkp1e")
-stretch_mode = 1
-
-[node name="Layer2" type="Node2D" parent="."]
-visible = false
-position = Vector2(0, -1200)
-
-[node name="backgroundImgBigTransparent" type="TextureRect" parent="Layer2"]
-modulate = Color(1, 1, 1, 0.3764706)
-texture_repeat = 2
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -2800.0
-offset_right = 600.0
-offset_bottom = 400.0
-grow_vertical = 2
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("3_jougr")
-stretch_mode = 1
-
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(-0.14736943, 0.40979418, -0.900195, -0.8446256, -0.5257331, -0.10105629, -0.5146746, 0.74543506, 0.42359963, 0, 0, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestCube3D"]
 shape = SubResource("BoxShape3D_jougr")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestCube3D"]
 mesh = SubResource("BoxMesh_jougr")
+surface_material_override/0 = SubResource("StandardMaterial3D_y0upk")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.5)
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 1.5, 2.5)
+fov = 70.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.9396926, 0.34202012, 0, -0.34202012, 0.9396926, 0, 1, 2)
+transform = Transform3D(0.8048524, 0.20298047, -0.5576842, 0.05373667, 0.91090775, 0.4090963, 0.5910373, -0.35923016, 0.72223866, -2.0676262, 1.6618488, 4.1917634)
