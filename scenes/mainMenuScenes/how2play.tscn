@@ -84,10 +84,8 @@ alignment = 1
 layout_mode = 2
 text = "Controls:
 WASD/Arrow Keys/Numpad1,2,3,5 - Move
-Y/Z - Shoot (NOT IMPLEMENTED YET!!)
-Shift - Focus
-X - Bomb
-Esc - Pause"
+Y/Z - Shoot; Shift - Focus
+X - Bomb; Esc - Pause"
 label_settings = SubResource("LabelSettings_je6o6")
 horizontal_alignment = 1
 vertical_alignment = 1

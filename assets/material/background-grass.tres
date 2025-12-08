@@ -1,0 +1,41 @@
+[gd_resource type="StandardMaterial3D" load_steps=7 format=3 uid="uid://vruqxk3qrhok"]
+
+[sub_resource type="Gradient" id="Gradient_y0upk"]
+interpolation_mode = 2
+colors = PackedColorArray(0.3, 0.3, 0.3, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_jougr"]
+noise_type = 0
+seed = 245
+frequency = 1.0
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cbsqf"]
+noise = SubResource("FastNoiseLite_jougr")
+color_ramp = SubResource("Gradient_y0upk")
+bump_strength = 32.0
+
+[sub_resource type="Gradient" id="Gradient_wisxt"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wax1t"]
+noise_type = 0
+seed = 245
+frequency = 1.0
+domain_warp_enabled = true
+domain_warp_amplitude = 43.645
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1tmhi"]
+noise = SubResource("FastNoiseLite_wax1t")
+color_ramp = SubResource("Gradient_wisxt")
+
+[resource]
+shading_mode = 2
+albedo_color = Color(0.1836, 0.54, 0.20142, 1)
+albedo_texture = SubResource("NoiseTexture2D_cbsqf")
+roughness_texture = SubResource("NoiseTexture2D_1tmhi")
+refraction_enabled = true
+uv1_scale = Vector3(4, 4, 4)
+uv1_world_triplanar = true
+grow_amount = 5.587
+proximity_fade_enabled = true
+stencil_flags = 2

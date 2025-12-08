@@ -1,50 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://bcqacxesymdnc"]
+[gd_scene load_steps=8 format=3 uid="uid://bcqacxesymdnc"]
 
 [ext_resource type="Texture2D" uid="uid://brhnkdgrfs11a" path="res://assets/backgrounds/bg2dark.png" id="1_bkp1e"]
 [ext_resource type="Script" uid="uid://dh63huqqnfs3n" path="res://scenes/background.gd" id="1_y0upk"]
+[ext_resource type="Material" uid="uid://vruqxk3qrhok" path="res://assets/material/background-grass.tres" id="2_jougr"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_bkp1e"]
 size = Vector2(20, 20)
-
-[sub_resource type="Gradient" id="Gradient_y0upk"]
-interpolation_mode = 2
-colors = PackedColorArray(0.3, 0.3, 0.3, 1, 1, 1, 1, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_jougr"]
-noise_type = 0
-seed = 245
-frequency = 1.0
-domain_warp_enabled = true
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cbsqf"]
-noise = SubResource("FastNoiseLite_jougr")
-color_ramp = SubResource("Gradient_y0upk")
-bump_strength = 32.0
-
-[sub_resource type="Gradient" id="Gradient_wisxt"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_wax1t"]
-noise_type = 0
-seed = 245
-frequency = 1.0
-domain_warp_enabled = true
-domain_warp_amplitude = 43.645
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1tmhi"]
-noise = SubResource("FastNoiseLite_wax1t")
-color_ramp = SubResource("Gradient_wisxt")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jougr"]
-shading_mode = 2
-albedo_color = Color(0.1836, 0.54, 0.20142, 1)
-albedo_texture = SubResource("NoiseTexture2D_cbsqf")
-roughness_texture = SubResource("NoiseTexture2D_1tmhi")
-refraction_enabled = true
-uv1_scale = Vector3(4, 4, 4)
-uv1_world_triplanar = true
-grow_amount = 5.587
-proximity_fade_enabled = true
-stencil_flags = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jougr"]
 
@@ -65,21 +26,21 @@ transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, -1, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground3D-1"]
 mesh = SubResource("PlaneMesh_bkp1e")
-surface_material_override/0 = SubResource("StandardMaterial3D_jougr")
+surface_material_override/0 = ExtResource("2_jougr")
 
 [node name="Ground3D-2" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1.0000002, 0, 0, 0, 1.0000002, 0, -1, -20)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground3D-2"]
 mesh = SubResource("PlaneMesh_bkp1e")
-surface_material_override/0 = SubResource("StandardMaterial3D_jougr")
+surface_material_override/0 = ExtResource("2_jougr")
 
 [node name="Ground3D-3" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1.0000005, 0, 0, 0, 1.0000005, 0, -1, -40)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground3D-3"]
 mesh = SubResource("PlaneMesh_bkp1e")
-surface_material_override/0 = SubResource("StandardMaterial3D_jougr")
+surface_material_override/0 = ExtResource("2_jougr")
 
 [node name="TestCube3D" type="StaticBody3D" parent="."]
 visible = false

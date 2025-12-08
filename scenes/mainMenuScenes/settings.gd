@@ -89,7 +89,5 @@ func save_settings() -> void:
 	Global.setting.save("user://settings.ini")
 
 func _on_done_pressed() -> void:
-	Global.windowMode = window_mode_dd.selected
 	save_settings()
-
 	self.hide()
