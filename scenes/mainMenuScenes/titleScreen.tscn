@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ct4slj3ni7ajm"]
+[gd_scene load_steps=22 format=3 uid="uid://ct4slj3ni7ajm"]
 
 [ext_resource type="Texture2D" uid="uid://cu11o3rxixdfc" path="res://assets/backgrounds/placeholder-bg1_1.png" id="1_ajxtn"]
 [ext_resource type="Script" uid="uid://bm2ln7ilo358i" path="res://scenes/mainMenuScenes/titleScreen.gd" id="1_r8sye"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://baj1kv3f0etgu" path="res://scenes/mainMenuScenes/how2play.tscn" id="10_nwd4p"]
 [ext_resource type="PackedScene" uid="uid://c8iabuhhf3o4e" path="res://scenes/mainMenuScenes/loadingScreen.tscn" id="11_2i8gq"]
 [ext_resource type="PackedScene" uid="uid://ctvw0dwc2i0jh" path="res://scenes/mainMenuScenes/stats.tscn" id="11_67agi"]
+[ext_resource type="PackedScene" uid="uid://sjpr02b42usg" path="res://scenes/mainMenuScenes/gameModeSel.tscn" id="11_apxgw"]
 [ext_resource type="PackedScene" uid="uid://blnrook2q0vnj" path="res://scenes/mainMenuScenes/credits.tscn" id="14_d7my7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_c3ue1"]
@@ -184,6 +185,9 @@ LohinSys (ɔ) 2024-2025"
 label_settings = SubResource("LabelSettings_qrvv6")
 horizontal_alignment = 1
 vertical_alignment = 2
+
+[node name="GameModeSel" parent="." instance=ExtResource("11_apxgw")]
+visible = false
 
 [node name="How2Play" parent="." instance=ExtResource("10_nwd4p")]
 visible = false

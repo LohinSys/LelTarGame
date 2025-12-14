@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://ctvw0dwc2i0jh"]
+[gd_scene load_steps=5 format=3 uid="uid://ctvw0dwc2i0jh"]
 
 [ext_resource type="Script" uid="uid://bqicii6j5tt6" path="res://scenes/mainMenuScenes/stats.gd" id="1_e7ukj"]
 
@@ -13,6 +13,9 @@ font_size = 20
 shadow_size = 3
 shadow_color = Color(0, 0, 0, 0.5019608)
 shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_adere"]
+font_color = Color(0.5, 0.5, 0.5, 1)
 
 [node name="Stats" type="Control"]
 layout_mode = 3
@@ -77,12 +80,236 @@ grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
 layout_mode = 2
+size_flags_vertical = 0
 alignment = 1
 
 [node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Nothing here yet..."
+text = "Nothing here yet, but here's all the personal stats that can
+appear, which can also be synced with your account...
+"
 label_settings = SubResource("LabelSettings_e7ukj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+columns = 5
+
+[node name="DiffLbl" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="DiffEasy" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.1882353, 1, 0.3764706, 1)
+theme_override_font_sizes/font_size = 20
+text = "Easy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DiffNorm" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0.6431373, 1, 1)
+theme_override_font_sizes/font_size = 20
+text = "Normal"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DiffHard" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 0.2509804, 0.2509804, 1)
+theme_override_font_sizes/font_size = 20
+text = "Hard"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DiffLuna" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.92156863, 0.3764706, 1, 1)
+theme_override_font_sizes/font_size = 20
+text = "Lunatic"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatRunLbl" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Times Played"
+label_settings = SubResource("LabelSettings_adere")
+vertical_alignment = 1
+
+[node name="StatRunEasy" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatRunNorm" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatRunHard" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatRunLuna" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatBestRunLbl" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Best Run"
+label_settings = SubResource("LabelSettings_adere")
+vertical_alignment = 1
+
+[node name="StatBestRunEasy" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Stage 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatBestRunNorm" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Stage 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatBestRunHard" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Stage 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatBestRunLuna" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Stage 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatBestScoreLbl" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Best Score"
+label_settings = SubResource("LabelSettings_adere")
+vertical_alignment = 1
+
+[node name="StatBestScoreEasy" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatBestScoreNorm" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatBestScoreHard" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatBestScoreLuna" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatDeathsLbl" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Total Deaths"
+label_settings = SubResource("LabelSettings_adere")
+vertical_alignment = 1
+
+[node name="StatDeathsEasy" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatDeathsNorm" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatDeathsHard" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatDeathsLuna" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatBombsLbl" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Bombs Used"
+label_settings = SubResource("LabelSettings_adere")
+vertical_alignment = 1
+
+[node name="StatBombsEasy" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatBombsNorm" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatBombsHard" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatBombsLuna" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 

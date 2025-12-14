@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 func _ready() -> void:
+	$GameModeSel.hide()
 	$How2Play.hide()
 	$Settings.hide()
 	$LoadingScreen.hide()
@@ -19,6 +20,7 @@ func _process(_delta) -> void:
 		$DbgInfo.hide()
 
 func _on_start_game_pressed() -> void:
+	$GameModeSel.show()
 	$LoadingScreen.show()
 	await get_tree().create_timer(0.1).timeout
 	if $Settings.visible == true:

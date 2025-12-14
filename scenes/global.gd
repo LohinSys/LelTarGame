@@ -18,10 +18,11 @@ var showDbgInfo: bool = true
 
 var alive: bool = true
 var started: bool = false
+var selectedDiff: int = 0
 
 var score2give: int = 1
 
-var dbgInfoPrint = str("v",ProjectSettings.get_setting("application/config/version"),"\nRenderer: ",RenderingServer.get_current_rendering_driver_name(),"\n3D Background Test")
+var dbgInfoPrint = str("v",ProjectSettings.get_setting("application/config/version")," - 3D BG Test\nRenderer: ",RenderingServer.get_current_rendering_driver_name())
 
 var health = 100:
 	set(value):
