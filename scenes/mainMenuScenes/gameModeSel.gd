@@ -27,7 +27,7 @@ func start_game() -> void:
 
 
 func easy_desc() -> void:
-	$Panel/DifficultyDesc.text = "Aimed at beginners, however the final stage is inaccessible here."
+	$Panel/DifficultyDesc.text = "Aimed at beginners, however the final stage is inaccessible here and scores from it cannot be submitted to online leaderboards."
 func normal_desc() -> void:
 	$Panel/DifficultyDesc.text = "The intended base difficulty, aimed at those who are average at bullet hell games."
 func hard_desc() -> void:
