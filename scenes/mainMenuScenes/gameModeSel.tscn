@@ -92,7 +92,6 @@ alignment = 1
 
 [node name="Easy" type="Button" parent="Panel/MarginContainer/DiffContainer"]
 layout_mode = 2
-tooltip_text = "Aimed at beginners, however the final stage is inaccessible here."
 theme_override_colors/font_color = Color(0.1882353, 1, 0.3764706, 1)
 theme_override_colors/font_focus_color = Color(0.1882353, 1, 0.3764706, 1)
 theme_override_colors/font_pressed_color = Color(0.1882353, 1, 0.3764706, 1)
@@ -104,7 +103,6 @@ text = "Easy"
 
 [node name="Normal" type="Button" parent="Panel/MarginContainer/DiffContainer"]
 layout_mode = 2
-tooltip_text = "The intended base difficulty, aimed at those who are average at bullet hell games."
 theme_override_colors/font_color = Color(0, 0.6431373, 1, 1)
 theme_override_colors/font_focus_color = Color(0, 0.6431373, 1, 1)
 theme_override_colors/font_pressed_color = Color(0, 0.6431373, 1, 1)
@@ -116,7 +114,6 @@ text = "Normal"
 
 [node name="Hard" type="Button" parent="Panel/MarginContainer/DiffContainer"]
 layout_mode = 2
-tooltip_text = "Near arcade difficulty, aimed at those who's very experienced in bullet hell games."
 theme_override_colors/font_color = Color(1, 0.2509804, 0.2509804, 1)
 theme_override_colors/font_focus_color = Color(1, 0.2509804, 0.2509804, 1)
 theme_override_colors/font_pressed_color = Color(1, 0.2509804, 0.2509804, 1)
@@ -128,7 +125,6 @@ text = "Hard"
 
 [node name="Lunatic" type="Button" parent="Panel/MarginContainer/DiffContainer"]
 layout_mode = 2
-tooltip_text = "Ridiculously difficult, not for the faint of heart."
 theme_override_colors/font_color = Color(0.92156863, 0.3764706, 1, 1)
 theme_override_colors/font_focus_color = Color(0.92156863, 0.3764706, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.92156863, 0.3764706, 1, 1)
@@ -138,7 +134,7 @@ theme_override_colors/font_disabled_color = Color(0.9173334, 0.38, 1, 0.5019608)
 theme_override_font_sizes/font_size = 24
 text = "Lunatic"
 
-[node name="Label" type="Label" parent="Panel"]
+[node name="CurrentPlayer" type="Label" parent="Panel"]
 layout_mode = 0
 offset_left = 17.5
 offset_top = 84.0
@@ -152,6 +148,22 @@ theme_override_font_sizes/font_size = 18
 text = "You are currently playing as a Guest.
 Scores will only be saved locally."
 horizontal_alignment = 1
+autowrap_mode = 3
+max_lines_visible = 2
+
+[node name="DifficultyDesc" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 324.0
+offset_right = 583.0
+offset_bottom = 367.0
+theme_override_colors/font_color = Color(0.65, 0.65, 0.65, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5019608)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1
+autowrap_mode = 3
 max_lines_visible = 2
 
 [node name="Exit" type="Button" parent="Panel"]
@@ -173,8 +185,16 @@ text = "Back"
 [node name="LoadingScreen" parent="." instance=ExtResource("2_sd3lv")]
 visible = false
 
+[connection signal="mouse_entered" from="Panel/MarginContainer/DiffContainer/Easy" to="." method="_on_easy_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/MarginContainer/DiffContainer/Easy" to="." method="_on_easy_mouse_exited"]
 [connection signal="pressed" from="Panel/MarginContainer/DiffContainer/Easy" to="." method="_on_easy_pressed"]
+[connection signal="mouse_entered" from="Panel/MarginContainer/DiffContainer/Normal" to="." method="_on_normal_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/MarginContainer/DiffContainer/Normal" to="." method="_on_normal_mouse_exited"]
 [connection signal="pressed" from="Panel/MarginContainer/DiffContainer/Normal" to="." method="_on_norm_pressed"]
+[connection signal="mouse_entered" from="Panel/MarginContainer/DiffContainer/Hard" to="." method="_on_hard_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/MarginContainer/DiffContainer/Hard" to="." method="_on_hard_mouse_exited"]
 [connection signal="pressed" from="Panel/MarginContainer/DiffContainer/Hard" to="." method="_on_hard_pressed"]
+[connection signal="mouse_entered" from="Panel/MarginContainer/DiffContainer/Lunatic" to="." method="_on_lunatic_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/MarginContainer/DiffContainer/Lunatic" to="." method="_on_lunatic_mouse_exited"]
 [connection signal="pressed" from="Panel/MarginContainer/DiffContainer/Lunatic" to="." method="_on_luna_pressed"]
 [connection signal="pressed" from="Panel/Exit" to="." method="_on_exit_pressed"]

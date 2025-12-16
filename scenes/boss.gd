@@ -46,7 +46,16 @@ func _on_speed_timeout() -> void:
 		%Spellcard.autostart = true
 		Global.boss_spellcard_time += 0.5
 	if Global.started and $Speed.wait_time >= 0.025:
-		$Speed.wait_time -= 0.001
+		match Global.selectedDiff:
+			1:	# Easy
+				$Speed.wait_time -= 0.001
+			2:	# Normal
+				$Speed.wait_time -= 0.002
+			3:	# Hard
+				$Speed.wait_time -= 0.004
+			4:	# Lunatic
+				$Speed.wait_time -= 0.01
+
 		Global.score2give += 1
 		print("Current bullet speed: ", str($Speed.wait_time).pad_decimals(3), " seconds for next shot")
 	if !Global.alive:
