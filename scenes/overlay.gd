@@ -14,7 +14,7 @@ var score = 0:
 		score = value
 		%scoreCount.text = str(value).pad_zeros(9)
 
-var hi_score = 500_000:
+var hi_score = 50_000:
 	set(value):
 		hi_score = value
 		%hiScoreCount.text = str(value).pad_zeros(9)
