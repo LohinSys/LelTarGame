@@ -21,6 +21,11 @@ func _ready() -> void:
 	%MusicVolSlider.value = Global.musicVolume
 
 func _process(_delta: float) -> void:
+	if Global.blurFx:
+		$Blur.show()
+	else:
+		$Blur.hide()
+
 	%MasterVolValue.text = str(%MasterVolSlider.value*100).pad_decimals(0) + "%"
 	%SFXVolValue.text = str(%SFXVolSlider.value*100).pad_decimals(0) + "%"
 	%MusicVolValue.text = str(%MusicVolSlider.value*100).pad_decimals(0) + "%"

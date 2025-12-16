@@ -1,5 +1,11 @@
 extends Control
 
+func _process(_delta) -> void:
+	if Global.blurFx:
+		$Blur.show()
+	else:
+		$Blur.hide()
+
 func _on_exit_pressed() -> void:
 	self.hide()
 
@@ -17,4 +23,4 @@ func _on_luna_pressed() -> void:
 	start_game()
 
 func start_game() -> void:
-	pass
+	Global.gameplayTitleSwitchSignal = true

@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://dbrlalqvubg4g"]
+[gd_scene load_steps=14 format=3 uid="uid://dbrlalqvubg4g"]
 
 [ext_resource type="Script" uid="uid://dajk0iw3krqc" path="res://scenes/pause.gd" id="1_f1d2v"]
 [ext_resource type="Texture2D" uid="uid://cmcfibw51jsds" path="res://assets/icons/menu/resume.svg" id="2_aicil"]
 [ext_resource type="Texture2D" uid="uid://dn8uyrj5k6rm" path="res://assets/icons/menu/settings.svg" id="2_m0klm"]
 [ext_resource type="Texture2D" uid="uid://br5pconpfvi31" path="res://assets/icons/menu/quit.svg" id="2_r8yp4"]
+[ext_resource type="Shader" uid="uid://ca4ymckm1e8si" path="res://scenes/mainMenuScenes/blur.gdshader" id="2_xw83q"]
 [ext_resource type="Texture2D" uid="uid://eail6ics4jca" path="res://assets/icons/menu/how2play.svg" id="3_jn4bt"]
 [ext_resource type="Texture2D" uid="uid://cprswblo46w5f" path="res://assets/icons/menu/restart.svg" id="3_wen6a"]
 [ext_resource type="Texture2D" uid="uid://7l1vo3ppdtvn" path="res://assets/icons/menu/back2title.svg" id="5_r1fnm"]
@@ -11,17 +12,18 @@
 [ext_resource type="PackedScene" uid="uid://ctscjj5oow5p8" path="res://scenes/mainMenuScenes/settings.tscn" id="8_cml1b"]
 [ext_resource type="PackedScene" uid="uid://c8iabuhhf3o4e" path="res://scenes/mainMenuScenes/loadingScreen.tscn" id="10_xmhi0"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0akjr"]
+shader = ExtResource("2_xw83q")
+shader_parameter/lod = 3.50000016625
+
 [sub_resource type="LabelSettings" id="LabelSettings_f1d2v"]
 font_size = 64
 shadow_size = 10
 shadow_color = Color(0, 0, 0, 0.6431373)
 shadow_offset = Vector2(5, 5)
 
-[sub_resource type="LabelSettings" id="LabelSettings_wen6a"]
-font_size = 12
-shadow_color = Color(0, 0, 0, 0.5019608)
-
 [node name="PauseMenu" type="Control" node_paths=PackedStringArray("quitGameButton", "resumeButton")]
+top_level = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,6 +33,16 @@ grow_vertical = 2
 script = ExtResource("1_f1d2v")
 quitGameButton = NodePath("MarginContainer/VBoxContainer/HBoxContainer/QuitGame")
 resumeButton = NodePath("MarginContainer/VBoxContainer/Resume")
+
+[node name="Blur" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_0akjr")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.3764706)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -91,6 +103,7 @@ layout_mode = 2
 [node name="Restart" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "Restarting has not been implemented yet!"
 theme_override_font_sizes/font_size = 28
 disabled = true
 text = "Restart"
@@ -126,6 +139,8 @@ alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "This button is currently producing glitchy
+behaviour, so it's been disabled. Sorry!"
 theme_override_colors/font_color = Color(1, 0.48235294, 0.48235294, 1)
 theme_override_colors/font_focus_color = Color(1, 0.48235294, 0.48235294, 1)
 theme_override_colors/font_pressed_color = Color(1, 0.48235294, 0.48235294, 1)
@@ -155,15 +170,6 @@ icon = ExtResource("2_r8yp4")
 alignment = 0
 icon_alignment = 2
 expand_icon = true
-
-[node name="NotImplementedFIY" type="Label" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(1, 0)
-layout_mode = 2
-text = "(Grayed out buttons = not implemented yet or too broken to allow pressing)"
-label_settings = SubResource("LabelSettings_wen6a")
-horizontal_alignment = 1
-vertical_alignment = 2
-autowrap_mode = 3
 
 [node name="How2Play" parent="." instance=ExtResource("8_1xtef")]
 visible = false

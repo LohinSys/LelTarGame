@@ -5,6 +5,8 @@ extends CanvasLayer
 @onready var graze_count = $playerStatsContainer/grazeContainer/grazeCount
 @onready var final_score = $GameOver/GameOverContainer/GameOverFSCount
 
+@onready var diff_label = $playerStatsContainer/difficultyLabel
+
 @export var menu_button : Button
 
 var score = 0:
@@ -39,6 +41,8 @@ var power_lvl = Global.power:
 		%powerCount.text = str(value).left(1)
 		%powerCountDecimal.text = str(value).pad_decimals(1).right(1)
 
+var scoreMult: float = 1.0
+
 func _input(event):
 	if event.is_action_pressed("use_bomb") and Global.alive and Global.bomb != 0:
 		Global.bomb -= 1
@@ -48,13 +52,31 @@ func _input(event):
 func _ready() -> void:
 	$DbgInfo.set_text(Global.dbgInfoPrint)
 
+	match Global.selectedDiff:
+		1: # Easy
+			diff_label.text = "Easy"
+			diff_label.add_theme_color_override("font_outline_color",Color(0x30ff60ff))
+			scoreMult = 0.75
+		2: # Normal
+			diff_label.text = "Normal"
+			diff_label.add_theme_color_override("font_outline_color",Color(0x00a4ffff))
+			scoreMult = 1.0
+		3: # Hard
+			diff_label.text = "Hard"
+			diff_label.add_theme_color_override("font_outline_color",Color(0xff4040ff))
+			scoreMult = 1.25
+		4: # Lunatic
+			diff_label.text = "Lunatic"
+			diff_label.add_theme_color_override("font_outline_color",Color(0xeb60ffff))
+			scoreMult = 1.5
+
 func _process(_delta) -> void:
 	if Global.alive and Global.started:
 		$startGameInstruct.hide()
 		%SpellcardTimerContainer.show()
 		$BossBarBackground.show()
 		%BossBarContainer.show()
-		score += (Global.score2give * (Global.graze+1))
+		score += roundi( (Global.score2give * (Global.graze+1)) * scoreMult )
 
 		if 200_000 >= score and score >= 50_000:
 			Global.power = 0.5

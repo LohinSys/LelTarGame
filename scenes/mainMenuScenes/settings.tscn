@@ -1,7 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://ctscjj5oow5p8"]
+[gd_scene load_steps=13 format=3 uid="uid://ctscjj5oow5p8"]
 
 [ext_resource type="Script" uid="uid://davhhq6kt2g8x" path="res://scenes/mainMenuScenes/settings.gd" id="1_e430n"]
 [ext_resource type="Script" uid="uid://b3kl4qaesjp28" path="res://scenes/mainMenuScenes/masterVol.gd" id="2_caasp"]
+[ext_resource type="Shader" uid="uid://ca4ymckm1e8si" path="res://scenes/mainMenuScenes/blur.gdshader" id="2_wlyyc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ce6t2"]
+shader = ExtResource("2_wlyyc")
+shader_parameter/lod = 3.50000016625
 
 [sub_resource type="LabelSettings" id="LabelSettings_ixrxk"]
 font_size = 40
@@ -52,6 +57,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e430n")
+
+[node name="Blur" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_ce6t2")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.3764706)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -289,7 +304,12 @@ alignment = 1
 [node name="AnisotropyContainer" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG1"]
 layout_mode = 2
 size_flags_horizontal = 6
-tooltip_text = "Switch between Windowed and Fullscreen modes."
+tooltip_text = "Anisotropic Filtering, a technique that improves
+the appearance of textures, especially in 3D Scenes.
+Available from 2x-16x (higher value is better but laggier)
+
+Only disable this if this is somehow causing
+performance issues."
 alignment = 1
 
 [node name="Label" type="Label" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG1/AnisotropyContainer"]
@@ -319,11 +339,9 @@ popup/item_4/id = 4
 [node name="Scale3DContainer" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG1"]
 layout_mode = 2
 size_flags_horizontal = 6
-tooltip_text = "Switch between various types of anti-aliasing, such as:
-- Fast-Approximate Anti-aliasing (FXAA)
-- Subpixel Morphological Anti-aliasing (SMAA)
-- Multisample Anti-aliasing (MSAA 2x,4x,8x)
-(Higher values are not recommended for weaker devices!!)"
+tooltip_text = "Change the scaling of 3D elements. Lower values render blurrier,
+but faster, while higher values can render more detail, but can
+lag the game harshly as a result."
 alignment = 1
 
 [node name="Label" type="Label" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG1/Scale3DContainer"]
@@ -380,8 +398,7 @@ button_pressed = true
 [node name="BlurFXContainer" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG2"]
 layout_mode = 2
 size_flags_horizontal = 3
-tooltip_text = "(Not implemented yet!)
-Toggles blur effects around menus and stage backgrounds."
+tooltip_text = "Toggles blur effects around menus and stage backgrounds."
 alignment = 1
 
 [node name="Label" type="Label" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG2/BlurFXContainer"]
@@ -393,6 +410,7 @@ label_settings = SubResource("LabelSettings_ce6t2")
 [node name="Option" type="CheckButton" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG2/BlurFXContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
+button_pressed = true
 
 [node name="ShowFpsContainer" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG2"]
 layout_mode = 2
@@ -458,7 +476,7 @@ offset_right = 249.5
 offset_bottom = 19.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "Volume settings do NOT work yet, and Blur Effects have NOT been implemented yet either!"
+text = "Volume settings do NOT work yet!!"
 label_settings = SubResource("LabelSettings_ga827")
 horizontal_alignment = 1
 vertical_alignment = 2

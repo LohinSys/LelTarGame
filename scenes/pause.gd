@@ -11,6 +11,12 @@ func _ready() -> void:
 	self.process_mode = Node.PROCESS_MODE_ALWAYS
 	disableUI()
 
+func _process(_delta) -> void:
+	if Global.blurFx:
+		$Blur.show()
+	else:
+		$Blur.hide()
+
 func _input(event):
 	if event.is_action_pressed("pause"):
 		if ui_enabled:

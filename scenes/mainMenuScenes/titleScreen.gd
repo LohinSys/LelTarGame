@@ -19,13 +19,12 @@ func _process(_delta) -> void:
 	else:
 		$DbgInfo.hide()
 
+	if Global.gameplayTitleSwitchSignal:
+		Global.gameplayTitleSwitchSignal = false
+		start_game()
+
 func _on_start_game_pressed() -> void:
 	$GameModeSel.show()
-	$LoadingScreen.show()
-	await get_tree().create_timer(0.1).timeout
-	if $Settings.visible == true:
-		$Settings.hide()
-	get_tree().change_scene_to_file("res://scenes/bossRoom.tscn")
 
 func _on_how2play_pressed() -> void:
 	$How2Play.show()
@@ -42,3 +41,10 @@ func _on_credits_pressed() -> void:
 func _on_quit_game_pressed() -> void:
 	$LoadingScreen.show()
 	get_tree().quit()
+
+func start_game() -> void:
+	$LoadingScreen.show()
+	await get_tree().create_timer(0.1).timeout
+	if $Settings.visible == true:
+		$Settings.hide()
+	get_tree().change_scene_to_file("res://scenes/bossRoom.tscn")

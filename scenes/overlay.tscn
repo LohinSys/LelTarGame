@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://6tnyxq2pf060"]
+[gd_scene load_steps=39 format=3 uid="uid://6tnyxq2pf060"]
 
 [ext_resource type="Script" uid="uid://cilxi7ctnnwg7" path="res://scenes/overlay.gd" id="1_d607a"]
 [ext_resource type="FontFile" uid="uid://by4fv8t0jo01q" path="res://assets/fonts/monkey.ttf" id="2_0miq5"]
@@ -87,11 +87,6 @@ font_color = Color(0.7019608, 0.7019608, 0.7019608, 1)
 font = ExtResource("2_0miq5")
 font_size = 24
 
-[sub_resource type="LabelSettings" id="LabelSettings_cpe4y"]
-font_size = 32
-outline_size = 8
-outline_color = Color(0, 0.7529412, 1, 1)
-
 [sub_resource type="Gradient" id="Gradient_r2eog"]
 colors = PackedColorArray(1, 0, 0.5019608, 1, 0.2509804, 0, 0, 1)
 
@@ -164,7 +159,6 @@ shadow_size = 2
 shadow_color = Color(0, 0, 0, 0.5019608)
 
 [node name="CanvasLayer" type="CanvasLayer" node_paths=PackedStringArray("menu_button")]
-layer = 9001
 script = ExtResource("1_d607a")
 menu_button = NodePath("MenuButton")
 
@@ -346,8 +340,9 @@ offset_bottom = 211.0
 
 [node name="difficultyLabel" type="Label" parent="playerStatsContainer"]
 layout_mode = 2
-text = "Normal"
-label_settings = SubResource("LabelSettings_cpe4y")
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 32
+text = "N/A"
 horizontal_alignment = 1
 
 [node name="Separator" type="TextureRect" parent="playerStatsContainer"]
