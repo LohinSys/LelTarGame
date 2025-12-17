@@ -21,9 +21,12 @@ var alive: bool = true
 var started: bool = false
 var selectedDiff: int = 0
 
-var score2give: int = 1
+var score: int = 0
 
-var dbgInfoPrint = str("v",ProjectSettings.get_setting("application/config/version")," - Blurs! Difficulties!\nRenderer: ",RenderingServer.get_current_rendering_driver_name())
+var score2give = 1
+
+var verNote = "More Saves!!"
+var dbgInfoPrint = str("v",ProjectSettings.get_setting("application/config/version")," - ",verNote,"\nRenderer: ",RenderingServer.get_current_rendering_driver_name())
 
 var health = 100:
 	set(value):
@@ -54,6 +57,13 @@ func update_window_mode() -> void:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 		1:	# Fullscreen mode
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+
+func update_vsync() -> void:
+	match vSync:
+		true:
+			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
+		false:
+			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 
 func update_antialias_type() -> void:
 	# These variables are just for shit that appear more than once cuz Godot wouldn't let me just use numbers
@@ -89,23 +99,17 @@ func update_antialias_type() -> void:
 
 func update_anisotropy() -> void:
 	var viewport: RID = get_tree().get_root().get_viewport_rid()
-	var anisotropic_req = RenderingServer.CANVAS_ITEM_TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
 
 	match anisotropy:
 		0: # Disabled
-			RenderingServer.canvas_item_set_default_texture_filter(viewport,RenderingServer.CANVAS_ITEM_TEXTURE_FILTER_LINEAR_WITH_MIPMAPS)
 			RenderingServer.viewport_set_anisotropic_filtering_level(viewport,RenderingServer.VIEWPORT_ANISOTROPY_DISABLED)
 		1: # 2x
-			RenderingServer.canvas_item_set_default_texture_filter(viewport,anisotropic_req)
 			RenderingServer.viewport_set_anisotropic_filtering_level(viewport,RenderingServer.VIEWPORT_ANISOTROPY_2X)
 		2: # 4x
-			RenderingServer.canvas_item_set_default_texture_filter(viewport,anisotropic_req)
 			RenderingServer.viewport_set_anisotropic_filtering_level(viewport,RenderingServer.VIEWPORT_ANISOTROPY_4X)
 		3: # 8x
-			RenderingServer.canvas_item_set_default_texture_filter(viewport,anisotropic_req)
 			RenderingServer.viewport_set_anisotropic_filtering_level(viewport,RenderingServer.VIEWPORT_ANISOTROPY_8X)
 		4: # 16x
-			RenderingServer.canvas_item_set_default_texture_filter(viewport,anisotropic_req)
 			RenderingServer.viewport_set_anisotropic_filtering_level(viewport,RenderingServer.VIEWPORT_ANISOTROPY_16X)
 
 func update_3d_scale() -> void:
@@ -131,9 +135,23 @@ func update_3d_scale() -> void:
 func update_fps_display(fpsNode) -> void:
 	fpsNode.set_text("%d fps" % Engine.get_frames_per_second())
 
-func _ready() -> void:
-	print("Lel.tar ",dbgInfoPrint,"\nCopyleft LohinSys (ɔ) 2024-2025")
+func num_with_thou_seps(number: int) -> String:
+	var num_str: String = str(number).lstrip("-")
+	var result: String = ""
+	var count: int = 0
 
+	for i in range(num_str.length() - 1, -1, -1):
+		result = num_str[i] + result
+		count += 1
+		if count % 3 == 0 and i != 0:
+			result = "," + result
+
+	if number < 0:
+		result = "-" + result
+
+	return result
+
+func load_settings() -> void:
 	var sErr = setting.load("user://settings.ini")
 	if sErr == OK:
 		masterVolume = setting.get_value("Volume", "master")
@@ -152,9 +170,16 @@ func _ready() -> void:
 		return
 
 	update_window_mode()
+	update_vsync()
 	update_antialias_type()
 	update_anisotropy()
 	update_3d_scale()
+
+func _ready() -> void:
+	print("Lel.tar ",dbgInfoPrint,"\nCopyleft LohinSys (ɔ) 2024-2025")
+
+	load_settings()
+
 
 #func change_scene_to_node(node):
 	#var tree = get_tree()

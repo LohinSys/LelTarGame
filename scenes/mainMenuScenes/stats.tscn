@@ -102,8 +102,8 @@ alignment = 1
 
 [node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Nothing here yet, but here's all the personal stats that can
-appear, which can also be synced with your account...
+text = "Here's all of your personal stats that can appear,
+which can also be synced with your account...
 "
 label_settings = SubResource("LabelSettings_e7ukj")
 horizontal_alignment = 1
@@ -181,6 +181,7 @@ label_settings = SubResource("LabelSettings_adere")
 vertical_alignment = 1
 
 [node name="StatRunEasy" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5019608)
@@ -191,6 +192,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="StatRunNorm" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5019608)
@@ -201,6 +203,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="StatRunHard" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5019608)
@@ -211,6 +214,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="StatRunLuna" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5019608)
@@ -231,6 +235,7 @@ label_settings = SubResource("LabelSettings_adere")
 vertical_alignment = 1
 
 [node name="StatBestRunEasy" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5019608)
@@ -241,6 +246,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="StatBestRunNorm" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5019608)
@@ -251,6 +257,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="StatBestRunHard" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5019608)
@@ -261,6 +268,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="StatBestRunLuna" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5019608)
@@ -281,42 +289,46 @@ label_settings = SubResource("LabelSettings_adere")
 vertical_alignment = 1
 
 [node name="StatBestScoreEasy" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5019608)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
-text = "0"
+text = "50,000"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="StatBestScoreNorm" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5019608)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
-text = "0"
+text = "50,000"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="StatBestScoreHard" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5019608)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
-text = "0"
+text = "50,000"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="StatBestScoreLuna" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5019608)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
-text = "0"
+text = "50,000"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -331,6 +343,7 @@ label_settings = SubResource("LabelSettings_adere")
 vertical_alignment = 1
 
 [node name="StatDeathsEasy" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5019608)
@@ -341,6 +354,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="StatDeathsNorm" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5019608)
@@ -351,6 +365,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="StatDeathsHard" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5019608)
@@ -361,6 +376,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="StatDeathsLuna" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5019608)
@@ -381,6 +397,7 @@ label_settings = SubResource("LabelSettings_adere")
 vertical_alignment = 1
 
 [node name="StatBombsEasy" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5019608)
@@ -391,6 +408,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="StatBombsNorm" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5019608)
@@ -401,6 +419,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="StatBombsHard" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5019608)
@@ -411,6 +430,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="StatBombsLuna" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5019608)

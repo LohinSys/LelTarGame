@@ -16,6 +16,15 @@ var health = Global.health:
 func _input(event):
 	if event.is_action_pressed("use_bomb") and Global.alive and Global.bomb != 0:
 		$BombSfx.play()
+		match Global.selectedDiff:
+			1:	# Easy
+				PlayerStats.easyBombsUsed += 1
+			2:	# Normal
+				PlayerStats.normBombsUsed += 1
+			3:	# Hard
+				PlayerStats.hardBombsUsed += 1
+			4:	# Lunatic
+				PlayerStats.lunaBombsUsed += 1
 
 func _ready() -> void:
 	$AnimatedSprite2D.play()
@@ -39,7 +48,6 @@ func _physics_process(_delta: float) -> void:
 
 	if Global.health <= 0:
 		self.hide()
-		Global.alive = false
 
 func set_status(bullet_type) -> void:
 	match bullet_type:
@@ -71,8 +79,17 @@ func stun() -> void:
 		Global.health += 1
 		await get_tree().create_timer(0.5).timeout
 
-
 func _on_death() -> void:
+	Global.alive = false
 	$DeathSfx.play()
-	await get_tree().create_timer(1.2).timeout
+	match Global.selectedDiff:
+		1:	# Easy
+			PlayerStats.easyDeaths += 1
+		2:	# Normal
+			PlayerStats.normDeaths += 1
+		3:	# Hard
+			PlayerStats.hardDeaths += 1
+		4:	# Lunatic
+			PlayerStats.lunaDeaths += 1
+	await get_tree().create_timer(1.5).timeout
 	self.queue_free()

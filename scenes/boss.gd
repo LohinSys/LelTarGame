@@ -49,15 +49,18 @@ func _on_speed_timeout() -> void:
 		match Global.selectedDiff:
 			1:	# Easy
 				$Speed.wait_time -= 0.001
+				Global.score2give += 1
 			2:	# Normal
 				$Speed.wait_time -= 0.002
+				Global.score2give += 1.1
 			3:	# Hard
 				$Speed.wait_time -= 0.004
+				Global.score2give += 1.5
 			4:	# Lunatic
 				$Speed.wait_time -= 0.01
+				Global.score2give += 2
 
-		Global.score2give += 1
-		print("Current bullet speed: ", str($Speed.wait_time).pad_decimals(3), " seconds for next shot")
+		# print("Current bullet speed: ", str($Speed.wait_time).pad_decimals(3), " seconds for next shot")
 	if !Global.alive:
 		if $Speed.wait_time == 0.025:
 			$Speed.wait_time = 0.001

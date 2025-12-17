@@ -9,12 +9,13 @@ extends CanvasLayer
 
 @export var menu_button : Button
 
-var score = 0:
+var score: int = Global.score:
 	set(value):
 		score = value
+		Global.score = value
 		%scoreCount.text = str(value).pad_zeros(9)
 
-var hi_score = 50_000:
+var hi_score: int = 0:
 	set(value):
 		hi_score = value
 		%hiScoreCount.text = str(value).pad_zeros(9)
@@ -30,12 +31,12 @@ var dhealth = Global.health:
 		dhealth = value
 		health_bar.value = value
 
-var bombs = Global.bomb:
+var bombs: int = Global.bomb:
 	set(value):
 		bombs = value
 		bomb_bar.value = value
 
-var power_lvl = Global.power:
+var power_lvl: float = Global.power:
 	set(value):
 		power_lvl = value
 		%powerCount.text = str(value).left(1)
@@ -51,24 +52,33 @@ func _input(event):
 
 func _ready() -> void:
 	$DbgInfo.set_text(Global.dbgInfoPrint)
+	Global.score = 0
 
 	match Global.selectedDiff:
 		1: # Easy
 			diff_label.text = "Easy"
 			diff_label.add_theme_color_override("font_outline_color",Color(0x30ff60ff))
 			scoreMult = 0.75
+			PlayerStats.easyTimesPlayed += 1
+			hi_score = PlayerStats.easyHiScore
 		2: # Normal
 			diff_label.text = "Normal"
 			diff_label.add_theme_color_override("font_outline_color",Color(0x00a4ffff))
 			scoreMult = 1.0
+			PlayerStats.normTimesPlayed += 1
+			hi_score = PlayerStats.normHiScore
 		3: # Hard
 			diff_label.text = "Hard"
 			diff_label.add_theme_color_override("font_outline_color",Color(0xff4040ff))
 			scoreMult = 1.25
+			PlayerStats.hardTimesPlayed += 1
+			hi_score = PlayerStats.hardHiScore
 		4: # Lunatic
 			diff_label.text = "Lunatic"
 			diff_label.add_theme_color_override("font_outline_color",Color(0xeb60ffff))
 			scoreMult = 1.5
+			PlayerStats.lunaTimesPlayed += 1
+			hi_score = PlayerStats.lunaHiScore
 
 func _process(_delta) -> void:
 	if Global.alive and Global.started:
@@ -76,7 +86,9 @@ func _process(_delta) -> void:
 		%SpellcardTimerContainer.show()
 		$BossBarBackground.show()
 		%BossBarContainer.show()
-		score += roundi( (Global.score2give * (Global.graze+1)) * scoreMult )
+
+		Global.score += roundi( (Global.score2give * (Global.graze+1)) * scoreMult )
+		score = Global.score
 
 		if 200_000 >= score and score >= 50_000:
 			Global.power = 0.5
@@ -92,13 +104,7 @@ func _process(_delta) -> void:
 			Global.power = 4.0
 
 	if !Global.alive:
-		if score > hi_score:
-			hi_score = score
-		final_score.text = str(score)
-		$GameOver.visible = true
-		if Global.started:
-			Global.power = Global.power * 0.625
-			Global.started = false
+		$AliveIndicator.hide()
 
 	dhealth = Global.health
 	bombs = Global.bomb
@@ -118,3 +124,23 @@ func _process(_delta) -> void:
 
 func _on_menu_button_pressed() -> void:
 	$PauseMenu.enableUI()
+
+func _on_alive_indicator_hidden() -> void:
+	if Global.score > hi_score:
+		hi_score = Global.score
+		match Global.selectedDiff:
+			1:	# Easy
+				PlayerStats.easyHiScore = hi_score
+			2:	# Normal
+				PlayerStats.normHiScore = hi_score
+			3:	# Hard
+				PlayerStats.hardHiScore = hi_score
+			4:	# Lunatic
+				PlayerStats.lunaHiScore = hi_score
+	final_score.text = Global.num_with_thou_seps(score)
+	$GameOver.visible = true
+
+	Global.power = Global.power * 0.625
+	Global.started = false
+
+	PlayerStats.save()

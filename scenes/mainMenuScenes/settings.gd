@@ -53,10 +53,9 @@ func _on_scaling_3d_mode_selected(index: int) -> void:
 func _on_vsync_pressed() -> void:
 	if Global.vSync:
 		Global.vSync = false
-		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
 	else:
 		Global.vSync = true
-		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+	Global.update_vsync()
 
 func _on_blurFx_pressed() -> void:
 	if Global.blurFx:
