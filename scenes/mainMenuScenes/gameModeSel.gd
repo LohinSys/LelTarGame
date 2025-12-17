@@ -6,6 +6,9 @@ func _process(_delta) -> void:
 	else:
 		$Blur.hide()
 
+	if Account.username != "":
+		$Panel/CurrentPlayer.text = "You are currently playing as %s\nKeep in mind that you have account sync enabled." % Account.username
+
 func _on_exit_pressed() -> void:
 	self.hide()
 

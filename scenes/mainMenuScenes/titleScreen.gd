@@ -42,6 +42,19 @@ func _on_quit_game_pressed() -> void:
 	$LoadingScreen.show()
 	get_tree().quit()
 
+func _on_login_button_pressed() -> void:
+	$Login.show()
+
+func _on_login_hidden() -> void:
+	if Account.loginSuccess:
+		$AccountContainer/LoginButton.hide()
+		$AccountContainer/LogoutButton.show()
+
+func _on_logout_button_pressed() -> void:
+	if Account.loggedIn:
+		$AccountContainer/LogoutButton.hide()
+		$AccountContainer/LoginButton.show()
+
 func start_game() -> void:
 	$LoadingScreen.show()
 	await get_tree().create_timer(0.1).timeout

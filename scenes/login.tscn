@@ -1,4 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://diw1m0fahrmp7"]
+[gd_scene load_steps=5 format=3 uid="uid://diw1m0fahrmp7"]
+
+[ext_resource type="Script" uid="uid://cmjs1daseh5n8" path="res://scenes/login.gd" id="1_pymad"]
+[ext_resource type="Shader" uid="uid://ca4ymckm1e8si" path="res://scenes/mainMenuScenes/blur.gdshader" id="2_nw41r"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0emk2"]
+shader = ExtResource("2_nw41r")
+shader_parameter/lod = 3.50000016625
 
 [sub_resource type="LabelSettings" id="LabelSettings_ryv3l"]
 font_size = 40
@@ -13,6 +20,20 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_pymad")
+
+[node name="Blur" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_0emk2")
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -370.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 245.0
+grow_horizontal = 0
+color = Color(0, 0, 0, 0.3764706)
 
 [node name="Panel" type="Panel" parent="."]
 clip_contents = true
@@ -56,10 +77,12 @@ grow_vertical = 2
 alignment = 1
 
 [node name="Username" type="LineEdit" parent="Panel/Input"]
+unique_name_in_owner = true
 layout_mode = 2
 placeholder_text = "Username"
 
 [node name="Password" type="LineEdit" parent="Panel/Input"]
+unique_name_in_owner = true
 layout_mode = 2
 placeholder_text = "Password"
 secret = true
@@ -89,3 +112,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Cancel
 "
+
+[connection signal="pressed" from="Panel/Buttons/Login" to="." method="_on_login_pressed"]
+[connection signal="pressed" from="Panel/Buttons/Cancel" to="." method="_on_cancel_pressed"]

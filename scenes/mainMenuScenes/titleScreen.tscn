@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ct4slj3ni7ajm"]
+[gd_scene load_steps=23 format=3 uid="uid://ct4slj3ni7ajm"]
 
 [ext_resource type="Texture2D" uid="uid://cu11o3rxixdfc" path="res://assets/backgrounds/placeholder-bg1_1.png" id="1_ajxtn"]
 [ext_resource type="Script" uid="uid://bm2ln7ilo358i" path="res://scenes/mainMenuScenes/titleScreen.gd" id="1_r8sye"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://c8iabuhhf3o4e" path="res://scenes/mainMenuScenes/loadingScreen.tscn" id="11_2i8gq"]
 [ext_resource type="PackedScene" uid="uid://ctvw0dwc2i0jh" path="res://scenes/mainMenuScenes/stats.tscn" id="11_67agi"]
 [ext_resource type="PackedScene" uid="uid://sjpr02b42usg" path="res://scenes/mainMenuScenes/gameModeSel.tscn" id="11_apxgw"]
+[ext_resource type="PackedScene" uid="uid://diw1m0fahrmp7" path="res://scenes/login.tscn" id="11_mkk3h"]
 [ext_resource type="PackedScene" uid="uid://blnrook2q0vnj" path="res://scenes/mainMenuScenes/credits.tscn" id="14_d7my7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_c3ue1"]
@@ -152,7 +153,8 @@ offset_left = -40.0
 offset_bottom = 40.0
 grow_horizontal = 0
 
-[node name="UserLabel" type="Label" parent="AccountContainer"]
+[node name="AccountLabel" type="Label" parent="AccountContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Welcome, Guest!
 You are not logged in."
@@ -163,8 +165,17 @@ horizontal_alignment = 2
 custom_minimum_size = Vector2(125, 0)
 layout_mode = 2
 size_flags_horizontal = 8
-disabled = true
 text = "Login"
+icon = ExtResource("4_ccak3")
+icon_alignment = 2
+expand_icon = true
+
+[node name="LogoutButton" type="Button" parent="AccountContainer"]
+visible = false
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Logout"
 icon = ExtResource("4_ccak3")
 icon_alignment = 2
 expand_icon = true
@@ -185,6 +196,9 @@ LohinSys (ɔ) 2024-2025"
 label_settings = SubResource("LabelSettings_qrvv6")
 horizontal_alignment = 1
 vertical_alignment = 2
+
+[node name="Login" parent="." instance=ExtResource("11_mkk3h")]
+visible = false
 
 [node name="GameModeSel" parent="." instance=ExtResource("11_apxgw")]
 visible = false
@@ -237,3 +251,6 @@ visible = false
 [connection signal="pressed" from="MenuBtnContainer/HBoxContainer2/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="MenuBtnContainer/HBoxContainer2/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="MenuBtnContainer/QuitGame" to="." method="_on_quit_game_pressed"]
+[connection signal="pressed" from="AccountContainer/LoginButton" to="." method="_on_login_button_pressed"]
+[connection signal="pressed" from="AccountContainer/LogoutButton" to="." method="_on_logout_button_pressed"]
+[connection signal="hidden" from="Login" to="." method="_on_login_hidden"]
