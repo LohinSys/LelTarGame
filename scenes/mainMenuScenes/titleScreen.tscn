@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ct4slj3ni7ajm"]
+[gd_scene load_steps=24 format=3 uid="uid://ct4slj3ni7ajm"]
 
 [ext_resource type="Texture2D" uid="uid://cu11o3rxixdfc" path="res://assets/backgrounds/placeholder-bg1_1.png" id="1_ajxtn"]
 [ext_resource type="Script" uid="uid://bm2ln7ilo358i" path="res://scenes/mainMenuScenes/titleScreen.gd" id="1_r8sye"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://c8iabuhhf3o4e" path="res://scenes/mainMenuScenes/loadingScreen.tscn" id="11_2i8gq"]
 [ext_resource type="PackedScene" uid="uid://ctvw0dwc2i0jh" path="res://scenes/mainMenuScenes/stats.tscn" id="11_67agi"]
 [ext_resource type="PackedScene" uid="uid://sjpr02b42usg" path="res://scenes/mainMenuScenes/gameModeSel.tscn" id="11_apxgw"]
+[ext_resource type="Texture2D" uid="uid://rjgk13wjchxn" path="res://assets/icons/menu/logout.svg" id="11_hbqqx"]
 [ext_resource type="PackedScene" uid="uid://diw1m0fahrmp7" path="res://scenes/login.tscn" id="11_mkk3h"]
 [ext_resource type="PackedScene" uid="uid://blnrook2q0vnj" path="res://scenes/mainMenuScenes/credits.tscn" id="14_d7my7"]
 
@@ -129,6 +130,11 @@ expand_icon = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.88, 0.42240003, 0.42240003, 1)
+theme_override_colors/font_focus_color = Color(1, 0.48235294, 0.48235294, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.48235294, 0.48235294, 1)
+theme_override_colors/font_hover_color = Color(1, 0.48235294, 0.48235294, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0.48235294, 0.48235294, 1)
+theme_override_colors/font_disabled_color = Color(1, 0.48235294, 0.48235294, 0.5019608)
 theme_override_font_sizes/font_size = 24
 text = "Quit Game"
 icon = ExtResource("4_ful2y")
@@ -161,22 +167,31 @@ You are not logged in."
 label_settings = SubResource("LabelSettings_vpt7i")
 horizontal_alignment = 2
 
-[node name="LoginButton" type="Button" parent="AccountContainer"]
+[node name="LoginTitleButton" type="Button" parent="AccountContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(125, 0)
 layout_mode = 2
 size_flags_horizontal = 8
+disabled = true
 text = "Login"
 icon = ExtResource("4_ccak3")
 icon_alignment = 2
 expand_icon = true
 
-[node name="LogoutButton" type="Button" parent="AccountContainer"]
+[node name="LogoutTitleButton" type="Button" parent="AccountContainer"]
+unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(125, 0)
 layout_mode = 2
 size_flags_horizontal = 8
+theme_override_colors/font_color = Color(1, 0.48235294, 0.48235294, 1)
+theme_override_colors/font_focus_color = Color(1, 0.48235294, 0.48235294, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.48235294, 0.48235294, 1)
+theme_override_colors/font_hover_color = Color(1, 0.48235294, 0.48235294, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0.48235294, 0.48235294, 1)
+theme_override_colors/font_disabled_color = Color(1, 0.48235294, 0.48235294, 0.5019608)
 text = "Logout"
-icon = ExtResource("4_ccak3")
+icon = ExtResource("11_hbqqx")
 icon_alignment = 2
 expand_icon = true
 
@@ -251,6 +266,6 @@ visible = false
 [connection signal="pressed" from="MenuBtnContainer/HBoxContainer2/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="MenuBtnContainer/HBoxContainer2/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="MenuBtnContainer/QuitGame" to="." method="_on_quit_game_pressed"]
-[connection signal="pressed" from="AccountContainer/LoginButton" to="." method="_on_login_button_pressed"]
-[connection signal="pressed" from="AccountContainer/LogoutButton" to="." method="_on_logout_button_pressed"]
+[connection signal="pressed" from="AccountContainer/LoginTitleButton" to="." method="_on_login_button_pressed"]
+[connection signal="pressed" from="AccountContainer/LogoutTitleButton" to="." method="_on_logout_button_pressed"]
 [connection signal="hidden" from="Login" to="." method="_on_login_hidden"]

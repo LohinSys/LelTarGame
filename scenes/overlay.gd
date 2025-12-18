@@ -54,6 +54,11 @@ func _ready() -> void:
 	$DbgInfo.set_text(Global.dbgInfoPrint)
 	Global.score = 0
 
+	if Account.loggedIn:
+		$scoreContainer/playerNameValue.text = Account.username
+	else:
+		$scoreContainer/playerNameValue.text = "Guest"
+
 	match Global.selectedDiff:
 		1: # Easy
 			diff_label.text = "Easy"

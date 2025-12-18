@@ -7,6 +7,14 @@ func _ready() -> void:
 	$LoadingScreen.hide()
 	$DbgInfo.set_text(Global.dbgInfoPrint)
 
+	await get_tree().create_timer(0.5).timeout
+	if !Account.loggedIn:
+		%LoginTitleButton.disabled = false
+	if Account.loginSuccess:
+		%AccountLabel.text = "Welcome, %s!\nOnline sync is not available." % Account.username
+		%LoginTitleButton.hide()
+		%LogoutTitleButton.show()
+
 func _process(_delta) -> void:
 	Global.update_fps_display($Fps)
 
@@ -40,20 +48,28 @@ func _on_credits_pressed() -> void:
 
 func _on_quit_game_pressed() -> void:
 	$LoadingScreen.show()
+	PlayerStats.save()
 	get_tree().quit()
 
 func _on_login_button_pressed() -> void:
+	%LoginTitleButton.disabled = true
 	$Login.show()
 
 func _on_login_hidden() -> void:
+	%LoginTitleButton.disabled = false
 	if Account.loginSuccess:
-		$AccountContainer/LoginButton.hide()
-		$AccountContainer/LogoutButton.show()
+		%LoginTitleButton.hide()
+		%LogoutTitleButton.show()
 
 func _on_logout_button_pressed() -> void:
+	%LogoutTitleButton.disabled = true
+	%LoginTitleButton.disabled = false
 	if Account.loggedIn:
-		$AccountContainer/LogoutButton.hide()
-		$AccountContainer/LoginButton.show()
+		Account.logoff()
+		%AccountLabel.text = "Welcome, Guest!\nYou are not logged in."
+		%LogoutTitleButton.hide()
+		%LoginTitleButton.show()
+	%LogoutTitleButton.disabled = false
 
 func start_game() -> void:
 	$LoadingScreen.show()

@@ -37,16 +37,14 @@ func disableUI() -> void:
 	get_tree().paused = false
 	self.visible = false
 
-func exitGame() -> void:
-	$LoadingScreen.show()
-	get_tree().quit()
-
 func _on_resume_pressed() -> void:
 	ui_enabled = false
 	disableUI()
 
 func _on_quit_game_pressed() -> void:
-	exitGame()
+	$LoadingScreen.show()
+	PlayerStats.save()
+	get_tree().quit()
 
 func _on_back2title_pressed() -> void:
 	$LoadingScreen.show()

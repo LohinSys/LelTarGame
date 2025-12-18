@@ -34,6 +34,7 @@ func login() -> void:
 	close_self()
 	print("\nAccount Details\n--------------------\nUsername: ",Account.username,"\nPassword (encrypted): ",Account.password)
 	%AccountLabel.text = "Welcome, %s!\nOnline sync is not available." % Account.username
+	PlayerStats.save()
 
 func _on_login_pressed() -> void:
 	if %Username.text != "" and %Password.text != "":

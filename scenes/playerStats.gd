@@ -31,6 +31,10 @@ var lunaBombsUsed = 0
 func _ready() -> void:
 	var scoreLoad = stat.load_encrypted_pass("user://scores.sav",statKey)
 	if scoreLoad == OK:
+		# Account Credentials
+		Account.username = stat.get_value("Account", "username")
+		Account.password = stat.get_value("Account", "password")
+
 		# Easy
 		easyTimesPlayed = stat.get_value("Easy", "timesPlayed")
 		easyBestRun = stat.get_value("Easy", "bestRun")
@@ -59,6 +63,10 @@ func _ready() -> void:
 		return
 
 func save() -> void:
+	# Account Credentials (stored in the same save file to better curb cheating I hope)
+	stat.set_value("Account", "username", Account.username)
+	stat.set_value("Account", "password", Account.password)
+
 	# Easy
 	stat.set_value("Easy", "timesPlayed", easyTimesPlayed)
 	stat.set_value("Easy", "bestRun", easyBestRun)
