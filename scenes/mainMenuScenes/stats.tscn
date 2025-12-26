@@ -440,6 +440,27 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="LinkButton" type="LinkButton" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -77.5
+offset_top = -83.0
+offset_right = 77.5
+offset_bottom = -65.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.96, 0.86784005, 0.49919996, 1)
+theme_override_colors/font_focus_color = Color(0.96, 0.83712, 0.3456, 1)
+theme_override_colors/font_pressed_color = Color(0.96, 0.77568007, 0.03840002, 1)
+theme_override_colors/font_hover_color = Color(0.96, 0.83712, 0.3456, 1)
+text = "[ Click here to view leaderboards ]"
+underline = 1
+uri = "https://szb3nc3.github.io/LelTarGame/leaderboards.html"
+
 [node name="Exit" type="Button" parent="Panel"]
 layout_mode = 1
 anchors_preset = 7

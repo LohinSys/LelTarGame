@@ -10,12 +10,14 @@ var crypto = Crypto.new()
 var cryptKey = crypto.generate_rsa(4096)
 
 func logoff() -> void:
+	print("\nAttempting to log off...")
 	if loggedIn:
 		Account.username = ""
 		Account.password = ""
 		Account.loggedIn = false
 		Account.loginSuccess = false
 		PlayerStats.save()
+		print("Success!")
 	else:
 		print("/!\\ You have not signed in!")
 
@@ -27,7 +29,7 @@ func _ready() -> void:
 
 	if username != "" and password != "":
 		print("(i) User credentials detected in save file! Attempting to log in automatically...")
-		print("\nLogging in as ",Account.username,"...")
+		print('\nLogging in as "',Account.username,'"...')
 		Account.loggedIn = true
 		Account.loginSuccess = true
 		print("Success!")

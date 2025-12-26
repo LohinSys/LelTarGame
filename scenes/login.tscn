@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://diw1m0fahrmp7"]
+[gd_scene load_steps=7 format=3 uid="uid://diw1m0fahrmp7"]
 
 [ext_resource type="Script" uid="uid://cmjs1daseh5n8" path="res://scenes/login.gd" id="1_pymad"]
 [ext_resource type="Shader" uid="uid://ca4ymckm1e8si" path="res://scenes/mainMenuScenes/blur.gdshader" id="2_nw41r"]
@@ -12,6 +12,13 @@ font_size = 40
 shadow_size = 5
 shadow_color = Color(0, 0, 0, 0.5019608)
 shadow_offset = Vector2(3, 3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nw41r"]
+font_size = 12
+font_color = Color(1, 0.19999999, 0.19999999, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_nw41r"]
+variation_transform = Transform2D(1, 0.3, 0, 1, 0, 0)
 
 [node name="Login" type="Control"]
 layout_mode = 3
@@ -87,6 +94,17 @@ layout_mode = 2
 placeholder_text = "Password"
 secret = true
 
+[node name="LoginErrorLbl" type="Label" parent="Panel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 25.0
+offset_top = 147.5
+offset_right = 325.0
+offset_bottom = 161.5
+label_settings = SubResource("LabelSettings_nw41r")
+autowrap_mode = 3
+max_lines_visible = 1
+
 [node name="Buttons" type="HBoxContainer" parent="Panel"]
 layout_mode = 1
 anchors_preset = 7
@@ -112,6 +130,29 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Cancel
 "
+
+[node name="LinkButton" type="LinkButton" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -20.0
+offset_right = 60.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.35999995, 0.7199999, 0.9, 1)
+theme_override_colors/font_focus_color = Color(0.13499998, 0.64499986, 0.9, 1)
+theme_override_colors/font_pressed_color = Color(0.09749998, 0.46583322, 0.65, 1)
+theme_override_colors/font_hover_color = Color(0.13333334, 0.6431373, 0.9019608, 1)
+theme_override_fonts/font = SubResource("FontVariation_nw41r")
+theme_override_font_sizes/font_size = 12
+text = "Don't have an account?"
+underline = 1
+uri = "https://example.com/"
 
 [connection signal="pressed" from="Panel/Buttons/Login" to="." method="_on_login_pressed"]
 [connection signal="pressed" from="Panel/Buttons/Cancel" to="." method="_on_cancel_pressed"]

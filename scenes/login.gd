@@ -1,9 +1,13 @@
 extends Control
 
+var msg = ""
+var warnicon = "/!\\ "
+
 func close_self() -> void:
 	self.hide()
 	%Username.text = ""
 	%Password.text = ""
+	%LoginErrorLbl.text = ""
 
 func disable_buttons() -> void:
 	$Panel/Buttons/Login.disabled = true
@@ -36,15 +40,20 @@ func login() -> void:
 	%AccountLabel.text = "Welcome, %s!\nOnline sync is not available." % Account.username
 	PlayerStats.save()
 
+func printErrorMsg(message) -> void:
+	msg = message
+	print(warnicon,msg)
+	%LoginErrorLbl.text = msg
+
 func _on_login_pressed() -> void:
 	if %Username.text != "" and %Password.text != "":
 		login()
 	elif %Username.text == "" and %Password.text == "":
-		print("/!\\ Please provide an username and password!")
+		printErrorMsg("Please provide an username and password!")
 	elif %Username.text == "":
-		print("/!\\ Please provide an username!")
+		printErrorMsg("Please provide an username!")
 	elif %Password.text == "":
-		print("/!\\ Please provide a password!")
+		printErrorMsg("Please provide a password!")
 
 func _on_cancel_pressed() -> void:
 	close_self()
