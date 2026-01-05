@@ -8,6 +8,8 @@ func _process(_delta) -> void:
 
 	if Account.username != "":
 		$Panel/CurrentPlayer.text = "You are currently playing as %s\nKeep in mind that you have account sync enabled." % Account.username
+	else:
+		$Panel/CurrentPlayer.text = "You are currently playing as a Guest.\nScores will only be saved locally."
 
 func _on_exit_pressed() -> void:
 	self.hide()

@@ -27,6 +27,11 @@ func _process(_delta) -> void:
 	else:
 		$DbgInfo.hide()
 
+	if Global.blurFx:
+		$Blur.show()
+	else:
+		$Blur.hide()
+
 	if Global.gameplayTitleSwitchSignal:
 		Global.gameplayTitleSwitchSignal = false
 		start_game()

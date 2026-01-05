@@ -31,7 +31,7 @@ func login() -> void:
 
 	print("\nLogging in as ",%Username.text,"...")
 	Account.username = str(%Username.text)
-	Account.password = str(Account.crypto.encrypt(Account.cryptKey,encryptedPass))
+	Account.password = Marshalls.utf8_to_base64(str(Account.crypto.encrypt(Account.cryptKey,encryptedPass)))
 	Account.loggedIn = true
 	print("Success!")
 	Account.loginSuccess = true

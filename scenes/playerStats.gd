@@ -93,3 +93,4 @@ func save() -> void:
 	stat.set_value("Lunatic", "bombsUsed", lunaBombsUsed)
 	# Save the file
 	stat.save_encrypted_pass("user://scores.sav",statKey)
+	# stat.save("user://scores_decrypted.sav") # ONLY UNCOMMENT THIS LINE FOR DEBUGGING PURPOSES!!

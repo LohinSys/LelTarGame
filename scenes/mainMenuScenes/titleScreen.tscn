@@ -1,7 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://ct4slj3ni7ajm"]
+[gd_scene load_steps=26 format=3 uid="uid://ct4slj3ni7ajm"]
 
-[ext_resource type="Texture2D" uid="uid://cu11o3rxixdfc" path="res://assets/backgrounds/placeholder-bg1_1.png" id="1_ajxtn"]
 [ext_resource type="Script" uid="uid://bm2ln7ilo358i" path="res://scenes/mainMenuScenes/titleScreen.gd" id="1_r8sye"]
+[ext_resource type="PackedScene" uid="uid://cyxcc8cu3d5e0" path="res://scenes/mainMenuScenes/titleScreenBackground.tscn" id="2_hbqqx"]
+[ext_resource type="Shader" uid="uid://c6vv0lnajgu50" path="res://scenes/mainMenuScenes/titleBlur.gdshader" id="3_hh3dy"]
 [ext_resource type="Texture2D" uid="uid://dfv7dtytutrjb" path="res://assets/sprites/logo.png" id="3_tcfyk"]
 [ext_resource type="Texture2D" uid="uid://b35ktn55n6hs6" path="res://assets/icons/menu/login.svg" id="4_ccak3"]
 [ext_resource type="Texture2D" uid="uid://br5pconpfvi31" path="res://assets/icons/menu/quit.svg" id="4_ful2y"]
@@ -18,6 +19,10 @@
 [ext_resource type="Texture2D" uid="uid://rjgk13wjchxn" path="res://assets/icons/menu/logout.svg" id="11_hbqqx"]
 [ext_resource type="PackedScene" uid="uid://diw1m0fahrmp7" path="res://scenes/login.tscn" id="11_mkk3h"]
 [ext_resource type="PackedScene" uid="uid://blnrook2q0vnj" path="res://scenes/mainMenuScenes/credits.tscn" id="14_d7my7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hh3dy"]
+shader = ExtResource("3_hh3dy")
+shader_parameter/lod = 2.750000130625
 
 [sub_resource type="LabelSettings" id="LabelSettings_c3ue1"]
 font_size = 12
@@ -42,10 +47,22 @@ shadow_color = Color(0, 0, 0, 0.5019608)
 [node name="TitleScreen" type="CanvasLayer"]
 script = ExtResource("1_r8sye")
 
-[node name="Background" type="TextureRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("1_ajxtn")
+[node name="TitleScreenBackground" parent="." instance=ExtResource("2_hbqqx")]
+
+[node name="Blur" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_hh3dy")
+use_parent_material = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -384.0
+offset_right = 512.0
+offset_bottom = 384.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Logo" type="TextureRect" parent="."]
 anchors_preset = 5
@@ -207,7 +224,7 @@ offset_right = 84.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Technical Development Build
-LohinSys (ɔ) 2024-2025"
+LohinSys (ɔ) 2024-2026"
 label_settings = SubResource("LabelSettings_qrvv6")
 horizontal_alignment = 1
 vertical_alignment = 2

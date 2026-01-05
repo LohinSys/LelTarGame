@@ -436,7 +436,7 @@ button_pressed = true
 [node name="ShowDbgContainer" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG2"]
 layout_mode = 2
 size_flags_horizontal = 3
-tooltip_text = "Show additional debug information on the bottom right corner of the screen,
+tooltip_text = "Show additional debug information on the bottom left corner of the screen,
 like the current game version and the renderer being used."
 alignment = 1
 

@@ -34,6 +34,6 @@ func _ready() -> void:
 		Account.loginSuccess = true
 		print("Success!")
 		if Account.loginSuccess:
-			print("\nAccount Details\n--------------------\nUsername: ",Account.username,"\nPassword (encrypted): ",Account.password)
+			print("\nAccount Details\n--------------------\nUsername: ",Account.username,"\nPassword (encrypted): ",str(Account.password))
 	else:
 		print("(i) You are not logged in.")

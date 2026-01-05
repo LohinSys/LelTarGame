@@ -4,6 +4,7 @@ extends CanvasLayer
 @onready var bomb_bar = $playerStatsContainer/bombBar
 @onready var graze_count = $playerStatsContainer/grazeContainer/grazeCount
 @onready var final_score = $GameOver/GameOverContainer/GameOverFSCount
+@onready var score_mult_display = $GameOver/GameOverContainer/GameOverFSScoreMult
 
 @onready var diff_label = $playerStatsContainer/difficultyLabel
 
@@ -42,7 +43,10 @@ var power_lvl: float = Global.power:
 		%powerCount.text = str(value).left(1)
 		%powerCountDecimal.text = str(value).pad_decimals(1).right(1)
 
-var scoreMult: float = 1.0
+var scoreMult: float = 1.0:
+	set(value):
+		scoreMult = value
+		$scoreContainer/HBoxContainer/scoreMultLabel.text = "x%s" % value
 
 func _input(event):
 	if event.is_action_pressed("use_bomb") and Global.alive and Global.bomb != 0:
@@ -56,34 +60,49 @@ func _ready() -> void:
 
 	if Account.loggedIn:
 		$scoreContainer/playerNameValue.text = Account.username
+		$GameOver/GameOverContainer/GameOverFSSaveMsg.text = "(Leaderboard submissions are not implemented\nyet, so your score will only be saved locally.)"
 	else:
 		$scoreContainer/playerNameValue.text = "Guest"
+		$GameOver/GameOverContainer/GameOverFSSaveMsg.text = "(Leaderboard submissions are disabled on guest\naccounts, so your score will only be saved locally.)"
 
 	match Global.selectedDiff:
 		1: # Easy
 			diff_label.text = "Easy"
 			diff_label.add_theme_color_override("font_outline_color",Color(0x30ff60ff))
+			score_mult_display.add_theme_color_override("font_color",Color(0x30ff60ff))
 			scoreMult = 0.75
 			PlayerStats.easyTimesPlayed += 1
 			hi_score = PlayerStats.easyHiScore
 		2: # Normal
 			diff_label.text = "Normal"
 			diff_label.add_theme_color_override("font_outline_color",Color(0x00a4ffff))
+			score_mult_display.add_theme_color_override("font_color",Color(0x00a4ffff))
 			scoreMult = 1.0
 			PlayerStats.normTimesPlayed += 1
 			hi_score = PlayerStats.normHiScore
 		3: # Hard
 			diff_label.text = "Hard"
 			diff_label.add_theme_color_override("font_outline_color",Color(0xff4040ff))
+			score_mult_display.add_theme_color_override("font_color",Color(0xff4040ff))
 			scoreMult = 1.25
 			PlayerStats.hardTimesPlayed += 1
 			hi_score = PlayerStats.hardHiScore
 		4: # Lunatic
 			diff_label.text = "Lunatic"
 			diff_label.add_theme_color_override("font_outline_color",Color(0xeb60ffff))
+			score_mult_display.add_theme_color_override("font_color",Color(0xeb60ffff))
 			scoreMult = 1.5
 			PlayerStats.lunaTimesPlayed += 1
 			hi_score = PlayerStats.lunaHiScore
+
+	if scoreMult > 1.0:
+		$scoreContainer/HBoxContainer/scoreMultLabel.add_theme_color_override("font_color",Color(0x29d952ff))
+	elif scoreMult < 1.0:
+		$scoreContainer/HBoxContainer/scoreMultLabel.add_theme_color_override("font_color",Color(0xd93636ff))
+	else:
+		$scoreContainer/HBoxContainer/scoreMultLabel.add_theme_color_override("font_color",Color(0xd9d9d9ff))
+
+	score_mult_display.text = "Score Mult.: x%s (%s Difficulty)" % [str(scoreMult),diff_label.text]
 
 func _process(_delta) -> void:
 	if Global.alive and Global.started:
