@@ -147,6 +147,7 @@ func _process(_delta) -> void:
 		$DbgInfo.hide()
 
 func _on_menu_button_pressed() -> void:
+	$PauseMenu/SfxDecide.play()
 	$PauseMenu.enableUI()
 
 func _on_alive_indicator_hidden() -> void:

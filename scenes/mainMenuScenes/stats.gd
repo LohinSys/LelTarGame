@@ -34,4 +34,5 @@ func _process(_delta) -> void:
 		$Blur.hide()
 
 func _on_exit_pressed() -> void:
+	$SfxDecide.play()
 	self.hide()

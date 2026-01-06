@@ -38,21 +38,26 @@ func disableUI() -> void:
 	self.visible = false
 
 func _on_resume_pressed() -> void:
+	$SfxDecide.play()
 	ui_enabled = false
 	disableUI()
 
 func _on_quit_game_pressed() -> void:
+	$SfxDecide.play()
 	$LoadingScreen.show()
 	PlayerStats.save()
 	get_tree().quit()
 
 func _on_back2title_pressed() -> void:
+	$SfxDecide.play()
 	$LoadingScreen.show()
 	await get_tree().create_timer(0.1).timeout
 	get_tree().change_scene_to_file("res://scenes/mainMenuScenes/titleScreen.tscn")
 
 func _on_settings_pressed() -> void:
+	$SfxDecide.play()
 	$Settings.show()
 
 func _on_how2play_pressed() -> void:
+	$SfxDecide.play()
 	$How2Play.show()

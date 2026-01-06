@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://ctvw0dwc2i0jh"]
+[gd_scene load_steps=8 format=3 uid="uid://ctvw0dwc2i0jh"]
 
 [ext_resource type="Script" uid="uid://bqicii6j5tt6" path="res://scenes/mainMenuScenes/stats.gd" id="1_e7ukj"]
 [ext_resource type="Shader" uid="uid://ca4ymckm1e8si" path="res://scenes/mainMenuScenes/blur.gdshader" id="2_adere"]
+[ext_resource type="AudioStream" uid="uid://8bv52blhekri" path="res://assets/sfx/decide.ogg" id="3_vn13s"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vn13s"]
 shader = ExtResource("2_adere")
@@ -476,5 +477,9 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 24
 text = "Back"
+
+[node name="SfxDecide" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_vn13s")
+bus = &"SFX"
 
 [connection signal="pressed" from="Panel/Exit" to="." method="_on_exit_pressed"]

@@ -28,7 +28,7 @@ func _ready() -> void:
 	await get_tree().create_timer(0.5).timeout
 
 	if username != "" and password != "":
-		print("(i) User credentials detected in save file! Attempting to log in automatically...")
+		print("\n(i) User credentials detected in save file! Attempting to log in automatically...")
 		print('\nLogging in as "',Account.username,'"...')
 		Account.loggedIn = true
 		Account.loginSuccess = true

@@ -35,22 +35,27 @@ func _process(_delta: float) -> void:
 	show_dbg_btn.button_pressed = Global.showDbgInfo
 
 func _on_window_mode_selected(index: int) -> void:
+	$SfxDecide.play()
 	Global.windowMode = index
 	Global.update_window_mode()
 
 func _on_antialias_selected(index: int) -> void:
+	$SfxDecide.play()
 	Global.antiAliasType = index
 	Global.update_antialias_type()
 
 func _on_anisotropy_selected(index: int) -> void:
+	$SfxDecide.play()
 	Global.anisotropy = index
 	Global.update_anisotropy()
 
 func _on_scaling_3d_mode_selected(index: int) -> void:
+	$SfxDecide.play()
 	Global.scale3d = index
 	Global.update_3d_scale()
 
 func _on_vsync_pressed() -> void:
+	$SfxDecide.play()
 	if Global.vSync:
 		Global.vSync = false
 	else:
@@ -58,18 +63,21 @@ func _on_vsync_pressed() -> void:
 	Global.update_vsync()
 
 func _on_blurFx_pressed() -> void:
+	$SfxDecide.play()
 	if Global.blurFx:
 		Global.blurFx = false
 	else:
 		Global.blurFx = true
 
 func _on_showFps_pressed() -> void:
+	$SfxDecide.play()
 	if Global.showFps:
 		Global.showFps = false
 	else:
 		Global.showFps = true
 
 func _on_showDbg_pressed() -> void:
+	$SfxDecide.play()
 	if Global.showDbgInfo:
 		Global.showDbgInfo = false
 	else:
@@ -93,5 +101,6 @@ func save_settings() -> void:
 	Global.setting.save("user://settings.ini")
 
 func _on_done_pressed() -> void:
+	$SfxDecide.play()
 	save_settings()
 	self.hide()

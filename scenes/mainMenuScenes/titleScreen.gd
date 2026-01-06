@@ -37,26 +37,33 @@ func _process(_delta) -> void:
 		start_game()
 
 func _on_start_game_pressed() -> void:
+	$SfxDecide.play()
 	$GameModeSel.show()
 
 func _on_how2play_pressed() -> void:
+	$SfxDecide.play()
 	$How2Play.show()
 
 func _on_statistics_pressed() -> void:
+	$SfxDecide.play()
 	$Stats.show()
 
 func _on_settings_pressed() -> void:
+	$SfxDecide.play()
 	$Settings.show()
 
 func _on_credits_pressed() -> void:
+	$SfxDecide.play()
 	$Credits.show()
 
 func _on_quit_game_pressed() -> void:
+	$SfxDecide.play()
 	$LoadingScreen.show()
 	PlayerStats.save()
 	get_tree().quit()
 
 func _on_login_button_pressed() -> void:
+	$SfxDecide.play()
 	%LoginTitleButton.disabled = true
 	$Login.show()
 
@@ -67,6 +74,7 @@ func _on_login_hidden() -> void:
 		%LogoutTitleButton.show()
 
 func _on_logout_button_pressed() -> void:
+	$SfxDecide.play()
 	%LogoutTitleButton.disabled = true
 	%LoginTitleButton.disabled = false
 	if Account.loggedIn:
@@ -77,6 +85,7 @@ func _on_logout_button_pressed() -> void:
 	%LogoutTitleButton.disabled = false
 
 func start_game() -> void:
+	$BgMusic.stop()
 	$LoadingScreen.show()
 	await get_tree().create_timer(0.1).timeout
 	if $Settings.visible == true:

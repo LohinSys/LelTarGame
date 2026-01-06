@@ -15,7 +15,7 @@ config/name_localized={
 "hu_HU": "lel.tár"
 }
 config/description="The endless search for the missing package..."
-config/version="0.0.2.11"
+config/version="0.2.12"
 config/tags=PackedStringArray("lohinsys", "schkewl")
 run/main_scene="uid://ct4slj3ni7ajm"
 config/features=PackedStringArray("4.5", "Mobile")
@@ -71,6 +71,7 @@ folder_colors={
 "res://assets/backgrounds/": "red",
 "res://assets/fonts/": "blue",
 "res://assets/icons/": "yellow",
+"res://assets/music/": "pink",
 "res://assets/sfx/": "green",
 "res://assets/sprites/": "purple",
 "res://bin/": "gray",

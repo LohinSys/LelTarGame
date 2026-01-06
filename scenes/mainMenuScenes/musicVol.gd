@@ -7,6 +7,6 @@ func _ready() -> void:
 	self.value = Global.musicVolume
 	AudioServer.set_bus_volume_db(_bus, linear_to_db(self.value))
 
-func _on_master_vol_slider_value_changed() -> void:
+func _on_music_vol_slider_value_changed() -> void:
 	AudioServer.set_bus_volume_db(_bus, linear_to_db(self.value))
 	Global.musicVolume = value

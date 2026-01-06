@@ -46,6 +46,7 @@ func printErrorMsg(message) -> void:
 	%LoginErrorLbl.text = msg
 
 func _on_login_pressed() -> void:
+	$SfxDecide.play()
 	if %Username.text != "" and %Password.text != "":
 		login()
 	elif %Username.text == "" and %Password.text == "":
@@ -56,4 +57,5 @@ func _on_login_pressed() -> void:
 		printErrorMsg("Please provide a password!")
 
 func _on_cancel_pressed() -> void:
+	$SfxDecide.play()
 	close_self()

@@ -25,7 +25,7 @@ var score: int = 0
 
 var score2give = 1
 
-var verNote = "Penultimate (for realsies)"
+var verNote = "Re-versioned"
 var dbgInfoPrint = str("v",ProjectSettings.get_setting("application/config/version")," - ",verNote,"\nRenderer: ",RenderingServer.get_current_rendering_driver_name())
 
 var health = 100:
@@ -60,9 +60,9 @@ func update_window_mode() -> void:
 
 func update_vsync() -> void:
 	match vSync:
-		true:
+		true:	# Enabled
 			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
-		false:
+		false:	# Disabled
 			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 
 func update_antialias_type() -> void:
@@ -132,6 +132,11 @@ func update_3d_scale() -> void:
 		7:	# 25%
 			RenderingServer.viewport_set_scaling_3d_scale(viewport,0.25)
 
+func update_volumes() -> void:
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(masterVolume))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(sfxVolume))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(musicVolume))
+
 func update_fps_display(fpsNode) -> void:
 	fpsNode.set_text("%d fps" % Engine.get_frames_per_second())
 
@@ -152,6 +157,8 @@ func num_with_thou_seps(number: int) -> String:
 	return result
 
 func load_settings() -> void:
+	print("\nLoading settings...")
+
 	var sErr = setting.load("user://settings.ini")
 	if sErr == OK:
 		masterVolume = setting.get_value("Volume", "master")
@@ -169,14 +176,23 @@ func load_settings() -> void:
 	else:
 		return
 
+	print("\nApplying settings:")
+	print("Window Mode...")
 	update_window_mode()
+	print("Audio Volumes...")
+	update_volumes()
+	print("Vertical Sync...")
 	update_vsync()
+	print("Anti-aliasing...")
 	update_antialias_type()
+	print("Anisotropic Filtering...")
 	update_anisotropy()
+	print("3D Scale...")
 	update_3d_scale()
+	print("Finished applying settings!")
 
 func _ready() -> void:
-	print("Lel.tar ",dbgInfoPrint,"\nCopyleft LohinSys (ɔ) 2024-2025")
+	print("Lel.tar ",dbgInfoPrint,"\nCopyleft LohinSys (ɔ) 2024-2026")
 
 	load_settings()
 
