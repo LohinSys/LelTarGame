@@ -3,7 +3,7 @@
 
 ;Program and installer file names
 Name "Lel.tar"
-OutFile "LelTarUserSetup.exe"
+OutFile "LelTarUserSetupX86.exe"
 Unicode true
 ManifestDPIAware true
 SetCompressor lzma
@@ -46,13 +46,18 @@ RequestExecutionLevel user
 ; !define MUI_UNFINISHPAGE_NOAUTOCLOSE
 
 ; Add run app checkbox into the installer
-!define MUI_FINISHPAGE_RUN "bloodmoon-prologue.exe"
+!define MUI_FINISHPAGE_RUN "LelTarGame.exe"
 
 ; No description for components
 !define MUI_COMPONENTSPAGE_NODESC
 
 ; Tell installer that it should allow for more languages
 !define MUI_LANGDLL_ALLLANGUAGES
+
+; Add/Remove Programs registry location(s)
+!define REGUNINSTKEY "Lel.tar"
+!define REGHKEY HKCU
+!define REGPATH_WINUNINST "Software\Microsoft\Windows\CurrentVersion\Uninstall"
 
 ;---------------
 ; Pages
@@ -97,27 +102,33 @@ LangString GameDataClearDP ${LANG_HUNGARIAN} "Összes játékadat törlése..."
 ;---------------
 Section "Lel.tar" Main
 
-    SectionIn RO
+	SectionIn RO
 
-    SetOutPath $INSTDIR
+	SetOutPath $INSTDIR
 
-    ; Needed files go here...
-    File /r "C:\Users\Asus2026\Documents\GodotProjects\LelTar\bin\windows\x86\*.*"
+	; Needed files go here...
+	File /r "C:\Users\Asus2026\Documents\GodotProjects\LelTar\bin\windows\x86\*.*"
 
-    WriteRegStr HKCU "Software\LelTarGame" "" $INSTDIR
+	WriteRegStr HKCU "Software\LelTarGame" "" $INSTDIR
 
-    ; Create the Uninstaller
-    WriteUninstaller "$INSTDIR\uninstall.exe"
+	; Create the Uninstaller
+	WriteUninstaller "$INSTDIR\uninstall.exe"
 
-    ; Make shortcut to the start menu
-    CreateShortcut "$SMPROGRAMS\Lel.tar.lnk" "$INSTDIR\bloodmoon-prologue.exe"
+	; Make shortcut to the start menu
+	CreateShortcut "$SMPROGRAMS\LohinSys\Lel.tar.lnk" "$INSTDIR\LelTarGame.exe"
+
+	; Add to the installed programs list in Add/Remove Programs
+	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "DisplayName" "Lel.tar"
+	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "UninstallString" "$INSTDIR\uninstall.exe"
+	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "Publisher" "LohinSys"
+	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "NoModify" 1
 
 SectionEnd
 
 ; Desktop shortcut
 Section $(DesktopShortcut) DeskShortcutCreate
-    DetailPrint $(DesktopShortcutDP)
-    CreateShortcut "$DESKTOP\Lel.tar.lnk" "$INSTDIR\LelTar.exe"
+	DetailPrint $(DesktopShortcutDP)
+	CreateShortcut "$DESKTOP\Lel.tar.lnk" "$INSTDIR\LelTarGame.exe"
 SectionEnd
 
 ;---------------
@@ -125,7 +136,7 @@ SectionEnd
 ;---------------
 Function .onInit
 
-    !insertmacro MUI_LANGDLL_DISPLAY
+	!insertmacro MUI_LANGDLL_DISPLAY
 
 FunctionEnd
 
@@ -134,14 +145,14 @@ FunctionEnd
 ;---------------
 Section "un.Lel.tar"
 
-    SectionIn RO
+	SectionIn RO
 
-    ; Files go here...
-    RMDir /r $INSTDIR
-    DeleteRegKey HKCU "Software\LelTarGame"
+	; Files go here...
+	RMDir /r $INSTDIR
+	DeleteRegKey HKCU "Software\LelTarGame"
 
-    ; Remove shortcuts from the start menu, desktop and taskbar (if it exists)
-    Delete "$SMPROGRAMS\Lel.tar.lnk"
+	; Remove shortcuts from the start menu, desktop and taskbar (if it exists)
+	Delete "$SMPROGRAMS\LohinSys\Lel.tar.lnk"
 	Delete "$DESKTOP\Lel.tar.lnk"
 	Delete "$AppData\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar\Lel.tar.lnk"
 
@@ -149,7 +160,7 @@ SectionEnd
 
 Section /o un.$(GameDataClear) ClearGameData
 	DetailPrint $(GameDataClearDP)
-    RMDir /r "$AppData\Godot\app_userdata\LelTar"
+	RMDir /r "$AppData\Godot\app_userdata\LelTar"
 SectionEnd
 
 ;---------------
