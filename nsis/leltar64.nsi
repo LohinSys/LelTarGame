@@ -1,5 +1,6 @@
 ﻿;Include "Modern UI 2" for a nicer look
 !include "MUI2.nsh"
+!include "version.nsh"
 
 ;Program and installer file names
 Name "Lel.tar"
@@ -109,19 +110,27 @@ Section "Lel.tar" Main
 	; Needed files go here...
 	File /r "C:\Users\Asus2026\Documents\GodotProjects\LelTar\bin\windows\x64\*.*"
 
+	; Add registry entry pointing to the install directory
 	WriteRegStr HKCU "Software\LelTarGame" "" $INSTDIR
 
 	; Create the Uninstaller
 	WriteUninstaller "$INSTDIR\uninstall.exe"
 
 	; Make shortcut to the start menu
-	CreateShortcut "$SMPROGRAMS\LohinSys\Lel.tar.lnk" "$INSTDIR\LelTarGame.exe"
+	CreateShortcut "$SMPROGRAMS\Lel.tar.lnk" "$INSTDIR\LelTarGame.exe"
 
 	; Add to the installed programs list in Add/Remove Programs
 	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "DisplayName" "Lel.tar"
 	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "UninstallString" "$INSTDIR\uninstall.exe"
+	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "DisplayIcon" "$INSTDIR\LelTarGame.exe,0"
+	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "DisplayVersion" "${APP_VERSION}"
 	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "Publisher" "LohinSys"
-	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "NoModify" 1
+	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "URLInfoAbout" "https://szb3nc3.github.io/LelTarWebsite/"
+	WriteRegDWORD HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "EstimatedSize" 104384
+	WriteRegDWORD HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "NoModify" 1
+	WriteRegDWORD HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "NoRepair" 1
+	WriteRegDWORD HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "VersionMajor" "${APP_MAJOR_VER}"
+	WriteRegDWORD HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "VersionMinor" "${APP_MINOR_VER}"
 
 SectionEnd
 
@@ -149,10 +158,13 @@ Section "un.Lel.tar"
 
 	; Files go here...
 	RMDir /r $INSTDIR
-	DeleteRegKey HKCU "Software\LelTarGame"
 
-	; Remove shortcuts from the start menu, desktop and taskbar (if it exists)
-	Delete "$SMPROGRAMS\LohinSys\Lel.tar.lnk"
+	; Remove registry entries
+	DeleteRegKey HKCU "Software\LelTarGame"
+	DeleteRegKey HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}'
+
+	; Remove shortcuts from the start menu, desktop and taskbar (if any exists)
+	Delete "$SMPROGRAMS\Lel.tar.lnk"
 	Delete "$DESKTOP\Lel.tar.lnk"
 	Delete "$AppData\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar\Lel.tar.lnk"
 
