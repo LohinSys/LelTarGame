@@ -3,16 +3,16 @@
 !include "version.nsh"
 
 ;Program and installer file names
-Name "Lel.tar"
+Name "Lel.tar (32-bit)"
 OutFile "LelTarUserSetupX86.exe"
 Unicode true
 ManifestDPIAware true
 SetCompressor lzma
 
 ; Default Installation Directory
-InstallDir "$LocalAppData\Programs\LelTarGame\"
+InstallDir "$LocalAppData\Programs\LelTarGame-x86\"
 ; Get installation folder from registry if it exists
-InstallDirRegKey HKCU "Software\LelTarGame" ""
+InstallDirRegKey HKCU "Software\LelTarGame-x86" ""
 
 ; Only request for elevation if needed
 RequestExecutionLevel user
@@ -47,7 +47,7 @@ RequestExecutionLevel user
 ; !define MUI_UNFINISHPAGE_NOAUTOCLOSE
 
 ; Add run app checkbox into the installer
-!define MUI_FINISHPAGE_RUN "LelTarGame.exe"
+!define MUI_FINISHPAGE_RUN "LelTarGame-x86.exe"
 
 ; No description for components
 !define MUI_COMPONENTSPAGE_NODESC
@@ -56,7 +56,7 @@ RequestExecutionLevel user
 !define MUI_LANGDLL_ALLLANGUAGES
 
 ; Add/Remove Programs registry location(s)
-!define REGUNINSTKEY "Lel.tar"
+!define REGUNINSTKEY Name
 !define REGHKEY HKCU
 !define REGPATH_WINUNINST "Software\Microsoft\Windows\CurrentVersion\Uninstall"
 
@@ -111,18 +111,18 @@ Section "Lel.tar" Main
 	File /r "C:\Users\Asus2026\Documents\GodotProjects\LelTar\bin\windows\x86\*.*"
 
 	; Add registry entry pointing to the install directory
-	WriteRegStr HKCU "Software\LelTarGame" "" $INSTDIR
+	WriteRegStr HKCU "Software\LelTarGame-x86" "" $INSTDIR
 
 	; Create the Uninstaller
 	WriteUninstaller "$INSTDIR\uninstall.exe"
 
 	; Make shortcut to the start menu
-	CreateShortcut "$SMPROGRAMS\Lel.tar.lnk" "$INSTDIR\LelTarGame.exe"
+	CreateShortcut "$SMPROGRAMS\Lel.tar (32-bit).lnk" "$INSTDIR\LelTarGame-x86.exe"
 
 	; Add to the installed programs list in Add/Remove Programs
-	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "DisplayName" "Lel.tar"
+	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "DisplayName" Name
 	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "UninstallString" "$INSTDIR\uninstall.exe"
-	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "DisplayIcon" "$INSTDIR\LelTarGame.exe,0"
+	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "DisplayIcon" "$INSTDIR\LelTarGame-x86.exe,0"
 	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "DisplayVersion" "${APP_VERSION}"
 	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "Publisher" "LohinSys"
 	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "URLInfoAbout" "https://szb3nc3.github.io/LelTarWebsite/"
@@ -135,7 +135,7 @@ SectionEnd
 ; Desktop shortcut
 Section $(DesktopShortcut) DeskShortcutCreate
 	DetailPrint $(DesktopShortcutDP)
-	CreateShortcut "$DESKTOP\Lel.tar.lnk" "$INSTDIR\LelTarGame.exe"
+	CreateShortcut "$DESKTOP\Lel.tar (32-bit).lnk" "$INSTDIR\LelTarGame-x86.exe"
 SectionEnd
 
 ;---------------
@@ -158,19 +158,19 @@ Section "un.Lel.tar"
 	RMDir /r $INSTDIR
 
 	; Remove registry entries
-	DeleteRegKey HKCU "Software\LelTarGame"
+	DeleteRegKey HKCU "Software\LelTarGame-x86"
 	DeleteRegKey HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}'
 
 	; Remove shortcuts from the start menu, desktop and taskbar (if it exists)
-	Delete "$SMPROGRAMS\Lel.tar.lnk"
-	Delete "$DESKTOP\Lel.tar.lnk"
-	Delete "$AppData\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar\Lel.tar.lnk"
+	Delete "$SMPROGRAMS\Lel.tar (32-bit).lnk"
+	Delete "$DESKTOP\Lel.tar (32-bit).lnk"
+	Delete "$AppData\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar\Lel.tar (32-bit).lnk"
 
 SectionEnd
 
 Section /o un.$(GameDataClear) ClearGameData
 	DetailPrint $(GameDataClearDP)
-	RMDir /r "$AppData\Godot\app_userdata\LelTar"
+	RMDir /r "$AppData\Godot\app_userdata\lel.tar\"
 SectionEnd
 
 ;---------------
