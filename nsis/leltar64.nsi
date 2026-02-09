@@ -56,7 +56,7 @@ RequestExecutionLevel user
 !define MUI_LANGDLL_ALLLANGUAGES
 
 ; Add/Remove Programs registry location(s)
-!define REGUNINSTKEY Name
+!define REGUNINSTKEY "Lel.tar"
 !define REGHKEY HKCU
 !define REGPATH_WINUNINST "Software\Microsoft\Windows\CurrentVersion\Uninstall"
 
@@ -120,7 +120,7 @@ Section "Lel.tar" Main
 	CreateShortcut "$SMPROGRAMS\Lel.tar.lnk" "$INSTDIR\LelTarGame.exe"
 
 	; Add to the installed programs list in Add/Remove Programs
-	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "DisplayName" Name
+	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "DisplayName" "Lel.tar"
 	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "UninstallString" "$INSTDIR\uninstall.exe"
 	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "DisplayIcon" "$INSTDIR\LelTarGame.exe,0"
 	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "DisplayVersion" "${APP_VERSION}"
@@ -172,7 +172,7 @@ SectionEnd
 
 Section /o un.$(GameDataClear) ClearGameData
 	DetailPrint $(GameDataClearDP)
-	RMDir /r "$AppData\Godot\app_userdata\lel.tar\"
+	RMDir /r "$AppData\Godot\app_userdata\Lel.tar\"
 SectionEnd
 
 ;---------------

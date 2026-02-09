@@ -196,6 +196,8 @@ func _ready() -> void:
 
 	load_settings()
 
+	DisplayServer.window_set_title(str("Lel.tar ",ProjectSettings.get_setting("application/config/version")," - ",verNote),0)
+
 
 #func change_scene_to_node(node):
 	#var tree = get_tree()

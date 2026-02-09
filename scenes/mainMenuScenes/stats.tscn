@@ -460,7 +460,7 @@ theme_override_colors/font_pressed_color = Color(0.96, 0.77568007, 0.03840002, 1
 theme_override_colors/font_hover_color = Color(0.96, 0.83712, 0.3456, 1)
 text = "[ Click here to view leaderboards ]"
 underline = 1
-uri = "https://szb3nc3.github.io/LelTarGame/leaderboards.html"
+uri = "https://szb3nc3.github.io/LelTarWebsite/leaderboards"
 
 [node name="Exit" type="Button" parent="Panel"]
 layout_mode = 1

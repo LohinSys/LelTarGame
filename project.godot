@@ -10,12 +10,9 @@ config_version=5
 
 [application]
 
-config/name="lel.tar"
-config/name_localized={
-"hu_HU": "lel.tár"
-}
+config/name="Lel.tar"
 config/description="The endless search for the missing package..."
-config/version="0.2.12"
+config/version="0.2.12.1"
 config/tags=PackedStringArray("lohinsys", "schkewl")
 run/main_scene="uid://ct4slj3ni7ajm"
 config/features=PackedStringArray("4.5", "Mobile")
