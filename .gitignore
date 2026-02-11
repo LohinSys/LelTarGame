@@ -1,6 +1,8 @@
 .godot/
 /android/
-bin/
+bin/linux/
+bin/windows/
+bin/checksum.json
 *.exe
 .~lock*
 *.sql
