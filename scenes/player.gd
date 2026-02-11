@@ -16,6 +16,7 @@ var health = Global.health:
 func _input(event):
 	if event.is_action_pressed("use_bomb") and Global.alive and Global.bomb != 0:
 		$BombSfx.play()
+		Global.bomb -= 1
 		match Global.selectedDiff:
 			1:	# Easy
 				PlayerStats.easyBombsUsed += 1

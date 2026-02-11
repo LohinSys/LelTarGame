@@ -48,12 +48,6 @@ var scoreMult: float = 1.0:
 		scoreMult = value
 		$scoreContainer/HBoxContainer/scoreMultLabel.text = "x%s" % value
 
-func _input(event):
-	if event.is_action_pressed("use_bomb") and Global.alive and Global.bomb != 0:
-		Global.bomb -= 1
-
-#func set_status() -> void:
-
 func _ready() -> void:
 	$DbgInfo.set_text(Global.dbgInfoPrint)
 	Global.score = 0
@@ -102,7 +96,7 @@ func _ready() -> void:
 	else:
 		$scoreContainer/HBoxContainer/scoreMultLabel.add_theme_color_override("font_color",Color(0xd9d9d9ff))
 
-	score_mult_display.text = "Score Mult.: x%s (%s Difficulty)" % [str(scoreMult),diff_label.text]
+	score_mult_display.text = "Score Mult.: x%s (%s)" % [str(scoreMult),diff_label.text]
 
 func _process(_delta) -> void:
 	if Global.alive and Global.started:
