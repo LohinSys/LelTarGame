@@ -33,9 +33,6 @@ buses/default_bus_layout="uid://cefx2qv3f8hqg"
 
 Global="*res://scenes/global.gd"
 PlayerStats="*res://scenes/playerStats.gd"
-MasterVol="*res://scenes/mainMenuScenes/masterVol.gd"
-SfxVol="*res://scenes/mainMenuScenes/sfxVol.gd"
-MusicVol="*res://scenes/mainMenuScenes/musicVol.gd"
 Account="*res://scenes/account.gd"
 
 [debug]
