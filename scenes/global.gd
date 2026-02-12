@@ -25,7 +25,7 @@ var score: int = 0
 
 var score2give = 1
 
-var verNote = "Re-versioned"
+var verNote = "kaboom."
 var dbgInfoPrint = str("v",ProjectSettings.get_setting("application/config/version")," - ",verNote,"\nRenderer: ",RenderingServer.get_current_rendering_driver_name())
 
 var health = 100:
