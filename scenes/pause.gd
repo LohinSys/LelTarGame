@@ -70,6 +70,11 @@ func _on_resume_pressed() -> void:
 	ui_enabled = false
 	disableUI()
 
+func _on_restart_pressed() -> void:
+	ui_enabled = false
+	disableUI()
+	get_tree().reload_current_scene()
+
 func _on_quit_game_pressed() -> void:
 	$LoadingScreen.show()
 	PlayerStats.save()
@@ -77,6 +82,7 @@ func _on_quit_game_pressed() -> void:
 
 func _on_back2title_pressed() -> void:
 	$LoadingScreen.show()
+	PlayerStats.save()
 	await get_tree().create_timer(0.1).timeout
 	disableUI()
 	get_tree().change_scene_to_file("res://scenes/mainMenuScenes/titleScreen.tscn")

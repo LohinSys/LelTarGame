@@ -50,7 +50,18 @@ var scoreMult: float = 1.0:
 
 func _ready() -> void:
 	$DbgInfo.set_text(Global.dbgInfoPrint)
+	Global.started = false
 	Global.score = 0
+	Global.score2give = 1
+
+	Global.health = 100
+	Global.bomb = 3
+	Global.power = 0.0
+	Global.graze = 0
+	Global.boss_spellcard_time = 0.0
+	Global.alive = true
+	$AliveIndicator.show()
+	$GameOver.hide()
 
 	if Account.loggedIn:
 		$scoreContainer/playerNameValue.text = Account.username
@@ -156,7 +167,7 @@ func _on_alive_indicator_hidden() -> void:
 			4:	# Lunatic
 				PlayerStats.lunaHiScore = hi_score
 	final_score.text = Global.num_with_thou_seps(score)
-	$GameOver.visible = true
+	$GameOver.show()
 
 	Global.power = Global.power * 0.625
 	Global.started = false

@@ -103,9 +103,7 @@ layout_mode = 2
 [node name="Restart" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
-tooltip_text = "Restarting has not been implemented yet!"
 theme_override_font_sizes/font_size = 28
-disabled = true
 text = "Restart"
 icon = ExtResource("3_wen6a")
 alignment = 0
@@ -180,6 +178,7 @@ layout_mode = 1
 visible = false
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/How2Play" to="." method="_on_how2play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Back2Title" to="." method="_on_back2title_pressed"]
