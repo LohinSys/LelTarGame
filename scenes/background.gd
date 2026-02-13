@@ -1,10 +1,6 @@
 extends Node3D
 
 func _physics_process(_delta: float) -> void:
-	#$TestCube3D.rotate_x(0.02)
-	#$TestCube3D.rotate_y(0.03)
-	#$TestCube3D.rotate_z(0.05)
-
 	$"Ground3D-1".move_and_collide(Vector3(0,0,0.05))
 	$"Ground3D-2".move_and_collide(Vector3(0,0,0.05))
 	$"Ground3D-3".move_and_collide(Vector3(0,0,0.05))

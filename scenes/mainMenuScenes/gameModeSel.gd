@@ -12,7 +12,6 @@ func _process(_delta) -> void:
 		$Panel/CurrentPlayer.text = "You are currently playing as a Guest.\nScores will only be saved locally."
 
 func _on_exit_pressed() -> void:
-	$SfxDecide.play()
 	self.hide()
 
 func _on_easy_pressed() -> void:
@@ -29,7 +28,6 @@ func _on_luna_pressed() -> void:
 	start_game()
 
 func start_game() -> void:
-	$SfxDecide.play()
 	Global.gameplayTitleSwitchSignal = true
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://ct4slj3ni7ajm"]
+[gd_scene load_steps=27 format=3 uid="uid://ct4slj3ni7ajm"]
 
 [ext_resource type="Script" uid="uid://bm2ln7ilo358i" path="res://scenes/mainMenuScenes/titleScreen.gd" id="1_r8sye"]
 [ext_resource type="PackedScene" uid="uid://cyxcc8cu3d5e0" path="res://scenes/mainMenuScenes/titleScreenBackground.tscn" id="2_hbqqx"]
@@ -20,7 +20,6 @@
 [ext_resource type="PackedScene" uid="uid://diw1m0fahrmp7" path="res://scenes/login.tscn" id="11_mkk3h"]
 [ext_resource type="PackedScene" uid="uid://blnrook2q0vnj" path="res://scenes/mainMenuScenes/credits.tscn" id="14_d7my7"]
 [ext_resource type="AudioStream" uid="uid://cabmj8c7u32pt" path="res://assets/music/ultimateTruth.ogg" id="20_5ur3r"]
-[ext_resource type="AudioStream" uid="uid://8bv52blhekri" path="res://assets/sfx/decide.ogg" id="21_qpcjg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hh3dy"]
 shader = ExtResource("3_hh3dy")
@@ -284,10 +283,6 @@ stream = ExtResource("20_5ur3r")
 autoplay = true
 bus = &"Music"
 parameters/looping = true
-
-[node name="SfxDecide" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("21_qpcjg")
-bus = &"SFX"
 
 [connection signal="pressed" from="MenuBtnContainer/StartGame" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="MenuBtnContainer/HBoxContainer1/How2Play" to="." method="_on_how2play_pressed"]

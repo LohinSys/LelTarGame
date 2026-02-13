@@ -163,10 +163,10 @@ script = ExtResource("1_d607a")
 menu_button = NodePath("MenuButton")
 
 [node name="AliveIndicator" type="ColorRect" parent="."]
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = 1.0
 
 [node name="startGameInstruct" type="Label" parent="."]
 anchors_preset = 5

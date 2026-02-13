@@ -46,16 +46,18 @@ func printErrorMsg(message) -> void:
 	%LoginErrorLbl.text = msg
 
 func _on_login_pressed() -> void:
-	$SfxDecide.play()
-	if %Username.text != "" and %Password.text != "":
-		login()
-	elif %Username.text == "" and %Password.text == "":
+	if %Username.text == "" and %Password.text == "":
 		printErrorMsg("Please provide an username and password!")
 	elif %Username.text == "":
 		printErrorMsg("Please provide an username!")
 	elif %Password.text == "":
 		printErrorMsg("Please provide a password!")
+	elif len(%Username.text) < 3:
+		printErrorMsg("Username must be at least 3 characters long!")
+	elif len(%Password.text) < 8:
+		printErrorMsg("Password must be at least 8 characters long!")
+	else:
+		login()
 
 func _on_cancel_pressed() -> void:
-	$SfxDecide.play()
 	close_self()

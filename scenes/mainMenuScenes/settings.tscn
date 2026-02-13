@@ -1,8 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://ctscjj5oow5p8"]
+[gd_scene load_steps=12 format=3 uid="uid://ctscjj5oow5p8"]
 
 [ext_resource type="Script" uid="uid://davhhq6kt2g8x" path="res://scenes/mainMenuScenes/settings.gd" id="1_e430n"]
 [ext_resource type="Shader" uid="uid://ca4ymckm1e8si" path="res://scenes/mainMenuScenes/blur.gdshader" id="2_wlyyc"]
-[ext_resource type="AudioStream" uid="uid://8bv52blhekri" path="res://assets/sfx/decide.ogg" id="6_sgvc5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ce6t2"]
 shader = ExtResource("2_wlyyc")
@@ -478,10 +477,6 @@ grow_vertical = 0
 label_settings = SubResource("LabelSettings_ga827")
 horizontal_alignment = 1
 vertical_alignment = 2
-
-[node name="SfxDecide" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_sgvc5")
-bus = &"SFX"
 
 [connection signal="value_changed" from="Panel/MarginContainer/SettingsContainer/MasterVol/MasterVolSlider" to="." method="_on_master_vol_slider_value_changed"]
 [connection signal="value_changed" from="Panel/MarginContainer/SettingsContainer/SFX/SFXVolSlider" to="." method="_on_sfx_vol_slider_value_changed"]
