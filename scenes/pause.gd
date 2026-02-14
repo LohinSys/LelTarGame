@@ -22,7 +22,7 @@ func _enter_tree() -> void:
 	get_tree().node_added.connect(_on_node_added)
 
 func _on_node_added(node:Node) -> void:
-	if node is Button:
+	if node is BaseButton:
 		node.mouse_entered.connect(_play_hover_sfx)
 		node.pressed.connect(_play_press_sfx)
 

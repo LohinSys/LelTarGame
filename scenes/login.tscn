@@ -152,7 +152,7 @@ theme_override_fonts/font = SubResource("FontVariation_nw41r")
 theme_override_font_sizes/font_size = 12
 text = "Don't have an account?"
 underline = 1
-uri = "https://example.com/"
+uri = "https://szb3nc3.github.io/LelTarWebsite/register"
 
 [connection signal="pressed" from="Panel/Buttons/Login" to="." method="_on_login_pressed"]
 [connection signal="pressed" from="Panel/Buttons/Cancel" to="." method="_on_cancel_pressed"]
