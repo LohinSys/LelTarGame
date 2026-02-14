@@ -108,7 +108,7 @@ Section "Lel.tar" Main
 	SetOutPath $INSTDIR
 
 	; Needed files go here...
-	File /r "C:\Users\Asus2026\Documents\GodotProjects\LelTar\bin\windows\x64\*.*"
+	File /r "D:\home\docs\GodotProjects\LelTar\bin\windows\x64\*.*"
 
 	; Add registry entry pointing to the install directory
 	WriteRegStr HKCU "Software\LelTarGame" "" $INSTDIR
@@ -126,7 +126,7 @@ Section "Lel.tar" Main
 	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "DisplayVersion" "${APP_VERSION}"
 	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "Publisher" "LohinSys"
 	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "URLInfoAbout" "https://szb3nc3.github.io/LelTarWebsite/"
-	WriteRegDWORD HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "EstimatedSize" 104384
+	WriteRegDWORD HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "EstimatedSize" 104391
 	WriteRegDWORD HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "NoModify" 1
 	WriteRegDWORD HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "NoRepair" 1
 	WriteRegDWORD HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "VersionMajor" "${APP_MAJOR_VER}"
