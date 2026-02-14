@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://d0j3gfqmx73c0" path="res://assets/sprites/placeholder-reimu-1.png" id="2_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://dh656uwtcc2xj" path="res://assets/sprites/bullet.png" id="4_dqkch"]
 [ext_resource type="AudioStream" uid="uid://dd1xq1o0tsq7g" path="res://assets/sfx/bomb.ogg" id="5_qlg0r"]
-[ext_resource type="AudioStream" uid="uid://dqtvvvef6efhn" path="res://assets/sfx/graze.ogg" id="6_fjrip"]
+[ext_resource type="AudioStream" uid="uid://h5hb8ef773gn" path="res://assets/sfx/graze.ogg" id="6_fjrip"]
 [ext_resource type="AudioStream" uid="uid://bstma21e5jkd0" path="res://assets/sfx/death.ogg" id="6_tuyoq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u8vuu"]

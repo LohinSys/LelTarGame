@@ -87,7 +87,6 @@ func start_game() -> void:
 
 # UI audio handler
 var playback:AudioStreamPlaybackPolyphonic
-
 func _enter_tree() -> void:
 	var player = AudioStreamPlayer.new()
 	add_child(player)

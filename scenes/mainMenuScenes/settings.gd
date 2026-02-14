@@ -104,3 +104,31 @@ func _on_sfx_vol_slider_value_changed(value: float) -> void:
 
 func _on_music_vol_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(value))
+
+# UI audio handler for volume sliders
+var playback:AudioStreamPlaybackPolyphonic
+func _enter_tree() -> void:
+	var player = AudioStreamPlayer.new()
+	add_child(player)
+
+	var stream = AudioStreamPolyphonic.new()
+	stream.polyphony = 32
+	player.bus = "SFX"
+	player.stream = stream
+	player.play()
+
+	playback = player.get_stream_playback()
+	get_tree().node_added.connect(_on_node_added)
+
+func _on_node_added(node:Node) -> void:
+	if node is Slider:
+		node.mouse_entered.connect(_play_hover_sfx)
+		node.drag_ended.connect(_play_press_sfx)
+
+var selectSfx = preload("res://assets/sfx/select.ogg")
+func _play_hover_sfx() -> void:
+	playback.play_stream(selectSfx,0,0,1.0,AudioServer.PLAYBACK_TYPE_DEFAULT)
+
+var decideSfx = preload("res://assets/sfx/decide.ogg")
+func _play_press_sfx(_value_changed) -> void:
+	playback.play_stream(decideSfx,0,0,1.0,AudioServer.PLAYBACK_TYPE_DEFAULT)
