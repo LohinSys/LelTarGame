@@ -50,6 +50,10 @@ func _physics_process(_delta: float) -> void:
 	if Global.health <= 0:
 		self.hide()
 
+func graze() -> void:
+	Global.graze += 1
+	$GrazeSfx.play()
+
 func set_status(bullet_type) -> void:
 	match bullet_type:
 		0: fire()

@@ -22,6 +22,7 @@ var started: bool = false
 var selectedDiff: int = 0
 
 var score: int = 0
+var scoreMult: float = 1.0
 
 var score2give = 1
 

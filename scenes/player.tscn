@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://b2r4pwv4w2hpe"]
+[gd_scene load_steps=10 format=3 uid="uid://b2r4pwv4w2hpe"]
 
 [ext_resource type="Texture2D" uid="uid://6wb1cbuwukt3" path="res://assets/sprites/placeholder-reimu.png" id="1_g2els"]
 [ext_resource type="Script" uid="uid://gsbnvmadiu55" path="res://scenes/player.gd" id="1_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://d0j3gfqmx73c0" path="res://assets/sprites/placeholder-reimu-1.png" id="2_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://dh656uwtcc2xj" path="res://assets/sprites/bullet.png" id="4_dqkch"]
 [ext_resource type="AudioStream" uid="uid://dd1xq1o0tsq7g" path="res://assets/sfx/bomb.ogg" id="5_qlg0r"]
+[ext_resource type="AudioStream" uid="uid://dqtvvvef6efhn" path="res://assets/sfx/graze.ogg" id="6_fjrip"]
 [ext_resource type="AudioStream" uid="uid://bstma21e5jkd0" path="res://assets/sfx/death.ogg" id="6_tuyoq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u8vuu"]
@@ -53,6 +54,11 @@ vertical_alignment = 2
 
 [node name="BombSfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_qlg0r")
+bus = &"SFX"
+
+[node name="GrazeSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_fjrip")
+volume_db = -1.0
 bus = &"SFX"
 
 [node name="DeathSfx" type="AudioStreamPlayer" parent="."]

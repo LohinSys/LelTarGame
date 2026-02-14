@@ -43,7 +43,12 @@ var power_lvl: float = Global.power:
 		%powerCount.text = str(value).left(1)
 		%powerCountDecimal.text = str(value).pad_decimals(1).right(1)
 
-var scoreMult: float = 1.0:
+var graze: int = Global.graze:
+	set(value):
+		graze = value
+		graze_count.text = str(Global.num_with_thou_seps(value))
+
+var scoreMult: float = Global.scoreMult:
 	set(value):
 		scoreMult = value
 		$scoreContainer/HBoxContainer/scoreMultLabel.text = "x%s" % value
@@ -75,30 +80,32 @@ func _ready() -> void:
 			diff_label.text = "Easy"
 			diff_label.add_theme_color_override("font_outline_color",Color(0x30ff60ff))
 			score_mult_display.add_theme_color_override("font_color",Color(0x30ff60ff))
-			scoreMult = 0.75
+			Global.scoreMult = 0.75
 			PlayerStats.easyTimesPlayed += 1
 			hi_score = PlayerStats.easyHiScore
 		2: # Normal
 			diff_label.text = "Normal"
 			diff_label.add_theme_color_override("font_outline_color",Color(0x00a4ffff))
 			score_mult_display.add_theme_color_override("font_color",Color(0x00a4ffff))
-			scoreMult = 1.0
+			Global.scoreMult = 1.0
 			PlayerStats.normTimesPlayed += 1
 			hi_score = PlayerStats.normHiScore
 		3: # Hard
 			diff_label.text = "Hard"
 			diff_label.add_theme_color_override("font_outline_color",Color(0xff4040ff))
 			score_mult_display.add_theme_color_override("font_color",Color(0xff4040ff))
-			scoreMult = 1.25
+			Global.scoreMult = 1.25
 			PlayerStats.hardTimesPlayed += 1
 			hi_score = PlayerStats.hardHiScore
 		4: # Lunatic
 			diff_label.text = "Lunatic"
 			diff_label.add_theme_color_override("font_outline_color",Color(0xeb60ffff))
 			score_mult_display.add_theme_color_override("font_color",Color(0xeb60ffff))
-			scoreMult = 1.5
+			Global.scoreMult = 1.5
 			PlayerStats.lunaTimesPlayed += 1
 			hi_score = PlayerStats.lunaHiScore
+
+	scoreMult = Global.scoreMult
 
 	if scoreMult > 1.0:
 		$scoreContainer/HBoxContainer/scoreMultLabel.add_theme_color_override("font_color",Color(0x29d952ff))
@@ -116,7 +123,7 @@ func _process(_delta) -> void:
 		$BossBarBackground.show()
 		%BossBarContainer.show()
 
-		Global.score += roundi( (Global.score2give * (Global.graze+1)) * scoreMult )
+		Global.score += roundi( (Global.score2give * ((roundf(Global.graze)/10)+1)) * Global.scoreMult )
 		score = Global.score
 
 		if 200_000 >= score and score >= 50_000:
@@ -138,6 +145,7 @@ func _process(_delta) -> void:
 	dhealth = Global.health
 	bombs = Global.bomb
 	power_lvl = Global.power
+	graze = Global.graze
 	bs_timer = Global.boss_spellcard_time
 
 
