@@ -99,7 +99,6 @@ outline_color = Color(1, 0, 0.5, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_k5uol"]
 font_size = 12
-font_color = Color(0.8, 0.8, 0.8, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_2m6gh"]
 font_size = 24
@@ -402,9 +401,9 @@ texture = SubResource("GradientTexture2D_p5j10")
 
 [node name="healthLblContainer" type="HBoxContainer" parent="playerStatsContainer"]
 layout_mode = 2
+alignment = 1
 
 [node name="healthLbl" type="Label" parent="playerStatsContainer/healthLblContainer"]
-clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Player"
@@ -434,9 +433,9 @@ texture_progress_offset = Vector2(2.5, 0)
 
 [node name="bombLblContainer" type="HBoxContainer" parent="playerStatsContainer"]
 layout_mode = 2
+alignment = 1
 
 [node name="bombLbl" type="Label" parent="playerStatsContainer/bombLblContainer"]
-clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Bomb"
