@@ -70,6 +70,8 @@ func _ready() -> void:
 	$AliveIndicator.show()
 	$GameOver.hide()
 
+	%BossBarNameTag.text = "undefined!"
+
 	if Account.loggedIn:
 		$scoreContainer/playerNameValue.text = Account.username
 		$GameOver/GameOverContainer/GameOverFSSaveMsg.text = "(Leaderboard submissions are not implemented\nyet, so your score will only be saved locally.)"
@@ -124,6 +126,8 @@ func _process(_delta) -> void:
 		%SpellcardTimerContainer.show()
 		$BossBarBackground.show()
 		%BossBarContainer.show()
+
+		%BossBarNameTag.text = "Ayane Hanako"
 
 		Global.score += roundi( (Global.score2give * ((roundf(Global.graze)/10)+1)) * Global.scoreMult )
 		score = Global.score

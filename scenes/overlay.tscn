@@ -1,7 +1,8 @@
-[gd_scene load_steps=42 format=3 uid="uid://6tnyxq2pf060"]
+[gd_scene load_steps=43 format=3 uid="uid://6tnyxq2pf060"]
 
 [ext_resource type="Script" uid="uid://cilxi7ctnnwg7" path="res://scenes/overlay.gd" id="1_d607a"]
 [ext_resource type="FontFile" uid="uid://by4fv8t0jo01q" path="res://assets/fonts/monkey.ttf" id="2_0miq5"]
+[ext_resource type="Texture2D" uid="uid://dat8fv345dp74" path="res://assets/sprites/spellcardBar.png" id="2_lhcu8"]
 [ext_resource type="Texture2D" uid="uid://qvcet5p52aee" path="res://assets/backgrounds/overlay-right-sideart.png" id="2_sfd0e"]
 [ext_resource type="Texture2D" uid="uid://c7q0ymwp88slt" path="res://assets/backgrounds/overlay-left-sideart.png" id="3_0miq5"]
 [ext_resource type="PackedScene" uid="uid://dbrlalqvubg4g" path="res://scenes/pause.tscn" id="4_p5j10"]
@@ -239,6 +240,14 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "undefined!"
 label_settings = SubResource("LabelSettings_76wxp")
+
+[node name="BossBarSpellcards" type="TextureProgressBar" parent="BossBarContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 10.0
+value = 3.0
+rounded = true
+texture_progress = ExtResource("2_lhcu8")
 
 [node name="SpellcardTimerContainer" type="HBoxContainer" parent="."]
 unique_name_in_owner = true
