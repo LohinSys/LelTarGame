@@ -1,6 +1,6 @@
 extends State
 
-@onready var collision = %CollisionShape2D
+@onready var collision = %PD_CS2D
 
 var player_entered : bool = false:
 	set(value):

@@ -10,7 +10,7 @@ var random_bullet_giver: int = randi_range(0,3)
 var grazed: bool = false
 
 var blown_up: bool = false
-var bomb_bonus_formula: int = roundi((Global.score2give * Global.scoreMult) * ((Global.power * 5) + 5) + (roundf(Global.graze)/50)) + randi_range(-10,200)
+var bomb_bonus_formula: int = 0
 var explosion_easing: float = 0.05
 
 func _physics_process(delta: float) -> void:
@@ -31,6 +31,7 @@ func _input(event: InputEvent) -> void:
 		$CollisionShape2D.queue_free()
 		$GrazeArea.queue_free()
 		set_property(4)
+		bomb_bonus_formula = roundi((Global.score2give * Global.scoreMult) * ((Global.power * 5) + 5) + (roundf(Global.graze)/50)) + randi_range(-10,200)
 		$Sprite2D.scale = Vector2(0.5,0.5)
 		blown_up = true
 		Global.score += bomb_bonus_formula

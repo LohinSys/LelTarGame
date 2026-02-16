@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bkehd1u16qw8d"]
+[gd_scene load_steps=17 format=3 uid="uid://bkehd1u16qw8d"]
 
 [ext_resource type="Script" uid="uid://cnbh8k0u2okum" path="res://scenes/boss.gd" id="1_skx2t"]
 [ext_resource type="PackedScene" uid="uid://d3x0bcklojts" path="res://scenes/bullet1.tscn" id="2_lnbgr"]
@@ -31,6 +31,10 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_onrkg"]
 radius = 300.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8eiau"]
+radius = 42.0
+height = 156.0
+
 [node name="Boss" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_skx2t")
@@ -62,10 +66,17 @@ vertical_alignment = 2
 
 [node name="PlayerDetection" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
+[node name="PD_CS2D" type="CollisionShape2D" parent="PlayerDetection"]
 unique_name_in_owner = true
 shape = SubResource("CircleShape2D_onrkg")
 debug_color = Color(0.7, 0.10499998, 0, 0.41960785)
+
+[node name="BulletDetection" type="Area2D" parent="."]
+
+[node name="BD_CS2D" type="CollisionShape2D" parent="BulletDetection"]
+unique_name_in_owner = true
+position = Vector2(0, -4)
+shape = SubResource("CapsuleShape2D_8eiau")
 
 [node name="FiniteStateMachine" type="Node2D" parent="."]
 script = ExtResource("5_we8h1")
