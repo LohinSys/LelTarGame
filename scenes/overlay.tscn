@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://6tnyxq2pf060"]
+[gd_scene load_steps=42 format=3 uid="uid://6tnyxq2pf060"]
 
 [ext_resource type="Script" uid="uid://cilxi7ctnnwg7" path="res://scenes/overlay.gd" id="1_d607a"]
 [ext_resource type="FontFile" uid="uid://by4fv8t0jo01q" path="res://assets/fonts/monkey.ttf" id="2_0miq5"]
@@ -96,6 +96,10 @@ font_size = 24
 font_size = 24
 outline_size = 4
 outline_color = Color(1, 0, 0.5, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_k5uol"]
+font_size = 12
+font_color = Color(0.8, 0.8, 0.8, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_2m6gh"]
 font_size = 24
@@ -400,10 +404,23 @@ texture = SubResource("GradientTexture2D_p5j10")
 layout_mode = 2
 
 [node name="healthLbl" type="Label" parent="playerStatsContainer/healthLblContainer"]
+clip_contents = true
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Player"
 label_settings = SubResource("LabelSettings_vkldo")
 vertical_alignment = 2
+
+[node name="healthCount" type="Label" parent="playerStatsContainer/healthLblContainer"]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+text = "100 / 100"
+label_settings = SubResource("LabelSettings_k5uol")
+horizontal_alignment = 2
 
 [node name="healthBar" type="TextureProgressBar" parent="playerStatsContainer"]
 unique_name_in_owner = true
@@ -413,15 +430,29 @@ value = 100.0
 rounded = true
 allow_greater = true
 texture_progress = ExtResource("6_qq5m3")
+texture_progress_offset = Vector2(2.5, 0)
 
 [node name="bombLblContainer" type="HBoxContainer" parent="playerStatsContainer"]
 layout_mode = 2
 
 [node name="bombLbl" type="Label" parent="playerStatsContainer/bombLblContainer"]
+clip_contents = true
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Bomb"
 label_settings = SubResource("LabelSettings_2m6gh")
 vertical_alignment = 2
+
+[node name="bombCount" type="Label" parent="playerStatsContainer/bombLblContainer"]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+text = "3 / 8"
+label_settings = SubResource("LabelSettings_k5uol")
+horizontal_alignment = 2
 
 [node name="bombBar" type="TextureProgressBar" parent="playerStatsContainer"]
 unique_name_in_owner = true
@@ -430,6 +461,7 @@ max_value = 8.0
 value = 3.0
 rounded = true
 texture_progress = ExtResource("6_cpe4y")
+texture_progress_offset = Vector2(2.5, 0)
 
 [node name="Separator2" type="TextureRect" parent="playerStatsContainer"]
 layout_mode = 2
