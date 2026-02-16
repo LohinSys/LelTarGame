@@ -459,6 +459,7 @@ layout_mode = 2
 max_value = 8.0
 value = 3.0
 rounded = true
+allow_greater = true
 texture_progress = ExtResource("6_cpe4y")
 texture_progress_offset = Vector2(2.5, 0)
 

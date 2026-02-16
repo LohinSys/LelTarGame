@@ -33,11 +33,13 @@ var dhealth = Global.health:
 	set(value):
 		dhealth = value
 		health_bar.value = value
+		%healthCount.text = str(value," / 100")
 
 var bombs: int = Global.bomb:
 	set(value):
 		bombs = value
 		bomb_bar.value = value
+		%bombCount.text = str(value," / 8")
 
 var power_lvl: float = Global.power:
 	set(value):
