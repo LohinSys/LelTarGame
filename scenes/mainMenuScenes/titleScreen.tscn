@@ -25,15 +25,15 @@
 shader = ExtResource("3_hh3dy")
 shader_parameter/lod = 2.750000130625
 
+[sub_resource type="LabelSettings" id="LabelSettings_qrvv6"]
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.5019608)
+
 [sub_resource type="LabelSettings" id="LabelSettings_c3ue1"]
 font_size = 12
 shadow_color = Color(0, 0, 0, 0.5019608)
 
 [sub_resource type="LabelSettings" id="LabelSettings_vpt7i"]
-shadow_size = 2
-shadow_color = Color(0, 0, 0, 0.5019608)
-
-[sub_resource type="LabelSettings" id="LabelSettings_qrvv6"]
 shadow_size = 2
 shadow_color = Color(0, 0, 0, 0.5019608)
 
@@ -76,6 +76,19 @@ offset_bottom = 265.0
 grow_horizontal = 2
 texture = ExtResource("3_tcfyk")
 expand_mode = 3
+
+[node name="DevLabel" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -102.5
+offset_top = 230.0
+offset_right = 102.5
+offset_bottom = 248.0
+grow_horizontal = 2
+text = "Technical Development Build"
+label_settings = SubResource("LabelSettings_qrvv6")
+horizontal_alignment = 1
 
 [node name="MenuBtnContainer" type="VBoxContainer" parent="."]
 anchors_preset = 5
@@ -224,8 +237,7 @@ offset_top = -23.0
 offset_right = 84.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "Technical Development Build
-LohinSys (ɔ) 2024-2026"
+text = "LohinSys (ɔ) 2024-2026"
 label_settings = SubResource("LabelSettings_qrvv6")
 horizontal_alignment = 1
 vertical_alignment = 2

@@ -26,6 +26,11 @@ func _ready() -> void:
 	%StatBombsNorm.text = str(Global.num_with_thou_seps(PlayerStats.normBombsUsed))
 	%StatBombsHard.text = str(Global.num_with_thou_seps(PlayerStats.hardBombsUsed))
 	%StatBombsLuna.text = str(Global.num_with_thou_seps(PlayerStats.lunaBombsUsed))
+	# Bullets Grazed
+	%StatGrazeEasy.text = str(Global.num_with_thou_seps(PlayerStats.easyGrazed))
+	%StatGrazeNorm.text = str(Global.num_with_thou_seps(PlayerStats.normGrazed))
+	%StatGrazeHard.text = str(Global.num_with_thou_seps(PlayerStats.hardGrazed))
+	%StatGrazeLuna.text = str(Global.num_with_thou_seps(PlayerStats.lunaGrazed))
 
 func _process(_delta) -> void:
 	if Global.blurFx:
