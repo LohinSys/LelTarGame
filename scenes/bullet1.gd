@@ -8,6 +8,7 @@ var bullet_type: int = 0
 var random_bullet_giver: int = randi_range(0,3)
 
 var grazed: bool = false
+var did_graze_check: bool = false
 
 var blown_up: bool = false
 var bomb_bonus_formula: int = 0
@@ -18,6 +19,7 @@ func _physics_process(delta: float) -> void:
 		position += direction * speed * delta
 	else:
 		$ScoreModLbl.position.y -= 0.8
+		$Sprite2D.position += (direction * speed * delta)/4
 		$Sprite2D.scale += Vector2(explosion_easing,explosion_easing)
 		$Sprite2D.modulate -= Color(0,0,0,explosion_easing*1.2)
 		if explosion_easing > 0:
@@ -49,9 +51,11 @@ func _on_body_entered(body) -> void:
 	body.set_status(bullet_type)
 
 func _on_graze(body) -> void:
-	grazed = true
-	await get_tree().create_timer(0.1).timeout
-	if grazed and Global.alive: body.graze()
+	if !did_graze_check:
+		grazed = true
+		await get_tree().create_timer(0.1).timeout
+		if grazed and Global.alive: body.graze()
+		did_graze_check = true
 
 func _process(_delta) -> void:
 	Global.started = true

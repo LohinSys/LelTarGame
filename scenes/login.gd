@@ -32,6 +32,7 @@ func login() -> void:
 	print("\nLogging in as ",%Username.text,"...")
 	Account.username = str(%Username.text)
 	Account.password = Marshalls.utf8_to_base64(str(Account.crypto.encrypt(Account.cryptKey,encryptedPass)))
+	await get_tree().create_timer(randf_range(0.9,1.8)).timeout
 	Account.loggedIn = true
 	print("Success!")
 	Account.loginSuccess = true
@@ -54,9 +55,12 @@ func _on_login_pressed() -> void:
 		printErrorMsg("Please provide a password!")
 	elif len(%Username.text) < 3:
 		printErrorMsg("Username must be at least 3 characters long!")
+	elif len(%Username.text) > 32:
+		printErrorMsg("Username cannot be longer than 32 characters!")
 	elif len(%Password.text) < 8:
 		printErrorMsg("Password must be at least 8 characters long!")
 	else:
+		%LoginErrorLbl.text = ""
 		login()
 
 func _on_cancel_pressed() -> void:

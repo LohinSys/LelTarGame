@@ -14,12 +14,14 @@ var score: int = Global.score:
 	set(value):
 		score = value
 		Global.score = value
-		%scoreCount.text = str(value).pad_zeros(9)
+		if Global.score > 999_999_999: %scoreCount.text = "999999999"
+		else: %scoreCount.text = str(value).pad_zeros(9)
 
 var hi_score: int = 0:
 	set(value):
 		hi_score = value
-		%hiScoreCount.text = str(value).pad_zeros(9)
+		if Global.score > 999_999_999: %hiScoreCount.text = "999999999"
+		else: %hiScoreCount.text = str(value).pad_zeros(9)
 
 var bs_timer = Global.boss_spellcard_time:
 	set(value):
@@ -126,17 +128,17 @@ func _process(_delta) -> void:
 		Global.score += roundi( (Global.score2give * ((roundf(Global.graze)/10)+1)) * Global.scoreMult )
 		score = Global.score
 
-		if 200_000 >= score and score >= 50_000:
+		if 75_000 >= score and score >= 50_000:
 			Global.power = 0.5
-		elif 500_000 >= score and score >= 200_000:
+		elif 400_000 >= score and score >= 350_000:
 			Global.power = 1.2
-		elif 825_000 >= score and score >= 500_000:
+		elif 700_000 >= score and score >= 675_000:
 			Global.power = 2.0
-		elif 975_000 >= score and score >= 825_000:
+		elif 999_000 >= score and score >= 960_000:
 			Global.power = 2.9
-		elif 1_250_000 >= score and score >= 975_000:
+		elif 2_105_000 >= score and score >= 2_000_000:
 			Global.power = 3.4
-		elif score >= 1_250_000:
+		elif 5_050_050 >= score and score >= 5_000_000:
 			Global.power = 4.0
 
 	if !Global.alive:

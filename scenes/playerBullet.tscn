@@ -4,7 +4,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nqh52"]
 radius = 3.0
-height = 46.0
+height = 47.0
 
 [node name="PlayerBullet" type="Area2D"]
 
@@ -14,7 +14,7 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_nqh52")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-rect = Rect2(-3, -24, 6, 48)
+rect = Rect2(-3.5, -24.5, 7, 49)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_nqh52")

@@ -13,6 +13,16 @@ sky_material = SubResource("ProceduralSkyMaterial_cryoe")
 [sub_resource type="Environment" id="Environment_cryoe"]
 background_mode = 2
 sky = SubResource("Sky_bypsq")
+fog_light_color = Color(0.6372469, 1.1834182, 1.4996222, 1)
+fog_light_energy = 0.12
+fog_sky_affect = 0.5
+volumetric_fog_enabled = true
+volumetric_fog_albedo = Color(0.6, 0.85333335, 1, 1)
+volumetric_fog_emission = Color(0.2223, 0.44251004, 0.57, 1)
+volumetric_fog_length = 100.0
+volumetric_fog_detail_spread = 2.7037525
+volumetric_fog_ambient_inject = 2.0
+volumetric_fog_sky_affect = 0.5
 
 [node name="BossRoom" type="WorldEnvironment"]
 environment = SubResource("Environment_cryoe")

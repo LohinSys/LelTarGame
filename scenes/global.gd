@@ -26,7 +26,7 @@ var scoreMult: float = 1.0
 
 var score2give = 1
 
-var verNote = "kaboom."
+var verNote = "Suddenly, prettier!"
 var dbgInfoPrint = str("v",ProjectSettings.get_setting("application/config/version")," - ",verNote,"\nRenderer: ",RenderingServer.get_current_rendering_driver_name())
 
 var health = 100:

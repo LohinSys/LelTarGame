@@ -155,8 +155,7 @@ shadow_color = Color(0, 0, 0, 0.6431373)
 shadow_offset = Vector2(2, 2)
 
 [sub_resource type="LabelSettings" id="LabelSettings_0miq5"]
-shadow_size = 2
-shadow_color = Color(0, 0, 0, 0.5019608)
+shadow_size = 0
 
 [node name="CanvasLayer" type="CanvasLayer" node_paths=PackedStringArray("menu_button")]
 script = ExtResource("1_d607a")

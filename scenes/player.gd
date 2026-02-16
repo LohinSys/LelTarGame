@@ -90,11 +90,15 @@ func _on_death() -> void:
 	match Global.selectedDiff:
 		1:	# Easy
 			PlayerStats.easyDeaths += 1
+			PlayerStats.easyGrazed += Global.graze
 		2:	# Normal
 			PlayerStats.normDeaths += 1
+			PlayerStats.normGrazed += Global.graze
 		3:	# Hard
 			PlayerStats.hardDeaths += 1
+			PlayerStats.hardGrazed += Global.graze
 		4:	# Lunatic
 			PlayerStats.lunaDeaths += 1
+			PlayerStats.lunaGrazed += Global.graze
 	await get_tree().create_timer(1.5).timeout
 	self.queue_free()
