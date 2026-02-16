@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://6tnyxq2pf060"]
+[gd_scene load_steps=41 format=3 uid="uid://6tnyxq2pf060"]
 
 [ext_resource type="Script" uid="uid://cilxi7ctnnwg7" path="res://scenes/overlay.gd" id="1_d607a"]
 [ext_resource type="FontFile" uid="uid://by4fv8t0jo01q" path="res://assets/fonts/monkey.ttf" id="2_0miq5"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://qvcet5p52aee" path="res://assets/backgrounds/overlay-right-sideart.png" id="2_sfd0e"]
 [ext_resource type="Texture2D" uid="uid://c7q0ymwp88slt" path="res://assets/backgrounds/overlay-left-sideart.png" id="3_0miq5"]
 [ext_resource type="PackedScene" uid="uid://dbrlalqvubg4g" path="res://scenes/pause.tscn" id="4_p5j10"]
+[ext_resource type="Texture2D" uid="uid://cdtu2jq2gk7oj" path="res://assets/sprites/bombBar.png" id="6_cpe4y"]
+[ext_resource type="Texture2D" uid="uid://c54i6nd4b0fnf" path="res://assets/sprites/healthBar.png" id="6_qq5m3"]
 [ext_resource type="AudioStream" uid="uid://cg1ruwrdyp06a" path="res://assets/music/spaceHopper-intro.ogg" id="6_tn5s6"]
 [ext_resource type="AudioStream" uid="uid://bemv32tjubfa1" path="res://assets/music/spaceHopper-loop.ogg" id="7_lhcu8"]
 
@@ -90,29 +92,15 @@ font_color = Color(0.7019608, 0.7019608, 0.7019608, 1)
 font = ExtResource("2_0miq5")
 font_size = 24
 
-[sub_resource type="Gradient" id="Gradient_r2eog"]
-colors = PackedColorArray(1, 0, 0.5019608, 1, 0.2509804, 0, 0, 1)
+[sub_resource type="LabelSettings" id="LabelSettings_vkldo"]
+font_size = 24
+outline_size = 4
+outline_color = Color(1, 0, 0.5, 1)
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_sfd0e"]
-seed = 77989
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_d607a"]
-width = 165
-height = 20
-noise = SubResource("FastNoiseLite_sfd0e")
-color_ramp = SubResource("Gradient_r2eog")
-
-[sub_resource type="Gradient" id="Gradient_p5j10"]
-colors = PackedColorArray(0, 0.2509804, 0, 1, 0, 1, 0, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_0miq5"]
-seed = 145456
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_r2eog"]
-width = 165
-height = 20
-noise = SubResource("FastNoiseLite_0miq5")
-color_ramp = SubResource("Gradient_p5j10")
+[sub_resource type="LabelSettings" id="LabelSettings_2m6gh"]
+font_size = 24
+outline_size = 4
+outline_color = Color(0, 0.8, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_i2ryd"]
 font_size = 24
@@ -408,32 +396,40 @@ horizontal_alignment = 1
 layout_mode = 2
 texture = SubResource("GradientTexture2D_p5j10")
 
-[node name="healthLbl" type="Label" parent="playerStatsContainer"]
+[node name="healthLblContainer" type="HBoxContainer" parent="playerStatsContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+
+[node name="healthLbl" type="Label" parent="playerStatsContainer/healthLblContainer"]
+layout_mode = 2
 text = "Player"
+label_settings = SubResource("LabelSettings_vkldo")
+vertical_alignment = 2
 
 [node name="healthBar" type="TextureProgressBar" parent="playerStatsContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+max_value = 80.0
 value = 100.0
 rounded = true
 allow_greater = true
-texture_progress = SubResource("NoiseTexture2D_d607a")
+texture_progress = ExtResource("6_qq5m3")
 
-[node name="bombLbl" type="Label" parent="playerStatsContainer"]
+[node name="bombLblContainer" type="HBoxContainer" parent="playerStatsContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+
+[node name="bombLbl" type="Label" parent="playerStatsContainer/bombLblContainer"]
+layout_mode = 2
 text = "Bomb"
+label_settings = SubResource("LabelSettings_2m6gh")
+vertical_alignment = 2
 
 [node name="bombBar" type="TextureProgressBar" parent="playerStatsContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-max_value = 5.0
+max_value = 8.0
 value = 3.0
 rounded = true
-allow_greater = true
-texture_progress = SubResource("NoiseTexture2D_r2eog")
+texture_progress = ExtResource("6_cpe4y")
 
 [node name="Separator2" type="TextureRect" parent="playerStatsContainer"]
 layout_mode = 2
