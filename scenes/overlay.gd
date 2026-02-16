@@ -177,9 +177,13 @@ func _on_alive_indicator_hidden() -> void:
 			4:	# Lunatic
 				PlayerStats.lunaHiScore = hi_score
 	final_score.text = Global.num_with_thou_seps(score)
+	%BGA.stop()
 	$GameOver.show()
 
 	Global.power = Global.power * 0.625
 	Global.started = false
 
 	PlayerStats.save()
+
+func _on_start_game_instruct_hidden() -> void:
+	%BGA.play()

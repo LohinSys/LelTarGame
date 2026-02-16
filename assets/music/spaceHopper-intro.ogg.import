@@ -14,6 +14,6 @@ dest_files=["res://.godot/imported/spaceHopper-intro.ogg-940476484b78c24ac2c8021
 
 loop=false
 loop_offset=0
-bpm=0
+bpm=170.0
 beat_count=0
 bar_beats=4

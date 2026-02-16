@@ -290,7 +290,7 @@ vertical_alignment = 2
 [node name="LoadingScreen" parent="." instance=ExtResource("11_2i8gq")]
 visible = false
 
-[node name="BgMusic" type="AudioStreamPlayer" parent="."]
+[node name="TitleBGA" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("20_5ur3r")
 autoplay = true
 bus = &"Music"

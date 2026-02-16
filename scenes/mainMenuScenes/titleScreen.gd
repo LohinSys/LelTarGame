@@ -78,7 +78,7 @@ func _on_logout_button_pressed() -> void:
 	%LogoutTitleButton.disabled = false
 
 func start_game() -> void:
-	$BgMusic.stop()
+	$TitleBGA.stop()
 	$LoadingScreen.show()
 	await get_tree().create_timer(0.1).timeout
 	if $Settings.visible == true:

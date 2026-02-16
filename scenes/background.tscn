@@ -37,6 +37,3 @@ fov = 70.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.8048524, 0.20298047, -0.5576842, 0.05373667, 0.91090775, 0.4090963, 0.5910373, -0.35923016, 0.72223866, -2.0676262, 1.6618488, 4.1917634)
-
-[node name="BGA" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
