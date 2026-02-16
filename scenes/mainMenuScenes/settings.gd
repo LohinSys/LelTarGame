@@ -98,12 +98,15 @@ func _on_done_pressed() -> void:
 
 func _on_master_vol_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(value))
+	Global.masterVolume = value
 
 func _on_sfx_vol_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(value))
+	Global.sfxVolume = value
 
 func _on_music_vol_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(value))
+	Global.musicVolume = value
 
 # UI audio handler for volume sliders
 var playback:AudioStreamPlaybackPolyphonic
