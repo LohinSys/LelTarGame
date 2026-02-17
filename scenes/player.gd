@@ -10,7 +10,6 @@ var health = Global.health:
 	set(value):
 		health = value
 
-# csak egyszer nyomsz meg egy gombot
 func _input(event):
 	if event.is_action_pressed("use_bomb") and Global.alive and Global.bomb != 0:
 		$BombSfx.play()
@@ -54,28 +53,28 @@ func graze() -> void:
 
 func set_status(bullet_type) -> void:
 	match bullet_type:
-		0: hit()
-		1: hit()
-		2: hit()
-		3: hit()
+		0: hit(10)
+		1: hit(10)
+		2: hit(10)
+		3: hit(10)
 
-func hit() -> void:
-	Global.health -= 10
+func hit(x) -> void:
+	$CollisionShape2D.set_deferred("disabled",true)
+	$AnimatedSprite2D.self_modulate = Color(1,1,1,0.5)
+	%HitSfx.play()
+	GameLogic.damage_player(x)
 
-func heal(amount) -> void:
-	Global.health += amount
+	await get_tree().create_timer(1).timeout
+	$CollisionShape2D.set_deferred("disabled",false)
+	$AnimatedSprite2D.self_modulate = Color(1,1,1,1)
 
-func give_bomb() -> void:
-	Global.health -= 20
-	await get_tree().create_timer(5).timeout
-	Global.health += 15
+func heal(y) -> void: GameLogic.heal_player(y)
+
+func give_bomb(z) -> void: GameLogic.give_player_bomb(z)
 
 func give_more_points() -> void:
-	Global.health -= 30
-	await get_tree().create_timer(0.5).timeout
-	for i in range(25):
-		Global.health += 1
-		await get_tree().create_timer(0.5).timeout
+	Global.bonusFormula = roundi((Global.score2give * Global.scoreMult) * ((Global.power * 5) + 5) + (roundf(Global.graze)/50)) + randi_range(-10,200)
+	Global.score += Global.bonusFormula
 
 func _on_death() -> void:
 	Global.alive = false

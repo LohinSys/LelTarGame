@@ -44,11 +44,13 @@ texture = ExtResource("4_dqkch")
 
 [node name="BombSfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_qlg0r")
+max_polyphony = 4
 bus = &"SFX"
 
 [node name="GrazeSfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_fjrip")
 volume_db = -1.0
+max_polyphony = 4
 bus = &"SFX"
 
 [node name="DeathSfx" type="AudioStreamPlayer" parent="."]

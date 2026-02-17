@@ -71,3 +71,11 @@ func _ready() -> void:
 
 func _on_spellcard_timeout() -> void:
 	Global.boss_spellcard_time += 0.1
+	if Global.alive:
+		if roundi(Global.boss_spellcard_time) == 100.0:
+			Global.give_player_bomb(2)
+		elif roundi(Global.boss_spellcard_time) == 200.0:
+			Global.heal_player(1)
+			Global.give_player_bomb(1)
+		elif roundi(Global.boss_spellcard_time) == 300.0:
+			Global.give_player_bomb(1)

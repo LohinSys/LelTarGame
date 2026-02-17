@@ -34,6 +34,7 @@ buses/default_bus_layout="uid://cefx2qv3f8hqg"
 Global="*res://scenes/global.gd"
 PlayerStats="*res://scenes/playerStats.gd"
 Account="*res://scenes/account.gd"
+GameLogic="*res://scenes/gameLogic.gd"
 
 [debug]
 

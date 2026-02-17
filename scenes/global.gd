@@ -25,6 +25,10 @@ var score: int = 0
 var scoreMult: float = 1.0
 
 var score2give = 1
+var bonusFormula: int = 0:
+	set(value):
+		bonusFormula = value
+		if bonusFormula < 0: bonusFormula = 0
 
 var verNote = "Suddenly, prettier!"
 var dbgInfoPrint = str("v",ProjectSettings.get_setting("application/config/version")," - ",verNote,"\nRenderer: ",RenderingServer.get_current_rendering_driver_name())
@@ -48,6 +52,13 @@ var graze = 0:
 var boss_spellcard_time = 0.0:
 	set(value):
 		boss_spellcard_time = value
+
+var boss_health: int = 1000
+var boss_spellcards: int = 3
+var is_spellcard: bool = false
+var spellcard_id: int = 0
+var spellcard_name: String = ""
+var can_capture_spellcard: bool = true
 
 var current_attack_pattern_type: String = ""
 var random_bullets: bool = false
@@ -198,11 +209,3 @@ func _ready() -> void:
 	load_settings()
 
 	DisplayServer.window_set_title(str("Lel.tar ",ProjectSettings.get_setting("application/config/version")," - ",verNote),0)
-
-
-#func change_scene_to_node(node):
-	#var tree = get_tree()
-	#var cur_scene = tree.get_current_scene()
-	#tree.get_root().add_child(node)
-	#tree.get_root().remove_child(cur_scene)
-	#tree.set_current_scene(node)

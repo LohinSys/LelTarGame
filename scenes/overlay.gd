@@ -23,23 +23,23 @@ var hi_score: int = 0:
 		if Global.score > 999_999_999: %hiScoreCount.text = "999999999"
 		else: %hiScoreCount.text = str(value).pad_zeros(9)
 
-var bs_timer = Global.boss_spellcard_time:
+var bs_timer: float = Global.boss_spellcard_time:
 	set(value):
 		%SpellcardTimerLabel.text = str(value).pad_decimals(0)
 		%SpellcardTimerDecimal.text = str(value).pad_decimals(1).right(1)
 
 
-var dhealth = Global.health:
+var dhealth: int = Global.health:
 	set(value):
 		dhealth = value
 		health_bar.value = value
-		%healthCount.text = str(value," / ",int(%healthBar.max_value))
+		%healthCount.text = str(value," / 80")
 
 var bombs: int = Global.bomb:
 	set(value):
 		bombs = value
 		bomb_bar.value = value
-		%bombCount.text = str(value," / ",int(%bombBar.max_value))
+		%bombCount.text = str(value," / 8")
 
 var power_lvl: float = Global.power:
 	set(value):
@@ -57,6 +57,16 @@ var scoreMult: float = Global.scoreMult:
 		scoreMult = value
 		$scoreContainer/HBoxContainer/scoreMultLabel.text = "x%s" % value
 
+var boss_hp: int = Global.boss_health:
+	set(value):
+		boss_hp = value
+		%BossBarHealth.value = value
+
+var boss_spells: int = Global.boss_spellcards:
+	set(value):
+		boss_spells = value
+		%BossBarSpellcards.value = value
+
 func _ready() -> void:
 	$DbgInfo.set_text(Global.dbgInfoPrint)
 	Global.started = false
@@ -67,8 +77,13 @@ func _ready() -> void:
 	Global.bomb = 3
 	Global.power = 0.0
 	Global.graze = 0
+
+	Global.boss_health = 1000
+	Global.boss_spellcards = 3
+
 	Global.boss_spellcard_time = 0.0
 	Global.alive = true
+
 	$AliveIndicator.show()
 	$GameOver.hide()
 
@@ -155,6 +170,10 @@ func _process(_delta) -> void:
 	bombs = Global.bomb
 	power_lvl = Global.power
 	graze = Global.graze
+
+	boss_hp = Global.boss_health
+	boss_spells = Global.boss_spellcards
+
 	bs_timer = Global.boss_spellcard_time
 
 

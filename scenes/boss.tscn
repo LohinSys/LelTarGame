@@ -54,16 +54,6 @@ wait_time = 4.0
 unique_name_in_owner = true
 wait_time = 0.1
 
-[node name="debug" type="Label" parent="."]
-visible = false
-offset_left = -33.0
-offset_top = -99.0
-offset_right = 33.0
-offset_bottom = -76.0
-text = "bossDbg"
-horizontal_alignment = 1
-vertical_alignment = 2
-
 [node name="PlayerDetection" type="Area2D" parent="."]
 
 [node name="PD_CS2D" type="CollisionShape2D" parent="PlayerDetection"]
