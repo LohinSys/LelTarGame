@@ -52,11 +52,15 @@ func graze() -> void:
 	$GrazeSfx.play()
 
 func set_status(bullet_type) -> void:
+	var amount = 10
+	if Global.selectedDiff == 1 or Global.selectedDiff == 2: amount = 5
+	else: amount = 10
+
 	match bullet_type:
-		0: hit(10)
-		1: hit(10)
-		2: hit(10)
-		3: hit(10)
+		0: hit(amount)
+		1: hit(amount)
+		2: hit(amount)
+		3: hit(amount)
 
 func hit(x) -> void:
 	$CollisionShape2D.set_deferred("disabled",true)
@@ -68,9 +72,13 @@ func hit(x) -> void:
 	$CollisionShape2D.set_deferred("disabled",false)
 	$AnimatedSprite2D.self_modulate = Color(1,1,1,1)
 
-func heal(y) -> void: GameLogic.heal_player(y)
+func heal(y) -> void:
+	%HealSfx.play()
+	GameLogic.heal_player(y)
 
-func give_bomb(z) -> void: GameLogic.give_player_bomb(z)
+func give_bomb(z) -> void:
+	%GetBombSfx.play()
+	GameLogic.give_player_bomb(z)
 
 func give_more_points() -> void:
 	Global.bonusFormula = roundi((Global.score2give * Global.scoreMult) * ((Global.power * 5) + 5) + (roundf(Global.graze)/50)) + randi_range(-10,200)

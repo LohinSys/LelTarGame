@@ -4,7 +4,6 @@ An arcade-style "bullet hell" Shoot 'em Up game, taking you to an adventure of s
 
 This was made for a *(solo)* school project of mine.
 
----
 > [!IMPORTANT]
 > **This game is currently in a very unfinished state!!** If you have any high expectations about this, don't expect anything good, nor should you spam and complain in my inbox about that.
 
