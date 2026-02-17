@@ -15,6 +15,7 @@ This was made for a *(solo)* school project of mine.
 - **Audio used**
 	- <u>Music</u>
 		- [Ultimate Truth (Touhou) - Piano Duet](https://youtu.be/o7_-lfkwvK8) *(by PhoenixIdeology)*
+		- [Space Hopper](https://dova-s.jp/EN/bgm/play4517.html) *(provided by DOVA-SYNDROME)*
 	- <u>Sound Effects</u>
 		- Touhou Project
 - **Art, images and other graphics**
