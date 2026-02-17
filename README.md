@@ -17,6 +17,7 @@ This was made for a *(solo)* school project of mine.
 		- [Space Hopper](https://dova-s.jp/EN/bgm/play4517.html) *(provided by DOVA-SYNDROME)*
 	- <u>Sound Effects</u>
 		- Touhou Project
+		- [freesound_community <em>(Pixabay)</em>](https://pixabay.com/users/freesound_community-46691455/)
 - **Art, images and other graphics**
 	- <u>Icons:</u> [Material Design Icons](https://fonts.google.com/icons) *(by Google)*
 	- <u>Fonts:</u>
