@@ -149,6 +149,7 @@ func _process(_delta) -> void:
 
 	if !Global.alive:
 		$AliveIndicator.hide()
+		Global.health = 0
 
 	dhealth = Global.health
 	bombs = Global.bomb
