@@ -33,13 +33,13 @@ var dhealth = Global.health:
 	set(value):
 		dhealth = value
 		health_bar.value = value
-		%healthCount.text = str(value," / 100")
+		%healthCount.text = str(value," / ",int(%healthBar.max_value))
 
 var bombs: int = Global.bomb:
 	set(value):
 		bombs = value
 		bomb_bar.value = value
-		%bombCount.text = str(value," / 8")
+		%bombCount.text = str(value," / ",int(%bombBar.max_value))
 
 var power_lvl: float = Global.power:
 	set(value):
@@ -63,7 +63,7 @@ func _ready() -> void:
 	Global.score = 0
 	Global.score2give = 1
 
-	Global.health = 100
+	Global.health = 80
 	Global.bomb = 3
 	Global.power = 0.0
 	Global.graze = 0

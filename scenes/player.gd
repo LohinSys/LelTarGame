@@ -6,8 +6,6 @@ var speed = default_speed:
 	set(value):
 		speed = value
 
-@onready var player_dbg = $playerDbg
-
 var health = Global.health:
 	set(value):
 		health = value
@@ -56,30 +54,25 @@ func graze() -> void:
 
 func set_status(bullet_type) -> void:
 	match bullet_type:
-		0: fire()
-		1: poison()
-		2: slow()
-		3: stun()
+		0: hit()
+		1: hit()
+		2: hit()
+		3: hit()
 
-func fire() -> void:
-	player_dbg.text = "fire"
+func hit() -> void:
 	Global.health -= 10
 
-func poison() -> void:
-	player_dbg.text = "poison"
-	for i in range(10):
-		Global.health -= 1
-		await get_tree().create_timer(0.5).timeout
+func heal(amount) -> void:
+	Global.health += amount
 
-func slow() -> void:
-	player_dbg.text = "frostbite"
+func give_bomb() -> void:
 	Global.health -= 20
 	await get_tree().create_timer(5).timeout
 	Global.health += 15
 
-func stun() -> void:
-	player_dbg.text = "shock"
+func give_more_points() -> void:
 	Global.health -= 30
+	await get_tree().create_timer(0.5).timeout
 	for i in range(25):
 		Global.health += 1
 		await get_tree().create_timer(0.5).timeout
