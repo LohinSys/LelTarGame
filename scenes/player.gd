@@ -54,7 +54,7 @@ func graze() -> void:
 
 func set_status(bullet_type) -> void:
 	var amount = 10
-	if Global.selectedDiff == 1 or Global.selectedDiff == 2: amount = 5
+	if Global.selectedDiff == 1: amount = 5
 	else: amount = 10
 
 	match bullet_type:

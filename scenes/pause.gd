@@ -73,12 +73,13 @@ func _on_resume_pressed() -> void:
 func _on_restart_pressed() -> void:
 	ui_enabled = false
 	disableUI()
+	$LoadingScreen.show()
 	get_tree().reload_current_scene()
 
 func _on_quit_game_pressed() -> void:
 	$LoadingScreen.show()
 	PlayerStats.save()
-	get_tree().quit()
+	get_tree().quit(0)
 
 func _on_back2title_pressed() -> void:
 	$LoadingScreen.show()

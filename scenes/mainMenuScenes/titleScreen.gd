@@ -54,7 +54,7 @@ func _on_credits_pressed() -> void:
 func _on_quit_game_pressed() -> void:
 	$LoadingScreen.show()
 	PlayerStats.save()
-	get_tree().quit()
+	get_tree().quit(0)
 
 func _on_login_button_pressed() -> void:
 	%LoginTitleButton.disabled = true
@@ -67,7 +67,6 @@ func _on_login_hidden() -> void:
 		%LogoutTitleButton.show()
 
 func _on_logout_button_pressed() -> void:
-
 	%LogoutTitleButton.disabled = true
 	%LoginTitleButton.disabled = false
 	if Account.loggedIn:
