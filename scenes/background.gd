@@ -1,6 +1,7 @@
 extends Node3D
 
-var camera_rotation: float = 0.001
+var random_dir = [1, -1]
+var camera_rotation: float = 0.001 * (random_dir[randi()%2])
 
 func _physics_process(_delta) -> void:
 	# keep moving the background
