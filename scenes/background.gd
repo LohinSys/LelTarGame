@@ -2,40 +2,8 @@ extends Node3D
 
 var random_dir = [1, -1]
 var camera_rotation: float = 0.001 * (random_dir[randi()%2])
-
-func make_clouds(width,height,offset:Vector3):
-	# initialize noise texture
-	var texture = NoiseTexture2D.new()
-	texture.noise = FastNoiseLite.new()
-	# initialize gradient
-	var gradient = Gradient.new()
-	# gradient settings
-	gradient.offsets = PackedFloat32Array([0.0,1.0])
-	gradient.colors = PackedColorArray([Color(1,1,1,0),Color(1,1,1,0.33)])
-	await gradient.changed
-
-	# texture settings
-	texture.width = width
-	texture.height = height
-	# noise settings
-	texture.noise.set("seed",randi_range(0,2345678))
-	texture.noise.set("frequency",0.0019)
-	texture.noise.set("offset",offset)
-	texture.noise.set("color_ramp",gradient)
-	# noise -> fractal settings
-	texture.noise.set("fractal_octaves",3)
-	texture.noise.set("fractal_weighted_strength",0.5)
-
-	await texture.changed
-
-	#var image = texture.get_image()
-	#var data = image.get_data()
-
-	return texture
-
-# initialize non-3D shit
-func _ready() -> void:
-	$Clouds2D.texture = await make_clouds(800,600,Vector3i(0,-500,0))
+var trans_to_cloud_layer: int = 2
+var transition_now: bool = false
 
 # bg animation
 func _physics_process(_delta) -> void:
@@ -62,3 +30,32 @@ func _physics_process(_delta) -> void:
 			camera_rotation += 0.00001
 
 	# move the clouds down
+	$"Clouds2D/Layer-1".move_local_y(1)
+	$"Clouds2D/Layer-2".move_local_y(1)
+
+	if transition_now:
+		match trans_to_cloud_layer:
+			1: # transition to layer 1
+				$"Clouds2D/Layer-1".show()
+				$"Clouds2D/Layer-1".self_modulate += Color(0, 0, 0, 1.0/240.0)
+				$"Clouds2D/Layer-2".self_modulate -= Color(0, 0, 0, 1.0/240.0)
+			2: # and layer 2
+				$"Clouds2D/Layer-2".show()
+				$"Clouds2D/Layer-2".self_modulate += Color(0, 0, 0, 1.0/240.0)
+				$"Clouds2D/Layer-1".self_modulate -= Color(0, 0, 0, 1.0/240.0)
+
+# what to do when it's nearly gonna clip away
+func _on_cloud_fade_transition_timeout() -> void:
+	transition_now = true
+	$Clouds2D/FadeTransition.wait_time = 56.25
+	await get_tree().create_timer(4.0).timeout
+	transition_now = false
+	match trans_to_cloud_layer:
+		1:	# swap to layer 2 for next transition
+			trans_to_cloud_layer = 2
+			$"Clouds2D/Layer-2".hide()
+			$"Clouds2D/Layer-2".position.y = 0
+		2:	# and layer 1
+			trans_to_cloud_layer = 1
+			$"Clouds2D/Layer-1".hide()
+			$"Clouds2D/Layer-1".position.y = 0
