@@ -1,13 +1,7 @@
 extends CharacterBody2D
 class_name Player
 
-var speed = 250.0:
-	set(value):
-		speed = value
-
-var health = Global.health:
-	set(value):
-		health = value
+var speed = 250.0
 
 func _input(event):
 	if event.is_action_pressed("use_bomb") and Global.alive and Global.bomb != 0:
