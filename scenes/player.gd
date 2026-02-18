@@ -1,8 +1,7 @@
 extends CharacterBody2D
 class_name Player
 
-const default_speed = 250.0
-var speed = default_speed:
+var speed = 250.0:
 	set(value):
 		speed = value
 
@@ -32,17 +31,22 @@ func _physics_process(_delta: float) -> void:
 	velocity = Input.get_vector("move_left","move_right","move_up","move_down") * speed
 	move_and_slide()
 
-	if Input.is_action_just_pressed("shoot"):
-		speed = default_speed * 0.8
-	elif Input.is_action_just_released("shoot"):
-		speed = default_speed
+	# these variables are needed otherwise the player will start going apeshit
+	var shooting = Input.is_action_just_pressed("shoot")
+	var not_shooting = Input.is_action_just_released("shoot")
+	var focusing = Input.is_action_just_pressed("focus")
+	var not_focusing = Input.is_action_just_released("focus")
 
-	if Input.is_action_just_pressed("focus"):
-		speed = default_speed / 2
-		$VisibleCS2D.visible = true
-	elif Input.is_action_just_released("focus"):
-		speed = default_speed
-		$VisibleCS2D.visible = false
+	if shooting:
+		speed *= 0.8
+	if focusing:
+		speed /= 2
+		$VisibleCS2D.show()
+	if not_shooting:
+		speed /= 0.8
+	if not_focusing:
+		speed *= 2
+		$VisibleCS2D.hide()
 
 	if Global.health <= 0:
 		self.hide()
