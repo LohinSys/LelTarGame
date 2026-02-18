@@ -20,7 +20,8 @@ func _input(event):
 func _ready() -> void:
 	$AnimatedSprite2D.play()
 
-# gomb lenyomásra
+# the physics process is for inputs where you hold down a button
+# note: WASD and shoot + focus buttons only work together on keyboards if it has 6-key rollover minimum
 func _physics_process(_delta: float) -> void:
 	velocity = Input.get_vector("move_left","move_right","move_up","move_down") * speed
 	move_and_slide()
@@ -42,12 +43,14 @@ func _physics_process(_delta: float) -> void:
 		speed *= 2
 		$VisibleCS2D.hide()
 
+	# little death handler
 	if Global.health <= 0:
 		self.hide()
 
 func graze() -> void:
-	Global.graze += 1
-	$GrazeSfx.play()
+	if Global.alive:
+		Global.graze += 1
+		$GrazeSfx.play()
 
 func set_status(bullet_type) -> void:
 	var amount = 10
