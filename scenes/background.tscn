@@ -1,13 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://bcqacxesymdnc"]
+[gd_scene load_steps=7 format=3 uid="uid://bcqacxesymdnc"]
 
 [ext_resource type="Script" uid="uid://dh63huqqnfs3n" path="res://scenes/background.gd" id="1_y0upk"]
 [ext_resource type="Material" uid="uid://vruqxk3qrhok" path="res://assets/material/background-grass.tres" id="2_jougr"]
+
+[sub_resource type="Gradient" id="Gradient_y0upk"]
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.33)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_jougr"]
+seed = 2130
+frequency = 0.0019
+offset = Vector3(0, -1000, 0)
+fractal_octaves = 3
+fractal_weighted_strength = 0.5
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_y0upk"]
+width = 800
+height = 600
+noise = SubResource("FastNoiseLite_jougr")
+color_ramp = SubResource("Gradient_y0upk")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_bkp1e"]
 size = Vector2(20, 20)
 
 [node name="Background" type="Node3D"]
 script = ExtResource("1_y0upk")
+
+[node name="Clouds2D" type="Sprite2D" parent="."]
+texture = SubResource("NoiseTexture2D_y0upk")
+centered = false
 
 [node name="Ground3D-1" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, -1, 0)
