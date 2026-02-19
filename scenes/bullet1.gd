@@ -14,6 +14,12 @@ var blown_up: bool = false
 var explosion_easing: float = 0.05
 
 func _physics_process(delta: float) -> void:
+	Global.started = true
+	if Global.current_attack_pattern_type == "spiral":
+		speed -= 1.45
+	elif "rain" in Global.current_attack_pattern_type:
+		speed -= 0.45
+
 	if !blown_up:
 		position += direction * speed * delta
 	else:
@@ -55,10 +61,3 @@ func _on_graze(body) -> void:
 		await get_tree().create_timer(0.1).timeout
 		if grazed and Global.alive: body.graze()
 		did_graze_check = true
-
-func _process(_delta) -> void:
-	Global.started = true
-	if Global.current_attack_pattern_type == "spiral":
-		speed -= 1.45
-	elif "rain" in Global.current_attack_pattern_type:
-		speed -= 0.45

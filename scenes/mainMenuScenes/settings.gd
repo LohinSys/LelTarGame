@@ -20,7 +20,7 @@ func _ready() -> void:
 	%SFXVolSlider.value = Global.sfxVolume
 	%MusicVolSlider.value = Global.musicVolume
 
-func _process(_delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if Global.blurFx:
 		$Blur.show()
 	else:

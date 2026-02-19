@@ -20,13 +20,15 @@ offset = Vector2(0, -5400)
 
 [node name="Layer-2" type="Sprite2D" parent="Clouds2D"]
 visible = false
+self_modulate = Color(1, 1, 1, 0)
 texture = ExtResource("3_cbsqf")
 centered = false
 offset = Vector2(0, -5400)
 
 [node name="FadeTransition" type="Timer" parent="Clouds2D"]
-wait_time = 52.0
-autostart = true
+process_callback = 0
+wait_time = 40.0
+one_shot = true
 
 [node name="Ground3D-1" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, -1, 0)

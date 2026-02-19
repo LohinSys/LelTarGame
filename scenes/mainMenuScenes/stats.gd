@@ -32,7 +32,7 @@ func _ready() -> void:
 	%StatGrazeHard.text = str(Global.num_with_thou_seps(PlayerStats.hardGrazed))
 	%StatGrazeLuna.text = str(Global.num_with_thou_seps(PlayerStats.lunaGrazed))
 
-func _process(_delta) -> void:
+func _physics_process(_delta) -> void:
 	if Global.blurFx:
 		$Blur.show()
 	else:

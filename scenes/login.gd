@@ -20,7 +20,7 @@ func enable_buttons() -> void:
 func _ready() -> void:
 	close_self()
 
-func _process(_delta) -> void:
+func _physics_process(_delta) -> void:
 	if Global.blurFx:
 		$Blur.show()
 	else:

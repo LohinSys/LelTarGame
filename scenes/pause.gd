@@ -40,7 +40,7 @@ func _ready() -> void:
 	self.process_mode = Node.PROCESS_MODE_ALWAYS
 	disableUI()
 
-func _process(_delta) -> void:
+func _physics_process(_delta) -> void:
 	if Global.blurFx:
 		$Blur.show()
 	else:

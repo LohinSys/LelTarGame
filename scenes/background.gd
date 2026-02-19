@@ -30,8 +30,9 @@ func _physics_process(_delta) -> void:
 			camera_rotation += 0.00001
 
 	# move the clouds down
-	$"Clouds2D/Layer-1".move_local_y(1)
-	$"Clouds2D/Layer-2".move_local_y(1)
+	$"Clouds2D/Layer-1".move_local_y(2)
+	$"Clouds2D/Layer-2".move_local_y(2)
+	$Clouds2D.move_local_x(camera_rotation)
 
 	if transition_now:
 		match trans_to_cloud_layer:
@@ -44,11 +45,20 @@ func _physics_process(_delta) -> void:
 				$"Clouds2D/Layer-2".self_modulate += Color(0, 0, 0, 1.0/240.0)
 				$"Clouds2D/Layer-1".self_modulate -= Color(0, 0, 0, 1.0/240.0)
 
+func _ready() -> void:
+	$Clouds2D/FadeTransition.start()
+
 # what to do when it's nearly gonna clip away
 func _on_cloud_fade_transition_timeout() -> void:
 	transition_now = true
-	$Clouds2D/FadeTransition.wait_time = 56.25
+	match trans_to_cloud_layer:
+		1: # reset pos of layer 1
+			$"Clouds2D/Layer-1".position.y = 0
+		2: # and layer 2
+			$"Clouds2D/Layer-2".position.y = 0
+
 	await get_tree().create_timer(4.0).timeout
+
 	transition_now = false
 	match trans_to_cloud_layer:
 		1:	# swap to layer 2 for next transition
@@ -59,3 +69,6 @@ func _on_cloud_fade_transition_timeout() -> void:
 			trans_to_cloud_layer = 1
 			$"Clouds2D/Layer-1".hide()
 			$"Clouds2D/Layer-1".position.y = 0
+
+	$Clouds2D/FadeTransition.wait_time = randf_range(30.0,36.0)
+	$Clouds2D/FadeTransition.start()

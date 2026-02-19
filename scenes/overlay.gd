@@ -137,7 +137,7 @@ func _ready() -> void:
 
 	score_mult_display.text = "Score Mult.: x%s (%s)" % [str(scoreMult),diff_label.text]
 
-func _process(_delta) -> void:
+func _physics_process(_delta) -> void:
 	if Global.alive and Global.started:
 		$startGameInstruct.hide()
 		%SpellcardTimerContainer.show()

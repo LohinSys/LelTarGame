@@ -2,7 +2,7 @@ extends Control
 
 #@export var credits_pages : Array[Texture2D]
 
-func _process(_delta) -> void:
+func _physics_process(_delta) -> void:
 	if Global.blurFx:
 		$Blur.show()
 	else:

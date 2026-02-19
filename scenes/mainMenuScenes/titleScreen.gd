@@ -15,7 +15,7 @@ func _ready() -> void:
 		%LoginTitleButton.hide()
 		%LogoutTitleButton.show()
 
-func _process(_delta) -> void:
+func _physics_process(_delta) -> void:
 	Global.update_fps_display($Fps)
 
 	if Global.showFps:
