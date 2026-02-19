@@ -72,6 +72,7 @@ func _ready() -> void:
 	Global.started = false
 	Global.score = 0
 	Global.score2give = 1
+	Global.fpsCapTooLow = false
 
 	Global.health = 80
 	Global.bomb = 3
@@ -104,28 +105,28 @@ func _ready() -> void:
 			diff_label.add_theme_color_override("font_outline_color",Color(0x30ff60ff))
 			score_mult_display.add_theme_color_override("font_color",Color(0x30ff60ff))
 			Global.scoreMult = 0.75
-			PlayerStats.easyTimesPlayed += 1
+			if !Global.fpsCapTooLow: PlayerStats.easyTimesPlayed += 1
 			hi_score = PlayerStats.easyHiScore
 		2: # Normal
 			diff_label.text = "Normal"
 			diff_label.add_theme_color_override("font_outline_color",Color(0x00a4ffff))
 			score_mult_display.add_theme_color_override("font_color",Color(0x00a4ffff))
 			Global.scoreMult = 1.0
-			PlayerStats.normTimesPlayed += 1
+			if !Global.fpsCapTooLow: PlayerStats.normTimesPlayed += 1
 			hi_score = PlayerStats.normHiScore
 		3: # Hard
 			diff_label.text = "Hard"
 			diff_label.add_theme_color_override("font_outline_color",Color(0xff4040ff))
 			score_mult_display.add_theme_color_override("font_color",Color(0xff4040ff))
 			Global.scoreMult = 1.25
-			PlayerStats.hardTimesPlayed += 1
+			if !Global.fpsCapTooLow: PlayerStats.hardTimesPlayed += 1
 			hi_score = PlayerStats.hardHiScore
 		4: # Lunatic
 			diff_label.text = "Lunatic"
 			diff_label.add_theme_color_override("font_outline_color",Color(0xeb60ffff))
 			score_mult_display.add_theme_color_override("font_color",Color(0xeb60ffff))
 			Global.scoreMult = 1.5
-			PlayerStats.lunaTimesPlayed += 1
+			if !Global.fpsCapTooLow: PlayerStats.lunaTimesPlayed += 1
 			hi_score = PlayerStats.lunaHiScore
 
 	scoreMult = Global.scoreMult
@@ -150,6 +151,9 @@ func _physics_process(_delta) -> void:
 
 		Global.score += roundi( (Global.score2give * ((roundf(Global.graze)/10)+1)) * Global.scoreMult )
 		score = Global.score
+
+		if 0 < Global.fpsCap and Global.fpsCap < 60:
+			Global.fpsCapTooLow = true
 
 		if 75_000 >= score and score >= 50_000:
 			Global.power = 0.5
@@ -178,7 +182,6 @@ func _physics_process(_delta) -> void:
 
 	bs_timer = Global.boss_spellcard_time
 
-
 	if Global.showFps:
 		$Fps.show()
 		Global.update_fps_display($Fps)
@@ -193,7 +196,7 @@ func _on_menu_button_pressed() -> void:
 	$PauseMenu.enableUI()
 
 func _on_alive_indicator_hidden() -> void:
-	if Global.score > hi_score:
+	if Global.score > hi_score and !Global.fpsCapTooLow:
 		hi_score = Global.score
 		match Global.selectedDiff:
 			1:	# Easy
@@ -206,12 +209,14 @@ func _on_alive_indicator_hidden() -> void:
 				PlayerStats.lunaHiScore = hi_score
 	final_score.text = Global.num_with_thou_seps(score)
 	%BGA.stop()
+	if Global.fpsCapTooLow:
+		$GameOver/GameOverContainer/GameOverFSSaveMsg.text = "(Your score was not saved because your\nframerate cap is too low)"
 	$GameOver.show()
 
 	Global.power = Global.power * 0.625
 	Global.started = false
 
-	PlayerStats.save()
+	if !Global.fpsCapTooLow: PlayerStats.save()
 
 func _on_start_game_instruct_hidden() -> void:
 	%BGA.play()

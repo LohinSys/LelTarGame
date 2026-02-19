@@ -11,6 +11,8 @@ func _physics_process(_delta) -> void:
 	else:
 		$Panel/CurrentPlayer.text = "You are currently playing as a Guest.\nScores will only be saved locally."
 
+	$LowFpsCapWarning.dialog_text = "Your framerate is currently set to %s FPS, meaning this following run will NOT be counted due to glitchy physics caused by this!\n\nPlease increase your framerate cap to a minimum of 60 FPS or turn on Unlimited FPS if you want your scores to be submitted." % Global.fpsCap
+
 func _on_exit_pressed() -> void:
 	self.hide()
 
@@ -28,8 +30,13 @@ func _on_luna_pressed() -> void:
 	start_game()
 
 func start_game() -> void:
-	Global.gameplayTitleSwitchSignal = true
+	if 60 > Global.fpsCap and Global.fpsCap > 0:
+		$LowFpsCapWarning.show()
+	else:
+		Global.gameplayTitleSwitchSignal = true
 
+func _on_low_fps_cap_warning_confirmed() -> void:
+	Global.gameplayTitleSwitchSignal = true
 
 func easy_desc() -> void:
 	$Panel/DifficultyDesc.text = "Aimed at beginners, however the final stage is inaccessible here and scores from it cannot be submitted to online leaderboards."

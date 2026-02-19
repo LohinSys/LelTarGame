@@ -182,6 +182,20 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 24
 text = "Back"
 
+[node name="LowFpsCapWarning" type="ConfirmationDialog" parent="."]
+oversampling_override = 1.0
+title = "HOLD UP!!"
+initial_position = 2
+size = Vector2i(350, 196)
+force_native = true
+content_scale_mode = 1
+ok_button_text = "Play anyway"
+dialog_text = "Your framerate is currently set to # FPS, meaning this following run will NOT be counted due to glitchy physics caused by this!
+
+Please increase your framerate cap to a minimum of 60 FPS or turn on Unlimited FPS if you want your scores to be submitted."
+dialog_autowrap = true
+cancel_button_text = "Go back"
+
 [node name="LoadingScreen" parent="." instance=ExtResource("2_sd3lv")]
 visible = false
 
@@ -198,3 +212,4 @@ visible = false
 [connection signal="mouse_exited" from="Panel/MarginContainer/DiffContainer/Lunatic" to="." method="_on_lunatic_mouse_exited"]
 [connection signal="pressed" from="Panel/MarginContainer/DiffContainer/Lunatic" to="." method="_on_luna_pressed"]
 [connection signal="pressed" from="Panel/Exit" to="." method="_on_exit_pressed"]
+[connection signal="confirmed" from="LowFpsCapWarning" to="." method="_on_low_fps_cap_warning_confirmed"]

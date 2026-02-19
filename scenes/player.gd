@@ -7,15 +7,16 @@ func _input(event):
 	if event.is_action_pressed("use_bomb") and Global.alive and Global.bomb != 0:
 		$BombSfx.play()
 		Global.bomb -= 1
-		match Global.selectedDiff:
-			1:	# Easy
-				PlayerStats.easyBombsUsed += 1
-			2:	# Normal
-				PlayerStats.normBombsUsed += 1
-			3:	# Hard
-				PlayerStats.hardBombsUsed += 1
-			4:	# Lunatic
-				PlayerStats.lunaBombsUsed += 1
+		if !Global.fpsCapTooLow:
+			match Global.selectedDiff:
+				1:	# Easy
+					PlayerStats.easyBombsUsed += 1
+				2:	# Normal
+					PlayerStats.normBombsUsed += 1
+				3:	# Hard
+					PlayerStats.hardBombsUsed += 1
+				4:	# Lunatic
+					PlayerStats.lunaBombsUsed += 1
 
 func _ready() -> void:
 	$AnimatedSprite2D.play()
@@ -88,18 +89,19 @@ func give_more_points() -> void:
 func _on_death() -> void:
 	Global.alive = false
 	$DeathSfx.play()
-	match Global.selectedDiff:
-		1:	# Easy
-			PlayerStats.easyDeaths += 1
-			PlayerStats.easyGrazed += Global.graze
-		2:	# Normal
-			PlayerStats.normDeaths += 1
-			PlayerStats.normGrazed += Global.graze
-		3:	# Hard
-			PlayerStats.hardDeaths += 1
-			PlayerStats.hardGrazed += Global.graze
-		4:	# Lunatic
-			PlayerStats.lunaDeaths += 1
-			PlayerStats.lunaGrazed += Global.graze
+	if !Global.fpsCapTooLow:
+		match Global.selectedDiff:
+			1:	# Easy
+				PlayerStats.easyDeaths += 1
+				PlayerStats.easyGrazed += Global.graze
+			2:	# Normal
+				PlayerStats.normDeaths += 1
+				PlayerStats.normGrazed += Global.graze
+			3:	# Hard
+				PlayerStats.hardDeaths += 1
+				PlayerStats.hardGrazed += Global.graze
+			4:	# Lunatic
+				PlayerStats.lunaDeaths += 1
+				PlayerStats.lunaGrazed += Global.graze
 	await get_tree().create_timer(1.5).timeout
 	self.queue_free()

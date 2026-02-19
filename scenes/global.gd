@@ -17,6 +17,7 @@ var showFps: bool = true
 var showDbgInfo: bool = true
 
 var fpsCap: int = 60
+var fpsCapTooLow: bool = false
 
 var gameplayTitleSwitchSignal: bool = false
 var alive: bool = true
@@ -157,6 +158,12 @@ func update_fps_cap() -> void:
 
 func update_fps_display(fpsNode) -> void:
 	fpsNode.set_text("%d fps" % Engine.get_frames_per_second())
+	if Engine.get_frames_per_second() < 16:
+		fpsNode.modulate = Color(0xff6060ff)
+	elif Engine.get_frames_per_second() < 60:
+		fpsNode.modulate = Color(0xffc060ff)
+	else:
+		fpsNode.modulate = Color(0xffffffff)
 
 func num_with_thou_seps(number: int) -> String:
 	var num_str: String = str(number).lstrip("-")

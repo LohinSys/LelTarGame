@@ -41,6 +41,11 @@ func _physics_process(_delta: float) -> void:
 	else:
 		%FpsCapValue.text = str(%FpsCapSlider.value).pad_decimals(0) + " fps"
 
+	if 0 < Global.fpsCap and Global.fpsCap < 60:
+		%FpsCapValue.modulate = Color(0xffc060ff)
+	else:
+		%FpsCapValue.modulate = Color(0xffffffff)
+
 	if Global.vSync:
 		%FpsCapSlider.editable = false
 		%FpsCapSlider.scrollable = false

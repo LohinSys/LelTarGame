@@ -448,9 +448,12 @@ button_pressed = true
 
 [node name="FpsCapContainer" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer"]
 layout_mode = 2
-tooltip_text = "Set your framerate to a custom amount, up to 500 FPS!
+tooltip_text = "Set your FPS cap to a custom amount, up to 500+ FPS!
 0 disables your framerate cap altogether, however your
 game might run unstable because of this.
+Framerates below 60 will lead to buggier physics and
+potentially easier gameplay, so scores with them will
+not count because of this; but they're still there for laughs.
 
 You must disable Vertical Sync before using this!"
 
