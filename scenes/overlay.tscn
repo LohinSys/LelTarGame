@@ -366,7 +366,7 @@ texture = SubResource("GradientTexture2D_p5j10")
 
 [node name="playerNameLabel" type="Label" parent="scoreContainer"]
 layout_mode = 2
-text = "Currently Playing"
+text = "Current Player"
 label_settings = SubResource("LabelSettings_p5rgw")
 
 [node name="playerNameValue" type="Label" parent="scoreContainer"]
