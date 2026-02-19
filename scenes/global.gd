@@ -62,6 +62,7 @@ var spellcard_id: int = 0
 var spellcard_name: String = ""
 var can_capture_spellcard: bool = true
 
+var current_attack_pattern: String = ""
 var current_attack_pattern_type: String = ""
 var random_bullets: bool = false
 

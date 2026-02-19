@@ -2,6 +2,7 @@ extends State
 
 func enter() -> void:
 	super.enter()
+	Global.current_attack_pattern = "5leaf"
 	Global.current_attack_pattern_type = "spiral"
 	Global.random_bullets = false
 	owner.alpha = 1.3

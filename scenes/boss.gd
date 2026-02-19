@@ -9,6 +9,8 @@ var bullet_type = 0
 var alternating_top_bottom = 0
 var alternating_direction = 1
 
+var random = RandomNumberGenerator.new()
+
 func get_vector(angle):
 	theta = angle + alpha
 	return Vector2(cos(theta),sin(theta))
@@ -29,9 +31,9 @@ func shoot(angle) -> void:
 		bullet.position = Vector2((randi_range(2,7)*80)+50,alternating_top_bottom)
 		bullet.direction = Vector2(0,alternating_direction)
 		if alternating_direction == 1:
-			alternating_top_bottom = 0
-		elif alternating_direction == -1:
 			alternating_top_bottom = 600
+		elif alternating_direction == -1:
+			alternating_top_bottom = 0
 	if Global.random_bullets:
 		bullet.set_property(randi_range(0,3))
 	else:
@@ -41,6 +43,7 @@ func shoot(angle) -> void:
 
 func _on_speed_timeout() -> void:
 	shoot(theta)
+	alternating_direction *= -1
 	if Global.started and $Speed.wait_time == 0.500:
 		%Spellcard.start()
 		%Spellcard.autostart = true
@@ -71,3 +74,7 @@ func _ready() -> void:
 
 func _on_spellcard_timeout() -> void:
 	Global.boss_spellcard_time += 0.1
+
+# rn a dummy to get rid of warning
+func _on_duration_timeout() -> void:
+	pass

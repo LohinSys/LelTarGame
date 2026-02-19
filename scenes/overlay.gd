@@ -78,9 +78,11 @@ func _ready() -> void:
 	Global.power = 0.0
 	Global.graze = 0
 
+	Global.current_attack_pattern = ""
+	Global.current_attack_pattern_type = ""
+
 	Global.boss_health = 1000
 	Global.boss_spellcards = 3
-
 	Global.boss_spellcard_time = 0.0
 	Global.alive = true
 

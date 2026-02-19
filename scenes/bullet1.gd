@@ -6,12 +6,16 @@ var speed = 300
 var direction = Vector2.RIGHT
 var bullet_type: int = 0
 var random_bullet_giver: int = randi_range(0,3)
+var from_attack: String = ""
 
 var grazed: bool = false
 var did_graze_check: bool = false
 
 var blown_up: bool = false
 var explosion_easing: float = 0.05
+
+func _ready() -> void:
+	from_attack = Global.current_attack_pattern
 
 func _physics_process(delta: float) -> void:
 	Global.started = true
