@@ -20,6 +20,8 @@ func _ready() -> void:
 	%SFXVolSlider.value = Global.sfxVolume
 	%MusicVolSlider.value = Global.musicVolume
 
+	%FpsCapSlider.value = Global.fpsCap
+
 func _physics_process(_delta: float) -> void:
 	if Global.blurFx:
 		$Blur.show()
@@ -33,6 +35,18 @@ func _physics_process(_delta: float) -> void:
 	blur_fx_btn.button_pressed = Global.blurFx
 	show_fps_btn.button_pressed = Global.showFps
 	show_dbg_btn.button_pressed = Global.showDbgInfo
+
+	if Global.fpsCap == 0:
+		%FpsCapValue.text = str("Unlimited")
+	else:
+		%FpsCapValue.text = str(%FpsCapSlider.value).pad_decimals(0) + " fps"
+
+	if Global.vSync:
+		%FpsCapSlider.editable = false
+		%FpsCapSlider.scrollable = false
+	else:
+		%FpsCapSlider.editable = true
+		%FpsCapSlider.scrollable = true
 
 func _on_window_mode_selected(index: int) -> void:
 	Global.windowMode = index
@@ -89,6 +103,7 @@ func save_settings() -> void:
 	Global.setting.set_value("Graphics", "blurFx", Global.blurFx)
 	Global.setting.set_value("Graphics", "showFps", Global.showFps)
 	Global.setting.set_value("Graphics", "showDbgInfo", Global.showDbgInfo)
+	Global.setting.set_value("Graphics", "fpsCap", Global.fpsCap)
 
 	Global.setting.save("user://settings.ini")
 
@@ -135,3 +150,8 @@ func _play_hover_sfx() -> void:
 var decideSfx = preload("res://assets/sfx/decide.ogg")
 func _play_press_sfx(_value_changed) -> void:
 	playback.play_stream(decideSfx,0,0,1.0,AudioServer.PLAYBACK_TYPE_DEFAULT)
+
+
+func _on_fps_cap_slider_value_changed(value: float) -> void:
+	Global.fpsCap = roundi(value)
+	Global.update_fps_cap()

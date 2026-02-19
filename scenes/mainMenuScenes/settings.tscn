@@ -379,7 +379,8 @@ alignment = 1
 [node name="VSyncContainer" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG2"]
 layout_mode = 2
 size_flags_horizontal = 3
-tooltip_text = "Fixes screen tearing, but can lead to higher input delay."
+tooltip_text = "Fixes screen tearing, but can lead to higher input delay.
+This also locks your framerate to your screen's refresh rate."
 alignment = 1
 
 [node name="Label" type="Label" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG2/VSyncContainer"]
@@ -445,6 +446,38 @@ layout_mode = 2
 size_flags_horizontal = 0
 button_pressed = true
 
+[node name="FpsCapContainer" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer"]
+layout_mode = 2
+tooltip_text = "Set your framerate to a custom amount, up to 500 FPS!
+0 disables your framerate cap altogether, however your
+game might run unstable because of this.
+
+You must disable Vertical Sync before using this!"
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/SettingsContainer/FpsCapContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+text = "FPS Cap"
+label_settings = SubResource("LabelSettings_caasp")
+horizontal_alignment = 2
+
+[node name="FpsCapSlider" type="HSlider" parent="Panel/MarginContainer/SettingsContainer/FpsCapContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 500.0
+step = 5.0
+value = 60.0
+
+[node name="FpsCapValue" type="Label" parent="Panel/MarginContainer/SettingsContainer/FpsCapContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+text = "60 fps"
+label_settings = SubResource("LabelSettings_caasp")
+
 [node name="Done" type="Button" parent="Panel"]
 layout_mode = 1
 anchors_preset = 7
@@ -489,4 +522,5 @@ vertical_alignment = 2
 [connection signal="pressed" from="Panel/MarginContainer/SettingsContainer/HBoxContainerG2/BlurFXContainer/Option" to="." method="_on_blurFx_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/SettingsContainer/HBoxContainerG2/ShowFpsContainer/Option" to="." method="_on_showFps_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/SettingsContainer/HBoxContainerG2/ShowDbgContainer/Option" to="." method="_on_showDbg_pressed"]
+[connection signal="value_changed" from="Panel/MarginContainer/SettingsContainer/FpsCapContainer/FpsCapSlider" to="." method="_on_fps_cap_slider_value_changed"]
 [connection signal="pressed" from="Panel/Done" to="." method="_on_done_pressed"]

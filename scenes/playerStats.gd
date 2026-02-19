@@ -6,28 +6,28 @@ var statKey: String = "Skiptamal00_Shamalamad1ngd0ng"
 # Easy
 var easyTimesPlayed: int = 0
 var easyBestRun: int = 1
-var easyHiScore: int = 50_000
+var easyHiScore: int = 100_000
 var easyDeaths: int = 0
 var easyBombsUsed: int = 0
 var easyGrazed: int = 0
 # Normal
 var normTimesPlayed: int = 0
 var normBestRun: int = 1
-var normHiScore: int = 50_000
+var normHiScore: int = 100_000
 var normDeaths: int = 0
 var normBombsUsed: int = 0
 var normGrazed: int = 0
 # Hard
 var hardTimesPlayed: int = 0
 var hardBestRun: int = 1
-var hardHiScore: int = 50_000
+var hardHiScore: int = 100_000
 var hardDeaths: int = 0
 var hardBombsUsed: int = 0
 var hardGrazed: int = 0
 # Lunatic
 var lunaTimesPlayed: int = 0
 var lunaBestRun: int = 1
-var lunaHiScore: int = 50_000
+var lunaHiScore: int = 100_000
 var lunaDeaths: int = 0
 var lunaBombsUsed: int = 0
 var lunaGrazed: int = 0
@@ -36,37 +36,37 @@ func _ready() -> void:
 	var scoreLoad = stat.load_encrypted_pass("user://scores.sav",statKey)
 	if scoreLoad == OK:
 		# Account Credentials
-		Account.username = stat.get_value("Account", "username")
-		Account.password = stat.get_value("Account", "password")
+		Account.username = stat.get_value("Account", "username", "")
+		Account.password = stat.get_value("Account", "password", "")
 
 		# Easy
-		easyTimesPlayed = stat.get_value("Easy", "timesPlayed")
-		easyBestRun = stat.get_value("Easy", "bestRun")
-		easyHiScore = stat.get_value("Easy", "hiScore")
-		easyDeaths = stat.get_value("Easy", "deaths")
-		easyBombsUsed = stat.get_value("Easy", "bombsUsed")
-		easyGrazed = stat.get_value("Easy", "grazed")
+		easyTimesPlayed = stat.get_value("Easy", "timesPlayed", 0)
+		easyBestRun = stat.get_value("Easy", "bestRun", 1)
+		easyHiScore = stat.get_value("Easy", "hiScore", 100_000)
+		easyDeaths = stat.get_value("Easy", "deaths", 0)
+		easyBombsUsed = stat.get_value("Easy", "bombsUsed", 0)
+		easyGrazed = stat.get_value("Easy", "grazed", 0)
 		# Normal
-		normTimesPlayed = stat.get_value("Normal", "timesPlayed")
-		normBestRun = stat.get_value("Normal", "bestRun")
-		normHiScore = stat.get_value("Normal", "hiScore")
-		normDeaths = stat.get_value("Normal", "deaths")
-		normBombsUsed = stat.get_value("Normal", "bombsUsed")
-		normGrazed = stat.get_value("Normal", "grazed")
+		normTimesPlayed = stat.get_value("Normal", "timesPlayed", 0)
+		normBestRun = stat.get_value("Normal", "bestRun", 1)
+		normHiScore = stat.get_value("Normal", "hiScore", 100_000)
+		normDeaths = stat.get_value("Normal", "deaths", 0)
+		normBombsUsed = stat.get_value("Normal", "bombsUsed", 0)
+		normGrazed = stat.get_value("Normal", "grazed", 0)
 		# Hard
-		hardTimesPlayed = stat.get_value("Hard", "timesPlayed")
-		hardBestRun = stat.get_value("Hard", "bestRun")
-		hardHiScore = stat.get_value("Hard", "hiScore")
-		hardDeaths = stat.get_value("Hard", "deaths")
-		hardBombsUsed = stat.get_value("Hard", "bombsUsed")
-		hardGrazed = stat.get_value("Hard", "grazed")
+		hardTimesPlayed = stat.get_value("Hard", "timesPlayed", 0)
+		hardBestRun = stat.get_value("Hard", "bestRun", 1)
+		hardHiScore = stat.get_value("Hard", "hiScore", 100_000)
+		hardDeaths = stat.get_value("Hard", "deaths", 0)
+		hardBombsUsed = stat.get_value("Hard", "bombsUsed", 0)
+		hardGrazed = stat.get_value("Hard", "grazed", 0)
 		# Lunatic
-		lunaTimesPlayed = stat.get_value("Lunatic", "timesPlayed")
-		lunaBestRun = stat.get_value("Lunatic", "bestRun")
-		lunaHiScore = stat.get_value("Lunatic", "hiScore")
-		lunaDeaths = stat.get_value("Lunatic", "deaths")
-		lunaBombsUsed = stat.get_value("Lunatic", "bombsUsed")
-		lunaGrazed = stat.get_value("Lunatic", "grazed")
+		lunaTimesPlayed = stat.get_value("Lunatic", "timesPlayed", 0)
+		lunaBestRun = stat.get_value("Lunatic", "bestRun", 1)
+		lunaHiScore = stat.get_value("Lunatic", "hiScore", 100_000)
+		lunaDeaths = stat.get_value("Lunatic", "deaths", 0)
+		lunaBombsUsed = stat.get_value("Lunatic", "bombsUsed", 0)
+		lunaGrazed = stat.get_value("Lunatic", "grazed", 0)
 	else:
 		return
 

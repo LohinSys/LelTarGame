@@ -16,6 +16,8 @@ var blurFx: bool = true
 var showFps: bool = true
 var showDbgInfo: bool = true
 
+var fpsCap: int = 60
+
 var gameplayTitleSwitchSignal: bool = false
 var alive: bool = true
 var started: bool = false
@@ -149,6 +151,9 @@ func update_volumes() -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(sfxVolume))
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(musicVolume))
 
+func update_fps_cap() -> void:
+	Engine.max_fps = Global.fpsCap
+
 func update_fps_display(fpsNode) -> void:
 	fpsNode.set_text("%d fps" % Engine.get_frames_per_second())
 
@@ -173,18 +178,19 @@ func load_settings() -> void:
 
 	var sErr = setting.load("user://settings.ini")
 	if sErr == OK:
-		masterVolume = setting.get_value("Volume", "master")
-		sfxVolume = setting.get_value("Volume", "sfx")
-		musicVolume = setting.get_value("Volume", "music")
+		masterVolume = setting.get_value("Volume", "master", 0.5)
+		sfxVolume = setting.get_value("Volume", "sfx", 1.0)
+		musicVolume = setting.get_value("Volume", "music", 1.0)
 
-		windowMode = setting.get_value("Graphics", "windowMode")
-		antiAliasType = setting.get_value("Graphics", "antiAliasType")
-		anisotropy = setting.get_value("Graphics", "anisotropy")
-		scale3d = setting.get_value("Graphics", "scale3d")
-		vSync = setting.get_value("Graphics", "vSync")
-		blurFx = setting.get_value("Graphics", "blurFx")
-		showFps = setting.get_value("Graphics", "showFps")
-		showDbgInfo = setting.get_value("Graphics", "showDbgInfo")
+		windowMode = setting.get_value("Graphics", "windowMode", 0)
+		antiAliasType = setting.get_value("Graphics", "antiAliasType", 0)
+		anisotropy = setting.get_value("Graphics", "anisotropy", 2)
+		scale3d = setting.get_value("Graphics", "scale3d", 4)
+		vSync = setting.get_value("Graphics", "vSync", true)
+		blurFx = setting.get_value("Graphics", "blurFx", true)
+		showFps = setting.get_value("Graphics", "showFps", true)
+		showDbgInfo = setting.get_value("Graphics", "showDbgInfo", true)
+		fpsCap = setting.get_value("Graphics", "fpsCap", 60)
 	else:
 		return
 
