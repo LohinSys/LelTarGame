@@ -26,21 +26,6 @@ func _physics_process(_delta) -> void:
 	else:
 		$Blur.hide()
 
-func login() -> void:
-	var encryptedPass = str(%Password.text).to_utf8_buffer()
-
-	print("\nLogging in as ",%Username.text,"...")
-	Account.username = str(%Username.text)
-	Account.password = Marshalls.utf8_to_base64(str(Account.crypto.encrypt(Account.cryptKey,encryptedPass)))
-	await get_tree().create_timer(randf_range(0.9,1.8)).timeout
-	Account.loggedIn = true
-	print("Success!")
-	Account.loginSuccess = true
-	close_self()
-	print("\nAccount Details\n--------------------\nUsername: ",Account.username,"\nPassword (encrypted): ",Account.password)
-	%AccountLabel.text = "Welcome, %s!\nOnline sync is not available." % Account.username
-	PlayerStats.save()
-
 func printErrorMsg(message) -> void:
 	msg = message
 	print(warnicon,msg)
@@ -61,7 +46,9 @@ func _on_login_pressed() -> void:
 		printErrorMsg("Password must be at least 8 characters long!")
 	else:
 		%LoginErrorLbl.text = ""
-		login()
+		await Account.login(%Username.text, %Password.text)
+		%AccountLabel.text = "Welcome, %s!\nOnline sync is not available." % Account.username
+		close_self()
 
 func _on_cancel_pressed() -> void:
 	close_self()

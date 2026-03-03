@@ -99,6 +99,10 @@ func _enter_tree() -> void:
 	playback = player.get_stream_playback()
 	get_tree().node_added.connect(_on_node_added)
 
+	add_child(PlayerStats.httpRequest)
+	PlayerStats.httpRequest.use_threads = true
+	PlayerStats.httpRequest.timeout = 30.0
+
 func _on_node_added(node:Node) -> void:
 	if node is BaseButton:
 		node.mouse_entered.connect(_play_hover_sfx)
