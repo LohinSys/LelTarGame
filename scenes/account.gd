@@ -43,12 +43,12 @@ func logoff() -> void:
 		print("/!\\ You have not signed in!")
 
 func keep_credentials() -> void:
-	pass
+	pass # unused for now until I'll ever bother adding a prompt if you wanna keep credentials saved (which is probably never)
 
 func _ready() -> void:
 	await get_tree().create_timer(0.5).timeout
 
-	if username != "" and password != "":
+	if username != "" and password != "":	# check if the save file has any login info saved
 		print("\n(i) User credentials detected in save file! Attempting to log in automatically...")
 		login(username,str(Marshalls.base64_to_utf8(password.reverse())))
 	else:
