@@ -35,6 +35,7 @@ Global="*res://scenes/global.gd"
 PlayerStats="*res://scenes/playerStats.gd"
 Account="*res://scenes/account.gd"
 GameLogic="*res://scenes/gameLogic.gd"
+Api="*res://scenes/api.gd"
 
 [debug]
 

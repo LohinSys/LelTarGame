@@ -3,9 +3,6 @@ extends Node
 var stat = ConfigFile.new()
 var statKey: String = "Skiptamal00_Shamalamad1ngd0ng"
 
-var httpRequest: HTTPRequest = HTTPRequest.new()
-var api: String = "https://leltargame.tryasp.net/api/v2/"
-
 # Easy
 var easyTimesPlayed: int = 0
 var easyBestRun: int = 1

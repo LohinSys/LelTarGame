@@ -192,11 +192,6 @@ func _physics_process(_delta) -> void:
 	else:
 		$DbgInfo.hide()
 
-func _enter_tree() -> void:
-	add_child(PlayerStats.httpRequest)
-	PlayerStats.httpRequest.use_threads = true
-	PlayerStats.httpRequest.timeout = 30.0
-
 func _on_menu_button_pressed() -> void:
 	$PauseMenu.enableUI()
 

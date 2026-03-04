@@ -13,7 +13,7 @@ var loginSuccess: bool = false
 #
 #var storedKey
 
-func login(username_input, password_input) -> void:
+func login(username_input,password_input) -> void:
 	#var encryptedPass = str(password_input).to_utf8_buffer()
 	#storedKey = cryptKey
 

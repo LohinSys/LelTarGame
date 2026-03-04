@@ -85,7 +85,7 @@ func start_game() -> void:
 	get_tree().change_scene_to_file("res://scenes/bossRoom.tscn")
 
 # UI audio handler
-var playback:AudioStreamPlaybackPolyphonic
+var playback: AudioStreamPlaybackPolyphonic
 func _enter_tree() -> void:
 	var player = AudioStreamPlayer.new()
 	add_child(player)
@@ -99,9 +99,8 @@ func _enter_tree() -> void:
 	playback = player.get_stream_playback()
 	get_tree().node_added.connect(_on_node_added)
 
-	add_child(PlayerStats.httpRequest)
-	PlayerStats.httpRequest.use_threads = true
-	PlayerStats.httpRequest.timeout = 30.0
+	# this just makes the api work
+	add_child(Api.http_request)
 
 func _on_node_added(node:Node) -> void:
 	if node is BaseButton:
