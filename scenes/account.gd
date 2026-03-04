@@ -8,24 +8,26 @@ var token: String = ""
 var loggedIn: bool = false
 var loginSuccess: bool = false
 
-#var crypto = Crypto.new()
-#var cryptKey = crypto.generate_rsa(4096)
-#
-#var storedKey
-
 func login(username_input,password_input) -> void:
-	#var encryptedPass = str(password_input).to_utf8_buffer()
-	#storedKey = cryptKey
-
 	print("\nLogging in as ",username_input,"...")
 	username = str(username_input)
 	password = Marshalls.utf8_to_base64(str(password_input)).reverse()
-	await get_tree().create_timer(randf_range(0.9,1.8)).timeout
-	loggedIn = true
-	print("Success!")
-	loginSuccess = true
-	print("\nAccount Details\n--------------------\nUsername: ",username,"\nPassword (encrypted): ",password)
-	PlayerStats.save()
+
+	Api.post_request("auth/login",str('{"username":"',username_input,'","password":"',password_input,'"}'))
+	await Api.http_request.request_completed
+
+	if Api.req_response == 200:
+		token = Api.req_body.get("token","")
+		print(token)
+		loggedIn = true
+		print("Success!")
+		loginSuccess = true
+		print("\nAccount Details\n--------------------\nUsername: ",username,"\nPassword (encrypted): ",password)
+		PlayerStats.save()
+	else:
+		print("/!\\ Login failed! Please try again later. (Error code: ",Api.req_response,")")
+
+	print("\nAPI Response (",Api.req_response,"):\n",Api.req_body)
 
 func logoff() -> void:
 	print("\nAttempting to log off...")

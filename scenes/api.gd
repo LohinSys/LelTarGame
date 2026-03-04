@@ -12,10 +12,6 @@ func _ready() -> void:
 	http_request.use_threads = true
 	http_request.timeout = 30.0
 	http_request.request_completed.connect(_on_request_completed)
-	get_request("accMgmt/view/5")
-	#post_request("auth/login",str('{"username": "fucking", "password": "motherfucker"}'))
-	await http_request.request_completed
-	print(req_body)
 
 func get_request(target:String) -> void:
 	http_request.request(str(api_url+target),req_headers,HTTPClient.METHOD_GET)

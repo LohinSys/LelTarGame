@@ -19,6 +19,9 @@ func enable_buttons() -> void:
 
 func _ready() -> void:
 	close_self()
+	if Account.username != "" and Account.password != "":
+		await Api.http_request.request_completed
+		if Api.req_response == 200: set_account_label()
 
 func _physics_process(_delta) -> void:
 	if Global.blurFx:
@@ -30,6 +33,11 @@ func printErrorMsg(message) -> void:
 	msg = message
 	print(warnicon,msg)
 	%LoginErrorLbl.text = msg
+
+func set_account_label() -> void:
+	%AccountLabel.text = "Welcome, %s!\nOnline sync is not available." % Account.username
+	%LoginTitleButton.hide()
+	%LogoutTitleButton.show()
 
 func _on_login_pressed() -> void:
 	if %Username.text == "" and %Password.text == "":
@@ -47,7 +55,7 @@ func _on_login_pressed() -> void:
 	else:
 		%LoginErrorLbl.text = ""
 		await Account.login(%Username.text, %Password.text)
-		%AccountLabel.text = "Welcome, %s!\nOnline sync is not available." % Account.username
+		set_account_label()
 		close_self()
 
 func _on_cancel_pressed() -> void:
