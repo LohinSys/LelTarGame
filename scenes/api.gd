@@ -16,8 +16,11 @@ func _ready() -> void:
 func get_request(target:String) -> void:
 	http_request.request(str(api_url+target),req_headers,HTTPClient.METHOD_GET)
 
-func post_request(target:String,_data:String) -> void:
-	http_request.request(str(api_url+target),req_headers,HTTPClient.METHOD_POST,_data)
+func post_request(target:String,data:String) -> void:
+	http_request.request(str(api_url+target),req_headers,HTTPClient.METHOD_POST,data)
+
+func put_request(target:String,data:String) -> void:
+	http_request.request(str(api_url+target),req_headers,HTTPClient.METHOD_PUT,data)
 
 func _on_request_completed(_result,_response_code,_headers,body) -> void:
 	req_result = _result
