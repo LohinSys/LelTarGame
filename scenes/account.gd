@@ -26,6 +26,8 @@ func login(username_input,password_input) -> void:
 		PlayerStats.save()
 	else:
 		print("/!\\ Login failed! Please try again later. (Error code: %s)" % Api.req_response)
+		username = ""
+		password = ""
 
 	print("\nAPI Response (%s):\n" % Api.req_response,Api.req_body)
 
