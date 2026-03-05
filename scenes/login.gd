@@ -31,7 +31,7 @@ func _physics_process(_delta) -> void:
 
 func printErrorMsg(message) -> void:
 	msg = message
-	print(warnicon,msg)
+	print_rich("[color=red]",warnicon,msg,"[/color]")
 	%LoginErrorLbl.text = msg
 
 func set_account_label() -> void:
