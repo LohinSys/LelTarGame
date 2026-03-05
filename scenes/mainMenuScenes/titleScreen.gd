@@ -10,7 +10,7 @@ func _ready() -> void:
 	await get_tree().create_timer(0.5).timeout
 	if !Account.loggedIn:
 		%LoginTitleButton.disabled = false
-	if Account.loginSuccess:
+	else:
 		%AccountLabel.text = "Welcome, %s!\nOnline sync is not available." % Account.username
 		%LoginTitleButton.hide()
 		%LogoutTitleButton.show()

@@ -218,7 +218,7 @@ func load_settings() -> void:
 	print("Finished applying settings!")
 
 func _ready() -> void:
-	print("Lel.tar ",dbgInfoPrint,"\nCopyleft LohinSys (ɔ) 2024-2026")
+	print_rich("[b]Lel.tar ",dbgInfoPrint,"\nLohinSys (ɔ) 2024-2026[/b]")
 
 	load_settings()
 
