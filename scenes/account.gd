@@ -18,6 +18,7 @@ func login(username_input,password_input) -> void:
 
 	if Api.req_response == 200:
 		token = Api.req_body.get("token","")
+		userId = int(Api.req_body.get("id",0))
 		loggedIn = true
 		print_rich("[color=green]Successfully logged in![/color]")
 		print_rich("\n[b]Account Details[/b]\n[s]--------------------[/s]")
