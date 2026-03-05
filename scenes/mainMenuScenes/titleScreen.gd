@@ -10,8 +10,7 @@ func _ready() -> void:
 	# this just makes the api work
 	add_child(Api.http_request)
 
-	await get_tree().create_timer(0.5).timeout
-	if !Account.loggedIn:
+	if Account.username == "" and Account.password == "" and !Account.loggedIn:
 		%LoginTitleButton.disabled = false
 	else:
 		%AccountLabel.text = "Welcome, %s!\nOnline sync is not available." % Account.username
@@ -65,7 +64,7 @@ func _on_login_button_pressed() -> void:
 
 func _on_login_hidden() -> void:
 	%LoginTitleButton.disabled = false
-	if Account.loginSuccess:
+	if Account.loggedIn:
 		%LoginTitleButton.hide()
 		%LogoutTitleButton.show()
 

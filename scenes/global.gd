@@ -33,8 +33,10 @@ var bonusFormula: int = 0:
 		bonusFormula = value
 		if bonusFormula < 0: bonusFormula = 0
 
-var verNote = "Suddenly, prettier!"
-var dbgInfoPrint = str("v",ProjectSettings.get_setting("application/config/version")," - ",verNote,"\nRenderer: ",RenderingServer.get_current_rendering_driver_name())
+var verNote: String = "Suddenly, prettier!"
+var renderer: String = "-"
+
+var dbgInfoPrint: String = "v0.0.0\nRenderer: -"
 
 var health = 80:
 	set(value):
@@ -218,6 +220,16 @@ func load_settings() -> void:
 	print("Finished applying settings!")
 
 func _ready() -> void:
+	match str(RenderingServer.get_current_rendering_driver_name()):
+		"vulkan": renderer = "Vulkan"
+		"d3d12": renderer = "Direct3D 12"
+		"metal": renderer = "Metal"
+		"opengl3": renderer = "OpenGL"
+		"opengl3_es": renderer = "OpenGL ES"
+		"opengl3_angle": renderer = "OpenGL ANGLE"
+
+	dbgInfoPrint = str("v",ProjectSettings.get_setting("application/config/version")," - ",verNote,"\nRenderer: ",renderer)
+
 	print_rich("[b]Lel.tar ",dbgInfoPrint,"\nLohinSys (ɔ) 2024-2026[/b]")
 
 	load_settings()
