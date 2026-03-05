@@ -1,12 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
---
--- Gép: 188.40.211.2
--- Létrehozás ideje: 2026. Feb 26. 11:48
--- Kiszolgáló verziója: 10.11.15-MariaDB-log
--- PHP verzió: 8.2.25
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -16,10 +7,6 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
-
---
--- Adatbázis: `db36273`
---
 
 -- --------------------------------------------------------
 
@@ -38,6 +25,7 @@ CREATE TABLE `countries` (
 --
 
 INSERT INTO `countries` (`id`, `name`, `flag`) VALUES
+(0, 'Unknown', '❔'),
 (1, 'Abkhazia', '🏴󠁧󠁥󠁡'),
 (2, 'Afghanistan', '🇦🇫'),
 (3, 'Albania', '🇦🇱'),
@@ -279,18 +267,12 @@ CREATE TABLE `lb` (
   `score` bigint(20) NOT NULL,
   `difficultyID` int(11) NOT NULL,
   `isDisqualified` tinyint(1) NOT NULL DEFAULT 0,
-  `achievedAt` datetime NOT NULL
+  `achievedAt` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- A tábla adatainak kiíratása `lb`
 --
-
-INSERT INTO `lb` (`id`, `usernameID`, `score`, `difficultyID`, `isDisqualified`, `achievedAt`) VALUES
-(1, 1, 625500, 3, 0, '2025-11-18 13:56:00'),
-(2, 2, 1232600, 4, 0, '2026-01-21 16:03:32'),
-(3, 3, 986450, 4, 0, '2026-01-14 13:56:01'),
-(4, 4, 502850, 2, 0, '2025-12-10 12:00:09');
 
 -- --------------------------------------------------------
 
@@ -303,21 +285,11 @@ CREATE TABLE `users` (
   `username` varchar(32) NOT NULL,
   `email` varchar(256) NOT NULL,
   `password` varchar(1024) NOT NULL,
-  `countryID` int(11) NOT NULL,
+  `countryID` int(11) NOT NULL DEFAULT 0,
   `role` varchar(32) NOT NULL DEFAULT 'User',
-  `createdAt` datetime NOT NULL
+  `saveFile` blob DEFAULT NULL,
+  `createdAt` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- A tábla adatainak kiíratása `users`
---
-
-INSERT INTO `users` (`id`, `username`, `email`, `password`, `countryID`, `role`, `createdAt`) VALUES
-(1, 'test_account', 'billgatessexyhunk@hotmail.com', 'sk1ptamal00-shamalamad1ngd0ng!', 195, 'User', '2025-11-18 13:55:09'),
-(2, 'Ellie9192', 'ship.ur.pants@kmart.com', 'yx>đ]>đ]ł>$Ł]>#]$>xkbíä$ä', 32, 'User', '2026-01-07 09:22:26'),
-(3, 'xXx_DemonSlayer124_xXx', 'kitana.she.no.means.goat@gmail.com', ',léxcnáácénáéxcnáééánáévnáéác', 176, 'User', '2026-01-07 09:22:26'),
-(4, 'gamerboy87', 'noreply@dominos.com', 'techn0blade_', 196, 'User', '2026-01-07 09:26:30'),
-(5, 'sz5ylv1a', 'flandre.scarlet@420blaze.it', 'thatisareal3mailiswear_', 75, 'Admin', '2026-01-07 09:27:49');
 
 --
 -- Indexek a kiírt táblákhoz
@@ -348,6 +320,8 @@ ALTER TABLE `lb`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`),
+  ADD UNIQUE KEY `email` (`email`),
   ADD KEY `countryID` (`countryID`);
 
 --
@@ -358,7 +332,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT a táblához `countries`
 --
 ALTER TABLE `countries`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=206;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=207;
 
 --
 -- AUTO_INCREMENT a táblához `difficulties`
