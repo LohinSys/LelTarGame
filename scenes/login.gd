@@ -55,8 +55,11 @@ func _on_login_pressed() -> void:
 	else:
 		%LoginErrorLbl.text = ""
 		await Account.login(%Username.text, %Password.text)
-		set_account_label()
-		close_self()
+		if Api.req_response == 200:
+			set_account_label()
+			close_self()
+		else:
+			printErrorMsg("Login failed! Please try again later. (Error code: %s)" % Api.req_response)
 
 func _on_cancel_pressed() -> void:
 	close_self()

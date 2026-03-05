@@ -25,9 +25,9 @@ func login(username_input,password_input) -> void:
 		print("\nAccount Details\n--------------------\nUsername: ",username,"\nPassword (encrypted): ",password)
 		PlayerStats.save()
 	else:
-		print("/!\\ Login failed! Please try again later. (Error code: ",Api.req_response,")")
+		print("/!\\ Login failed! Please try again later. (Error code: %s)" % Api.req_response)
 
-	print("\nAPI Response (",Api.req_response,"):\n",Api.req_body)
+	print("\nAPI Response (%s):\n" % Api.req_response,Api.req_body)
 
 func logoff() -> void:
 	print("\nAttempting to log off...")
