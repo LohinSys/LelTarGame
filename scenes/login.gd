@@ -19,7 +19,7 @@ func enable_buttons() -> void:
 
 func _ready() -> void:
 	close_self()
-	if Account.username != "" and Account.password != "":
+	if Account.username != "" and Account.password != "" and !Account.loggedIn:
 		await Api.http_request.request_completed
 		if Api.req_response == 200: set_account_label()
 

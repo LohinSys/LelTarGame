@@ -7,6 +7,9 @@ func _ready() -> void:
 	$LoadingScreen.hide()
 	$DbgInfo.set_text(Global.dbgInfoPrint)
 
+	# this just makes the api work
+	add_child(Api.http_request)
+
 	await get_tree().create_timer(0.5).timeout
 	if !Account.loggedIn:
 		%LoginTitleButton.disabled = false
@@ -79,6 +82,7 @@ func _on_logout_button_pressed() -> void:
 func start_game() -> void:
 	$TitleBGA.stop()
 	$LoadingScreen.show()
+	remove_child(Api.http_request)
 	await get_tree().create_timer(0.1).timeout
 	if $Settings.visible == true:
 		$Settings.hide()
@@ -98,9 +102,6 @@ func _enter_tree() -> void:
 
 	playback = player.get_stream_playback()
 	get_tree().node_added.connect(_on_node_added)
-
-	# this just makes the api work
-	add_child(Api.http_request)
 
 func _on_node_added(node:Node) -> void:
 	if node is BaseButton:
