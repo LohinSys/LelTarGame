@@ -12,10 +12,14 @@ func close_self() -> void:
 func disable_buttons() -> void:
 	$Panel/Buttons/Login.disabled = true
 	$Panel/Buttons/Cancel.disabled = true
+	$Panel/Input/Username.editable = false
+	$Panel/Input/Password.editable = false
 
 func enable_buttons() -> void:
 	$Panel/Buttons/Login.disabled = false
 	$Panel/Buttons/Cancel.disabled = false
+	$Panel/Input/Username.editable = true
+	$Panel/Input/Password.editable = true
 
 func _ready() -> void:
 	close_self()
@@ -54,13 +58,17 @@ func _on_login_pressed() -> void:
 	elif len(%Password.text) < 8:
 		printErrorMsg("Password must be at least 8 characters long!")
 	else:
+		disable_buttons()
 		%LoginErrorLbl.text = ""
+		$Panel/Buttons/Login.text = "Logging in..."
 		await Account.login(%Username.text, %Password.text)
 		if Api.req_response == 200:
 			set_account_label()
 			close_self()
 		else:
-			printErrorMsg("Login failed! Please try again later. (Error code: %s)" % Api.req_response)
+			printErrorMsg(str(Api.req_body.get("message",str("Login failed! Please try again later. (Error code: %s)" % Api.req_response))))
+		$Panel/Buttons/Login.text = "Login"
+		enable_buttons()
 
 func _on_cancel_pressed() -> void:
 	close_self()
