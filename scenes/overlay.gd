@@ -5,6 +5,7 @@ extends CanvasLayer
 @onready var graze_count = $playerStatsContainer/grazeContainer/grazeCount
 @onready var final_score = $GameOver/GameOverContainer/GameOverFSCount
 @onready var score_mult_display = $GameOver/GameOverContainer/GameOverFSScoreMult
+@onready var save_msg = $GameOver/GameOverContainer/GameOverFSSaveMsg
 
 @onready var diff_label = $playerStatsContainer/difficultyLabel
 
@@ -94,10 +95,10 @@ func _ready() -> void:
 
 	if Account.loggedIn:
 		$scoreContainer/playerNameValue.text = Account.username
-		$GameOver/GameOverContainer/GameOverFSSaveMsg.text = "\n "
+		save_msg.text = "\n "
 	else:
 		$scoreContainer/playerNameValue.text = "Guest"
-		$GameOver/GameOverContainer/GameOverFSSaveMsg.text = "(Leaderboard submissions are disabled on guest\naccounts, so your score will only be saved locally.)"
+		save_msg.text = "Leaderboard submissions are disabled on guest\naccounts, so your score will only be saved locally."
 
 	match Global.selectedDiff:
 		1: # Easy
@@ -200,7 +201,7 @@ func _on_alive_indicator_hidden() -> void:
 	%BGA.stop()
 
 	if Global.fpsCapTooLow:
-		$GameOver/GameOverContainer/GameOverFSSaveMsg.text = "(Your score was not saved because your\nframerate cap is too low)"
+		save_msg.text = "Your score was not saved because\nyour framerate cap is too low."
 
 	Global.power = Global.power * 0.625
 	Global.started = false
@@ -219,22 +220,25 @@ func _on_alive_indicator_hidden() -> void:
 				PlayerStats.lunaHiScore = hi_score
 
 		if Account.loggedIn:
-			$GameOver/GameOverContainer/GameOverFSSaveMsg.text = "\nSubmitting score..."
+			if Global.selectedDiff != 1:
+				save_msg.text = "\nSubmitting score..."
 
-			Api.post_request("lbs/submit",str('{
-				"usernameId": %s,
-				"score": %s,
-				"difficultyId": %s
-			}'.remove_chars("	") % [Account.userId, hi_score, Global.selectedDiff]))
-			await Api.request_completed
-			#print("\nAPI Response (%s):\n" % Api.req_response,Api.req_body)	# only uncomment this for debugging purposes
+				Api.post_request("lbs/submit",str('{
+					"usernameId": %s,
+					"score": %s,
+					"difficultyId": %s
+				}'.remove_chars("	") % [Account.userId, hi_score, Global.selectedDiff]))
+				await Api.request_completed
+				#print("\nAPI Response (%s):\n" % Api.req_response,Api.req_body)	# only uncomment this for debugging purposes
+			else:
+				save_msg.text = "Cannot submit score to leaderboards\nsince you're on Easy difficulty!"
 
 	if !Global.fpsCapTooLow: PlayerStats.save()
 
 	if Api.req_response == 200:
-		$GameOver/GameOverContainer/GameOverFSSaveMsg.text = "\nSuccessfully submitted to online leaderboards!"
+		save_msg.text = "\nSuccessfully submitted to online leaderboards!"
 	else:
-		$GameOver/GameOverContainer/GameOverFSSaveMsg.text = "An error has occured! (Error code: %s)" % Api.req_response
+		save_msg.text = "An error has occured! (Error code: %s)" % Api.req_response
 
 func _on_start_game_instruct_hidden() -> void:
 	%BGA.play()

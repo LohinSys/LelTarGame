@@ -58,14 +58,14 @@ func enableUI() -> void:
 	_play_press_sfx()
 	ui_enabled = true
 	get_tree().paused = true
-	self.visible = true
+	self.show()
 
 func disableUI() -> void:
 	$Settings.hide()
 	$How2Play.hide()
 	ui_enabled = false
 	get_tree().paused = false
-	self.visible = false
+	self.hide()
 
 func _on_resume_pressed() -> void:
 	ui_enabled = false
