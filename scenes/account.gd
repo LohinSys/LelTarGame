@@ -51,6 +51,7 @@ func logoff() -> void:
 		username = ""
 		password = ""
 		token = ""
+		role = ""
 		loggedIn = false
 		PlayerStats.save()
 		print_rich("[color=green]Successfully logged off![/color]")
