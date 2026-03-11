@@ -221,13 +221,13 @@ func _on_alive_indicator_hidden() -> void:
 		if Account.loggedIn:
 			$GameOver/GameOverContainer/GameOverFSSaveMsg.text = "\nSubmitting score..."
 
-			Api.post_request("lbs/submit",'{
+			Api.post_request("lbs/submit",str('{
 				"usernameId": %s,
 				"score": %s,
 				"difficultyId": %s
-			}' % [Account.userId, hi_score, Global.selectedDiff])
+			}'.remove_chars("	") % [Account.userId, hi_score, Global.selectedDiff]))
 			await Api.request_completed
-			#print("\nAPI Response (%s):\n" % Api.req_response,Api.req_body)
+			#print("\nAPI Response (%s):\n" % Api.req_response,Api.req_body)	# only uncomment this for debugging purposes
 
 	if !Global.fpsCapTooLow: PlayerStats.save()
 

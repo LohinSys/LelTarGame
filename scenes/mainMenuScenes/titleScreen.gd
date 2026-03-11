@@ -12,10 +12,6 @@ func _ready() -> void:
 
 	if Account.username == "" and Account.password == "" and !Account.loggedIn:
 		%LoginTitleButton.disabled = false
-	else:
-		%AccountLabel.text = "Welcome, %s!\nOnline sync is not available." % Account.username
-		%LoginTitleButton.hide()
-		%LogoutTitleButton.show()
 
 func _physics_process(_delta) -> void:
 	Global.update_fps_display($Fps)

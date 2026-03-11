@@ -14,7 +14,10 @@ func login(username_input,password_input) -> void:
 		username = str(username_input)
 		password = Marshalls.utf8_to_base64(str(password_input)).reverse()
 
-		Api.post_request("auth/login",str('{"username":"',username_input,'","password":"',password_input,'"}'))
+		Api.post_request("auth/login",str('{
+			"username": "%s",
+			"password": "%s"
+		}'.remove_chars("	") % [username_input,password_input]))
 		await Api.http_request.request_completed
 
 		if Api.req_response == 200:
@@ -33,8 +36,7 @@ func login(username_input,password_input) -> void:
 				username = ""
 				password = ""
 
-		# this here is only for debugging purposes
-		#print("\nAPI Response (%s):\n" % Api.req_response,Api.req_body)
+		#print("\nAPI Response (%s):\n" % Api.req_response,Api.req_body)	# only uncomment this for debugging purposes
 
 	else:
 		print("You have already logged in!")

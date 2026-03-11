@@ -28,8 +28,8 @@ func put_request(target:String,data:String) -> void:
 	http_request.request(str(api_url+target),req_headers,HTTPClient.METHOD_PUT,data)
 
 # set variables once the request finishes
-func _on_request_completed(_result,_response_code,_headers,body) -> void:
-	req_result = _result
-	req_response = _response_code
+func _on_request_completed(result,response_code,_headers,body) -> void:
+	req_result = result
+	req_response = response_code
 	var json = JSON.parse_string(body.get_string_from_utf8())
 	req_body = json
