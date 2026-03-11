@@ -218,14 +218,15 @@ func _on_alive_indicator_hidden() -> void:
 			4:	# Lunatic
 				PlayerStats.lunaHiScore = hi_score
 
-		$GameOver/GameOverContainer/GameOverFSSaveMsg.text = "\nSubmitting score..."
+		if Account.loggedIn:
+			$GameOver/GameOverContainer/GameOverFSSaveMsg.text = "\nSubmitting score..."
 
-		Api.post_request("lbs/submit",'{
-			"usernameId": %s,
-			"score": %s,
-			"difficultyId": %s
-		}' % [Account.userId, hi_score, Global.selectedDiff])
-		await Api.request_completed
+			Api.post_request("lbs/submit",'{
+				"usernameId": %s,
+				"score": %s,
+				"difficultyId": %s
+			}' % [Account.userId, hi_score, Global.selectedDiff])
+			await Api.request_completed
 
 	if !Global.fpsCapTooLow: PlayerStats.save()
 
