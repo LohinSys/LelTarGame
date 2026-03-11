@@ -33,7 +33,8 @@ func login(username_input,password_input) -> void:
 				username = ""
 				password = ""
 
-		print("\nAPI Response (%s):\n" % Api.req_response,Api.req_body)
+		# this here is only for debugging purposes
+		#print("\nAPI Response (%s):\n" % Api.req_response,Api.req_body)
 
 	else:
 		print("You have already logged in!")

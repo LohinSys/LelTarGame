@@ -227,12 +227,14 @@ func _on_alive_indicator_hidden() -> void:
 				"difficultyId": %s
 			}' % [Account.userId, hi_score, Global.selectedDiff])
 			await Api.request_completed
+			#print("\nAPI Response (%s):\n" % Api.req_response,Api.req_body)
 
 	if !Global.fpsCapTooLow: PlayerStats.save()
 
 	if Api.req_response == 200:
 		$GameOver/GameOverContainer/GameOverFSSaveMsg.text = "\nSuccessfully submitted to online leaderboards!"
-	print("\nAPI Response (%s):\n" % Api.req_response,Api.req_body)
+	else:
+		$GameOver/GameOverContainer/GameOverFSSaveMsg.text = "An error has occured! (Error code: %s)" % Api.req_response
 
 func _on_start_game_instruct_hidden() -> void:
 	%BGA.play()
