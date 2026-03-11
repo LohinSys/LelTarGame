@@ -94,7 +94,7 @@ func _ready() -> void:
 
 	if Account.loggedIn:
 		$scoreContainer/playerNameValue.text = Account.username
-		$GameOver/GameOverContainer/GameOverFSSaveMsg.text = "(Leaderboard submissions are not implemented\nyet, so your score will only be saved locally.)"
+		$GameOver/GameOverContainer/GameOverFSSaveMsg.text = "\n "
 	else:
 		$scoreContainer/playerNameValue.text = "Guest"
 		$GameOver/GameOverContainer/GameOverFSSaveMsg.text = "(Leaderboard submissions are disabled on guest\naccounts, so your score will only be saved locally.)"
@@ -196,6 +196,16 @@ func _on_menu_button_pressed() -> void:
 	$PauseMenu.enableUI()
 
 func _on_alive_indicator_hidden() -> void:
+	final_score.text = Global.num_with_thou_seps(score)
+	%BGA.stop()
+
+	if Global.fpsCapTooLow:
+		$GameOver/GameOverContainer/GameOverFSSaveMsg.text = "(Your score was not saved because your\nframerate cap is too low)"
+
+	Global.power = Global.power * 0.625
+	Global.started = false
+
+	$GameOver.show()
 	if Global.score > hi_score and !Global.fpsCapTooLow:
 		hi_score = Global.score
 		match Global.selectedDiff:
@@ -207,16 +217,21 @@ func _on_alive_indicator_hidden() -> void:
 				PlayerStats.hardHiScore = hi_score
 			4:	# Lunatic
 				PlayerStats.lunaHiScore = hi_score
-	final_score.text = Global.num_with_thou_seps(score)
-	%BGA.stop()
-	if Global.fpsCapTooLow:
-		$GameOver/GameOverContainer/GameOverFSSaveMsg.text = "(Your score was not saved because your\nframerate cap is too low)"
-	$GameOver.show()
 
-	Global.power = Global.power * 0.625
-	Global.started = false
+		$GameOver/GameOverContainer/GameOverFSSaveMsg.text = "\nSubmitting score..."
+
+		Api.post_request("lbs/submit",'{
+			"usernameId": %s,
+			"score": %s,
+			"difficultyId": %s
+		}' % [Account.userId, hi_score, Global.selectedDiff])
+		await Api.request_completed
 
 	if !Global.fpsCapTooLow: PlayerStats.save()
+
+	if Api.req_response == 200:
+		$GameOver/GameOverContainer/GameOverFSSaveMsg.text = "\nSuccessfully submitted to online leaderboards!"
+	print("\nAPI Response (%s):\n" % Api.req_response,Api.req_body)
 
 func _on_start_game_instruct_hidden() -> void:
 	%BGA.play()

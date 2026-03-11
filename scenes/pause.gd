@@ -36,6 +36,7 @@ func _play_press_sfx() -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	add_child(Api.http_request)
 	$LoadingScreen.hide()
 	self.process_mode = Node.PROCESS_MODE_ALWAYS
 	disableUI()
@@ -83,6 +84,7 @@ func _on_quit_game_pressed() -> void:
 
 func _on_back2title_pressed() -> void:
 	$LoadingScreen.show()
+	remove_child(Api.http_request)
 	PlayerStats.save()
 	await get_tree().create_timer(0.1).timeout
 	disableUI()

@@ -9,33 +9,39 @@ var token: String = ""
 var loggedIn: bool = false
 
 func login(username_input,password_input) -> void:
-	print_rich("\nLogging in as [b]%s[/b]..." % username_input)
-	username = str(username_input)
-	password = Marshalls.utf8_to_base64(str(password_input)).reverse()
+	if !loggedIn:
+		print_rich("\nLogging in as [b]%s[/b]..." % username_input)
+		username = str(username_input)
+		password = Marshalls.utf8_to_base64(str(password_input)).reverse()
 
-	Api.post_request("auth/login",str('{"username":"',username_input,'","password":"',password_input,'"}'))
-	await Api.http_request.request_completed
+		Api.post_request("auth/login",str('{"username":"',username_input,'","password":"',password_input,'"}'))
+		await Api.http_request.request_completed
 
-	if Api.req_response == 200:
-		token = Api.req_body.get("token","")
-		userId = int(Api.req_body.get("id",0))
-		loggedIn = true
-		print_rich("[color=green]Successfully logged in![/color]")
-		print_rich("\n[b]Account Details[/b]\n[s]--------------------[/s]")
-		print_rich("Username: %s" % username)
-		print_rich("Password: %s [i](obfuscated)[/i]" % password)
-		PlayerStats.save()
+		if Api.req_response == 200:
+			token = Api.req_body.get("token","")
+			userId = int(Api.req_body.get("id",0))
+			loggedIn = true
+			print_rich("[color=green]Successfully logged in![/color]")
+			print_rich("\n[b]Account Details[/b]\n[s]--------------------[/s]")
+			print_rich("Username: %s" % username)
+			print_rich("Password: %s [i](obfuscated)[/i]" % password)
+			Api.req_headers.append("Authorization: Bearer %s" % token)
+			PlayerStats.save()
+		else:
+			print_rich("[color=red]/!\\ Login failed! Please try again later. (Error code: %s)[/color]" % Api.req_response)
+			if Api.req_response == 401:
+				username = ""
+				password = ""
+
+		print("\nAPI Response (%s):\n" % Api.req_response,Api.req_body)
+
 	else:
-		print_rich("[color=red]/!\\ Login failed! Please try again later. (Error code: %s)[/color]" % Api.req_response)
-		if Api.req_response == 401:
-			username = ""
-			password = ""
-
-	print("\nAPI Response (%s):\n" % Api.req_response,Api.req_body)
+		print("You have already logged in!")
 
 func logoff() -> void:
 	print("\nAttempting to log off...")
 	if loggedIn:
+		Api.req_headers.erase("Authorization: Bearer %s" % token)
 		username = ""
 		password = ""
 		token = ""
