@@ -71,17 +71,13 @@ var random_bullets: bool = false
 
 func update_window_mode() -> void:
 	match windowMode:
-		0:	# Windowed mode
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-		1:	# Fullscreen mode
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		0: DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		1: DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
 func update_vsync() -> void:
 	match vSync:
-		true:	# Enabled
-			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
-		false:	# Disabled
-			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+		true: DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
+		false: DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 
 func update_antialias_type() -> void:
 	# These variables are just for shit that appear more than once cuz Godot wouldn't let me just use numbers
@@ -119,36 +115,23 @@ func update_anisotropy() -> void:
 	var viewport: RID = get_tree().get_root().get_viewport_rid()
 
 	match anisotropy:
-		0: # Disabled
-			RenderingServer.viewport_set_anisotropic_filtering_level(viewport,RenderingServer.VIEWPORT_ANISOTROPY_DISABLED)
-		1: # 2x
-			RenderingServer.viewport_set_anisotropic_filtering_level(viewport,RenderingServer.VIEWPORT_ANISOTROPY_2X)
-		2: # 4x
-			RenderingServer.viewport_set_anisotropic_filtering_level(viewport,RenderingServer.VIEWPORT_ANISOTROPY_4X)
-		3: # 8x
-			RenderingServer.viewport_set_anisotropic_filtering_level(viewport,RenderingServer.VIEWPORT_ANISOTROPY_8X)
-		4: # 16x
-			RenderingServer.viewport_set_anisotropic_filtering_level(viewport,RenderingServer.VIEWPORT_ANISOTROPY_16X)
+		0: RenderingServer.viewport_set_anisotropic_filtering_level(viewport,RenderingServer.VIEWPORT_ANISOTROPY_DISABLED)
+		1: RenderingServer.viewport_set_anisotropic_filtering_level(viewport,RenderingServer.VIEWPORT_ANISOTROPY_2X)
+		2: RenderingServer.viewport_set_anisotropic_filtering_level(viewport,RenderingServer.VIEWPORT_ANISOTROPY_4X)
+		3: RenderingServer.viewport_set_anisotropic_filtering_level(viewport,RenderingServer.VIEWPORT_ANISOTROPY_8X)
+		4: RenderingServer.viewport_set_anisotropic_filtering_level(viewport,RenderingServer.VIEWPORT_ANISOTROPY_16X)
 
 func update_3d_scale() -> void:
 	var viewport: RID = get_tree().get_root().get_viewport_rid()
 	match scale3d:
-		0:	# 200%
-			RenderingServer.viewport_set_scaling_3d_scale(viewport,2.0)
-		1:	# 175%
-			RenderingServer.viewport_set_scaling_3d_scale(viewport,1.75)
-		2:	# 150%
-			RenderingServer.viewport_set_scaling_3d_scale(viewport,1.5)
-		3:	# 125%
-			RenderingServer.viewport_set_scaling_3d_scale(viewport,1.25)
-		4:	# 100%
-			RenderingServer.viewport_set_scaling_3d_scale(viewport,1.0)
-		5:	# 75%
-			RenderingServer.viewport_set_scaling_3d_scale(viewport,0.75)
-		6:	# 50%
-			RenderingServer.viewport_set_scaling_3d_scale(viewport,0.5)
-		7:	# 25%
-			RenderingServer.viewport_set_scaling_3d_scale(viewport,0.25)
+		0: RenderingServer.viewport_set_scaling_3d_scale(viewport,2.0)
+		1: RenderingServer.viewport_set_scaling_3d_scale(viewport,1.75)
+		2: RenderingServer.viewport_set_scaling_3d_scale(viewport,1.5)
+		3: RenderingServer.viewport_set_scaling_3d_scale(viewport,1.25)
+		4: RenderingServer.viewport_set_scaling_3d_scale(viewport,1.0)
+		5: RenderingServer.viewport_set_scaling_3d_scale(viewport,0.75)
+		6: RenderingServer.viewport_set_scaling_3d_scale(viewport,0.5)
+		7: RenderingServer.viewport_set_scaling_3d_scale(viewport,0.25)
 
 func update_volumes() -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(masterVolume))
@@ -201,8 +184,7 @@ func load_settings() -> void:
 		showFps = setting.get_value("Graphics", "showFps", true)
 		showDbgInfo = setting.get_value("Graphics", "showDbgInfo", true)
 		fpsCap = setting.get_value("Graphics", "fpsCap", 60)
-	else:
-		return
+	else: return
 
 	print("\nApplying settings:")
 	print("Window Mode...")
