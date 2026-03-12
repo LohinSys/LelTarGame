@@ -1,7 +1,13 @@
 extends CharacterBody2D
 class_name Player
 
-var speed = 250.0
+var speed: float = 250.0
+
+# some wall controller idk
+var can_left: bool = true
+var can_right: bool = true
+var can_up: bool = true
+var can_down: bool = true
 
 func _input(event):
 	if event.is_action_pressed("use_bomb") and Global.alive and Global.bomb != 0:
@@ -25,6 +31,12 @@ func _ready() -> void:
 # note: WASD and shoot + focus buttons only work together on keyboards if it has 6-key rollover minimum
 func _physics_process(_delta: float) -> void:
 	velocity = Input.get_vector("move_left","move_right","move_up","move_down") * speed
+
+	if (!can_left and velocity.x < 0) or (!can_right and velocity.x > 0):
+		velocity.x = 0
+	if (!can_up and velocity.y < 0) or (!can_down and velocity.y > 0):
+		velocity.y = 0
+
 	move_and_slide()
 
 	# these variables are needed otherwise the player will start going apeshit
@@ -47,6 +59,20 @@ func _physics_process(_delta: float) -> void:
 	# little death handler
 	if Global.health <= 0:
 		self.hide()
+
+func pbd_wall_hit(plane:int) -> void:
+	match plane:
+		1: can_left = false
+		2: can_right = false
+		3: can_up = false
+		4: can_down = false
+
+func pbd_wall_leave(plane:int) -> void:
+	match plane:
+		1: can_left = true
+		2: can_right = true
+		3: can_up = true
+		4: can_down = true
 
 func graze() -> void:
 	if Global.alive:

@@ -242,3 +242,22 @@ func _on_alive_indicator_hidden() -> void:
 
 func _on_start_game_instruct_hidden() -> void:
 	%BGA.play()
+
+# walls
+func _on_pbd_left_body_entered(body:Node2D) -> void:
+	body.pbd_wall_hit(1)
+func _on_pbd_right_body_entered(body: Node2D) -> void:
+	body.pbd_wall_hit(2)
+func _on_pbd_up_body_entered(body:Node2D) -> void:
+	body.pbd_wall_hit(3)
+func _on_pbd_down_body_entered(body:Node2D) -> void:
+	body.pbd_wall_hit(4)
+
+func _on_pbd_left_body_exited(body:Node2D) -> void:
+	body.pbd_wall_leave(1)
+func _on_pbd_right_body_exited(body: Node2D) -> void:
+	body.pbd_wall_leave(2)
+func _on_pbd_up_body_exited(body:Node2D) -> void:
+	body.pbd_wall_leave(3)
+func _on_pbd_down_body_exited(body:Node2D) -> void:
+	body.pbd_wall_leave(4)

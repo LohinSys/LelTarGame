@@ -151,6 +151,11 @@ pause={
 
 rendering/text_driver="ICU / HarfBuzz / Graphite (Built-in)"
 
+[layer_names]
+
+2d_physics/layer_2="player"
+2d_physics/layer_5="pbd"
+
 [memory]
 
 limits/message_queue/max_size_mb=64

@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://6tnyxq2pf060"]
+[gd_scene load_steps=45 format=3 uid="uid://6tnyxq2pf060"]
 
 [ext_resource type="Script" uid="uid://cilxi7ctnnwg7" path="res://scenes/overlay.gd" id="1_d607a"]
 [ext_resource type="FontFile" uid="uid://by4fv8t0jo01q" path="res://assets/fonts/monkey.ttf" id="2_0miq5"]
@@ -59,8 +59,16 @@ font_size = 24
 shadow_size = 3
 shadow_color = Color(0, 0, 0, 0.5019608)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_14nai"]
-size = Vector2(175, 600)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_i2ryd"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_njieu"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qmol3"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qq5m3"]
 
 [sub_resource type="Gradient" id="Gradient_tn5s6"]
 offsets = PackedFloat32Array(0, 0.5, 1)
@@ -283,18 +291,44 @@ label_settings = SubResource("LabelSettings_4jgic")
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="PlayerBoundaryDetection" type="Area2D" parent="."]
+[node name="PlayerBoundaryDetectionL" type="Area2D" parent="."]
 position = Vector2(87.5, 300)
+collision_layer = 16
+collision_mask = 16
 
-[node name="CS2D_Left" type="CollisionShape2D" parent="PlayerBoundaryDetection"]
-unique_name_in_owner = true
-shape = SubResource("RectangleShape2D_14nai")
+[node name="CS2D_Left" type="CollisionShape2D" parent="PlayerBoundaryDetectionL"]
+position = Vector2(95, 0)
+shape = SubResource("WorldBoundaryShape2D_i2ryd")
 debug_color = Color(0.7, 0, 0.7, 0.41960785)
 
-[node name="CS2D_Right" type="CollisionShape2D" parent="PlayerBoundaryDetection"]
-unique_name_in_owner = true
-position = Vector2(625, 0)
-shape = SubResource("RectangleShape2D_14nai")
+[node name="PlayerBoundaryDetectionR" type="Area2D" parent="."]
+position = Vector2(87.5, 300)
+collision_layer = 16
+collision_mask = 16
+
+[node name="CS2D_Right" type="CollisionShape2D" parent="PlayerBoundaryDetectionR"]
+position = Vector2(530, 0)
+shape = SubResource("WorldBoundaryShape2D_njieu")
+debug_color = Color(0.7, 0, 0.7, 0.41960785)
+
+[node name="PlayerBoundaryDetectionU" type="Area2D" parent="."]
+position = Vector2(87.5, 300)
+collision_layer = 16
+collision_mask = 16
+
+[node name="CS2D_Up" type="CollisionShape2D" parent="PlayerBoundaryDetectionU"]
+position = Vector2(312.5, -275)
+shape = SubResource("WorldBoundaryShape2D_qmol3")
+debug_color = Color(0.7, 0, 0.7, 0.41960785)
+
+[node name="PlayerBoundaryDetectionD" type="Area2D" parent="."]
+position = Vector2(87.5, 300)
+collision_layer = 16
+collision_mask = 16
+
+[node name="CS2D_Down" type="CollisionShape2D" parent="PlayerBoundaryDetectionD"]
+position = Vector2(312.5, 275)
+shape = SubResource("WorldBoundaryShape2D_qq5m3")
 debug_color = Color(0.7, 0, 0.7, 0.41960785)
 
 [node name="TR_Left" type="TextureRect" parent="."]
@@ -681,4 +715,12 @@ bus = &"Music"
 
 [connection signal="hidden" from="AliveIndicator" to="." method="_on_alive_indicator_hidden"]
 [connection signal="hidden" from="startGameInstruct" to="." method="_on_start_game_instruct_hidden"]
+[connection signal="body_entered" from="PlayerBoundaryDetectionL" to="." method="_on_pbd_left_body_entered"]
+[connection signal="body_exited" from="PlayerBoundaryDetectionL" to="." method="_on_pbd_left_body_exited"]
+[connection signal="body_entered" from="PlayerBoundaryDetectionR" to="." method="_on_pbd_right_body_entered"]
+[connection signal="body_exited" from="PlayerBoundaryDetectionR" to="." method="_on_pbd_right_body_exited"]
+[connection signal="body_entered" from="PlayerBoundaryDetectionU" to="." method="_on_pbd_up_body_entered"]
+[connection signal="body_exited" from="PlayerBoundaryDetectionU" to="." method="_on_pbd_up_body_exited"]
+[connection signal="body_entered" from="PlayerBoundaryDetectionD" to="." method="_on_pbd_down_body_entered"]
+[connection signal="body_exited" from="PlayerBoundaryDetectionD" to="." method="_on_pbd_down_body_exited"]
 [connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]
