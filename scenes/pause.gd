@@ -74,6 +74,7 @@ func _on_resume_pressed() -> void:
 func _on_restart_pressed() -> void:
 	ui_enabled = false
 	disableUI()
+	remove_child(Api.http_request)
 	$LoadingScreen.show()
 	get_tree().reload_current_scene()
 
