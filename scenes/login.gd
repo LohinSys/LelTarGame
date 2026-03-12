@@ -27,6 +27,7 @@ func _ready() -> void:
 		await Api.http_request.request_completed
 		if Api.req_response == 200: set_account_label()
 		%LoginTitleButton.disabled = false
+	elif Account.loggedIn: set_account_label()
 
 func _physics_process(_delta) -> void:
 	if Global.blurFx:
