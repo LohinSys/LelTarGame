@@ -91,13 +91,15 @@ func set_status(bullet_type) -> void:
 		3: hit(amount)
 
 func hit(x) -> void:
-	$CollisionShape2D.set_deferred("disabled",true)
+	self.set_collision_layer_value(1, false)
+	self.set_collision_mask_value(1, false)
 	$AnimatedSprite2D.self_modulate = Color(1,1,1,0.5)
 	%HitSfx.play()
 	GameLogic.damage_player(x)
 
 	await get_tree().create_timer(1).timeout
-	$CollisionShape2D.set_deferred("disabled",false)
+	self.set_collision_layer_value(1, true)
+	self.set_collision_mask_value(1, true)
 	$AnimatedSprite2D.self_modulate = Color(1,1,1,1)
 
 func heal(y) -> void:
