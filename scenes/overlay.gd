@@ -95,7 +95,7 @@ func _ready() -> void:
 
 	if Account.loggedIn:
 		$scoreContainer/playerNameValue.text = Account.username
-		save_msg.text = "\n "
+		save_msg.text = "\nWanna have another go?"
 	else:
 		$scoreContainer/playerNameValue.text = "Guest"
 		save_msg.text = "Leaderboard submissions are disabled on guest\naccounts, so your score will only be saved locally."
@@ -210,14 +210,10 @@ func _on_alive_indicator_hidden() -> void:
 	if Global.score > hi_score and !Global.fpsCapTooLow:
 		hi_score = Global.score
 		match Global.selectedDiff:
-			1:	# Easy
-				PlayerStats.easyHiScore = hi_score
-			2:	# Normal
-				PlayerStats.normHiScore = hi_score
-			3:	# Hard
-				PlayerStats.hardHiScore = hi_score
-			4:	# Lunatic
-				PlayerStats.lunaHiScore = hi_score
+			1: PlayerStats.easyHiScore = hi_score # Easy
+			2: PlayerStats.normHiScore = hi_score # Normal
+			3: PlayerStats.hardHiScore = hi_score # Hard
+			4: PlayerStats.lunaHiScore = hi_score # Lunatic
 
 		if Account.loggedIn:
 			if Global.selectedDiff != 1:
@@ -229,16 +225,15 @@ func _on_alive_indicator_hidden() -> void:
 					"difficultyId": %s
 				}'.remove_chars("	") % [Account.userId, hi_score, Global.selectedDiff]))
 				await Api.request_completed
+				if Api.req_response == 200:
+					save_msg.text = "\nSuccessfully submitted to online leaderboards!"
+				else:
+					save_msg.text = "\nAn error has occured! (Error code: %s)" % Api.req_response
 				#print("\nAPI Response (%s):\n" % Api.req_response,Api.req_body)	# only uncomment this for debugging purposes
 			else:
 				save_msg.text = "Cannot submit score to leaderboards\nsince you're on Easy difficulty!"
 
 	if !Global.fpsCapTooLow: PlayerStats.save()
-
-	if Api.req_response == 200:
-		save_msg.text = "\nSuccessfully submitted to online leaderboards!"
-	else:
-		save_msg.text = "An error has occured! (Error code: %s)" % Api.req_response
 
 func _on_start_game_instruct_hidden() -> void:
 	%BGA.play()
