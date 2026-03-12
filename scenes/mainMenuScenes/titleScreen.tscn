@@ -176,7 +176,7 @@ expand_icon = true
 [node name="NotImplementedFIY" type="Label" parent="MenuBtnContainer"]
 custom_minimum_size = Vector2(1, 0)
 layout_mode = 2
-text = "This game is still under heavy development, so expect some bugs..."
+text = "This game is still under development, so expect some bugs..."
 label_settings = SubResource("LabelSettings_c3ue1")
 horizontal_alignment = 1
 vertical_alignment = 2
