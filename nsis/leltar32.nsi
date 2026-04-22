@@ -126,7 +126,7 @@ Section "Lel.tar" Main
 	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "DisplayVersion" "${APP_VERSION}"
 	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "Publisher" "LohinSys"
 	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "URLInfoAbout" "https://szb3nc3.github.io/LelTarWebsite/"
-	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "EstimatedSize" 118436
+	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "EstimatedSize" 135876
 	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "NoModify" 1
 	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "NoRepair" 1
 	WriteRegDWORD HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "VersionMajor" "${APP_MAJOR_VER}"
