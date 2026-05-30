@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ctvw0dwc2i0jh"]
+[gd_scene format=3 uid="uid://ctvw0dwc2i0jh"]
 
 [ext_resource type="Script" uid="uid://bqicii6j5tt6" path="res://scenes/mainMenuScenes/stats.gd" id="1_e7ukj"]
 [ext_resource type="Shader" uid="uid://ca4ymckm1e8si" path="res://scenes/mainMenuScenes/blur.gdshader" id="2_adere"]
@@ -24,7 +24,7 @@ font_color = Color(0.5, 0.5, 0.5, 1)
 shadow_color = Color(0, 0, 0, 0.5019608)
 shadow_offset = Vector2(2, 2)
 
-[node name="Stats" type="Control"]
+[node name="Stats" type="Control" unique_id=1073545290]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,7 +33,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e7ukj")
 
-[node name="Blur" type="ColorRect" parent="."]
+[node name="Blur" type="ColorRect" parent="." unique_id=1751743379]
 material = SubResource("ShaderMaterial_vn13s")
 layout_mode = 1
 anchors_preset = 15
@@ -43,7 +43,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.3764706)
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1460464215]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -52,7 +52,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.3764706)
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=1147956288]
 clip_contents = true
 layout_mode = 1
 anchors_preset = 8
@@ -67,7 +67,7 @@ offset_bottom = 225.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="StatsTitle" type="Label" parent="Panel"]
+[node name="StatsTitle" type="Label" parent="Panel" unique_id=327009208]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -81,7 +81,7 @@ text = "Statistics"
 label_settings = SubResource("LabelSettings_wq0l7")
 horizontal_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=2026413748]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -95,12 +95,12 @@ offset_bottom = 155.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=1511362737]
 layout_mode = 2
 size_flags_vertical = 0
 alignment = 1
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=1267209606]
 layout_mode = 2
 text = "Here's all of your personal stats that can appear,
 which can also be synced with your account...
@@ -109,11 +109,11 @@ label_settings = SubResource("LabelSettings_e7ukj")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GridContainer" type="GridContainer" parent="Panel/MarginContainer/VBoxContainer"]
+[node name="GridContainer" type="GridContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=2038924974]
 layout_mode = 2
 columns = 5
 
-[node name="DiffLbl" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+[node name="DiffLbl" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=1121813675]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5019608)
@@ -122,7 +122,7 @@ theme_override_constants/shadow_offset_y = 2
 theme_override_font_sizes/font_size = 20
 vertical_alignment = 1
 
-[node name="DiffEasy" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+[node name="DiffEasy" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=1182514704]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.1882353, 1, 0.3764706, 1)
@@ -134,7 +134,7 @@ text = "Easy"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DiffNorm" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+[node name="DiffNorm" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=281186916]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0, 0.6431373, 1, 1)
@@ -146,7 +146,7 @@ text = "Normal"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DiffHard" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+[node name="DiffHard" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=630187661]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(1, 0.2509804, 0.2509804, 1)
@@ -158,7 +158,7 @@ text = "Hard"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DiffLuna" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+[node name="DiffLuna" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=1386343407]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.92156863, 0.3764706, 1, 1)
@@ -170,7 +170,7 @@ text = "Lunatic"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StatRunLbl" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+[node name="StatRunLbl" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=175178006]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5019608)
@@ -180,7 +180,7 @@ text = "Times Played"
 label_settings = SubResource("LabelSettings_adere")
 vertical_alignment = 1
 
-[node name="StatRunEasy" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+[node name="StatRunEasy" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=567227314]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -191,7 +191,7 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StatRunNorm" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+[node name="StatRunNorm" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=57001766]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -202,7 +202,7 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StatRunHard" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+[node name="StatRunHard" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=867471184]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -213,7 +213,7 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StatRunLuna" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+[node name="StatRunLuna" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=758554632]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -224,7 +224,7 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StatBestRunLbl" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+[node name="StatBestRunLbl" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=2055771473]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5019608)
@@ -234,7 +234,7 @@ text = "Best Run"
 label_settings = SubResource("LabelSettings_adere")
 vertical_alignment = 1
 
-[node name="StatBestRunEasy" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+[node name="StatBestRunEasy" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=1395612939]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -245,7 +245,7 @@ text = "Stage 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StatBestRunNorm" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+[node name="StatBestRunNorm" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=995609297]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -256,7 +256,7 @@ text = "Stage 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StatBestRunHard" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+[node name="StatBestRunHard" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=1931275427]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -267,7 +267,7 @@ text = "Stage 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StatBestRunLuna" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+[node name="StatBestRunLuna" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=1891742049]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -278,7 +278,7 @@ text = "Stage 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StatBestScoreLbl" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+[node name="StatBestScoreLbl" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=576168801]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5019608)
@@ -288,7 +288,7 @@ text = "Best Score"
 label_settings = SubResource("LabelSettings_adere")
 vertical_alignment = 1
 
-[node name="StatBestScoreEasy" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+[node name="StatBestScoreEasy" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=1353199447]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -299,7 +299,7 @@ text = "50,000"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StatBestScoreNorm" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+[node name="StatBestScoreNorm" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=776076024]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -310,7 +310,7 @@ text = "50,000"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StatBestScoreHard" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+[node name="StatBestScoreHard" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=482279989]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -321,7 +321,7 @@ text = "50,000"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StatBestScoreLuna" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+[node name="StatBestScoreLuna" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=1919639434]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -332,7 +332,7 @@ text = "50,000"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StatDeathsLbl" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+[node name="StatDeathsLbl" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=982720873]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5019608)
@@ -342,7 +342,7 @@ text = "Total Deaths"
 label_settings = SubResource("LabelSettings_adere")
 vertical_alignment = 1
 
-[node name="StatDeathsEasy" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+[node name="StatDeathsEasy" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=1311805723]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -353,7 +353,7 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StatDeathsNorm" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+[node name="StatDeathsNorm" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=643813596]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -364,7 +364,7 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StatDeathsHard" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+[node name="StatDeathsHard" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=2083728725]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -375,7 +375,7 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StatDeathsLuna" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+[node name="StatDeathsLuna" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=1201058064]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -386,7 +386,7 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StatBombsLbl" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+[node name="StatBombsLbl" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=2076377923]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5019608)
@@ -396,7 +396,7 @@ text = "Bombs Used"
 label_settings = SubResource("LabelSettings_adere")
 vertical_alignment = 1
 
-[node name="StatBombsEasy" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+[node name="StatBombsEasy" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=611643359]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -407,7 +407,7 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StatBombsNorm" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+[node name="StatBombsNorm" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=445923645]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -418,7 +418,7 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StatBombsHard" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+[node name="StatBombsHard" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=391378974]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -429,7 +429,7 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StatBombsLuna" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+[node name="StatBombsLuna" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=1910767021]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -440,7 +440,7 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StatGrazeLbl" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+[node name="StatGrazeLbl" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=506781798]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5019608)
@@ -450,7 +450,7 @@ text = "Bullets Grazed"
 label_settings = SubResource("LabelSettings_adere")
 vertical_alignment = 1
 
-[node name="StatGrazeEasy" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+[node name="StatGrazeEasy" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=1998257548]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -461,7 +461,7 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StatGrazeNorm" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+[node name="StatGrazeNorm" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=155867846]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -472,7 +472,7 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StatGrazeHard" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+[node name="StatGrazeHard" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=1780145601]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -483,7 +483,7 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StatGrazeLuna" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer"]
+[node name="StatGrazeLuna" type="Label" parent="Panel/MarginContainer/VBoxContainer/GridContainer" unique_id=704997528]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -494,7 +494,7 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LinkButton" type="LinkButton" parent="Panel"]
+[node name="LinkButton" type="LinkButton" parent="Panel" unique_id=1920849312]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -515,7 +515,7 @@ text = "[ Click here to view online leaderboards ]"
 underline = 1
 uri = "https://szb3nc3.github.io/LelTarWebsite/leaderboards"
 
-[node name="Exit" type="Button" parent="Panel"]
+[node name="Exit" type="Button" parent="Panel" unique_id=1261064400]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5

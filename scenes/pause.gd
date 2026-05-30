@@ -42,17 +42,13 @@ func _ready() -> void:
 	disableUI()
 
 func _physics_process(_delta) -> void:
-	if Global.blurFx:
-		$Blur.show()
-	else:
-		$Blur.hide()
+	if Global.blurFx: $Blur.show()
+	else: $Blur.hide()
 
 func _input(event):
 	if event.is_action_pressed("pause"):
-		if ui_enabled:
-			disableUI()
-		else:
-			enableUI()
+		if ui_enabled: disableUI()
+		else: enableUI()
 
 func enableUI() -> void:
 	_play_press_sfx()
@@ -91,8 +87,6 @@ func _on_back2title_pressed() -> void:
 	disableUI()
 	get_tree().change_scene_to_file("res://scenes/mainMenuScenes/titleScreen.tscn")
 
-func _on_settings_pressed() -> void:
-	$Settings.show()
+func _on_settings_pressed() -> void: $Settings.show()
 
-func _on_how2play_pressed() -> void:
-	$How2Play.show()
+func _on_how2play_pressed() -> void: $How2Play.show()

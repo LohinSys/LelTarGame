@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://sjpr02b42usg"]
+[gd_scene format=3 uid="uid://sjpr02b42usg"]
 
 [ext_resource type="Script" uid="uid://ckl3kfm0u0e3j" path="res://scenes/mainMenuScenes/gameModeSel.gd" id="1_c4bqn"]
 [ext_resource type="PackedScene" uid="uid://c8iabuhhf3o4e" path="res://scenes/mainMenuScenes/loadingScreen.tscn" id="2_sd3lv"]
@@ -14,7 +14,7 @@ shadow_size = 5
 shadow_color = Color(0, 0, 0, 0.5019608)
 shadow_offset = Vector2(3, 3)
 
-[node name="GameModeSel" type="Control"]
+[node name="GameModeSel" type="Control" unique_id=1562954096]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,7 +23,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_c4bqn")
 
-[node name="Blur" type="ColorRect" parent="."]
+[node name="Blur" type="ColorRect" parent="." unique_id=444421671]
 material = SubResource("ShaderMaterial_ixfki")
 layout_mode = 1
 anchors_preset = 15
@@ -33,7 +33,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.3764706)
 
-[node name="TransparentBG" type="ColorRect" parent="."]
+[node name="TransparentBG" type="ColorRect" parent="." unique_id=1584964923]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -42,7 +42,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.5019608)
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=5141033]
 clip_contents = true
 layout_mode = 1
 anchors_preset = 8
@@ -57,7 +57,7 @@ offset_bottom = 225.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="Label" parent="Panel"]
+[node name="Title" type="Label" parent="Panel" unique_id=1555853830]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -71,7 +71,7 @@ text = "Select Difficulty"
 label_settings = SubResource("LabelSettings_7aqff")
 horizontal_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=958707694]
 clip_contents = true
 layout_mode = 1
 anchors_preset = 8
@@ -86,11 +86,11 @@ offset_bottom = 155.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="DiffContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+[node name="DiffContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=554741629]
 layout_mode = 2
 alignment = 1
 
-[node name="Easy" type="Button" parent="Panel/MarginContainer/DiffContainer"]
+[node name="Easy" type="Button" parent="Panel/MarginContainer/DiffContainer" unique_id=1439715579]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.1882353, 1, 0.3764706, 1)
 theme_override_colors/font_focus_color = Color(0.1882353, 1, 0.3764706, 1)
@@ -101,7 +101,7 @@ theme_override_colors/font_disabled_color = Color(0.19, 1, 0.379, 0.5019608)
 theme_override_font_sizes/font_size = 24
 text = "Easy"
 
-[node name="Normal" type="Button" parent="Panel/MarginContainer/DiffContainer"]
+[node name="Normal" type="Button" parent="Panel/MarginContainer/DiffContainer" unique_id=1824937160]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.6431373, 1, 1)
 theme_override_colors/font_focus_color = Color(0, 0.6431373, 1, 1)
@@ -112,7 +112,7 @@ theme_override_colors/font_disabled_color = Color(0, 0.6509804, 1, 0.5019608)
 theme_override_font_sizes/font_size = 24
 text = "Normal"
 
-[node name="Hard" type="Button" parent="Panel/MarginContainer/DiffContainer"]
+[node name="Hard" type="Button" parent="Panel/MarginContainer/DiffContainer" unique_id=2112606505]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.2509804, 0.2509804, 1)
 theme_override_colors/font_focus_color = Color(1, 0.2509804, 0.2509804, 1)
@@ -123,7 +123,7 @@ theme_override_colors/font_disabled_color = Color(1, 0.25, 0.25, 0.5019608)
 theme_override_font_sizes/font_size = 24
 text = "Hard"
 
-[node name="Lunatic" type="Button" parent="Panel/MarginContainer/DiffContainer"]
+[node name="Lunatic" type="Button" parent="Panel/MarginContainer/DiffContainer" unique_id=1961267372]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.92156863, 0.3764706, 1, 1)
 theme_override_colors/font_focus_color = Color(0.92156863, 0.3764706, 1, 1)
@@ -134,7 +134,7 @@ theme_override_colors/font_disabled_color = Color(0.9173334, 0.38, 1, 0.5019608)
 theme_override_font_sizes/font_size = 24
 text = "Lunatic"
 
-[node name="CurrentPlayer" type="Label" parent="Panel"]
+[node name="CurrentPlayer" type="Label" parent="Panel" unique_id=725693644]
 layout_mode = 0
 offset_left = 17.5
 offset_top = 84.0
@@ -151,7 +151,7 @@ horizontal_alignment = 1
 autowrap_mode = 3
 max_lines_visible = 2
 
-[node name="DifficultyDesc" type="Label" parent="Panel"]
+[node name="DifficultyDesc" type="Label" parent="Panel" unique_id=1815575369]
 layout_mode = 0
 offset_left = 18.0
 offset_top = 324.0
@@ -166,7 +166,7 @@ horizontal_alignment = 1
 autowrap_mode = 3
 max_lines_visible = 2
 
-[node name="Exit" type="Button" parent="Panel"]
+[node name="Exit" type="Button" parent="Panel" unique_id=1726777322]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -182,11 +182,12 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 24
 text = "Back"
 
-[node name="LowFpsCapWarning" type="ConfirmationDialog" parent="."]
+[node name="LowFpsCapWarning" type="ConfirmationDialog" parent="." unique_id=1315056945]
 oversampling_override = 1.0
 title = "HOLD UP!!"
 initial_position = 2
 size = Vector2i(350, 196)
+unresizable = true
 force_native = true
 content_scale_mode = 1
 ok_button_text = "Play anyway"
@@ -196,7 +197,7 @@ Please increase your framerate cap to a minimum of 60 FPS or turn on Unlimited F
 dialog_autowrap = true
 cancel_button_text = "Go back"
 
-[node name="LoadingScreen" parent="." instance=ExtResource("2_sd3lv")]
+[node name="LoadingScreen" parent="." unique_id=874518794 instance=ExtResource("2_sd3lv")]
 visible = false
 
 [connection signal="mouse_entered" from="Panel/MarginContainer/DiffContainer/Easy" to="." method="_on_easy_mouse_entered"]

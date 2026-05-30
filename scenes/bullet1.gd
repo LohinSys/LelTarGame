@@ -14,8 +14,7 @@ var did_graze_check: bool = false
 var blown_up: bool = false
 var explosion_easing: float = 0.05
 
-func _ready() -> void:
-	from_attack = Global.current_attack_pattern
+func _ready() -> void: from_attack = Global.current_attack_pattern
 
 func _physics_process(delta: float) -> void:
 	Global.started = true
@@ -34,8 +33,7 @@ func _physics_process(delta: float) -> void:
 		if explosion_easing > 0:
 			explosion_easing -= 0.0015
 
-func _on_bullet1_screen_exited() -> void:
-	queue_free()
+func _on_bullet1_screen_exited() -> void: queue_free()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("use_bomb") and Global.bomb != 0 and Global.alive and !blown_up:

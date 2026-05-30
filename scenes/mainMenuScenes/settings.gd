@@ -23,10 +23,8 @@ func _ready() -> void:
 	%FpsCapSlider.value = Global.fpsCap
 
 func _physics_process(_delta: float) -> void:
-	if Global.blurFx:
-		$Blur.show()
-	else:
-		$Blur.hide()
+	if Global.blurFx: $Blur.show()
+	else: $Blur.hide()
 
 	%MasterVolValue.text = str(%MasterVolSlider.value*100).pad_decimals(0) + "%"
 	%SFXVolValue.text = str(%SFXVolSlider.value*100).pad_decimals(0) + "%"
@@ -70,29 +68,21 @@ func _on_scaling_3d_mode_selected(index: int) -> void:
 	Global.update_3d_scale()
 
 func _on_vsync_pressed() -> void:
-	if Global.vSync:
-		Global.vSync = false
-	else:
-		Global.vSync = true
+	if Global.vSync: Global.vSync = false
+	else: Global.vSync = true
 	Global.update_vsync()
 
 func _on_blurFx_pressed() -> void:
-	if Global.blurFx:
-		Global.blurFx = false
-	else:
-		Global.blurFx = true
+	if Global.blurFx: Global.blurFx = false
+	else: Global.blurFx = true
 
 func _on_showFps_pressed() -> void:
-	if Global.showFps:
-		Global.showFps = false
-	else:
-		Global.showFps = true
+	if Global.showFps: Global.showFps = false
+	else: Global.showFps = true
 
 func _on_showDbg_pressed() -> void:
-	if Global.showDbgInfo:
-		Global.showDbgInfo = false
-	else:
-		Global.showDbgInfo = true
+	if Global.showDbgInfo: Global.showDbgInfo = false
+	else: Global.showDbgInfo = true
 
 
 func save_settings() -> void:

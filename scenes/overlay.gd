@@ -188,13 +188,13 @@ func _physics_process(_delta) -> void:
 		Global.update_fps_display($Fps)
 	else:
 		$Fps.hide()
+
 	if Global.showDbgInfo:
 		$DbgInfo.show()
 	else:
 		$DbgInfo.hide()
 
-func _on_menu_button_pressed() -> void:
-	$PauseMenu.enableUI()
+func _on_menu_button_pressed() -> void: $PauseMenu.enableUI()
 
 func _on_alive_indicator_hidden() -> void:
 	final_score.text = Global.num_with_thou_seps(score)
@@ -235,24 +235,15 @@ func _on_alive_indicator_hidden() -> void:
 
 	if !Global.fpsCapTooLow: PlayerStats.save()
 
-func _on_start_game_instruct_hidden() -> void:
-	%BGA.play()
+func _on_start_game_instruct_hidden() -> void: %BGA.play()
 
 # walls
-func _on_pbd_left_body_entered(body:Node2D) -> void:
-	body.pbd_wall_hit(1)
-func _on_pbd_right_body_entered(body: Node2D) -> void:
-	body.pbd_wall_hit(2)
-func _on_pbd_up_body_entered(body:Node2D) -> void:
-	body.pbd_wall_hit(3)
-func _on_pbd_down_body_entered(body:Node2D) -> void:
-	body.pbd_wall_hit(4)
+func _on_pbd_left_body_entered(body:Node2D) -> void:	body.pbd_wall_hit(1)
+func _on_pbd_right_body_entered(body: Node2D) -> void:	body.pbd_wall_hit(2)
+func _on_pbd_up_body_entered(body:Node2D) -> void:		body.pbd_wall_hit(3)
+func _on_pbd_down_body_entered(body:Node2D) -> void:	body.pbd_wall_hit(4)
 
-func _on_pbd_left_body_exited(body:Node2D) -> void:
-	body.pbd_wall_leave(1)
-func _on_pbd_right_body_exited(body: Node2D) -> void:
-	body.pbd_wall_leave(2)
-func _on_pbd_up_body_exited(body:Node2D) -> void:
-	body.pbd_wall_leave(3)
-func _on_pbd_down_body_exited(body:Node2D) -> void:
-	body.pbd_wall_leave(4)
+func _on_pbd_left_body_exited(body:Node2D) -> void:		body.pbd_wall_leave(1)
+func _on_pbd_right_body_exited(body: Node2D) -> void:	body.pbd_wall_leave(2)
+func _on_pbd_up_body_exited(body:Node2D) -> void:		body.pbd_wall_leave(3)
+func _on_pbd_down_body_exited(body:Node2D) -> void:		body.pbd_wall_leave(4)

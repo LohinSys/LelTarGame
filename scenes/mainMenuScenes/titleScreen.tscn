@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://ct4slj3ni7ajm"]
+[gd_scene format=3 uid="uid://ct4slj3ni7ajm"]
 
 [ext_resource type="Script" uid="uid://bm2ln7ilo358i" path="res://scenes/mainMenuScenes/titleScreen.gd" id="1_r8sye"]
 [ext_resource type="PackedScene" uid="uid://cyxcc8cu3d5e0" path="res://scenes/mainMenuScenes/titleScreenBackground.tscn" id="2_hbqqx"]
@@ -45,12 +45,12 @@ shadow_color = Color(0, 0, 0, 0.5019608)
 shadow_size = 2
 shadow_color = Color(0, 0, 0, 0.5019608)
 
-[node name="TitleScreen" type="CanvasLayer"]
+[node name="TitleScreen" type="CanvasLayer" unique_id=632597833]
 script = ExtResource("1_r8sye")
 
-[node name="TitleScreenBackground" parent="." instance=ExtResource("2_hbqqx")]
+[node name="TitleScreenBackground" parent="." unique_id=1007125065 instance=ExtResource("2_hbqqx")]
 
-[node name="Blur" type="ColorRect" parent="."]
+[node name="Blur" type="ColorRect" parent="." unique_id=754446785]
 material = SubResource("ShaderMaterial_hh3dy")
 use_parent_material = true
 anchors_preset = 8
@@ -65,7 +65,7 @@ offset_bottom = 384.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Logo" type="TextureRect" parent="."]
+[node name="Logo" type="TextureRect" parent="." unique_id=1050931086]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -77,7 +77,7 @@ grow_horizontal = 2
 texture = ExtResource("3_tcfyk")
 expand_mode = 3
 
-[node name="DevLabel" type="Label" parent="."]
+[node name="DevLabel" type="Label" parent="." unique_id=825047379]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -90,7 +90,7 @@ text = "Technical Development Build"
 label_settings = SubResource("LabelSettings_qrvv6")
 horizontal_alignment = 1
 
-[node name="MenuBtnContainer" type="VBoxContainer" parent="."]
+[node name="MenuBtnContainer" type="VBoxContainer" parent="." unique_id=937615944]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -101,7 +101,7 @@ offset_bottom = 480.0
 grow_horizontal = 2
 alignment = 1
 
-[node name="StartGame" type="Button" parent="MenuBtnContainer"]
+[node name="StartGame" type="Button" parent="MenuBtnContainer" unique_id=708867633]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Start Game"
@@ -110,11 +110,11 @@ alignment = 0
 icon_alignment = 2
 expand_icon = true
 
-[node name="HBoxContainer1" type="HBoxContainer" parent="MenuBtnContainer"]
+[node name="HBoxContainer1" type="HBoxContainer" parent="MenuBtnContainer" unique_id=1670278872]
 layout_mode = 2
 alignment = 1
 
-[node name="How2Play" type="Button" parent="MenuBtnContainer/HBoxContainer1"]
+[node name="How2Play" type="Button" parent="MenuBtnContainer/HBoxContainer1" unique_id=618413608]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 24
@@ -124,7 +124,7 @@ alignment = 0
 icon_alignment = 2
 expand_icon = true
 
-[node name="Statistics" type="Button" parent="MenuBtnContainer/HBoxContainer1"]
+[node name="Statistics" type="Button" parent="MenuBtnContainer/HBoxContainer1" unique_id=250207341]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 24
@@ -134,10 +134,10 @@ alignment = 0
 icon_alignment = 2
 expand_icon = true
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MenuBtnContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MenuBtnContainer" unique_id=680883607]
 layout_mode = 2
 
-[node name="Settings" type="Button" parent="MenuBtnContainer/HBoxContainer2"]
+[node name="Settings" type="Button" parent="MenuBtnContainer/HBoxContainer2" unique_id=1118238691]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 24
@@ -147,7 +147,7 @@ alignment = 0
 icon_alignment = 2
 expand_icon = true
 
-[node name="Credits" type="Button" parent="MenuBtnContainer/HBoxContainer2"]
+[node name="Credits" type="Button" parent="MenuBtnContainer/HBoxContainer2" unique_id=730535984]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 24
@@ -157,7 +157,7 @@ alignment = 0
 icon_alignment = 2
 expand_icon = true
 
-[node name="QuitGame" type="Button" parent="MenuBtnContainer"]
+[node name="QuitGame" type="Button" parent="MenuBtnContainer" unique_id=1081413357]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.88, 0.42240003, 0.42240003, 1)
@@ -173,7 +173,7 @@ alignment = 0
 icon_alignment = 2
 expand_icon = true
 
-[node name="NotImplementedFIY" type="Label" parent="MenuBtnContainer"]
+[node name="NotImplementedFIY" type="Label" parent="MenuBtnContainer" unique_id=1799691234]
 custom_minimum_size = Vector2(1, 0)
 layout_mode = 2
 text = "This game is still under development, so expect some bugs..."
@@ -182,7 +182,7 @@ horizontal_alignment = 1
 vertical_alignment = 2
 autowrap_mode = 3
 
-[node name="AccountContainer" type="VBoxContainer" parent="."]
+[node name="AccountContainer" type="VBoxContainer" parent="." unique_id=1569943762]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -190,7 +190,7 @@ offset_left = -40.0
 offset_bottom = 40.0
 grow_horizontal = 0
 
-[node name="AccountLabel" type="Label" parent="AccountContainer"]
+[node name="AccountLabel" type="Label" parent="AccountContainer" unique_id=269518715]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Welcome, Guest!
@@ -198,7 +198,7 @@ You are not logged in."
 label_settings = SubResource("LabelSettings_vpt7i")
 horizontal_alignment = 2
 
-[node name="LoginTitleButton" type="Button" parent="AccountContainer"]
+[node name="LoginTitleButton" type="Button" parent="AccountContainer" unique_id=35337828]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(125, 0)
 layout_mode = 2
@@ -209,7 +209,7 @@ icon = ExtResource("4_ccak3")
 icon_alignment = 2
 expand_icon = true
 
-[node name="LogoutTitleButton" type="Button" parent="AccountContainer"]
+[node name="LogoutTitleButton" type="Button" parent="AccountContainer" unique_id=1219941750]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(125, 0)
@@ -226,7 +226,7 @@ icon = ExtResource("11_hbqqx")
 icon_alignment = 2
 expand_icon = true
 
-[node name="Copyleft" type="Label" parent="."]
+[node name="Copyleft" type="Label" parent="." unique_id=1206760334]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -242,25 +242,25 @@ label_settings = SubResource("LabelSettings_qrvv6")
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="Login" parent="." instance=ExtResource("11_mkk3h")]
+[node name="Login" parent="." unique_id=1041847385 instance=ExtResource("11_mkk3h")]
 visible = false
 
-[node name="GameModeSel" parent="." instance=ExtResource("11_apxgw")]
+[node name="GameModeSel" parent="." unique_id=1223995644 instance=ExtResource("11_apxgw")]
 visible = false
 
-[node name="How2Play" parent="." instance=ExtResource("10_nwd4p")]
+[node name="How2Play" parent="." unique_id=1484586985 instance=ExtResource("10_nwd4p")]
 visible = false
 
-[node name="Stats" parent="." instance=ExtResource("11_67agi")]
+[node name="Stats" parent="." unique_id=873254396 instance=ExtResource("11_67agi")]
 visible = false
 
-[node name="Settings" parent="." instance=ExtResource("10_c3ue1")]
+[node name="Settings" parent="." unique_id=488813727 instance=ExtResource("10_c3ue1")]
 visible = false
 
-[node name="Credits" parent="." instance=ExtResource("14_d7my7")]
+[node name="Credits" parent="." unique_id=649983463 instance=ExtResource("14_d7my7")]
 visible = false
 
-[node name="DbgInfo" type="Label" parent="."]
+[node name="DbgInfo" type="Label" parent="." unique_id=576811764]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -272,7 +272,7 @@ Renderer: -"
 label_settings = SubResource("LabelSettings_tcfyk")
 vertical_alignment = 2
 
-[node name="Fps" type="Label" parent="."]
+[node name="Fps" type="Label" parent="." unique_id=2045744510]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -282,15 +282,15 @@ offset_left = -40.0
 offset_top = -18.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "0 fps"
+text = "0 FPS"
 label_settings = SubResource("LabelSettings_wxefk")
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="LoadingScreen" parent="." instance=ExtResource("11_2i8gq")]
+[node name="LoadingScreen" parent="." unique_id=1442029701 instance=ExtResource("11_2i8gq")]
 visible = false
 
-[node name="TitleBGA" type="AudioStreamPlayer" parent="."]
+[node name="TitleBGA" type="AudioStreamPlayer" parent="." unique_id=1084217984]
 stream = ExtResource("20_5ur3r")
 autoplay = true
 bus = &"Music"

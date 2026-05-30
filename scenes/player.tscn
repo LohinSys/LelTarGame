@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b2r4pwv4w2hpe"]
+[gd_scene format=3 uid="uid://b2r4pwv4w2hpe"]
 
 [ext_resource type="Texture2D" uid="uid://6wb1cbuwukt3" path="res://assets/sprites/placeholder-reimu.png" id="1_g2els"]
 [ext_resource type="Script" uid="uid://gsbnvmadiu55" path="res://scenes/player.gd" id="1_qhqgy"]
@@ -37,55 +37,55 @@ stream_0/stream = ExtResource("8_3v2ag")
 stream_1/stream = ExtResource("9_jej6c")
 stream_2/stream = ExtResource("10_f1ej7")
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" unique_id=1975106846]
 scale = Vector2(0.5, 0.5)
 collision_layer = 17
 collision_mask = 17
 script = ExtResource("1_qhqgy")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=124739916]
 sprite_frames = SubResource("SpriteFrames_u8vuu")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1732322443]
 shape = SubResource("CircleShape2D_g2els")
 debug_color = Color(1, 1, 1, 0.41960785)
 
-[node name="VisibleCS2D" type="Sprite2D" parent="."]
+[node name="VisibleCS2D" type="Sprite2D" parent="." unique_id=1118167533]
 visible = false
 position = Vector2(2.9802322e-07, -2.9802322e-07)
 scale = Vector2(1.1666666, 1.1666666)
 texture = ExtResource("4_dqkch")
 
-[node name="BombSfx" type="AudioStreamPlayer" parent="."]
+[node name="BombSfx" type="AudioStreamPlayer" parent="." unique_id=2145442475]
 stream = ExtResource("5_qlg0r")
 max_polyphony = 4
 bus = &"SFX"
 
-[node name="GrazeSfx" type="AudioStreamPlayer" parent="."]
+[node name="GrazeSfx" type="AudioStreamPlayer" parent="." unique_id=902477193]
 stream = ExtResource("6_fjrip")
 volume_db = -1.0
 max_polyphony = 4
 bus = &"SFX"
 
-[node name="DeathSfx" type="AudioStreamPlayer" parent="."]
+[node name="DeathSfx" type="AudioStreamPlayer" parent="." unique_id=1552282566]
 stream = ExtResource("6_tuyoq")
 volume_db = -4.0
 bus = &"SFX"
 
-[node name="HitSfx" type="AudioStreamPlayer" parent="."]
+[node name="HitSfx" type="AudioStreamPlayer" parent="." unique_id=291930489]
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_ur7pv")
 volume_db = 2.0
 max_polyphony = 4
 bus = &"SFX"
 
-[node name="HealSfx" type="AudioStreamPlayer" parent="."]
+[node name="HealSfx" type="AudioStreamPlayer" parent="." unique_id=1108600610]
 unique_name_in_owner = true
 stream = ExtResource("9_y4r1p")
 max_polyphony = 4
 bus = &"SFX"
 
-[node name="GetBombSfx" type="AudioStreamPlayer" parent="."]
+[node name="GetBombSfx" type="AudioStreamPlayer" parent="." unique_id=1203099336]
 unique_name_in_owner = true
 stream = ExtResource("8_ur7pv")
 max_polyphony = 4

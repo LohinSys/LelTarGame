@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d3x0bcklojts"]
+[gd_scene format=3 uid="uid://d3x0bcklojts"]
 
 [ext_resource type="Script" uid="uid://qld003to0pk1" path="res://scenes/bullet1.gd" id="1_4ghaq"]
 [ext_resource type="Texture2D" uid="uid://bfuoobuq0ap7k" path="res://assets/sprites/bulletRed.png" id="2_03vxw"]
@@ -13,20 +13,20 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_t28ld"]
 radius = 23.5
 
-[node name="Bullet1" type="Area2D"]
+[node name="Bullet1" type="Area2D" unique_id=51836914]
 script = ExtResource("1_4ghaq")
 texture_array = Array[Texture2D]([ExtResource("2_03vxw"), ExtResource("4_v7ack"), ExtResource("5_4lo0j"), ExtResource("3_t28ld"), ExtResource("6_t28ld")])
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=161676499]
 texture = ExtResource("2_4vnlm")
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=72157382]
 rect = Rect2(-13, -13, 26, 26)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1246015975]
 shape = SubResource("CircleShape2D_v7oki")
 
-[node name="ScoreModLbl" type="Label" parent="."]
+[node name="ScoreModLbl" type="Label" parent="." unique_id=1079062123]
 visible = false
 anchors_preset = 7
 anchor_left = 0.5
@@ -43,9 +43,9 @@ text = "+0"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="GrazeArea" type="Area2D" parent="."]
+[node name="GrazeArea" type="Area2D" parent="." unique_id=306580883]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GrazeArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrazeArea" unique_id=1164240649]
 shape = SubResource("CircleShape2D_t28ld")
 debug_color = Color(0, 0.7, 0.058333278, 0.41960785)
 

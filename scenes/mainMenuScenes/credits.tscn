@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://blnrook2q0vnj"]
+[gd_scene format=3 uid="uid://blnrook2q0vnj"]
 
 [ext_resource type="Script" uid="uid://bjgxttqhlcu0n" path="res://scenes/mainMenuScenes/credits.gd" id="1_7nb72"]
 [ext_resource type="Shader" uid="uid://ca4ymckm1e8si" path="res://scenes/mainMenuScenes/blur.gdshader" id="2_ultvc"]
@@ -14,7 +14,7 @@ shadow_size = 5
 shadow_color = Color(0, 0, 0, 0.5019608)
 shadow_offset = Vector2(3, 3)
 
-[node name="Credits" type="Control"]
+[node name="Credits" type="Control" unique_id=1587422628]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,7 +23,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7nb72")
 
-[node name="Blur" type="ColorRect" parent="."]
+[node name="Blur" type="ColorRect" parent="." unique_id=396162222]
 material = SubResource("ShaderMaterial_db4ih")
 layout_mode = 1
 anchors_preset = 15
@@ -33,7 +33,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.3764706)
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=903831677]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -42,7 +42,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.3764706)
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=822203894]
 clip_contents = true
 layout_mode = 1
 anchors_preset = 8
@@ -57,7 +57,7 @@ offset_bottom = 225.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="Label" parent="Panel"]
+[node name="Title" type="Label" parent="Panel" unique_id=135985552]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -71,7 +71,7 @@ text = "Credits"
 label_settings = SubResource("LabelSettings_yihfm")
 horizontal_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=878565958]
 clip_contents = true
 layout_mode = 1
 anchors_preset = 8
@@ -86,11 +86,11 @@ offset_bottom = 155.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="Panel/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="Panel/MarginContainer" unique_id=369396559]
 layout_mode = 2
 texture = ExtResource("3_db4ih")
 
-[node name="godotengine_org" type="LinkButton" parent="Panel"]
+[node name="godotengine_org" type="LinkButton" parent="Panel" unique_id=1224508928]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -106,7 +106,7 @@ grow_vertical = 2
 underline = 2
 uri = "https://godotengine.org/"
 
-[node name="fonts_google_com_icons" type="LinkButton" parent="Panel"]
+[node name="fonts_google_com_icons" type="LinkButton" parent="Panel" unique_id=1430506139]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -121,7 +121,7 @@ grow_vertical = 2
 underline = 2
 uri = "https://fonts.google.com/icons"
 
-[node name="Exit" type="Button" parent="Panel"]
+[node name="Exit" type="Button" parent="Panel" unique_id=1111713122]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5

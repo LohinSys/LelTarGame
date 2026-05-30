@@ -33,30 +33,25 @@ var bonusFormula: int = 0:
 		bonusFormula = value
 		if bonusFormula < 0: bonusFormula = 0
 
-var verNote: String = "Suddenly, prettier!"
+var verNote: String = "The adventure goes on..."
 var renderer: String = "-"
 
 var dbgInfoPrint: String = "v0.0.0\nRenderer: -"
 
 var health = 80:
-	set(value):
-		health = value
+	set(value): health = value
 
 var bomb = 3:
-	set(value):
-		bomb = value
+	set(value): bomb = value
 
 var power = 0.0:
-	set(value):
-		power = value
+	set(value): power = value
 
 var graze = 0:
-	set(value):
-		graze = value
+	set(value): graze = value
 
 var boss_spellcard_time = 0.0:
-	set(value):
-		boss_spellcard_time = value
+	set(value): boss_spellcard_time = value
 
 var boss_health: int = 1000
 var boss_spellcards: int = 3
@@ -142,7 +137,7 @@ func update_fps_cap() -> void:
 	Engine.max_fps = Global.fpsCap
 
 func update_fps_display(fpsNode) -> void:
-	fpsNode.set_text("%d fps" % Engine.get_frames_per_second())
+	fpsNode.set_text("%d FPS" % Engine.get_frames_per_second())
 	if Engine.get_frames_per_second() < 16:
 		fpsNode.modulate = Color(0xff6060ff)
 	elif Engine.get_frames_per_second() < 60:
@@ -158,11 +153,9 @@ func num_with_thou_seps(number: int) -> String:
 	for i in range(num_str.length() - 1, -1, -1):
 		result = num_str[i] + result
 		count += 1
-		if count % 3 == 0 and i != 0:
-			result = "," + result
+		if count % 3 == 0 and i != 0: result = "," + result
 
-	if number < 0:
-		result = "-" + result
+	if number < 0: result = "-" + result
 
 	return result
 

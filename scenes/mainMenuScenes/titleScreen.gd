@@ -16,38 +16,28 @@ func _ready() -> void:
 func _physics_process(_delta) -> void:
 	Global.update_fps_display($Fps)
 
-	if Global.showFps:
-		$Fps.show()
-	else:
-		$Fps.hide()
-	if Global.showDbgInfo:
-		$DbgInfo.show()
-	else:
-		$DbgInfo.hide()
+	if Global.showFps: $Fps.show()
+	else: $Fps.hide()
 
-	if Global.blurFx:
-		$Blur.show()
-	else:
-		$Blur.hide()
+	if Global.showDbgInfo: $DbgInfo.show()
+	else: $DbgInfo.hide()
+
+	if Global.blurFx: $Blur.show()
+	else: $Blur.hide()
 
 	if Global.gameplayTitleSwitchSignal:
 		Global.gameplayTitleSwitchSignal = false
 		start_game()
 
-func _on_start_game_pressed() -> void:
-	$GameModeSel.show()
+func _on_start_game_pressed() -> void: $GameModeSel.show()
 
-func _on_how2play_pressed() -> void:
-	$How2Play.show()
+func _on_how2play_pressed() -> void: $How2Play.show()
 
-func _on_statistics_pressed() -> void:
-	$Stats.show()
+func _on_statistics_pressed() -> void: $Stats.show()
 
-func _on_settings_pressed() -> void:
-	$Settings.show()
+func _on_settings_pressed() -> void: $Settings.show()
 
-func _on_credits_pressed() -> void:
-	$Credits.show()
+func _on_credits_pressed() -> void: $Credits.show()
 
 func _on_quit_game_pressed() -> void:
 	$LoadingScreen.show()
@@ -79,8 +69,7 @@ func start_game() -> void:
 	$LoadingScreen.show()
 	remove_child(Api.http_request)
 	await get_tree().create_timer(0.1).timeout
-	if $Settings.visible == true:
-		$Settings.hide()
+	if $Settings.visible == true: $Settings.hide()
 	get_tree().change_scene_to_file("res://scenes/bossRoom.tscn")
 
 # UI audio handler

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dbrlalqvubg4g"]
+[gd_scene format=3 uid="uid://dbrlalqvubg4g"]
 
 [ext_resource type="Script" uid="uid://dajk0iw3krqc" path="res://scenes/pause.gd" id="1_f1d2v"]
 [ext_resource type="Texture2D" uid="uid://cmcfibw51jsds" path="res://assets/icons/menu/resume.svg" id="2_aicil"]
@@ -22,7 +22,7 @@ shadow_size = 10
 shadow_color = Color(0, 0, 0, 0.6431373)
 shadow_offset = Vector2(5, 5)
 
-[node name="PauseMenu" type="Control" node_paths=PackedStringArray("quitGameButton", "resumeButton")]
+[node name="PauseMenu" type="Control" unique_id=1226968621 node_paths=PackedStringArray("quitGameButton", "resumeButton")]
 top_level = true
 layout_mode = 3
 anchors_preset = 15
@@ -34,7 +34,7 @@ script = ExtResource("1_f1d2v")
 quitGameButton = NodePath("MarginContainer/VBoxContainer/HBoxContainer/QuitGame")
 resumeButton = NodePath("MarginContainer/VBoxContainer/Resume")
 
-[node name="Blur" type="ColorRect" parent="."]
+[node name="Blur" type="ColorRect" parent="." unique_id=1788250674]
 material = SubResource("ShaderMaterial_0akjr")
 layout_mode = 1
 anchors_preset = 15
@@ -44,7 +44,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.3764706)
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=17635860]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -53,7 +53,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.5019608)
 
-[node name="PauseTitle" type="Label" parent="."]
+[node name="PauseTitle" type="Label" parent="." unique_id=2026881643]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -70,7 +70,7 @@ text = "Paused"
 label_settings = SubResource("LabelSettings_f1d2v")
 horizontal_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1573630715]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -84,11 +84,11 @@ offset_bottom = 76.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1297709403]
 layout_mode = 2
 alignment = 1
 
-[node name="Resume" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Resume" type="Button" parent="MarginContainer/VBoxContainer" unique_id=240588272]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Resume"
@@ -97,10 +97,10 @@ alignment = 0
 icon_alignment = 2
 expand_icon = true
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=990959606]
 layout_mode = 2
 
-[node name="Restart" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="Restart" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=2017969141]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 28
@@ -110,7 +110,7 @@ alignment = 0
 icon_alignment = 2
 expand_icon = true
 
-[node name="How2Play" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="How2Play" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1013444658]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 28
@@ -120,7 +120,7 @@ alignment = 0
 icon_alignment = 2
 expand_icon = true
 
-[node name="Settings" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Settings" type="Button" parent="MarginContainer/VBoxContainer" unique_id=68336295]
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "Settings"
@@ -129,11 +129,11 @@ alignment = 0
 icon_alignment = 2
 expand_icon = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1748948315]
 layout_mode = 2
 alignment = 1
 
-[node name="Back2Title" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Back2Title" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=802092301]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -150,7 +150,7 @@ alignment = 0
 icon_alignment = 2
 expand_icon = true
 
-[node name="QuitGame" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="QuitGame" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1149719148]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(1, 0.48235294, 0.48235294, 1)
@@ -166,15 +166,15 @@ alignment = 0
 icon_alignment = 2
 expand_icon = true
 
-[node name="How2Play" parent="." instance=ExtResource("8_1xtef")]
+[node name="How2Play" parent="." unique_id=787470811 instance=ExtResource("8_1xtef")]
 visible = false
 layout_mode = 1
 
-[node name="Settings" parent="." instance=ExtResource("8_cml1b")]
+[node name="Settings" parent="." unique_id=1669324851 instance=ExtResource("8_cml1b")]
 visible = false
 layout_mode = 1
 
-[node name="LoadingScreen" parent="." instance=ExtResource("10_xmhi0")]
+[node name="LoadingScreen" parent="." unique_id=1231874819 instance=ExtResource("10_xmhi0")]
 visible = false
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]

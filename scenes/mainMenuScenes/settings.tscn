@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ctscjj5oow5p8"]
+[gd_scene format=3 uid="uid://ctscjj5oow5p8"]
 
 [ext_resource type="Script" uid="uid://davhhq6kt2g8x" path="res://scenes/mainMenuScenes/settings.gd" id="1_e430n"]
 [ext_resource type="Shader" uid="uid://ca4ymckm1e8si" path="res://scenes/mainMenuScenes/blur.gdshader" id="2_wlyyc"]
@@ -47,7 +47,7 @@ font_color = Color(1, 0.88235295, 0.5019608, 1)
 shadow_size = 2
 shadow_color = Color(0, 0, 0, 0.5019608)
 
-[node name="Settings" type="Control"]
+[node name="Settings" type="Control" unique_id=440938232]
 top_level = true
 layout_mode = 3
 anchors_preset = 15
@@ -57,7 +57,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e430n")
 
-[node name="Blur" type="ColorRect" parent="."]
+[node name="Blur" type="ColorRect" parent="." unique_id=180967529]
 material = SubResource("ShaderMaterial_ce6t2")
 layout_mode = 1
 anchors_preset = 15
@@ -67,7 +67,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.3764706)
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1985594492]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -76,7 +76,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.3764706)
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=117731857]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -90,7 +90,7 @@ offset_bottom = 225.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SettingsTitle" type="Label" parent="Panel"]
+[node name="SettingsTitle" type="Label" parent="Panel" unique_id=1293656916]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -104,7 +104,7 @@ text = "Settings"
 label_settings = SubResource("LabelSettings_ixrxk")
 horizontal_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=612975743]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -118,25 +118,25 @@ offset_bottom = 155.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SettingsContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+[node name="SettingsContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=949470159]
 layout_mode = 2
 alignment = 1
 
-[node name="VolTitle" type="Label" parent="Panel/MarginContainer/SettingsContainer"]
+[node name="VolTitle" type="Label" parent="Panel/MarginContainer/SettingsContainer" unique_id=831882402]
 layout_mode = 2
 text = "Volume"
 label_settings = SubResource("LabelSettings_e430n")
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="Separator" type="TextureRect" parent="Panel/MarginContainer/SettingsContainer"]
+[node name="Separator" type="TextureRect" parent="Panel/MarginContainer/SettingsContainer" unique_id=1702257004]
 layout_mode = 2
 texture = SubResource("GradientTexture2D_caasp")
 
-[node name="MasterVol" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer"]
+[node name="MasterVol" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer" unique_id=1227442527]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/SettingsContainer/MasterVol"]
+[node name="Label" type="Label" parent="Panel/MarginContainer/SettingsContainer/MasterVol" unique_id=221648837]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
@@ -144,7 +144,7 @@ text = "Master"
 label_settings = SubResource("LabelSettings_caasp")
 horizontal_alignment = 2
 
-[node name="MasterVolSlider" type="HSlider" parent="Panel/MarginContainer/SettingsContainer/MasterVol"]
+[node name="MasterVolSlider" type="HSlider" parent="Panel/MarginContainer/SettingsContainer/MasterVol" unique_id=1958756963]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -152,7 +152,7 @@ max_value = 1.0
 step = 0.01
 value = 0.5
 
-[node name="MasterVolValue" type="Label" parent="Panel/MarginContainer/SettingsContainer/MasterVol"]
+[node name="MasterVolValue" type="Label" parent="Panel/MarginContainer/SettingsContainer/MasterVol" unique_id=256527999]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -160,15 +160,15 @@ size_flags_stretch_ratio = 0.2
 text = "50%"
 label_settings = SubResource("LabelSettings_caasp")
 
-[node name="Separator3" type="ColorRect" parent="Panel/MarginContainer/SettingsContainer"]
+[node name="Separator3" type="ColorRect" parent="Panel/MarginContainer/SettingsContainer" unique_id=495164610]
 custom_minimum_size = Vector2(0, 4)
 layout_mode = 2
 color = Color(1, 1, 1, 0)
 
-[node name="SFX" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer"]
+[node name="SFX" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer" unique_id=752509899]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/SettingsContainer/SFX"]
+[node name="Label" type="Label" parent="Panel/MarginContainer/SettingsContainer/SFX" unique_id=1016140015]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
@@ -176,7 +176,7 @@ text = "SFX"
 label_settings = SubResource("LabelSettings_caasp")
 horizontal_alignment = 2
 
-[node name="SFXVolSlider" type="HSlider" parent="Panel/MarginContainer/SettingsContainer/SFX"]
+[node name="SFXVolSlider" type="HSlider" parent="Panel/MarginContainer/SettingsContainer/SFX" unique_id=1143588984]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -184,7 +184,7 @@ max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="SFXVolValue" type="Label" parent="Panel/MarginContainer/SettingsContainer/SFX"]
+[node name="SFXVolValue" type="Label" parent="Panel/MarginContainer/SettingsContainer/SFX" unique_id=1274506569]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -192,10 +192,10 @@ size_flags_stretch_ratio = 0.2
 text = "100%"
 label_settings = SubResource("LabelSettings_caasp")
 
-[node name="Music" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer"]
+[node name="Music" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer" unique_id=1033054759]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/SettingsContainer/Music"]
+[node name="Label" type="Label" parent="Panel/MarginContainer/SettingsContainer/Music" unique_id=1552250014]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
@@ -203,7 +203,7 @@ text = "Music"
 label_settings = SubResource("LabelSettings_caasp")
 horizontal_alignment = 2
 
-[node name="MusicVolSlider" type="HSlider" parent="Panel/MarginContainer/SettingsContainer/Music"]
+[node name="MusicVolSlider" type="HSlider" parent="Panel/MarginContainer/SettingsContainer/Music" unique_id=1815452804]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -211,7 +211,7 @@ max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="MusicVolValue" type="Label" parent="Panel/MarginContainer/SettingsContainer/Music"]
+[node name="MusicVolValue" type="Label" parent="Panel/MarginContainer/SettingsContainer/Music" unique_id=260671186]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -219,7 +219,7 @@ size_flags_stretch_ratio = 0.2
 text = "100%"
 label_settings = SubResource("LabelSettings_caasp")
 
-[node name="GraphicsTitle" type="Label" parent="Panel/MarginContainer/SettingsContainer"]
+[node name="GraphicsTitle" type="Label" parent="Panel/MarginContainer/SettingsContainer" unique_id=1246515698]
 layout_mode = 2
 text = "
 Graphics / Display"
@@ -227,27 +227,27 @@ label_settings = SubResource("LabelSettings_wlyyc")
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="Separator2" type="TextureRect" parent="Panel/MarginContainer/SettingsContainer"]
+[node name="Separator2" type="TextureRect" parent="Panel/MarginContainer/SettingsContainer" unique_id=382048389]
 layout_mode = 2
 texture = SubResource("GradientTexture2D_caasp")
 
-[node name="HBoxContainerG0" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer"]
+[node name="HBoxContainerG0" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer" unique_id=966281410]
 layout_mode = 2
 alignment = 1
 
-[node name="WindowModeContainer" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG0"]
+[node name="WindowModeContainer" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG0" unique_id=2043559650]
 layout_mode = 2
 size_flags_horizontal = 6
 tooltip_text = "Switch between Windowed and Fullscreen modes."
 alignment = 1
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG0/WindowModeContainer"]
+[node name="Label" type="Label" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG0/WindowModeContainer" unique_id=1352466457]
 layout_mode = 2
 text = "Window Mode"
 label_settings = SubResource("LabelSettings_ce6t2")
 horizontal_alignment = 2
 
-[node name="Options" type="OptionButton" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG0/WindowModeContainer"]
+[node name="Options" type="OptionButton" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG0/WindowModeContainer" unique_id=884047332]
 z_index = 4096
 custom_minimum_size = Vector2(135, 28)
 layout_mode = 2
@@ -259,7 +259,7 @@ popup/item_0/id = 0
 popup/item_1/text = "Fullscreen"
 popup/item_1/id = 1
 
-[node name="AntiAliasingContainer" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG0"]
+[node name="AntiAliasingContainer" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG0" unique_id=721188018]
 layout_mode = 2
 size_flags_horizontal = 6
 tooltip_text = "Switch between various types of anti-aliasing, such as:
@@ -269,13 +269,13 @@ tooltip_text = "Switch between various types of anti-aliasing, such as:
 (Higher values are not recommended for weaker devices!!)"
 alignment = 1
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG0/AntiAliasingContainer"]
+[node name="Label" type="Label" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG0/AntiAliasingContainer" unique_id=183980299]
 layout_mode = 2
 text = "Anti-aliasing"
 label_settings = SubResource("LabelSettings_ce6t2")
 horizontal_alignment = 2
 
-[node name="Options" type="OptionButton" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG0/AntiAliasingContainer"]
+[node name="Options" type="OptionButton" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG0/AntiAliasingContainer" unique_id=1209570107]
 z_index = 4096
 custom_minimum_size = Vector2(135, 28)
 layout_mode = 2
@@ -295,11 +295,11 @@ popup/item_4/id = 4
 popup/item_5/text = "MSAA 8x"
 popup/item_5/id = 5
 
-[node name="HBoxContainerG1" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer"]
+[node name="HBoxContainerG1" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer" unique_id=124241129]
 layout_mode = 2
 alignment = 1
 
-[node name="AnisotropyContainer" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG1"]
+[node name="AnisotropyContainer" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG1" unique_id=1820779001]
 layout_mode = 2
 size_flags_horizontal = 6
 tooltip_text = "Anisotropic Filtering, a technique that improves
@@ -310,13 +310,13 @@ Only disable this if this is somehow causing
 performance issues."
 alignment = 1
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG1/AnisotropyContainer"]
+[node name="Label" type="Label" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG1/AnisotropyContainer" unique_id=752994420]
 layout_mode = 2
 text = "Anisotropic Filt."
 label_settings = SubResource("LabelSettings_ce6t2")
 horizontal_alignment = 2
 
-[node name="Options" type="OptionButton" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG1/AnisotropyContainer"]
+[node name="Options" type="OptionButton" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG1/AnisotropyContainer" unique_id=1064118766]
 z_index = 4096
 custom_minimum_size = Vector2(135, 28)
 layout_mode = 2
@@ -334,7 +334,7 @@ popup/item_3/id = 3
 popup/item_4/text = "16x"
 popup/item_4/id = 4
 
-[node name="Scale3DContainer" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG1"]
+[node name="Scale3DContainer" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG1" unique_id=2019855507]
 layout_mode = 2
 size_flags_horizontal = 6
 tooltip_text = "Change the scaling of 3D elements. Lower values render blurrier,
@@ -342,13 +342,13 @@ but faster, while higher values can render more detail, but can
 lag the game harshly as a result."
 alignment = 1
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG1/Scale3DContainer"]
+[node name="Label" type="Label" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG1/Scale3DContainer" unique_id=1858662301]
 layout_mode = 2
 text = "3D Scale"
 label_settings = SubResource("LabelSettings_ce6t2")
 horizontal_alignment = 2
 
-[node name="Options" type="OptionButton" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG1/Scale3DContainer"]
+[node name="Options" type="OptionButton" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG1/Scale3DContainer" unique_id=1123851069]
 z_index = 4096
 custom_minimum_size = Vector2(135, 28)
 layout_mode = 2
@@ -372,81 +372,81 @@ popup/item_6/id = 6
 popup/item_7/text = "25%"
 popup/item_7/id = 7
 
-[node name="HBoxContainerG2" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer"]
+[node name="HBoxContainerG2" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer" unique_id=994292272]
 layout_mode = 2
 alignment = 1
 
-[node name="VSyncContainer" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG2"]
+[node name="VSyncContainer" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG2" unique_id=1240999482]
 layout_mode = 2
 size_flags_horizontal = 3
 tooltip_text = "Fixes screen tearing, but can lead to higher input delay.
 This also locks your framerate to your screen's refresh rate."
 alignment = 1
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG2/VSyncContainer"]
+[node name="Label" type="Label" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG2/VSyncContainer" unique_id=1153963011]
 layout_mode = 2
 size_flags_horizontal = 8
 text = "Vertical Sync"
 label_settings = SubResource("LabelSettings_ce6t2")
 
-[node name="Option" type="CheckButton" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG2/VSyncContainer"]
+[node name="Option" type="CheckButton" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG2/VSyncContainer" unique_id=1727879073]
 layout_mode = 2
 size_flags_horizontal = 0
 button_pressed = true
 
-[node name="BlurFXContainer" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG2"]
+[node name="BlurFXContainer" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG2" unique_id=598389068]
 layout_mode = 2
 size_flags_horizontal = 3
 tooltip_text = "Toggles blur effects around menus and stage backgrounds."
 alignment = 1
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG2/BlurFXContainer"]
+[node name="Label" type="Label" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG2/BlurFXContainer" unique_id=2033591622]
 layout_mode = 2
 size_flags_horizontal = 8
 text = "Blur Effects"
 label_settings = SubResource("LabelSettings_ce6t2")
 
-[node name="Option" type="CheckButton" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG2/BlurFXContainer"]
+[node name="Option" type="CheckButton" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG2/BlurFXContainer" unique_id=1122685]
 layout_mode = 2
 size_flags_horizontal = 0
 button_pressed = true
 
-[node name="ShowFpsContainer" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG2"]
+[node name="ShowFpsContainer" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG2" unique_id=813243213]
 layout_mode = 2
 size_flags_horizontal = 3
 tooltip_text = "Shows the framerate in the bottom right corner."
 alignment = 1
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG2/ShowFpsContainer"]
+[node name="Label" type="Label" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG2/ShowFpsContainer" unique_id=1100892683]
 layout_mode = 2
 size_flags_horizontal = 8
 text = "Show FPS"
 label_settings = SubResource("LabelSettings_ce6t2")
 
-[node name="Option" type="CheckButton" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG2/ShowFpsContainer"]
+[node name="Option" type="CheckButton" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG2/ShowFpsContainer" unique_id=87910597]
 layout_mode = 2
 size_flags_horizontal = 0
 button_pressed = true
 
-[node name="ShowDbgContainer" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG2"]
+[node name="ShowDbgContainer" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG2" unique_id=874949004]
 layout_mode = 2
 size_flags_horizontal = 3
 tooltip_text = "Show additional debug information on the bottom left corner of the screen,
 like the current game version and the renderer being used."
 alignment = 1
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG2/ShowDbgContainer"]
+[node name="Label" type="Label" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG2/ShowDbgContainer" unique_id=555908886]
 layout_mode = 2
 size_flags_horizontal = 8
 text = "Debug Info"
 label_settings = SubResource("LabelSettings_ce6t2")
 
-[node name="Option" type="CheckButton" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG2/ShowDbgContainer"]
+[node name="Option" type="CheckButton" parent="Panel/MarginContainer/SettingsContainer/HBoxContainerG2/ShowDbgContainer" unique_id=86960146]
 layout_mode = 2
 size_flags_horizontal = 0
 button_pressed = true
 
-[node name="FpsCapContainer" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer"]
+[node name="FpsCapContainer" type="HBoxContainer" parent="Panel/MarginContainer/SettingsContainer" unique_id=273915651]
 layout_mode = 2
 tooltip_text = "Set your FPS cap to a custom amount, up to 500+ FPS!
 0 disables your framerate cap altogether, however your
@@ -457,7 +457,7 @@ not count because of this; but they're still there for laughs.
 
 You must disable Vertical Sync before using this!"
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/SettingsContainer/FpsCapContainer"]
+[node name="Label" type="Label" parent="Panel/MarginContainer/SettingsContainer/FpsCapContainer" unique_id=456438793]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
@@ -465,7 +465,7 @@ text = "FPS Cap"
 label_settings = SubResource("LabelSettings_caasp")
 horizontal_alignment = 2
 
-[node name="FpsCapSlider" type="HSlider" parent="Panel/MarginContainer/SettingsContainer/FpsCapContainer"]
+[node name="FpsCapSlider" type="HSlider" parent="Panel/MarginContainer/SettingsContainer/FpsCapContainer" unique_id=510357890]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -473,7 +473,7 @@ max_value = 500.0
 step = 5.0
 value = 60.0
 
-[node name="FpsCapValue" type="Label" parent="Panel/MarginContainer/SettingsContainer/FpsCapContainer"]
+[node name="FpsCapValue" type="Label" parent="Panel/MarginContainer/SettingsContainer/FpsCapContainer" unique_id=1094409702]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -481,7 +481,7 @@ size_flags_stretch_ratio = 0.2
 text = "60 fps"
 label_settings = SubResource("LabelSettings_caasp")
 
-[node name="Done" type="Button" parent="Panel"]
+[node name="Done" type="Button" parent="Panel" unique_id=1934607814]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -497,7 +497,7 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 24
 text = "Done"
 
-[node name="TemporaryNote" type="Label" parent="Panel"]
+[node name="TemporaryNote" type="Label" parent="Panel" unique_id=1045691021]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5

@@ -69,12 +69,9 @@ func _on_speed_timeout() -> void:
 			$Speed.wait_time = 0.001
 		%Spellcard.stop()
 
-func _ready() -> void:
-	$AnimatedSprite2D.play()
+func _ready() -> void: $AnimatedSprite2D.play()
 
-func _on_spellcard_timeout() -> void:
-	Global.boss_spellcard_time += 0.1
+func _on_spellcard_timeout() -> void: Global.boss_spellcard_time += 0.1
 
 # rn a dummy to get rid of warning
-func _on_duration_timeout() -> void:
-	pass
+func _on_duration_timeout() -> void: pass

@@ -33,10 +33,7 @@ func _ready() -> void:
 	%StatGrazeLuna.text = str(Global.num_with_thou_seps(PlayerStats.lunaGrazed))
 
 func _physics_process(_delta) -> void:
-	if Global.blurFx:
-		$Blur.show()
-	else:
-		$Blur.hide()
+	if Global.blurFx: $Blur.show()
+	else: $Blur.hide()
 
-func _on_exit_pressed() -> void:
-	self.hide()
+func _on_exit_pressed() -> void: self.hide()

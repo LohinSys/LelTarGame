@@ -21,5 +21,4 @@ func destroy_spellcard(_d):
 	Global.is_spellcard = false
 	Global.spellcard_id = 0
 	Global.boss_spellcards -= 1
-	if Global.can_capture_spellcard:
-		print("Spellcard captured!!")
+	if Global.can_capture_spellcard: print("Spellcard captured!!")

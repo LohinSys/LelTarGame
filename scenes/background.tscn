@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bcqacxesymdnc"]
+[gd_scene format=3 uid="uid://bcqacxesymdnc"]
 
 [ext_resource type="Script" uid="uid://dh63huqqnfs3n" path="res://scenes/background.gd" id="1_y0upk"]
 [ext_resource type="Texture2D" uid="uid://bpu0k1d421r1r" path="res://assets/backgrounds/clouds1.tres" id="2_cbsqf"]
@@ -8,55 +8,55 @@
 [sub_resource type="PlaneMesh" id="PlaneMesh_bkp1e"]
 size = Vector2(20, 20)
 
-[node name="Background" type="Node3D"]
+[node name="Background" type="Node3D" unique_id=614488735]
 script = ExtResource("1_y0upk")
 
-[node name="Clouds2D" type="Node2D" parent="."]
+[node name="Clouds2D" type="Node2D" parent="." unique_id=830299305]
 
-[node name="Layer-1" type="Sprite2D" parent="Clouds2D"]
+[node name="Layer-1" type="Sprite2D" parent="Clouds2D" unique_id=1923062668]
 texture = ExtResource("2_cbsqf")
 centered = false
 offset = Vector2(0, -5400)
 
-[node name="Layer-2" type="Sprite2D" parent="Clouds2D"]
+[node name="Layer-2" type="Sprite2D" parent="Clouds2D" unique_id=1965853676]
 visible = false
 self_modulate = Color(1, 1, 1, 0)
 texture = ExtResource("3_cbsqf")
 centered = false
 offset = Vector2(0, -5400)
 
-[node name="FadeTransition" type="Timer" parent="Clouds2D"]
+[node name="FadeTransition" type="Timer" parent="Clouds2D" unique_id=1061199720]
 process_callback = 0
 wait_time = 40.0
 one_shot = true
 
-[node name="Ground3D-1" type="StaticBody3D" parent="."]
+[node name="Ground3D-1" type="StaticBody3D" parent="." unique_id=1653117985]
 transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, -1, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground3D-1"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground3D-1" unique_id=2088487527]
 mesh = SubResource("PlaneMesh_bkp1e")
 surface_material_override/0 = ExtResource("2_jougr")
 
-[node name="Ground3D-2" type="StaticBody3D" parent="."]
+[node name="Ground3D-2" type="StaticBody3D" parent="." unique_id=796970223]
 transform = Transform3D(1, 0, 0, 0, 1.0000002, 0, 0, 0, 1.0000002, 0, -1, -20)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground3D-2"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground3D-2" unique_id=2142879142]
 mesh = SubResource("PlaneMesh_bkp1e")
 surface_material_override/0 = ExtResource("2_jougr")
 
-[node name="Ground3D-3" type="StaticBody3D" parent="."]
+[node name="Ground3D-3" type="StaticBody3D" parent="." unique_id=272050369]
 transform = Transform3D(1, 0, 0, 0, 1.0000005, 0, 0, 0, 1.0000005, 0, -1, -40)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground3D-3"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground3D-3" unique_id=1554671162]
 mesh = SubResource("PlaneMesh_bkp1e")
 surface_material_override/0 = ExtResource("2_jougr")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2084773658]
 transform = Transform3D(1, 0, 0, 0, 0.7071067, 0.7071067, 0, -0.7071067, 0.7071067, 0, 1.5, 2.5)
 current = true
 fov = 70.0
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=334656198]
 transform = Transform3D(0.8048524, 0.20298047, -0.5576842, 0.05373667, 0.91090775, 0.4090963, 0.5910373, -0.35923016, 0.72223866, -2.0676262, 1.6618488, 4.1917634)
 
 [connection signal="timeout" from="Clouds2D/FadeTransition" to="." method="_on_cloud_fade_transition_timeout"]

@@ -30,10 +30,8 @@ func _ready() -> void:
 	elif Account.loggedIn: set_account_label()
 
 func _physics_process(_delta) -> void:
-	if Global.blurFx:
-		$Blur.show()
-	else:
-		$Blur.hide()
+	if Global.blurFx: $Blur.show()
+	else: $Blur.hide()
 
 func printErrorMsg(message) -> void:
 	msg = message
@@ -71,5 +69,4 @@ func _on_login_pressed() -> void:
 		$Panel/Buttons/Login.text = "Login"
 		enable_buttons()
 
-func _on_cancel_pressed() -> void:
-	close_self()
+func _on_cancel_pressed() -> void: close_self()

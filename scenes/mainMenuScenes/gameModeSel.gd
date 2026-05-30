@@ -1,20 +1,17 @@
 extends Control
 
 func _physics_process(_delta) -> void:
-	if Global.blurFx:
-		$Blur.show()
-	else:
-		$Blur.hide()
+	if Global.blurFx: $Blur.show()
+	else: $Blur.hide()
 
 	if Account.username != "":
 		$Panel/CurrentPlayer.text = "You are currently playing as %s\nKeep in mind that you have account sync enabled." % Account.username
 	else:
 		$Panel/CurrentPlayer.text = "You are currently playing as a Guest.\nScores will only be saved locally."
 
-	$LowFpsCapWarning.dialog_text = "Your framerate is currently set to %s FPS, meaning this following run will NOT be counted due to glitchy physics caused by this!\n\nPlease increase your framerate cap to a minimum of 60 FPS or turn on Unlimited FPS if you want your scores to be submitted." % Global.fpsCap
+	$LowFpsCapWarning.dialog_text = "Your framerate is currently set to %s FPS, meaning the following run will NOT be counted due to glitchy physics caused by low framerates!\n\nPlease increase your framerate cap to a minimum of 60 FPS or turn on Unlimited FPS if you want your scores to be submitted." % Global.fpsCap
 
-func _on_exit_pressed() -> void:
-	self.hide()
+func _on_exit_pressed() -> void: self.hide()
 
 func _on_easy_pressed() -> void:
 	Global.selectedDiff = 1
@@ -30,10 +27,8 @@ func _on_luna_pressed() -> void:
 	start_game()
 
 func start_game() -> void:
-	if 60 > Global.fpsCap and Global.fpsCap > 0:
-		$LowFpsCapWarning.show()
-	else:
-		Global.gameplayTitleSwitchSignal = true
+	if 60 > Global.fpsCap and Global.fpsCap > 0: $LowFpsCapWarning.show()
+	else: Global.gameplayTitleSwitchSignal = true
 
 func _on_low_fps_cap_warning_confirmed() -> void:
 	Global.gameplayTitleSwitchSignal = true
@@ -49,20 +44,12 @@ func lunatic_desc() -> void:
 func empty_desc() -> void:
 	$Panel/DifficultyDesc.text = ""
 
-func _on_easy_mouse_entered() -> void:
-	easy_desc()
-func _on_normal_mouse_entered() -> void:
-	normal_desc()
-func _on_hard_mouse_entered() -> void:
-	hard_desc()
-func _on_lunatic_mouse_entered() -> void:
-	lunatic_desc()
+func _on_easy_mouse_entered() -> void:		easy_desc()
+func _on_normal_mouse_entered() -> void:	normal_desc()
+func _on_hard_mouse_entered() -> void:		hard_desc()
+func _on_lunatic_mouse_entered() -> void:	lunatic_desc()
 
-func _on_easy_mouse_exited() -> void:
-	empty_desc()
-func _on_normal_mouse_exited() -> void:
-	empty_desc()
-func _on_hard_mouse_exited() -> void:
-	empty_desc()
-func _on_lunatic_mouse_exited() -> void:
-	empty_desc()
+func _on_easy_mouse_exited() -> void:		empty_desc()
+func _on_normal_mouse_exited() -> void:		empty_desc()
+func _on_hard_mouse_exited() -> void:		empty_desc()
+func _on_lunatic_mouse_exited() -> void:	empty_desc()

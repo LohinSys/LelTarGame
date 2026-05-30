@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://diw1m0fahrmp7"]
+[gd_scene format=3 uid="uid://diw1m0fahrmp7"]
 
 [ext_resource type="Script" uid="uid://cmjs1daseh5n8" path="res://scenes/login.gd" id="1_pymad"]
 [ext_resource type="Shader" uid="uid://ca4ymckm1e8si" path="res://scenes/mainMenuScenes/blur.gdshader" id="2_nw41r"]
@@ -20,7 +20,7 @@ font_color = Color(1, 0.19999999, 0.19999999, 1)
 [sub_resource type="FontVariation" id="FontVariation_nw41r"]
 variation_transform = Transform2D(1, 0.3, 0, 1, 0, 0)
 
-[node name="Login" type="Control"]
+[node name="Login" type="Control" unique_id=1046904364]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,7 +29,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pymad")
 
-[node name="Blur" type="ColorRect" parent="."]
+[node name="Blur" type="ColorRect" parent="." unique_id=1376210478]
 material = SubResource("ShaderMaterial_0emk2")
 layout_mode = 1
 anchors_preset = 1
@@ -42,7 +42,7 @@ offset_bottom = 245.0
 grow_horizontal = 0
 color = Color(0, 0, 0, 0.3764706)
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=39599684]
 clip_contents = true
 layout_mode = 1
 anchors_preset = 1
@@ -54,7 +54,7 @@ offset_right = -20.0
 offset_bottom = 245.0
 grow_horizontal = 0
 
-[node name="Title" type="Label" parent="Panel"]
+[node name="Title" type="Label" parent="Panel" unique_id=1219203858]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -68,7 +68,7 @@ text = "Login"
 label_settings = SubResource("LabelSettings_ryv3l")
 horizontal_alignment = 1
 
-[node name="Input" type="VBoxContainer" parent="Panel"]
+[node name="Input" type="VBoxContainer" parent="Panel" unique_id=466657171]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -83,21 +83,21 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Username" type="LineEdit" parent="Panel/Input"]
+[node name="Username" type="LineEdit" parent="Panel/Input" unique_id=93618626]
 unique_name_in_owner = true
 layout_mode = 2
 placeholder_text = "Username"
 max_length = 32
 caret_blink = true
 
-[node name="Password" type="LineEdit" parent="Panel/Input"]
+[node name="Password" type="LineEdit" parent="Panel/Input" unique_id=1817475029]
 unique_name_in_owner = true
 layout_mode = 2
 placeholder_text = "Password"
 caret_blink = true
 secret = true
 
-[node name="LoginErrorLbl" type="Label" parent="Panel"]
+[node name="LoginErrorLbl" type="Label" parent="Panel" unique_id=1067506820]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 25.0
@@ -108,7 +108,7 @@ label_settings = SubResource("LabelSettings_nw41r")
 autowrap_mode = 3
 max_lines_visible = 1
 
-[node name="Buttons" type="HBoxContainer" parent="Panel"]
+[node name="Buttons" type="HBoxContainer" parent="Panel" unique_id=75917572]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -123,18 +123,18 @@ grow_horizontal = 2
 grow_vertical = 0
 alignment = 1
 
-[node name="Login" type="Button" parent="Panel/Buttons"]
+[node name="Login" type="Button" parent="Panel/Buttons" unique_id=129508779]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Login"
 
-[node name="Cancel" type="Button" parent="Panel/Buttons"]
+[node name="Cancel" type="Button" parent="Panel/Buttons" unique_id=1935014153]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Cancel
 "
 
-[node name="LinkButton" type="LinkButton" parent="Panel"]
+[node name="LinkButton" type="LinkButton" parent="Panel" unique_id=1450469710]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5

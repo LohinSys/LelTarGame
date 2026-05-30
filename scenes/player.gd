@@ -24,8 +24,7 @@ func _input(event):
 				4:	# Lunatic
 					PlayerStats.lunaBombsUsed += 1
 
-func _ready() -> void:
-	$AnimatedSprite2D.play()
+func _ready() -> void: $AnimatedSprite2D.play()
 
 # the physics process is for inputs where you hold down a button
 # note: WASD and shoot + focus buttons only work together on keyboards if it has 6-key rollover minimum
@@ -57,8 +56,7 @@ func _physics_process(_delta: float) -> void:
 		$VisibleCS2D.hide()
 
 	# little death handler
-	if Global.health <= 0:
-		self.hide()
+	if Global.health <= 0: self.hide()
 
 func pbd_wall_hit(plane:int) -> void:
 	match plane:
