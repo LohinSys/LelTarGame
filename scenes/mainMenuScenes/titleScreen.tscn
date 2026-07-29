@@ -295,6 +295,15 @@ label_settings = SubResource("LabelSettings_wxefk")
 horizontal_alignment = 2
 vertical_alignment = 2
 
+[node name="FadingOverlay" type="ColorRect" parent="." unique_id=680381330]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
 [node name="LoadingScreen" parent="." unique_id=1442029701 instance=ExtResource("11_2i8gq")]
 visible = false
 

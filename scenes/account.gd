@@ -61,9 +61,7 @@ func logoff() -> void:
 func keep_credentials() -> void:
 	pass # unused for now until I'll ever bother adding a prompt if you wanna keep credentials saved (which is probably never)
 
-func _ready() -> void:
-	await get_tree().create_timer(0.5).timeout
-
+func initial_login() -> void:
 	if username != "" and password != "" and !loggedIn:	# check if the save file has any login info saved
 		print_rich("\n[color=#00ffff](i) User credentials detected in save file! Attempting to log in automatically...[/color]")
 		login(username,str(Marshalls.base64_to_utf8(password.reverse())))

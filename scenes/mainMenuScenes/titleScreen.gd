@@ -13,7 +13,19 @@ func _ready() -> void:
 	if Account.username == "" and Account.password == "" and !Account.loggedIn:
 		%LoginTitleButton.disabled = false
 
-func _physics_process(_delta) -> void:
+	Account.initial_login()
+
+	if Global.firstFade:
+		$FadingOverlay.color = Color(0,0,0,1)
+		$FadingOverlay.show()
+		await get_tree().create_timer(1.25).timeout
+		Global.firstFade = false
+		$FadingOverlay.queue_free()
+	else:
+		$FadingOverlay.color = Color(0,0,0,0)
+		$FadingOverlay.queue_free()
+
+func _physics_process(d) -> void:
 	Global.update_fps_display($Fps)
 
 	if Global.showFps: $Fps.show()
@@ -28,6 +40,9 @@ func _physics_process(_delta) -> void:
 	if Global.gameplayTitleSwitchSignal:
 		Global.gameplayTitleSwitchSignal = false
 		start_game()
+
+	if Global.firstFade:
+		$FadingOverlay.color -= Color(0,0,0,d)
 
 func _on_start_game_pressed() -> void: $GameModeSel.show()
 

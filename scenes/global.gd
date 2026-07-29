@@ -38,6 +38,8 @@ var renderer: String = "-"
 
 var dbgInfoPrint: String = "v0.0.0\nRenderer: -"
 
+var firstFade: bool = true
+
 var health = 80:
 	set(value): health = value
 

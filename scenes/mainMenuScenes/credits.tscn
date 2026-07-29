@@ -112,7 +112,7 @@ grow_vertical = 2
 underline = 2
 uri = "https://fonts.google.com/icons"
 
-[node name="Label" type="Label" parent="Panel" unique_id=1515940750]
+[node name="GodotVer" type="Label" parent="Panel" unique_id=1515940750]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -125,7 +125,7 @@ offset_right = -24.0
 offset_bottom = -24.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "Made with Godot Engine 4.7.1
+text = "Made with Godot Engine 0.0.0
 https://godotengine.org/"
 label_settings = SubResource("LabelSettings_db4ih")
 horizontal_alignment = 2
