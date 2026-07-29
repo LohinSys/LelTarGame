@@ -226,18 +226,19 @@ icon = ExtResource("11_hbqqx")
 icon_alignment = 2
 expand_icon = true
 
-[node name="Copyleft" type="Label" parent="." unique_id=1206760334]
+[node name="Copyright" type="Label" parent="." unique_id=1206760334]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -84.0
-offset_top = -23.0
+offset_top = -18.0
 offset_right = 84.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "LohinSys (ɔ) 2024-2026"
+text = "sz5ylv1a © 2017-2026
+Game licensed under MPL-2.0"
 label_settings = SubResource("LabelSettings_qrvv6")
 horizontal_alignment = 1
 vertical_alignment = 2
