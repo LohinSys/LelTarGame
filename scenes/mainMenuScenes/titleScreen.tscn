@@ -238,10 +238,17 @@ offset_right = 84.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "sz5ylv1a © 2017-2026
-Game licensed under MPL-2.0"
+Licensed under MPL-2.0"
 label_settings = SubResource("LabelSettings_qrvv6")
 horizontal_alignment = 1
 vertical_alignment = 2
+
+[node name="CopyrightLink" type="LinkButton" parent="." unique_id=1188263795]
+offset_left = 324.0
+offset_top = 564.0
+offset_right = 476.0
+offset_bottom = 580.0
+uri = "https://sz5ylv1a.github.io/"
 
 [node name="Login" parent="." unique_id=1041847385 instance=ExtResource("11_mkk3h")]
 visible = false

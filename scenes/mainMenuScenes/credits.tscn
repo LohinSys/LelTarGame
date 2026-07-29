@@ -125,7 +125,7 @@ offset_right = -24.0
 offset_bottom = -24.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "Made with Godot Engine 4.6.3
+text = "Made with Godot Engine 4.7.1
 https://godotengine.org/"
 label_settings = SubResource("LabelSettings_db4ih")
 horizontal_alignment = 2

@@ -160,7 +160,7 @@ func num_with_thou_seps(number: int) -> String:
 	return result
 
 func load_settings() -> void:
-	print("\nLoading settings...")
+	print("Loading settings...")
 
 	var sErr = setting.load("user://settings.ini")
 	if sErr == OK:
@@ -192,9 +192,11 @@ func load_settings() -> void:
 	update_anisotropy()
 	print("3D Scale...")
 	update_3d_scale()
-	print("Finished applying settings!")
+	print("Finished applying settings!\n")
 
 func _ready() -> void:
+	load_settings()
+
 	match str(RenderingServer.get_current_rendering_driver_name()):
 		"vulkan": renderer = "Vulkan"
 		"d3d12": renderer = "Direct3D 12"
@@ -206,7 +208,4 @@ func _ready() -> void:
 	dbgInfoPrint = str("v",ProjectSettings.get_setting("application/config/version")," - ",verNote,"\nRenderer: ",renderer)
 
 	print_rich("[b]Lel.tar ",dbgInfoPrint,"\nLohinSys (ɔ) 2024-2026[/b]")
-
-	load_settings()
-
-	DisplayServer.window_set_title(str("Lel.tar ",ProjectSettings.get_setting("application/config/version")," - ",verNote),0)
+	get_window().title = str("Lel.tar ",ProjectSettings.get_setting("application/config/version")," - ",verNote)
