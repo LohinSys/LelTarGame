@@ -26,6 +26,7 @@ shader = ExtResource("3_hh3dy")
 shader_parameter/lod = 2.750000130625
 
 [sub_resource type="LabelSettings" id="LabelSettings_qrvv6"]
+line_spacing = 0.0
 shadow_size = 2
 shadow_color = Color(0, 0, 0, 0.5019608)
 
@@ -34,14 +35,17 @@ font_size = 12
 shadow_color = Color(0, 0, 0, 0.5019608)
 
 [sub_resource type="LabelSettings" id="LabelSettings_vpt7i"]
+line_spacing = 0.0
 shadow_size = 2
 shadow_color = Color(0, 0, 0, 0.5019608)
 
 [sub_resource type="LabelSettings" id="LabelSettings_tcfyk"]
+line_spacing = 0.0
 shadow_size = 2
 shadow_color = Color(0, 0, 0, 0.5019608)
 
 [sub_resource type="LabelSettings" id="LabelSettings_wxefk"]
+line_spacing = 0.0
 shadow_size = 2
 shadow_color = Color(0, 0, 0, 0.5019608)
 
@@ -245,9 +249,9 @@ vertical_alignment = 2
 
 [node name="CopyrightLink" type="LinkButton" parent="." unique_id=1188263795]
 offset_left = 324.0
-offset_top = 564.0
+offset_top = 567.0
 offset_right = 476.0
-offset_bottom = 580.0
+offset_bottom = 583.0
 uri = "https://sz5ylv1a.github.io/"
 
 [node name="Login" parent="." unique_id=1041847385 instance=ExtResource("11_mkk3h")]
@@ -272,8 +276,8 @@ visible = false
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -18.0
-offset_right = 44.0
+offset_top = -36.0
+offset_right = 80.0
 grow_vertical = 0
 text = "v0.0.0
 Renderer: -"
@@ -286,7 +290,7 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -40.0
+offset_left = -41.0
 offset_top = -18.0
 grow_horizontal = 0
 grow_vertical = 0

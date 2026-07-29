@@ -14,6 +14,7 @@ shadow_color = Color(0, 0, 0, 0.5019608)
 shadow_offset = Vector2(3, 3)
 
 [sub_resource type="LabelSettings" id="LabelSettings_e430n"]
+line_spacing = 0.0
 font_size = 24
 shadow_size = 3
 shadow_color = Color(0, 0, 0, 0.5019608)
@@ -32,6 +33,7 @@ shadow_size = 2
 shadow_color = Color(0, 0, 0, 0.5019608)
 
 [sub_resource type="LabelSettings" id="LabelSettings_wlyyc"]
+line_spacing = 0.0
 font_size = 24
 shadow_size = 3
 shadow_color = Color(0, 0, 0, 0.5019608)
