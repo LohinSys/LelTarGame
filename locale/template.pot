@@ -1,0 +1,637 @@
+# LANGUAGE translation for Lel.tar for the following files:
+# res://scenes/account.gd
+# res://scenes/login.tscn
+# res://scenes/login.gd
+# res://scenes/overlay.tscn
+# res://scenes/overlay.gd
+# res://scenes/pause.tscn
+# res://scenes/mainMenuScenes/credits.tscn
+# res://scenes/mainMenuScenes/credits.gd
+# res://scenes/mainMenuScenes/gameModeSel.tscn
+# res://scenes/mainMenuScenes/gameModeSel.gd
+# res://scenes/mainMenuScenes/how2play.tscn
+# res://scenes/mainMenuScenes/loadingScreen.tscn
+# res://scenes/mainMenuScenes/settings.tscn
+# res://scenes/mainMenuScenes/settings.gd
+# res://scenes/mainMenuScenes/stats.tscn
+# res://scenes/mainMenuScenes/stats.gd
+# res://scenes/mainMenuScenes/titleScreen.tscn
+# res://scenes/mainMenuScenes/titleScreen.gd
+#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Lel.tar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8-bit\n"
+
+#: scenes/login.tscn
+#: scenes/login.gd:69
+#: scenes/mainMenuScenes/titleScreen.tscn
+msgid "Login"
+msgstr ""
+
+#: scenes/login.tscn
+msgid "Username"
+msgstr ""
+
+#: scenes/login.tscn
+msgid "Password"
+msgstr ""
+
+#: scenes/login.tscn
+msgid "Cancel\n"
+msgstr ""
+
+#: scenes/login.tscn
+msgid "Don't have an account?"
+msgstr ""
+
+#: scenes/login.gd:62
+msgid "Logging in..."
+msgstr ""
+
+#: scenes/overlay.tscn
+msgid "Get closer to the boss to begin..."
+msgstr ""
+
+#: scenes/overlay.tscn
+#: scenes/overlay.gd:94
+msgid "undefined!"
+msgstr ""
+
+#: scenes/overlay.tscn
+msgid "19"
+msgstr ""
+
+#: scenes/overlay.tscn
+msgid "."
+msgstr ""
+
+#: scenes/overlay.tscn
+msgid "4"
+msgstr ""
+
+#: scenes/overlay.tscn
+msgid "High Score"
+msgstr ""
+
+#: scenes/overlay.tscn
+msgid "000050000"
+msgstr ""
+
+#: scenes/overlay.tscn
+msgid "Score"
+msgstr ""
+
+#: scenes/overlay.tscn
+msgid "x1.0"
+msgstr ""
+
+#: scenes/overlay.tscn
+msgid "000000000"
+msgstr ""
+
+#: scenes/overlay.tscn
+msgid "Current Player"
+msgstr ""
+
+#: scenes/overlay.tscn
+#: scenes/overlay.gd:100
+msgid "Guest"
+msgstr ""
+
+#: scenes/overlay.tscn
+msgid "N/A"
+msgstr ""
+
+#: scenes/overlay.tscn
+msgid "Player"
+msgstr ""
+
+#: scenes/overlay.tscn
+msgid "80 / 80"
+msgstr ""
+
+#: scenes/overlay.tscn
+msgid "Bomb"
+msgstr ""
+
+#: scenes/overlay.tscn
+msgid "3 / 8"
+msgstr ""
+
+#: scenes/overlay.tscn
+msgid "Power"
+msgstr ""
+
+#: scenes/overlay.tscn
+#: scenes/mainMenuScenes/stats.tscn
+msgid "0"
+msgstr ""
+
+#: scenes/overlay.tscn
+msgid "/"
+msgstr ""
+
+#: scenes/overlay.tscn
+msgid "4.0"
+msgstr ""
+
+#: scenes/overlay.tscn
+msgid "Graze"
+msgstr ""
+
+#: scenes/overlay.tscn
+msgid "You died!\n"
+msgstr ""
+
+#: scenes/overlay.tscn
+msgid "Final score:"
+msgstr ""
+
+#: scenes/overlay.tscn
+msgid "Score Mult.: x1.0 (N/A Difficulty)"
+msgstr ""
+
+#: scenes/overlay.tscn
+msgid ""
+"(Leaderboard submissions are disabled on guest\n"
+"accounts, so your score will only be saved locally.)"
+msgstr ""
+
+#: scenes/overlay.tscn
+msgid "Menu"
+msgstr ""
+
+#: scenes/overlay.tscn
+#: scenes/mainMenuScenes/titleScreen.tscn
+msgid ""
+"v0.0.0\n"
+"Renderer: -"
+msgstr ""
+
+#: scenes/overlay.tscn
+#: scenes/mainMenuScenes/titleScreen.tscn
+msgid "0 FPS"
+msgstr ""
+
+#: scenes/overlay.gd:18
+#: scenes/overlay.gd:24
+msgid "999999999"
+msgstr ""
+
+#: scenes/overlay.gd:98
+msgid ""
+"\n"
+"Wanna have another go?"
+msgstr ""
+
+#: scenes/overlay.gd:101
+msgid ""
+"Leaderboard submissions are disabled on guest\n"
+"accounts, so your score will only be saved locally."
+msgstr ""
+
+#: scenes/overlay.gd:105
+#: scenes/mainMenuScenes/gameModeSel.tscn
+#: scenes/mainMenuScenes/stats.tscn
+msgid "Easy"
+msgstr ""
+
+#: scenes/overlay.gd:112
+#: scenes/mainMenuScenes/gameModeSel.tscn
+#: scenes/mainMenuScenes/stats.tscn
+msgid "Normal"
+msgstr ""
+
+#: scenes/overlay.gd:119
+#: scenes/mainMenuScenes/gameModeSel.tscn
+#: scenes/mainMenuScenes/stats.tscn
+msgid "Hard"
+msgstr ""
+
+#: scenes/overlay.gd:126
+#: scenes/mainMenuScenes/gameModeSel.tscn
+#: scenes/mainMenuScenes/stats.tscn
+msgid "Lunatic"
+msgstr ""
+
+#: scenes/overlay.gd:151
+msgid "Ayane Hanako"
+msgstr ""
+
+#: scenes/overlay.gd:204
+msgid ""
+"Your score was not saved because\n"
+"your framerate cap is too low."
+msgstr ""
+
+#: scenes/overlay.gd:220
+msgid ""
+"\n"
+"Submitting score..."
+msgstr ""
+
+#: scenes/overlay.gd:229
+msgid ""
+"\n"
+"Successfully submitted to online leaderboards!"
+msgstr ""
+
+#: scenes/overlay.gd:234
+msgid ""
+"Cannot submit score to leaderboards\n"
+"since you're on Easy difficulty!"
+msgstr ""
+
+#: scenes/pause.tscn
+msgid "Paused"
+msgstr ""
+
+#: scenes/pause.tscn
+msgid "Resume"
+msgstr ""
+
+#: scenes/pause.tscn
+msgid "Restart"
+msgstr ""
+
+#: scenes/pause.tscn
+#: scenes/mainMenuScenes/how2play.tscn
+#: scenes/mainMenuScenes/titleScreen.tscn
+msgid "How to Play"
+msgstr ""
+
+#: scenes/pause.tscn
+#: scenes/mainMenuScenes/settings.tscn
+#: scenes/mainMenuScenes/titleScreen.tscn
+msgid "Settings"
+msgstr ""
+
+#: scenes/pause.tscn
+msgid "Back to Title"
+msgstr ""
+
+#: scenes/pause.tscn
+#: scenes/mainMenuScenes/titleScreen.tscn
+msgid "Quit Game"
+msgstr ""
+
+#: scenes/mainMenuScenes/credits.tscn
+#: scenes/mainMenuScenes/titleScreen.tscn
+msgid "Credits"
+msgstr ""
+
+#: scenes/mainMenuScenes/credits.tscn
+msgid ""
+"Made with Godot Engine 0.0.0\n"
+"https://godotengine.org/"
+msgstr ""
+
+#: scenes/mainMenuScenes/credits.tscn
+#: scenes/mainMenuScenes/gameModeSel.tscn
+#: scenes/mainMenuScenes/how2play.tscn
+#: scenes/mainMenuScenes/stats.tscn
+msgid "Back"
+msgstr ""
+
+#: scenes/mainMenuScenes/gameModeSel.tscn
+msgid "Select Difficulty"
+msgstr ""
+
+#: scenes/mainMenuScenes/gameModeSel.tscn
+#: scenes/mainMenuScenes/gameModeSel.gd:10
+msgid ""
+"You are currently playing as a Guest.\n"
+"Scores will only be saved locally."
+msgstr ""
+
+#: scenes/mainMenuScenes/gameModeSel.tscn
+msgid "HOLD UP!!"
+msgstr ""
+
+#: scenes/mainMenuScenes/gameModeSel.tscn
+msgid "Play anyway"
+msgstr ""
+
+#: scenes/mainMenuScenes/gameModeSel.tscn
+msgid ""
+"Your framerate is currently set to # FPS, meaning this following run will NOT be counted due to glitchy physics caused by this!\n"
+"\n"
+"Please increase your framerate cap to a minimum of 60 FPS or turn on Unlimited FPS if you want your scores to be submitted."
+msgstr ""
+
+#: scenes/mainMenuScenes/gameModeSel.tscn
+msgid "Go back"
+msgstr ""
+
+#: scenes/mainMenuScenes/gameModeSel.gd:37
+msgid "Aimed at beginners, however the final stage is inaccessible here and scores from it cannot be submitted to online leaderboards."
+msgstr ""
+
+#: scenes/mainMenuScenes/gameModeSel.gd:39
+msgid "The intended base difficulty, aimed at those who are average at bullet hell games."
+msgstr ""
+
+#: scenes/mainMenuScenes/gameModeSel.gd:41
+msgid "Near arcade difficulty, aimed at those who's very experienced in bullet hell games."
+msgstr ""
+
+#: scenes/mainMenuScenes/gameModeSel.gd:43
+msgid "Ridiculously difficult, not for the faint of heart."
+msgstr ""
+
+#: scenes/mainMenuScenes/loadingScreen.tscn
+msgid "Loading..."
+msgstr ""
+
+#: scenes/mainMenuScenes/settings.tscn
+msgid "Volume"
+msgstr ""
+
+#: scenes/mainMenuScenes/settings.tscn
+msgid "Master"
+msgstr ""
+
+#: scenes/mainMenuScenes/settings.tscn
+msgid "50%"
+msgstr ""
+
+#: scenes/mainMenuScenes/settings.tscn
+msgid "SFX"
+msgstr ""
+
+#: scenes/mainMenuScenes/settings.tscn
+msgid "100%"
+msgstr ""
+
+#: scenes/mainMenuScenes/settings.tscn
+msgid "Music"
+msgstr ""
+
+#: scenes/mainMenuScenes/settings.tscn
+msgid ""
+"\n"
+"Graphics / Display"
+msgstr ""
+
+#: scenes/mainMenuScenes/settings.tscn
+msgid "Switch between Windowed and Fullscreen modes."
+msgstr ""
+
+#: scenes/mainMenuScenes/settings.tscn
+msgid "Window Mode"
+msgstr ""
+
+#: scenes/mainMenuScenes/settings.tscn
+msgid "Windowed"
+msgstr ""
+
+#: scenes/mainMenuScenes/settings.tscn
+msgid "Fullscreen"
+msgstr ""
+
+#: scenes/mainMenuScenes/settings.tscn
+msgid ""
+"Switch between various types of anti-aliasing, such as:\n"
+"- Fast-Approximate Anti-aliasing (FXAA)\n"
+"- Subpixel Morphological Anti-aliasing (SMAA)\n"
+"- Multisample Anti-aliasing (MSAA 2x,4x,8x)\n"
+"(Higher values are not recommended for weaker devices!!)"
+msgstr ""
+
+#: scenes/mainMenuScenes/settings.tscn
+msgid "Anti-aliasing"
+msgstr ""
+
+#: scenes/mainMenuScenes/settings.tscn
+msgid "Disabled"
+msgstr ""
+
+#: scenes/mainMenuScenes/settings.tscn
+msgid "FXAA"
+msgstr ""
+
+#: scenes/mainMenuScenes/settings.tscn
+msgid "SMAA"
+msgstr ""
+
+#: scenes/mainMenuScenes/settings.tscn
+msgid "MSAA 2x"
+msgstr ""
+
+#: scenes/mainMenuScenes/settings.tscn
+msgid "MSAA 4x"
+msgstr ""
+
+#: scenes/mainMenuScenes/settings.tscn
+msgid "MSAA 8x"
+msgstr ""
+
+#: scenes/mainMenuScenes/settings.tscn
+msgid ""
+"Anisotropic Filtering, a technique that improves\n"
+"the appearance of textures, especially in 3D Scenes.\n"
+"Available from 2x-16x (higher value is better but laggier)\n"
+"\n"
+"Only disable this if this is somehow causing\n"
+"performance issues."
+msgstr ""
+
+#: scenes/mainMenuScenes/settings.tscn
+msgid "Anisotropic Filt."
+msgstr ""
+
+#: scenes/mainMenuScenes/settings.tscn
+msgid "2x"
+msgstr ""
+
+#: scenes/mainMenuScenes/settings.tscn
+msgid "4x"
+msgstr ""
+
+#: scenes/mainMenuScenes/settings.tscn
+msgid "8x"
+msgstr ""
+
+#: scenes/mainMenuScenes/settings.tscn
+msgid "16x"
+msgstr ""
+
+#: scenes/mainMenuScenes/settings.tscn
+msgid ""
+"Change the scaling of 3D elements. Lower values render blurrier,\n"
+"but faster, while higher values can render more detail, but can\n"
+"lag the game harshly as a result."
+msgstr ""
+
+#: scenes/mainMenuScenes/settings.tscn
+msgid "3D Scale"
+msgstr ""
+
+#: scenes/mainMenuScenes/settings.tscn
+msgid "200%"
+msgstr ""
+
+#: scenes/mainMenuScenes/settings.tscn
+msgid "175%"
+msgstr ""
+
+#: scenes/mainMenuScenes/settings.tscn
+msgid "150%"
+msgstr ""
+
+#: scenes/mainMenuScenes/settings.tscn
+msgid "125%"
+msgstr ""
+
+#: scenes/mainMenuScenes/settings.tscn
+msgid "75%"
+msgstr ""
+
+#: scenes/mainMenuScenes/settings.tscn
+msgid "25%"
+msgstr ""
+
+#: scenes/mainMenuScenes/settings.tscn
+msgid ""
+"Fixes screen tearing, but can lead to higher input delay.\n"
+"This also locks your framerate to your screen's refresh rate."
+msgstr ""
+
+#: scenes/mainMenuScenes/settings.tscn
+msgid "Vertical Sync"
+msgstr ""
+
+#: scenes/mainMenuScenes/settings.tscn
+msgid "Toggles blur effects around menus and stage backgrounds."
+msgstr ""
+
+#: scenes/mainMenuScenes/settings.tscn
+msgid "Blur Effects"
+msgstr ""
+
+#: scenes/mainMenuScenes/settings.tscn
+msgid "Shows the framerate in the bottom right corner."
+msgstr ""
+
+#: scenes/mainMenuScenes/settings.tscn
+msgid "Show FPS"
+msgstr ""
+
+#: scenes/mainMenuScenes/settings.tscn
+msgid ""
+"Show additional debug information on the bottom left corner of the screen,\n"
+"like the current game version and the renderer being used."
+msgstr ""
+
+#: scenes/mainMenuScenes/settings.tscn
+msgid "Debug Info"
+msgstr ""
+
+#: scenes/mainMenuScenes/settings.tscn
+msgid ""
+"Set your FPS cap to a custom amount, up to 500+ FPS!\n"
+"0 disables your framerate cap altogether, however your\n"
+"game might run unstable because of this.\n"
+"Framerates below 60 will lead to buggier physics and\n"
+"potentially easier gameplay, so scores with them will\n"
+"not count because of this; but they're still there for laughs.\n"
+"\n"
+"You must disable Vertical Sync before using this!"
+msgstr ""
+
+#: scenes/mainMenuScenes/settings.tscn
+msgid "FPS Cap"
+msgstr ""
+
+#: scenes/mainMenuScenes/settings.tscn
+msgid "60 fps"
+msgstr ""
+
+#: scenes/mainMenuScenes/settings.tscn
+msgid "Done"
+msgstr ""
+
+#: scenes/mainMenuScenes/stats.tscn
+#: scenes/mainMenuScenes/titleScreen.tscn
+msgid "Statistics"
+msgstr ""
+
+#: scenes/mainMenuScenes/stats.tscn
+msgid ""
+"Here's all of your personal stats that can appear,\n"
+"which can also be synced with your account...\n"
+msgstr ""
+
+#: scenes/mainMenuScenes/stats.tscn
+msgid "Times Played"
+msgstr ""
+
+#: scenes/mainMenuScenes/stats.tscn
+msgid "Best Run"
+msgstr ""
+
+#: scenes/mainMenuScenes/stats.tscn
+msgid "Stage 1"
+msgstr ""
+
+#: scenes/mainMenuScenes/stats.tscn
+msgid "Best Score"
+msgstr ""
+
+#: scenes/mainMenuScenes/stats.tscn
+msgid "50,000"
+msgstr ""
+
+#: scenes/mainMenuScenes/stats.tscn
+msgid "Total Deaths"
+msgstr ""
+
+#: scenes/mainMenuScenes/stats.tscn
+msgid "Bombs Used"
+msgstr ""
+
+#: scenes/mainMenuScenes/stats.tscn
+msgid "Bullets Grazed"
+msgstr ""
+
+#: scenes/mainMenuScenes/stats.tscn
+msgid "[ Click here to view online leaderboards ]"
+msgstr ""
+
+#: scenes/mainMenuScenes/titleScreen.tscn
+msgid "Technical Development Build"
+msgstr ""
+
+#: scenes/mainMenuScenes/titleScreen.tscn
+msgid "Start Game"
+msgstr ""
+
+#: scenes/mainMenuScenes/titleScreen.tscn
+msgid "This game is still under development, so expect some bugs..."
+msgstr ""
+
+#: scenes/mainMenuScenes/titleScreen.tscn
+#: scenes/mainMenuScenes/titleScreen.gd:77
+msgid ""
+"Welcome, Guest!\n"
+"You are not logged in."
+msgstr ""
+
+#: scenes/mainMenuScenes/titleScreen.tscn
+msgid "Logout"
+msgstr ""
+
+#: scenes/mainMenuScenes/titleScreen.tscn
+msgid ""
+"sz5ylv1a © 2017-2026\n"
+"Licensed under MPL-2.0"
+msgstr ""
+
+msgid "Lel.tar"
+msgstr ""
