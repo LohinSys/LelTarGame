@@ -32,7 +32,7 @@ This was made for a *(solo)* school project of mine.
 
 ## Technical details
 
-- **Game engine:** [Godot Engine](https://godotengine.org/) [*(v4.5.2)*](https://godotengine.org/download/archive/#4.7.1)
+- **Game engine:** [Godot Engine](https://godotengine.org/) [*(v4.7.1)*](https://godotengine.org/download/archive/#4.7.1)
 - **Language:** GDScript
 
 ---
