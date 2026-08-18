@@ -185,6 +185,7 @@ theme_override_font_sizes/font_size = 24
 text = "Back"
 
 [node name="LowFpsCapWarning" type="ConfirmationDialog" parent="." unique_id=1315056945]
+disable_3d = true
 oversampling_override = 1.0
 title = "Caution"
 initial_position = 2

@@ -3,15 +3,17 @@
 [ext_resource type="Script" uid="uid://bjgfujw4tcbpd" path="res://scenes/dialogs/confirm_quit.gd" id="1_qr1gi"]
 
 [node name="ConfirmQuit" type="ConfirmationDialog" unique_id=167810951]
+disable_3d = true
 oversampling_override = 1.0
 title = "Confirm Quit"
 initial_position = 2
+size = Vector2i(300, 100)
 exclude_from_capture = true
 force_native = true
-min_size = Vector2i(200, 100)
-max_size = Vector2i(200, 100)
+min_size = Vector2i(300, 100)
+max_size = Vector2i(300, 100)
 ok_button_text = "Yes"
-dialog_text = "Are you sure you want to quit the game?"
+dialog_text = "Are you sure you want to quit Lel.tar?"
 dialog_autowrap = true
 cancel_button_text = "No"
 script = ExtResource("1_qr1gi")

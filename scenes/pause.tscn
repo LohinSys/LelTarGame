@@ -176,6 +176,7 @@ visible = false
 layout_mode = 1
 
 [node name="ConfirmB2T" type="ConfirmationDialog" parent="." unique_id=851704879]
+disable_3d = true
 oversampling_override = 1.0
 title = "Confirm Exit"
 initial_position = 2
