@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://baj1kv3f0etgu" path="res://scenes/mainMenuScenes/how2play.tscn" id="8_1xtef"]
 [ext_resource type="PackedScene" uid="uid://ctscjj5oow5p8" path="res://scenes/mainMenuScenes/settings.tscn" id="8_cml1b"]
 [ext_resource type="PackedScene" uid="uid://c8iabuhhf3o4e" path="res://scenes/mainMenuScenes/loadingScreen.tscn" id="10_xmhi0"]
+[ext_resource type="PackedScene" uid="uid://bu8jb4k2e50ev" path="res://scenes/dialogs/confirmQuit.tscn" id="11_0akjr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0akjr"]
 shader = ExtResource("2_xw83q")
@@ -174,7 +175,22 @@ layout_mode = 1
 visible = false
 layout_mode = 1
 
+[node name="ConfirmB2T" type="ConfirmationDialog" parent="." unique_id=851704879]
+oversampling_override = 1.0
+title = "Confirm Exit"
+initial_position = 2
+size = Vector2i(300, 100)
+force_native = true
+min_size = Vector2i(300, 100)
+max_size = Vector2i(300, 100)
+ok_button_text = "Yes"
+dialog_text = "Are you sure you want to quit back to the title screen?"
+dialog_autowrap = true
+
+[node name="ConfirmQuit" parent="." unique_id=167810951 instance=ExtResource("11_0akjr")]
+
 [node name="LoadingScreen" parent="." unique_id=1231874819 instance=ExtResource("10_xmhi0")]
+unique_name_in_owner = true
 visible = false
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
@@ -183,3 +199,4 @@ visible = false
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Back2Title" to="." method="_on_back2title_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/QuitGame" to="." method="_on_quit_game_pressed"]
+[connection signal="confirmed" from="ConfirmB2T" to="." method="_on_confirm_b2t_confirmed"]

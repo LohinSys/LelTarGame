@@ -186,11 +186,12 @@ text = "Back"
 
 [node name="LowFpsCapWarning" type="ConfirmationDialog" parent="." unique_id=1315056945]
 oversampling_override = 1.0
-title = "HOLD UP!!"
+title = "Caution"
 initial_position = 2
-size = Vector2i(350, 196)
-unresizable = true
+size = Vector2i(400, 200)
 force_native = true
+min_size = Vector2i(400, 200)
+max_size = Vector2i(400, 200)
 content_scale_mode = 1
 ok_button_text = "Play anyway"
 dialog_text = "Your framerate is currently set to # FPS, meaning this following run will NOT be counted due to glitchy physics caused by this!

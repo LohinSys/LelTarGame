@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8iabuhhf3o4e"]
+[gd_scene format=3 uid="uid://c8iabuhhf3o4e"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_uvuw3"]
 font_size = 32
@@ -6,10 +6,10 @@ shadow_size = 3
 shadow_color = Color(0, 0, 0, 0.5019608)
 shadow_offset = Vector2(2, 2)
 
-[node name="LoadingScreen" type="CanvasLayer"]
+[node name="LoadingScreen" type="CanvasLayer" unique_id=1536733670]
 layer = 99999
 
-[node name="BG" type="ColorRect" parent="."]
+[node name="BG" type="ColorRect" parent="." unique_id=948326508]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -18,7 +18,7 @@ grow_vertical = 2
 mouse_default_cursor_shape = 5
 color = Color(0, 0, 0, 0.7529412)
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=1671437798]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0

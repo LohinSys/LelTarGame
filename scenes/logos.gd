@@ -20,7 +20,7 @@ func _physics_process(d) -> void:
 				current_step = "idle"
 
 func _input(event:InputEvent) -> void:
-	if event.is_action_pressed("shoot") and current_step != "fade_out":
+	if event is InputEventKey and current_step != "fade_out":
 		$Logo1/Timer.stop()
 		_on_logo1_timer_timeout()
 

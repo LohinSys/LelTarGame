@@ -55,9 +55,7 @@ func _on_settings_pressed() -> void: $Settings.show()
 func _on_credits_pressed() -> void: $Credits.show()
 
 func _on_quit_game_pressed() -> void:
-	$LoadingScreen.show()
-	PlayerStats.save()
-	get_tree().quit(0)
+	$ConfirmQuit.show()
 
 func _on_login_button_pressed() -> void:
 	%LoginTitleButton.disabled = true

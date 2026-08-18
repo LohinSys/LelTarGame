@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://sjpr02b42usg" path="res://scenes/mainMenuScenes/gameModeSel.tscn" id="11_apxgw"]
 [ext_resource type="Texture2D" uid="uid://rjgk13wjchxn" path="res://assets/icons/menu/logout.svg" id="11_hbqqx"]
 [ext_resource type="PackedScene" uid="uid://diw1m0fahrmp7" path="res://scenes/login.tscn" id="11_mkk3h"]
+[ext_resource type="PackedScene" uid="uid://bu8jb4k2e50ev" path="res://scenes/dialogs/confirmQuit.tscn" id="11_qpcjg"]
 [ext_resource type="PackedScene" uid="uid://blnrook2q0vnj" path="res://scenes/mainMenuScenes/credits.tscn" id="14_d7my7"]
 [ext_resource type="AudioStream" uid="uid://cabmj8c7u32pt" path="res://assets/music/ultimateTruth.ogg" id="20_5ur3r"]
 
@@ -309,7 +310,10 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
 [node name="LoadingScreen" parent="." unique_id=1442029701 instance=ExtResource("11_2i8gq")]
+unique_name_in_owner = true
 visible = false
+
+[node name="ConfirmQuit" parent="." unique_id=167810951 instance=ExtResource("11_qpcjg")]
 
 [node name="TitleBGA" type="AudioStreamPlayer" parent="." unique_id=1084217984]
 stream = ExtResource("20_5ur3r")

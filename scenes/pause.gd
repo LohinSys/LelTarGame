@@ -75,12 +75,13 @@ func _on_restart_pressed() -> void:
 	get_tree().reload_current_scene()
 
 func _on_quit_game_pressed() -> void:
-	$LoadingScreen.show()
-	PlayerStats.save()
-	get_tree().quit(0)
+	$ConfirmQuit.show()
 
 func _on_back2title_pressed() -> void:
-	$LoadingScreen.show()
+	$ConfirmB2T.show()
+
+func _on_confirm_b2t_confirmed() -> void:
+	%LoadingScreen.show()
 	remove_child(Api.http_request)
 	PlayerStats.save()
 	await get_tree().create_timer(0.1).timeout
