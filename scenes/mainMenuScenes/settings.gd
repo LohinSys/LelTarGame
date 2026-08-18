@@ -37,7 +37,7 @@ func _physics_process(_delta: float) -> void:
 	if Global.fpsCap == 0:
 		%FpsCapValue.text = str("Unlimited")
 	else:
-		%FpsCapValue.text = str(%FpsCapSlider.value).pad_decimals(0) + " fps"
+		%FpsCapValue.text = str(%FpsCapSlider.value).pad_decimals(0) + " FPS"
 
 	if 0 < Global.fpsCap and Global.fpsCap < 60:
 		%FpsCapValue.modulate = Color(0xffc060ff)
