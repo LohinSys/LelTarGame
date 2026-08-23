@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://6wb1cbuwukt3" path="res://assets/sprites/placeholder-reimu.png" id="1_g2els"]
 [ext_resource type="Script" uid="uid://gsbnvmadiu55" path="res://scenes/player.gd" id="1_qhqgy"]
-[ext_resource type="Texture2D" uid="uid://d0j3gfqmx73c0" path="res://assets/sprites/placeholder-reimu-1.png" id="2_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://dh656uwtcc2xj" path="res://assets/sprites/bullet.png" id="4_dqkch"]
 [ext_resource type="AudioStream" uid="uid://dd1xq1o0tsq7g" path="res://assets/sfx/bomb.ogg" id="5_qlg0r"]
 [ext_resource type="AudioStream" uid="uid://h5hb8ef773gn" path="res://assets/sfx/graze.ogg" id="6_fjrip"]
@@ -13,14 +12,22 @@
 [ext_resource type="AudioStream" uid="uid://cbws87cuwa5ff" path="res://assets/sfx/heal.ogg" id="9_y4r1p"]
 [ext_resource type="AudioStream" uid="uid://n7o4si2sj1m3" path="res://assets/sfx/hit3.ogg" id="10_f1ej7"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2wvv"]
+atlas = ExtResource("1_g2els")
+region = Rect2(110, 0, 110, 154)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3v2ag"]
+atlas = ExtResource("1_g2els")
+region = Rect2(0, 0, 110, 154)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_u8vuu"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_qhqgy")
+"texture": SubResource("AtlasTexture_d2wvv")
 }, {
 "duration": 1.0,
-"texture": ExtResource("1_g2els")
+"texture": SubResource("AtlasTexture_3v2ag")
 }],
 "loop": 1,
 "name": &"default",
@@ -45,6 +52,8 @@ script = ExtResource("1_qhqgy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=124739916]
 sprite_frames = SubResource("SpriteFrames_u8vuu")
+frame = 1
+frame_progress = 0.35889104
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1732322443]
 shape = SubResource("CircleShape2D_g2els")
