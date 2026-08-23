@@ -120,15 +120,15 @@ Section "Lel.tar" Main
 	CreateShortcut "$SMPROGRAMS\Lel.tar (32-bit).lnk" "$INSTDIR\LelTarGame-x86.exe"
 
 	; Add to the installed programs list in Add/Remove Programs
-	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "DisplayName" "Lel.tar"
+	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "DisplayName" "Lel.tar (32-bit)"
 	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "UninstallString" "$INSTDIR\uninstall.exe"
 	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "DisplayIcon" "$INSTDIR\LelTarGame-x86.exe,0"
 	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "DisplayVersion" "${APP_VERSION}"
-	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "Publisher" "LohinSys"
-	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "URLInfoAbout" "https://szb3nc3.github.io/LelTarWebsite/"
-	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "EstimatedSize" 135876
-	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "NoModify" 1
-	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "NoRepair" 1
+	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "Publisher" "sz5ylv1a"
+	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "UrlInfoAbout" "https://szb3nc3.github.io/LelTarWebsite/"
+	WriteRegDWORD HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "EstimatedSize" 135876
+	WriteRegDWORD HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "NoModify" 1
+	WriteRegDWORD HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "NoRepair" 1
 	WriteRegDWORD HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "VersionMajor" "${APP_MAJOR_VER}"
 	WriteRegDWORD HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "VersionMinor" "${APP_MINOR_VER}"
 

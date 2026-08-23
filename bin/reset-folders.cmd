@@ -1,11 +1,11 @@
 @echo off
 echo Resetting linux...
 rmdir /s /q linux
-mkdir linux
+mkdir linux\x64
+mkdir linux\arm64
 echo Resetting windows...
 rmdir /s /q windows
-mkdir windows
-cd windows
-mkdir x64
-mkdir x86
+mkdir windows\x64
+mkdir windows\arm64
+mkdir windows\x86
 echo All done!

@@ -28,8 +28,8 @@ RequestExecutionLevel user
 !define MUI_UNABORTWARNING_CANCEL_DEFAULT
 
 ; Custom bitmaps for welcome and finish pages
-!define MUI_WELCOMEFINISHPAGE_BITMAP "C:\Program Files (x86)\NSIS\Contrib\Graphics\Wizard\win.bmp"
-!define MUI_UNWELCOMEFINISHPAGE_BITMAP "C:\Program Files (x86)\NSIS\Contrib\Graphics\Wizard\win.bmp"
+!define MUI_WELCOMEFINISHPAGE_BITMAP "sidebar.bmp"
+!define MUI_UNWELCOMEFINISHPAGE_BITMAP "sidebar.bmp"
 
 ; Custom icons for installer and uninstallers
 !define MUI_ICON "C:\Program Files (x86)\NSIS\Contrib\Graphics\Icons\modern-install-colorful.ico"
@@ -37,7 +37,7 @@ RequestExecutionLevel user
 
 ; Header image
 !define MUI_HEADERIMAGE
-!define MUI_HEADERIMAGE_BITMAP "C:\Program Files (x86)\NSIS\Contrib\Graphics\Header\nsis-r.bmp"
+!define MUI_HEADERIMAGE_BITMAP "header-r.bmp"
 !define MUI_HEADERIMAGE_RIGHT ; move it to the right instead of the left
 
 !define MUI_LICENSEPAGE_BGCOLOR /windows
@@ -124,8 +124,8 @@ Section "Lel.tar" Main
 	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "UninstallString" "$INSTDIR\uninstall.exe"
 	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "DisplayIcon" "$INSTDIR\LelTarGame.exe,0"
 	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "DisplayVersion" "${APP_VERSION}"
-	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "Publisher" "LohinSys"
-	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "URLInfoAbout" "https://szb3nc3.github.io/LelTarWebsite/"
+	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "Publisher" "sz5ylv1a"
+	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "UrlInfoAbout" "https://szb3nc3.github.io/LelTarWebsite/"
 	WriteRegDWORD HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "EstimatedSize" 121646
 	WriteRegDWORD HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "NoModify" 1
 	WriteRegDWORD HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "NoRepair" 1
