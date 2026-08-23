@@ -150,3 +150,6 @@ func _play_press_sfx(_value_changed) -> void:
 func _on_fps_cap_slider_value_changed(value: float) -> void:
 	Global.fpsCap = roundi(value)
 	Global.update_fps_cap()
+
+func _on_language_changed(index: int) -> void:
+	print("Selected language index:",index)
