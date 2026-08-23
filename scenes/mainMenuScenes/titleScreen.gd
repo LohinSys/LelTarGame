@@ -81,7 +81,7 @@ func start_game() -> void:
 	$TitleBGA.stop()
 	$LoadingScreen.show()
 	remove_child(Api.http_request)
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(0.05).timeout
 	if $Settings.visible == true: $Settings.hide()
 	get_tree().change_scene_to_file("res://scenes/bossRoom.tscn")
 

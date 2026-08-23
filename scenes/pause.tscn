@@ -175,18 +175,35 @@ layout_mode = 1
 visible = false
 layout_mode = 1
 
-[node name="ConfirmB2T" type="ConfirmationDialog" parent="." unique_id=851704879]
+[node name="ConfirmRestart" type="ConfirmationDialog" parent="." unique_id=1474239441]
 disable_3d = true
 oversampling_override = 1.0
-title = "Confirm Exit"
+title = "Confirm Restart"
 initial_position = 2
 size = Vector2i(300, 100)
 force_native = true
 min_size = Vector2i(300, 100)
 max_size = Vector2i(300, 100)
 ok_button_text = "Yes"
-dialog_text = "Are you sure you want to quit back to the title screen?"
+dialog_text = "Are you sure you want to restart?
+You will lose any unsaved progress."
 dialog_autowrap = true
+cancel_button_text = "No"
+
+[node name="ConfirmB2T" type="ConfirmationDialog" parent="." unique_id=851704879]
+disable_3d = true
+oversampling_override = 1.0
+title = "Confirm Exit"
+initial_position = 2
+size = Vector2i(300, 120)
+force_native = true
+min_size = Vector2i(300, 120)
+max_size = Vector2i(300, 120)
+ok_button_text = "Yes"
+dialog_text = "Are you sure you want to quit back to the title screen?
+You will lose any unsaved progress."
+dialog_autowrap = true
+cancel_button_text = "No"
 
 [node name="ConfirmQuit" parent="." unique_id=167810951 instance=ExtResource("11_0akjr")]
 
@@ -200,4 +217,5 @@ visible = false
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Back2Title" to="." method="_on_back2title_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/QuitGame" to="." method="_on_quit_game_pressed"]
+[connection signal="confirmed" from="ConfirmRestart" to="." method="_on_confirm_restart_confirmed"]
 [connection signal="confirmed" from="ConfirmB2T" to="." method="_on_confirm_b2t_confirmed"]

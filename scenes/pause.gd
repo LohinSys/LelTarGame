@@ -68,10 +68,14 @@ func _on_resume_pressed() -> void:
 	disableUI()
 
 func _on_restart_pressed() -> void:
+	$ConfirmRestart.show()
+
+func _on_confirm_restart_confirmed() -> void:
+	$LoadingScreen.show()
 	ui_enabled = false
 	disableUI()
 	remove_child(Api.http_request)
-	$LoadingScreen.show()
+	await get_tree().create_timer(0.05).timeout
 	get_tree().reload_current_scene()
 
 func _on_quit_game_pressed() -> void:
@@ -84,8 +88,8 @@ func _on_confirm_b2t_confirmed() -> void:
 	%LoadingScreen.show()
 	remove_child(Api.http_request)
 	PlayerStats.save()
-	await get_tree().create_timer(0.1).timeout
 	disableUI()
+	await get_tree().create_timer(0.05).timeout
 	get_tree().change_scene_to_file("res://scenes/mainMenuScenes/titleScreen.tscn")
 
 func _on_settings_pressed() -> void: $Settings.show()
