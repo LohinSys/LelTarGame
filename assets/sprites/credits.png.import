@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/credits.png-b00f7e108ddd67802bca593e0c4347cf.
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+var popup_shown: bool = false
+
 func _ready() -> void:
 	$GameModeSel.hide()
 	$How2Play.hide()
@@ -34,7 +36,7 @@ func _physics_process(d) -> void:
 	if Global.showDbgInfo: $DbgInfo.show()
 	else: $DbgInfo.hide()
 
-	if Global.blurFx: $Blur.show()
+	if Global.blurFx and !popup_shown: $Blur.show()
 	else: $Blur.hide()
 
 	if Global.gameplayTitleSwitchSignal:
@@ -44,15 +46,27 @@ func _physics_process(d) -> void:
 	if Global.firstFade:
 		$FadingOverlay.color -= Color(0,0,0,d)
 
-func _on_start_game_pressed() -> void: $GameModeSel.show()
+func _on_start_game_pressed() -> void:
+	$GameModeSel.show()
+	popup_shown = true
+func _on_how2play_pressed() -> void:
+	$How2Play.show()
+	popup_shown = true
+func _on_statistics_pressed() -> void:
+	$Stats.show()
+	popup_shown = true
+func _on_settings_pressed() -> void:
+	$Settings.show()
+	popup_shown = true
+func _on_credits_pressed() -> void:
+	$Credits.show()
+	popup_shown = true
 
-func _on_how2play_pressed() -> void: $How2Play.show()
-
-func _on_statistics_pressed() -> void: $Stats.show()
-
-func _on_settings_pressed() -> void: $Settings.show()
-
-func _on_credits_pressed() -> void: $Credits.show()
+func _on_gamemodesel_hidden() -> void: popup_shown = false
+func _on_how2play_hidden() -> void: popup_shown = false
+func _on_stats_hidden() -> void: popup_shown = false
+func _on_settings_hidden() -> void: popup_shown = false
+func _on_credits_hidden() -> void: popup_shown = false
 
 func _on_quit_game_pressed() -> void:
 	$ConfirmQuit.show()

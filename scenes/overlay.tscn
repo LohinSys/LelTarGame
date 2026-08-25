@@ -458,6 +458,7 @@ horizontal_alignment = 2
 [node name="healthBar" type="TextureProgressBar" parent="playerStatsContainer" unique_id=846040140]
 unique_name_in_owner = true
 layout_mode = 2
+offset_transform_enabled = true
 max_value = 80.0
 value = 80.0
 rounded = true
@@ -688,6 +689,7 @@ anchor_bottom = 1.0
 offset_top = -36.0
 offset_right = 80.0
 grow_vertical = 0
+size_flags_horizontal = 0
 text = "v0.0.0
 Renderer: -"
 label_settings = SubResource("LabelSettings_0miq5")
@@ -703,6 +705,7 @@ offset_left = -41.0
 offset_top = -18.0
 grow_horizontal = 0
 grow_vertical = 0
+size_flags_horizontal = 8
 text = "0 FPS"
 label_settings = SubResource("LabelSettings_0miq5")
 horizontal_alignment = 2
