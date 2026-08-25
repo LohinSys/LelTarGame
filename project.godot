@@ -23,6 +23,7 @@ config/features=PackedStringArray("4.7", "Forward Plus")
 run/max_fps=60
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
+boot_splash/stretch_mode=0
 boot_splash/use_filter=false
 config/icon="uid://rxhb1uaqlsk8"
 config/macos_native_icon="res://assets/icons/app/icon.icns"
@@ -182,6 +183,8 @@ limits/message_queue/max_size_mb=64
 
 2d/run_on_separate_thread=true
 3d/run_on_separate_thread=true
+2d/physics_engine="GodotPhysics2D"
+3d/physics_engine="Jolt Physics"
 
 [rendering]
 

@@ -11,3 +11,4 @@ bin/checksum.json
 *.*~
 addons/godot-git-plugin/windows/~libgit_plugin.windows.editor.x86_64.dll
 assets/sprites/.bak/
+*.sql
