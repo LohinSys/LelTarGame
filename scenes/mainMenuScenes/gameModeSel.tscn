@@ -10,7 +10,7 @@ shader_parameter/lod = 3.50000016625
 
 [sub_resource type="LabelSettings" id="LabelSettings_7aqff"]
 font_size = 40
-shadow_size = 5
+shadow_size = 0
 shadow_color = Color(0, 0, 0, 0.5019608)
 shadow_offset = Vector2(3, 3)
 
@@ -145,6 +145,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5019608)
 theme_override_constants/line_spacing = 0
 theme_override_constants/shadow_offset_x = 3
 theme_override_constants/shadow_offset_y = 3
+theme_override_constants/shadow_outline_size = 0
 theme_override_font_sizes/font_size = 18
 text = "You are currently playing as a Guest.
 Scores will only be saved locally."
@@ -163,6 +164,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5019608)
 theme_override_constants/line_spacing = 0
 theme_override_constants/shadow_offset_x = 3
 theme_override_constants/shadow_offset_y = 3
+theme_override_constants/shadow_outline_size = 0
 theme_override_font_sizes/font_size = 18
 horizontal_alignment = 1
 autowrap_mode = 3

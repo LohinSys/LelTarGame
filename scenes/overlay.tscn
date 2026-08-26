@@ -13,9 +13,9 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_rqwgw"]
 font_size = 20
-shadow_size = 5
+shadow_size = 0
 shadow_color = Color(0, 0, 0, 0.5019608)
-shadow_offset = Vector2(2, 2)
+shadow_offset = Vector2(1.5, 1.5)
 
 [sub_resource type="Gradient" id="Gradient_nx175"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
@@ -38,7 +38,7 @@ fill_to = Vector2(1, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_76wxp"]
 font_size = 12
-shadow_size = 2
+shadow_size = 0
 shadow_color = Color(0, 0, 0, 0.5019608)
 
 [sub_resource type="LabelSettings" id="LabelSettings_lot3u"]
@@ -107,6 +107,7 @@ outline_color = Color(1, 0, 0.5, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_k5uol"]
 font_size = 12
+shadow_size = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_2m6gh"]
 font_size = 24
@@ -121,10 +122,12 @@ outline_color = Color(0.8, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_sfd0e"]
 font = ExtResource("2_0miq5")
 font_size = 32
+shadow_size = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_p5j10"]
 font = ExtResource("2_0miq5")
 font_size = 20
+shadow_size = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_njieu"]
 font_size = 24
@@ -132,33 +135,34 @@ outline_size = 4
 outline_color = Color(0, 0.6431373, 0.47058824, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_nx175"]
+line_spacing = 0.0
 font_size = 64
 font_color = Color(1, 0.7529412, 0.7529412, 1)
-shadow_size = 10
-shadow_color = Color(0, 0, 0, 0.6431373)
-shadow_offset = Vector2(5, 5)
+shadow_size = 0
+shadow_color = Color(0, 0, 0, 0.5019608)
+shadow_offset = Vector2(4, 4)
 
 [sub_resource type="LabelSettings" id="LabelSettings_tn5s6"]
 font_size = 32
-shadow_size = 4
+shadow_size = 0
 shadow_color = Color(0, 0, 0, 0.6431373)
 shadow_offset = Vector2(3, 3)
 
 [sub_resource type="LabelSettings" id="LabelSettings_lhcu8"]
 font_size = 48
-shadow_size = 5
 shadow_color = Color(0, 0, 0, 0.6431373)
 shadow_offset = Vector2(4, 4)
 
 [sub_resource type="LabelSettings" id="LabelSettings_vg6n2"]
+line_spacing = 0.0
 font_size = 12
-shadow_size = 3
+shadow_size = 0
 shadow_color = Color(0, 0, 0, 0.6431373)
-shadow_offset = Vector2(2, 2)
 
 [sub_resource type="LabelSettings" id="LabelSettings_0miq5"]
 line_spacing = 0.0
 shadow_size = 0
+shadow_offset = Vector2(0, 0)
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_cpe4y"]
 clip_count = 2
@@ -382,6 +386,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
 theme_override_colors/font_color = Color(0.85, 0.85, 0.85, 1)
+theme_override_constants/shadow_outline_size = 0
 theme_override_font_sizes/font_size = 12
 text = "x1.0"
 horizontal_alignment = 2
@@ -634,6 +639,7 @@ grow_vertical = 2
 
 [node name="GameOverTitle" type="Label" parent="GameOver/GameOverContainer" unique_id=883212783]
 layout_mode = 2
+size_flags_horizontal = 4
 text = "You died!
 "
 label_settings = SubResource("LabelSettings_nx175")
@@ -655,9 +661,7 @@ horizontal_alignment = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0.65, 0.65, 0.65, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6431373)
-theme_override_constants/shadow_offset_x = 2
-theme_override_constants/shadow_offset_y = 2
-theme_override_constants/shadow_outline_size = 3
+theme_override_constants/shadow_outline_size = 0
 theme_override_font_sizes/font_size = 12
 text = "Score Mult.: x1.0 (N/A Difficulty)"
 horizontal_alignment = 1

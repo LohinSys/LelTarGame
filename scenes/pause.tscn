@@ -19,9 +19,9 @@ shader_parameter/lod = 3.50000016625
 
 [sub_resource type="LabelSettings" id="LabelSettings_f1d2v"]
 font_size = 64
-shadow_size = 10
+shadow_size = 0
 shadow_color = Color(0, 0, 0, 0.6431373)
-shadow_offset = Vector2(5, 5)
+shadow_offset = Vector2(3, 3)
 
 [node name="PauseMenu" type="Control" unique_id=1226968621 node_paths=PackedStringArray("quitGameButton", "resumeButton")]
 top_level = true
