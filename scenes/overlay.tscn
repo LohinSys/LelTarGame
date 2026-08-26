@@ -14,7 +14,7 @@
 [sub_resource type="LabelSettings" id="LabelSettings_rqwgw"]
 font_size = 20
 shadow_size = 0
-shadow_color = Color(0, 0, 0, 0.5019608)
+shadow_color = Color(0, 0, 0, 0.6431373)
 shadow_offset = Vector2(1.5, 1.5)
 
 [sub_resource type="Gradient" id="Gradient_nx175"]
@@ -220,11 +220,12 @@ offset_bottom = 1.0
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -163.5
+offset_left = -141.5
 offset_top = 10.0
-offset_right = 163.5
+offset_right = 141.5
 offset_bottom = 33.0
 grow_horizontal = 2
+size_flags_horizontal = 4
 text = "Get closer to the boss to begin..."
 label_settings = SubResource("LabelSettings_rqwgw")
 horizontal_alignment = 1
@@ -486,7 +487,6 @@ horizontal_alignment = 2
 [node name="healthBar" type="TextureProgressBar" parent="playerStatsContainer" unique_id=846040140]
 unique_name_in_owner = true
 layout_mode = 2
-offset_transform_enabled = true
 max_value = 80.0
 value = 80.0
 rounded = true
