@@ -29,32 +29,14 @@ shader_parameter/lod = 2.750000130625
 [sub_resource type="LabelSettings" id="LabelSettings_qrvv6"]
 line_spacing = 0.0
 shadow_size = 0
-shadow_color = Color(0, 0, 0, 0.5019608)
+shadow_color = Color(0, 0, 0, 0.6431373)
 shadow_offset = Vector2(1.5, 1.5)
 
 [sub_resource type="LabelSettings" id="LabelSettings_c3ue1"]
 font_size = 12
 shadow_size = 0
-shadow_color = Color(0, 0, 0, 0.5019608)
-shadow_offset = Vector2(1.5, 1.5)
-
-[sub_resource type="LabelSettings" id="LabelSettings_vpt7i"]
-line_spacing = 0.0
-shadow_size = 0
-shadow_color = Color(0, 0, 0, 0.5019608)
-shadow_offset = Vector2(1.5, 1.5)
-
-[sub_resource type="LabelSettings" id="LabelSettings_tcfyk"]
-line_spacing = 0.0
-shadow_size = 0
-shadow_color = Color(0, 0, 0, 0.5019608)
-shadow_offset = Vector2(1.5, 1.5)
-
-[sub_resource type="LabelSettings" id="LabelSettings_wxefk"]
-line_spacing = 0.0
-shadow_size = 0
-shadow_color = Color(0, 0, 0, 0.5019608)
-shadow_offset = Vector2(1.5, 1.5)
+shadow_color = Color(0, 0, 0, 0.6431373)
+shadow_offset = Vector2(2, 2)
 
 [node name="TitleScreen" type="CanvasLayer" unique_id=632597833]
 script = ExtResource("1_r8sye")
@@ -206,7 +188,7 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Welcome, Guest!
 You are not logged in."
-label_settings = SubResource("LabelSettings_vpt7i")
+label_settings = SubResource("LabelSettings_qrvv6")
 horizontal_alignment = 2
 
 [node name="LoginTitleButton" type="Button" parent="AccountContainer" unique_id=35337828]
@@ -288,7 +270,7 @@ offset_right = 80.0
 grow_vertical = 0
 text = "v0.0.0
 Renderer: -"
-label_settings = SubResource("LabelSettings_tcfyk")
+label_settings = SubResource("LabelSettings_qrvv6")
 vertical_alignment = 2
 
 [node name="Fps" type="Label" parent="." unique_id=2045744510]
@@ -302,7 +284,7 @@ offset_top = -18.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "0 FPS"
-label_settings = SubResource("LabelSettings_wxefk")
+label_settings = SubResource("LabelSettings_qrvv6")
 horizontal_alignment = 2
 vertical_alignment = 2
 
