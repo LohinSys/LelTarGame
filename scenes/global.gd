@@ -205,7 +205,7 @@ func _ready() -> void:
 		"metal": renderer = "Metal"
 		"opengl3": renderer = "OpenGL"
 		"opengl3_es": renderer = "OpenGL ES"
-		"opengl3_angle": renderer = "OpenGL ANGLE"
+		"opengl3_angle": renderer = "ANGLE"
 
 	dbgInfoPrint = str("v",ProjectSettings.get_setting("application/config/version")," - ",verNote,"\nRenderer: ",renderer)
 

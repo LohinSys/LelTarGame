@@ -9,6 +9,35 @@ This was made for a *(solo)* school project of mine.
 
 ---
 
+## How to download
+
+Navigate to this repository's [Releases](https://github.com/LohinSys/LelTarGame/releases) page, and from there should be a bunch of files ready to download and run.
+
+### Windows
+
+Windows builds are offered in portable builds and standalone installers built using NSIS. They appear as follows:
+
+| Architecture | Standalone Installer | Portable (.zip) | Portable (.tar.gz) |
+| --- | --- | --- | --- |
+| x64 | `LelTarSetup-x64.exe` | `LelTarGamePortable-x64.zip` | `LelTarGamePortable-x64.tar.gz` |
+| ARM64 | `LelTarSetup-arm64.exe` | `LelTarGamePortable-arm64.zip` | `LelTarGamePortable-arm64.tar.gz` |
+| x86 | `LelTarSetup-x86.exe` | `LelTarGamePortable-x86.zip` | `LelTarGamePortable-x86.tar.gz` |
+
+### Linux
+
+Linux builds are currently only offered in portable builds only, however there are plans for creating an AppImage out of them. These appear as follows:
+
+| Architecture | AppImage | Portable (.gz) |
+| --- | --- | --- |
+| x64 | - | `LelTarGame.x86_64.gz` |
+| ARM64 | - | `LelTarGame.arm64.gz` |
+
+### macOS
+
+There are no native macOS builds for now due to the OS making it hard to run unsigned apps. Signing would require me to pay $100+ a month on top of whatever Mac I need to test builds on, so instead just use the Windows builds with Wine or Proton.
+
+---
+
 ## Credits
 
 - **Audio used**
@@ -16,7 +45,7 @@ This was made for a *(solo)* school project of mine.
 		- [Ultimate Truth (Touhou) - Piano Duet](https://youtu.be/o7_-lfkwvK8) *(by PhoenixIdeology)*
 		- [Space Hopper](https://dova-s.jp/EN/bgm/play4517.html) *(provided by DOVA-SYNDROME)*
 	- <u>Sound Effects</u>
-		- Touhou Project
+		- Touhou Project\*
 		- [freesound_community](https://pixabay.com/users/freesound_community-46691455/) *(from Pixabay)*
 - **Art, images and other graphics**
 	- <u>Icons:</u> [Material Design Icons](https://fonts.google.com/icons) *(by Google)*
