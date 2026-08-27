@@ -26,13 +26,14 @@ ShowInstDetails show
 ShowUninstDetails show
 
 ; Installer executable details
-VIAddVersionKey /LANG=0 "ProductName" "Lel.tar Setup (x64)"
-VIAddVersionKey /LANG=0 "Comments" "x64 Installer for Lel.tar"
-VIAddVersionKey /LANG=0 "CompanyName" "sz5ylv1a"
-VIAddVersionKey /LANG=0 "LegalCopyright" "sz5ylv1a © 2017-2026"
-VIAddVersionKey /LANG=0 "FileDescription" "x64 Installer for Lel.tar"
-VIAddVersionKey /LANG=0 "FileVersion" "${APP_VERSION}"
-VIAddVersionKey /LANG=0 "ProductVersion" "${APP_VERSION}"
+VIAddVersionKey /LANG=${LANG_ENGLISH} "ProductName" "Lel.tar Setup (x64)"
+VIAddVersionKey /LANG=${LANG_ENGLISH} "Comments" "x64 Installer for Lel.tar"
+VIAddVersionKey /LANG=${LANG_ENGLISH} "CompanyName" "sz5ylv1a"
+VIAddVersionKey /LANG=${LANG_ENGLISH} "LegalCopyright" "sz5ylv1a © 2017-2026"
+VIAddVersionKey /LANG=${LANG_ENGLISH} "InternalName" "${OutFile}"
+VIAddVersionKey /LANG=${LANG_ENGLISH} "FileDescription" "x64 Installer for Lel.tar"
+VIAddVersionKey /LANG=${LANG_ENGLISH} "FileVersion" "${APP_VERSION}"
+VIProductVersion 0.3.1.0
 
 ; Abort Warnings for both the installer and uninstaller
 !define MUI_ABORTWARNING
