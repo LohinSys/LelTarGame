@@ -4,7 +4,7 @@
 
 ;Program and installer file names
 Name "Lel.tar (32-bit)"
-OutFile "LelTarSetup-x86.exe"
+OutFile "windows\LelTarSetup-x86.exe"
 Unicode true
 ManifestDPIAware true
 SetCompressor lzma

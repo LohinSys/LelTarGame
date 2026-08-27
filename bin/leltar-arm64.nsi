@@ -4,7 +4,7 @@
 
 ;Program and installer file names
 Name "Lel.tar"
-OutFile "LelTarSetup-arm64.exe"
+OutFile "windows\LelTarSetup-arm64.exe"
 Unicode true
 ManifestDPIAware true
 SetCompressor lzma
