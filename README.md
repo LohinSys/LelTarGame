@@ -11,7 +11,7 @@ This was made for a *(solo)* school project of mine.
 
 ## How to download
 
-Navigate to this repository's [Releases](https://github.com/LohinSys/LelTarGame/releases) page, and from there should be a bunch of files ready to download and run.
+Navigate to this repository's [Releases](https://github.com/sz5ylv1a/LelTarGame/releases) page, and from there should be a bunch of files ready to download and run.
 
 ### Windows
 
@@ -69,4 +69,4 @@ There are no native macOS builds for now due to the OS making it hard to run uns
 ### If you wish to learn more about this game *(and by extension, school project)*...
 
 - [Click here for its website...](https://sz5ylv1a.github.io/LelTarWebsite/)
-- [...or click here to go to releases and download it!](https://github.com/LohinSys/LelTarGame/releases)
+- [...or click here to go to releases and download it!](https://github.com/sz5ylv1a/LelTarGame/releases)
