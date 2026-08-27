@@ -1,18 +1,18 @@
 ﻿;Include Modern UI 2 for a nicer look
-!include MUI2.nsh
-!include version.nsh
+!include "MUI2.nsh"
+!include "_nsis\version.nsh"
 
 ;Program and installer file names
-Name "Lel.tar"
-OutFile "LelTarSetup-arm64.exe"
+Name "Lel.tar (32-bit)"
+OutFile "LelTarSetup-x86.exe"
 Unicode true
 ManifestDPIAware true
 SetCompressor lzma
 
 ; Default Installation Directory
-InstallDir "$LocalAppData\Programs\LelTarGame\"
+InstallDir "$LocalAppData\Programs\LelTarGame-x86\"
 ; Get installation folder from registry if it exists
-InstallDirRegKey HKCU "Software\LelTarGame" ""
+InstallDirRegKey HKCU "Software\LelTarGame-x86" ""
 
 ; Only request for elevation if needed
 RequestExecutionLevel user
@@ -26,11 +26,11 @@ ShowInstDetails show
 ShowUninstDetails show
 
 ; Installer executable details
-VIAddVersionKey /LANG=0 "ProductName" "Lel.tar Setup (ARM64)"
-VIAddVersionKey /LANG=0 "Comments" "ARM64 Installer for Lel.tar"
+VIAddVersionKey /LANG=0 "ProductName" "Lel.tar Setup (x86)"
+VIAddVersionKey /LANG=0 "Comments" "x86/IA-32 Installer for Lel.tar"
 VIAddVersionKey /LANG=0 "CompanyName" "sz5ylv1a"
 VIAddVersionKey /LANG=0 "LegalCopyright" "sz5ylv1a © 2017-2026"
-VIAddVersionKey /LANG=0 "FileDescription" "ARM64 Installer for Lel.tar"
+VIAddVersionKey /LANG=0 "FileDescription" "x86/IA-32 Installer for Lel.tar"
 VIAddVersionKey /LANG=0 "FileVersion" "${APP_VERSION}"
 
 ; Abort Warnings for both the installer and uninstaller
@@ -40,16 +40,16 @@ VIAddVersionKey /LANG=0 "FileVersion" "${APP_VERSION}"
 !define MUI_UNABORTWARNING_CANCEL_DEFAULT
 
 ; Custom bitmaps for welcome and finish pages
-!define MUI_WELCOMEFINISHPAGE_BITMAP "sidebar.bmp"
-!define MUI_UNWELCOMEFINISHPAGE_BITMAP "sidebar.bmp"
+!define MUI_WELCOMEFINISHPAGE_BITMAP "_nsis\sidebar.bmp"
+!define MUI_UNWELCOMEFINISHPAGE_BITMAP "_nsis\sidebar.bmp"
 
 ; Custom icons for installer and uninstallers
-!define MUI_ICON "C:\Program Files (x86)\NSIS\Contrib\Graphics\Icons\modern-install-colorful.ico"
-!define MUI_UNICON "C:\Program Files (x86)\NSIS\Contrib\Graphics\Icons\modern-uninstall-colorful.ico"
+!define MUI_ICON "${NSISDIR}\Contrib\Graphics\Icons\modern-install-colorful.ico"
+!define MUI_UNICON "${NSISDIR}\Contrib\Graphics\Icons\modern-uninstall-colorful.ico"
 
 ; Header image
 !define MUI_HEADERIMAGE
-!define MUI_HEADERIMAGE_BITMAP "header-r.bmp"
+!define MUI_HEADERIMAGE_BITMAP "_nsis\header-r.bmp"
 !define MUI_HEADERIMAGE_RIGHT ; move it to the right instead of the left
 
 !define MUI_LICENSEPAGE_BGCOLOR /windows
@@ -59,13 +59,10 @@ VIAddVersionKey /LANG=0 "FileVersion" "${APP_VERSION}"
 ; !define MUI_UNFINISHPAGE_NOAUTOCLOSE
 
 ; Add run app checkbox into the installer
-!define MUI_FINISHPAGE_RUN "LelTarGame.exe"
+!define MUI_FINISHPAGE_RUN "LelTarGame-x86.exe"
 
 ; No description for components
 !define MUI_COMPONENTSPAGE_NODESC
-
-; Needed to let the user change the installation directory to wherever they want to
-!define MUI_DIRECTORYPAGE_VARIABLE $INSTDIR
 
 ; Tell installer that it should allow for more languages
 !define MUI_LANGDLL_ALLLANGUAGES
@@ -81,7 +78,7 @@ VIAddVersionKey /LANG=0 "FileVersion" "${APP_VERSION}"
 
 ; Installer
 !insertmacro MUI_PAGE_WELCOME
-!insertmacro MUI_PAGE_LICENSE "license.rtf" ; Only accepts TXT and RTF files
+!insertmacro MUI_PAGE_LICENSE "_nsis\license.rtf" ; Only accepts TXT and RTF files
 !insertmacro MUI_PAGE_COMPONENTS
 !insertmacro MUI_PAGE_DIRECTORY
 !insertmacro MUI_PAGE_INSTFILES
@@ -123,25 +120,25 @@ Section "Lel.tar" Main
 	SetOutPath $INSTDIR
 
 	; Needed files go here...
-	File /r "D:\home\docs\GodotProjects\LelTar\bin\windows\arm64\*.*"
+	File /r "windows\x86\*.*"
 
 	; Add registry entry pointing to the install directory
-	WriteRegStr HKCU "Software\LelTarGame" "" $INSTDIR
+	WriteRegStr HKCU "Software\LelTarGame-x86" "" $INSTDIR
 
 	; Create the Uninstaller
 	WriteUninstaller "$INSTDIR\uninstall.exe"
 
 	; Make shortcut to the start menu
-	CreateShortcut "$SMPROGRAMS\Lel.tar.lnk" "$INSTDIR\LelTarGame.exe"
+	CreateShortcut "$SMPROGRAMS\Lel.tar (32-bit).lnk" "$INSTDIR\LelTarGame-x86.exe"
 
 	; Add to the installed programs list in Add/Remove Programs
-	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "DisplayName" "Lel.tar"
+	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "DisplayName" "Lel.tar (32-bit)"
 	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "UninstallString" "$INSTDIR\uninstall.exe"
-	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "DisplayIcon" "$INSTDIR\LelTarGame.exe,0"
+	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "DisplayIcon" "$INSTDIR\LelTarGame-x86.exe,0"
 	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "DisplayVersion" "${APP_VERSION}"
 	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "Publisher" "sz5ylv1a"
 	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "UrlInfoAbout" "https://sz5ylv1a.github.io/LelTarWebsite/"
-	WriteRegDWORD HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "EstimatedSize" 121646
+	WriteRegDWORD HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "EstimatedSize" 135876
 	WriteRegDWORD HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "NoModify" 1
 	WriteRegDWORD HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "NoRepair" 1
 	WriteRegDWORD HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "VersionMajor" "${APP_MAJOR_VER}"
@@ -152,7 +149,7 @@ SectionEnd
 ; Desktop shortcut
 Section $(DesktopShortcut) DeskShortcutCreate
 	DetailPrint $(DesktopShortcutDP)
-	CreateShortcut "$DESKTOP\Lel.tar.lnk" "$INSTDIR\LelTarGame.exe"
+	CreateShortcut "$DESKTOP\Lel.tar (32-bit).lnk" "$INSTDIR\LelTarGame-x86.exe"
 SectionEnd
 
 ;---------------
@@ -175,13 +172,13 @@ Section "un.Lel.tar"
 	RMDir /r $INSTDIR
 
 	; Remove registry entries
-	DeleteRegKey HKCU "Software\LelTarGame"
+	DeleteRegKey HKCU "Software\LelTarGame-x86"
 	DeleteRegKey HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}'
 
-	; Remove shortcuts from the start menu, desktop and taskbar (if any exists)
-	Delete "$SMPROGRAMS\Lel.tar.lnk"
-	Delete "$DESKTOP\Lel.tar.lnk"
-	Delete "$AppData\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar\Lel.tar.lnk"
+	; Remove shortcuts from the start menu, desktop and taskbar (if it exists)
+	Delete "$SMPROGRAMS\Lel.tar (32-bit).lnk"
+	Delete "$DESKTOP\Lel.tar (32-bit).lnk"
+	Delete "$AppData\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar\Lel.tar (32-bit).lnk"
 
 SectionEnd
 

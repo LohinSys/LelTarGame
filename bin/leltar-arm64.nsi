@@ -1,10 +1,10 @@
 ﻿;Include Modern UI 2 for a nicer look
-!include MUI2.nsh
-!include version.nsh
+!include "MUI2.nsh"
+!include "_nsis\version.nsh"
 
 ;Program and installer file names
 Name "Lel.tar"
-OutFile "LelTarSetup-x64.exe"
+OutFile "LelTarSetup-arm64.exe"
 Unicode true
 ManifestDPIAware true
 SetCompressor lzma
@@ -26,11 +26,11 @@ ShowInstDetails show
 ShowUninstDetails show
 
 ; Installer executable details
-VIAddVersionKey /LANG=0 "ProductName" "Lel.tar Setup (x64)"
-VIAddVersionKey /LANG=0 "Comments" "x64 Installer for Lel.tar"
+VIAddVersionKey /LANG=0 "ProductName" "Lel.tar Setup (ARM64)"
+VIAddVersionKey /LANG=0 "Comments" "ARM64 Installer for Lel.tar"
 VIAddVersionKey /LANG=0 "CompanyName" "sz5ylv1a"
 VIAddVersionKey /LANG=0 "LegalCopyright" "sz5ylv1a © 2017-2026"
-VIAddVersionKey /LANG=0 "FileDescription" "x64 Installer for Lel.tar"
+VIAddVersionKey /LANG=0 "FileDescription" "ARM64 Installer for Lel.tar"
 VIAddVersionKey /LANG=0 "FileVersion" "${APP_VERSION}"
 
 ; Abort Warnings for both the installer and uninstaller
@@ -40,16 +40,16 @@ VIAddVersionKey /LANG=0 "FileVersion" "${APP_VERSION}"
 !define MUI_UNABORTWARNING_CANCEL_DEFAULT
 
 ; Custom bitmaps for welcome and finish pages
-!define MUI_WELCOMEFINISHPAGE_BITMAP "sidebar.bmp"
-!define MUI_UNWELCOMEFINISHPAGE_BITMAP "sidebar.bmp"
+!define MUI_WELCOMEFINISHPAGE_BITMAP "_nsis\sidebar.bmp"
+!define MUI_UNWELCOMEFINISHPAGE_BITMAP "_nsis\sidebar.bmp"
 
 ; Custom icons for installer and uninstallers
-!define MUI_ICON "${NSISDIR}\Contrib\Graphics\Icons\modern-install-colorful.ico"
-!define MUI_UNICON "${NSISDIR}\Contrib\Graphics\Icons\modern-uninstall-colorful.ico"
+!define MUI_ICON "C:\Program Files (x86)\NSIS\Contrib\Graphics\Icons\modern-install-colorful.ico"
+!define MUI_UNICON "C:\Program Files (x86)\NSIS\Contrib\Graphics\Icons\modern-uninstall-colorful.ico"
 
 ; Header image
 !define MUI_HEADERIMAGE
-!define MUI_HEADERIMAGE_BITMAP "header-r.bmp"
+!define MUI_HEADERIMAGE_BITMAP "_nsis\header-r.bmp"
 !define MUI_HEADERIMAGE_RIGHT ; move it to the right instead of the left
 
 !define MUI_LICENSEPAGE_BGCOLOR /windows
@@ -63,6 +63,9 @@ VIAddVersionKey /LANG=0 "FileVersion" "${APP_VERSION}"
 
 ; No description for components
 !define MUI_COMPONENTSPAGE_NODESC
+
+; Needed to let the user change the installation directory to wherever they want to
+!define MUI_DIRECTORYPAGE_VARIABLE $INSTDIR
 
 ; Tell installer that it should allow for more languages
 !define MUI_LANGDLL_ALLLANGUAGES
@@ -78,7 +81,7 @@ VIAddVersionKey /LANG=0 "FileVersion" "${APP_VERSION}"
 
 ; Installer
 !insertmacro MUI_PAGE_WELCOME
-!insertmacro MUI_PAGE_LICENSE "license.rtf" ; Only accepts TXT and RTF files
+!insertmacro MUI_PAGE_LICENSE "_nsis\license.rtf" ; Only accepts TXT and RTF files
 !insertmacro MUI_PAGE_COMPONENTS
 !insertmacro MUI_PAGE_DIRECTORY
 !insertmacro MUI_PAGE_INSTFILES
@@ -120,7 +123,7 @@ Section "Lel.tar" Main
 	SetOutPath $INSTDIR
 
 	; Needed files go here...
-	File /r "D:\home\docs\GodotProjects\LelTar\bin\windows\x64\*.*"
+	File /r "windows\arm64\*.*"
 
 	; Add registry entry pointing to the install directory
 	WriteRegStr HKCU "Software\LelTarGame" "" $INSTDIR
