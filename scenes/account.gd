@@ -27,10 +27,11 @@ func login(username_input,password_input) -> void:
 			role = Api.req_body.get("role","User")
 			loggedIn = true
 			print_rich("[color=green]Successfully logged in![/color]")
-			print_rich("\n[b]Account Details[/b]\n[s]--------------------[/s]")
-			print_rich("[b]Username:[/b] %s" % username)
-			print_rich("[b]Password:[/b] %s [i](obfuscated)[/i]" % password)
-			print_rich("    [b]Role:[/b] %s" % role)
+			## The commented lines below should only be uncommented for debugging purposes
+			#print_rich("\n[b]Account Details[/b]\n[s]--------------------[/s]")
+			#print_rich("[b]Username:[/b] %s" % username)
+			#print_rich("[b]Password:[/b] %s [i](obfuscated)[/i]" % password)
+			#print_rich("    [b]Role:[/b] %s" % role)
 			Api.req_headers.append("Authorization: Bearer %s" % token)
 			PlayerStats.save()
 		else:

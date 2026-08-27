@@ -4,7 +4,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nqh52"]
 radius = 3.0
-height = 47.0
+height = 48.0
 
 [node name="PlayerBullet" type="Area2D" unique_id=2015798667]
 
