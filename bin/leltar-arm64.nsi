@@ -26,14 +26,15 @@ ShowInstDetails show
 ShowUninstDetails show
 
 ; Installer executable details
-VIAddVersionKey /LANG=${LANG_ENGLISH} "ProductName" "Lel.tar Setup (ARM64)"
-VIAddVersionKey /LANG=${LANG_ENGLISH} "Comments" "ARM64 Installer for Lel.tar"
-VIAddVersionKey /LANG=${LANG_ENGLISH} "CompanyName" "sz5ylv1a"
-VIAddVersionKey /LANG=${LANG_ENGLISH} "LegalCopyright" "sz5ylv1a © 2017-2026"
-VIAddVersionKey /LANG=${LANG_ENGLISH} "InternalName" "${OutFile}"
-VIAddVersionKey /LANG=${LANG_ENGLISH} "FileDescription" "ARM64 Installer for Lel.tar"
-VIAddVersionKey /LANG=${LANG_ENGLISH} "FileVersion" "${APP_VERSION}"
-VIProductVersion 0.3.1.0
+VIAddVersionKey /LANG=0 "ProductName" "Lel.tar Setup (ARM64)"
+VIAddVersionKey /LANG=0 "Comments" "ARM64 Installer for Lel.tar"
+VIAddVersionKey /LANG=0 "CompanyName" "sz5ylv1a"
+VIAddVersionKey /LANG=0 "LegalCopyright" "sz5ylv1a © 2017-2026"
+VIAddVersionKey /LANG=0 "InternalName" "${OutFile}"
+VIAddVersionKey /LANG=0 "FileDescription" "ARM64 Installer for Lel.tar"
+VIProductVersion ${APP_MAJOR_VER}.${APP_MINOR_VER}.${APP_PATCH_VER}.${APP_SPTCH_VER}
+VIAddVersionKey /LANG=0 "ProductVersion" "${APP_VERSION}"
+VIAddVersionKey /LANG=0 "FileVersion" "${APP_VERSION}"
 
 ; Abort Warnings for both the installer and uninstaller
 !define MUI_ABORTWARNING
