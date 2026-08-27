@@ -170,7 +170,9 @@ Section "un.Lel.tar"
 	SectionIn RO
 
 	; Files go here...
-	RMDir /r $INSTDIR
+	Delete "$INSTDIR\LelTarGame.exe"
+	Delete "$INSTDIR\LelTarGame.pck"
+	Delete "$INSTDIR\uninstall.exe"
 
 	; Remove registry entries
 	DeleteRegKey HKCU "Software\LelTarGame"

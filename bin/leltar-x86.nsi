@@ -7,7 +7,7 @@ Name "Lel.tar (32-bit)"
 OutFile "windows\LelTarSetup-x86.exe"
 Unicode true
 ManifestDPIAware true
-SetCompressor lzma
+SetCompressor /SOLID lzma
 
 ; Default Installation Directory
 InstallDir "$LocalAppData\Programs\LelTarGame-x86\"
@@ -170,7 +170,9 @@ Section "un.Lel.tar"
 	SectionIn RO
 
 	; Files go here...
-	RMDir /r $INSTDIR
+	Delete "$INSTDIR\LelTarGame.exe"
+	Delete "$INSTDIR\LelTarGame.pck"
+	Delete "$INSTDIR\uninstall.exe"
 
 	; Remove registry entries
 	DeleteRegKey HKCU "Software\LelTarGame-x86"
