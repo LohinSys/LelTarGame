@@ -32,7 +32,7 @@ VIAddVersionKey /LANG=0 "CompanyName" "sz5ylv1a"
 VIAddVersionKey /LANG=0 "LegalCopyright" "sz5ylv1a © 2017-2026"
 VIAddVersionKey /LANG=0 "FileDescription" "x64 Installer for Lel.tar"
 VIAddVersionKey /LANG=0 "FileVersion" "${APP_VERSION}"
-VIProductVersion 0.3.1.0
+VIAddVersionKey /LANG=0 "ProductVersion" "${APP_VERSION}"
 
 ; Abort Warnings for both the installer and uninstaller
 !define MUI_ABORTWARNING
