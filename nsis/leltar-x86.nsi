@@ -1,6 +1,6 @@
-﻿;Include "Modern UI 2" for a nicer look
-!include "MUI2.nsh"
-!include "version.nsh"
+﻿;Include Modern UI 2 for a nicer look
+!include MUI2.nsh
+!include version.nsh
 
 ;Program and installer file names
 Name "Lel.tar (32-bit)"
@@ -21,6 +21,18 @@ RequestExecutionLevel user
 ; Settings
 ;---------------
 
+; Non-MUI specific settings
+ShowInstDetails show
+ShowUninstDetails show
+
+; Installer executable details
+VIAddVersionKey /LANG=0 "ProductName" "Lel.tar Setup (x86)"
+VIAddVersionKey /LANG=0 "Comments" "x86/IA-32 Installer for Lel.tar"
+VIAddVersionKey /LANG=0 "CompanyName" "sz5ylv1a"
+VIAddVersionKey /LANG=0 "LegalCopyright" "sz5ylv1a © 2017-2026"
+VIAddVersionKey /LANG=0 "FileDescription" "x86/IA-32 Installer for Lel.tar"
+VIAddVersionKey /LANG=0 "FileVersion" "${APP_VERSION}"
+
 ; Abort Warnings for both the installer and uninstaller
 !define MUI_ABORTWARNING
 !define MUI_ABORTWARNING_CANCEL_DEFAULT
@@ -28,16 +40,16 @@ RequestExecutionLevel user
 !define MUI_UNABORTWARNING_CANCEL_DEFAULT
 
 ; Custom bitmaps for welcome and finish pages
-!define MUI_WELCOMEFINISHPAGE_BITMAP "C:\Program Files (x86)\NSIS\Contrib\Graphics\Wizard\win.bmp"
-!define MUI_UNWELCOMEFINISHPAGE_BITMAP "C:\Program Files (x86)\NSIS\Contrib\Graphics\Wizard\win.bmp"
+!define MUI_WELCOMEFINISHPAGE_BITMAP "sidebar.bmp"
+!define MUI_UNWELCOMEFINISHPAGE_BITMAP "sidebar.bmp"
 
 ; Custom icons for installer and uninstallers
-!define MUI_ICON "C:\Program Files (x86)\NSIS\Contrib\Graphics\Icons\modern-install-colorful.ico"
-!define MUI_UNICON "C:\Program Files (x86)\NSIS\Contrib\Graphics\Icons\modern-uninstall-colorful.ico"
+!define MUI_ICON "${NSISDIR}\Contrib\Graphics\Icons\modern-install-colorful.ico"
+!define MUI_UNICON "${NSISDIR}\Contrib\Graphics\Icons\modern-uninstall-colorful.ico"
 
 ; Header image
 !define MUI_HEADERIMAGE
-!define MUI_HEADERIMAGE_BITMAP "C:\Program Files (x86)\NSIS\Contrib\Graphics\Header\nsis-r.bmp"
+!define MUI_HEADERIMAGE_BITMAP "header-r.bmp"
 !define MUI_HEADERIMAGE_RIGHT ; move it to the right instead of the left
 
 !define MUI_LICENSEPAGE_BGCOLOR /windows
@@ -82,8 +94,8 @@ RequestExecutionLevel user
 ;---------------
 ; Languages
 ;---------------
-!insertmacro MUI_LANGUAGE "Hungarian" ; Default
-!insertmacro MUI_LANGUAGE "English"
+!insertmacro MUI_LANGUAGE "English"		; Default
+!insertmacro MUI_LANGUAGE "Hungarian"
 
 !insertmacro MUI_RESERVEFILE_LANGDLL
 

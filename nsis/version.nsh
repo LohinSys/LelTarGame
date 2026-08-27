@@ -1,5 +1,8 @@
 ; App Version
-!define APP_VERSION "0.3.1"
-
 !define APP_MAJOR_VER 0
 !define APP_MINOR_VER 3
+!define APP_PATCH_VER 1
+!define APP_SPTCH_VER 0
+
+!define APP_VERSION "${APP_MAJOR_VER}.${APP_MINOR_VER}.${APP_PATCH_VER}"
+; !define APP_VERSION "${APP_MAJOR_VER}.${APP_MINOR_VER}.${APP_PATCH_VER}.${APP_SPTCH_VER}"

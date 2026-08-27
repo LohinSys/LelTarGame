@@ -1,6 +1,6 @@
-﻿;Include "Modern UI 2" for a nicer look
-!include "MUI2.nsh"
-!include "version.nsh"
+﻿;Include Modern UI 2 for a nicer look
+!include MUI2.nsh
+!include version.nsh
 
 ;Program and installer file names
 Name "Lel.tar"
@@ -20,6 +20,18 @@ RequestExecutionLevel user
 ;---------------
 ; Settings
 ;---------------
+
+; Non-MUI specific settings
+ShowInstDetails show
+ShowUninstDetails show
+
+; Installer executable details
+VIAddVersionKey /LANG=0 "ProductName" "Lel.tar Setup (ARM64)"
+VIAddVersionKey /LANG=0 "Comments" "ARM64 Installer for Lel.tar"
+VIAddVersionKey /LANG=0 "CompanyName" "sz5ylv1a"
+VIAddVersionKey /LANG=0 "LegalCopyright" "sz5ylv1a © 2017-2026"
+VIAddVersionKey /LANG=0 "FileDescription" "ARM64 Installer for Lel.tar"
+VIAddVersionKey /LANG=0 "FileVersion" "${APP_VERSION}"
 
 ; Abort Warnings for both the installer and uninstaller
 !define MUI_ABORTWARNING
@@ -52,6 +64,9 @@ RequestExecutionLevel user
 ; No description for components
 !define MUI_COMPONENTSPAGE_NODESC
 
+; Needed to let the user change the installation directory to wherever they want to
+!define MUI_DIRECTORYPAGE_VARIABLE $INSTDIR
+
 ; Tell installer that it should allow for more languages
 !define MUI_LANGDLL_ALLLANGUAGES
 
@@ -82,8 +97,8 @@ RequestExecutionLevel user
 ;---------------
 ; Languages
 ;---------------
-!insertmacro MUI_LANGUAGE "Hungarian" ; Default
-!insertmacro MUI_LANGUAGE "English"
+!insertmacro MUI_LANGUAGE "English"		; Default
+!insertmacro MUI_LANGUAGE "Hungarian"
 
 !insertmacro MUI_RESERVEFILE_LANGDLL
 
