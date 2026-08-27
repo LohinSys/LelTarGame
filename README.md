@@ -68,5 +68,5 @@ There are no native macOS builds for now due to the OS making it hard to run uns
 
 ### If you wish to learn more about this game *(and by extension, school project)*...
 
-- [Click here for its website...](https://szb3nc3.github.io/LelTarWebsite/)
+- [Click here for its website...](https://sz5ylv1a.github.io/LelTarWebsite/)
 - [...or click here to go to releases and download it!](https://github.com/LohinSys/LelTarGame/releases)
