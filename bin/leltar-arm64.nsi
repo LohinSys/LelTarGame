@@ -32,6 +32,7 @@ VIAddVersionKey /LANG=0 "CompanyName" "sz5ylv1a"
 VIAddVersionKey /LANG=0 "LegalCopyright" "sz5ylv1a © 2017-2026"
 VIAddVersionKey /LANG=0 "FileDescription" "ARM64 Installer for Lel.tar"
 VIAddVersionKey /LANG=0 "FileVersion" "${APP_VERSION}"
+VIProductVersion "${APP_MAJOR_VER}.${APP_MINOR_VER}.${APP_PATCH_VER}.${APP_SPTCH_VER}"
 
 ; Abort Warnings for both the installer and uninstaller
 !define MUI_ABORTWARNING
@@ -141,7 +142,7 @@ Section "Lel.tar" Main
 	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "DisplayVersion" "${APP_VERSION}"
 	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "Publisher" "sz5ylv1a"
 	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "UrlInfoAbout" "https://sz5ylv1a.github.io/LelTarWebsite/"
-	WriteRegDWORD HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "EstimatedSize" 121646
+	WriteRegDWORD HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "EstimatedSize" 111616
 	WriteRegDWORD HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "NoModify" 1
 	WriteRegDWORD HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "NoRepair" 1
 	WriteRegDWORD HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "VersionMajor" "${APP_MAJOR_VER}"
