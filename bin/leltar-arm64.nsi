@@ -60,7 +60,7 @@ VIProductVersion 0.3.1.0
 ; !define MUI_UNFINISHPAGE_NOAUTOCLOSE
 
 ; Add run app checkbox into the installer
-!define MUI_FINISHPAGE_RUN "LelTarGame.exe"
+!define MUI_FINISHPAGE_RUN "LelTarGame-arm64.exe"
 
 ; No description for components
 !define MUI_COMPONENTSPAGE_NODESC
@@ -133,12 +133,12 @@ Section "Lel.tar" Main
 	WriteUninstaller "$INSTDIR\uninstall.exe"
 
 	; Make shortcut to the start menu
-	CreateShortcut "$SMPROGRAMS\Lel.tar.lnk" "$INSTDIR\LelTarGame.exe"
+	CreateShortcut "$SMPROGRAMS\Lel.tar.lnk" "$INSTDIR\LelTarGame-arm64.exe"
 
 	; Add to the installed programs list in Add/Remove Programs
 	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "DisplayName" "Lel.tar"
 	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "UninstallString" "$INSTDIR\uninstall.exe"
-	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "DisplayIcon" "$INSTDIR\LelTarGame.exe,0"
+	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "DisplayIcon" "$INSTDIR\LelTarGame-arm64.exe,0"
 	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "DisplayVersion" "${APP_VERSION}"
 	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "Publisher" "sz5ylv1a"
 	WriteRegStr HKCU '${REGPATH_WINUNINST}\${REGUNINSTKEY}' "UrlInfoAbout" "https://sz5ylv1a.github.io/LelTarWebsite/"
@@ -153,7 +153,7 @@ SectionEnd
 ; Desktop shortcut
 Section $(DesktopShortcut) DeskShortcutCreate
 	DetailPrint $(DesktopShortcutDP)
-	CreateShortcut "$DESKTOP\Lel.tar.lnk" "$INSTDIR\LelTarGame.exe"
+	CreateShortcut "$DESKTOP\Lel.tar.lnk" "$INSTDIR\LelTarGame-arm64.exe"
 SectionEnd
 
 ;---------------
@@ -173,8 +173,8 @@ Section "un.Lel.tar"
 	SectionIn RO
 
 	; Files go here...
-	Delete "$INSTDIR\LelTarGame.exe"
-	Delete "$INSTDIR\LelTarGame.pck"
+	Delete "$INSTDIR\LelTarGame-arm64.exe"
+	Delete "$INSTDIR\LelTarGame-arm64.pck"
 	Delete "$INSTDIR\uninstall.exe"
 
 	; Remove registry entries
