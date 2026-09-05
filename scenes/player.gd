@@ -24,7 +24,10 @@ func _input(event):
 				4:	# Lunatic
 					PlayerStats.lunaBombsUsed += 1
 
-func _ready() -> void: $AnimatedSprite2D.play()
+func _ready() -> void:
+	$AnimatedSprite2D.play()
+	position = get_viewport().get_visible_rect().size / 2
+	position.y = 500
 
 # the physics process is for inputs where you hold down a button
 # note: WASD and shoot + focus buttons only work together on keyboards if it has 6-key rollover minimum

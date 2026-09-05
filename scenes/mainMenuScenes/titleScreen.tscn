@@ -32,12 +32,6 @@ shadow_size = 0
 shadow_color = Color(0, 0, 0, 0.6431373)
 shadow_offset = Vector2(1.5, 1.5)
 
-[sub_resource type="LabelSettings" id="LabelSettings_c3ue1"]
-font_size = 12
-shadow_size = 0
-shadow_color = Color(0, 0, 0, 0.6431373)
-shadow_offset = Vector2(2, 2)
-
 [node name="TitleScreen" type="CanvasLayer" unique_id=632597833]
 script = ExtResource("1_r8sye")
 
@@ -46,15 +40,9 @@ script = ExtResource("1_r8sye")
 [node name="Blur" type="ColorRect" parent="." unique_id=754446785]
 material = SubResource("ShaderMaterial_hh3dy")
 use_parent_material = true
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -512.0
-offset_top = -384.0
-offset_right = 512.0
-offset_bottom = 384.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -79,7 +67,8 @@ offset_top = 230.0
 offset_right = 102.5
 offset_bottom = 248.0
 grow_horizontal = 2
-text = "Technical Development Build"
+text = "Alpha Release Build
+(September 2026)"
 label_settings = SubResource("LabelSettings_qrvv6")
 horizontal_alignment = 1
 
@@ -88,11 +77,10 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -180.0
-offset_top = 280.0
+offset_top = 288.0
 offset_right = 180.0
-offset_bottom = 480.0
+offset_bottom = 453.0
 grow_horizontal = 2
-alignment = 1
 
 [node name="StartGame" type="Button" parent="MenuBtnContainer" unique_id=708867633]
 layout_mode = 2
@@ -165,15 +153,6 @@ icon = ExtResource("4_ful2y")
 alignment = 0
 icon_alignment = 2
 expand_icon = true
-
-[node name="NotImplementedFIY" type="Label" parent="MenuBtnContainer" unique_id=1799691234]
-custom_minimum_size = Vector2(1, 0)
-layout_mode = 2
-text = "This game is still under development, so expect some bugs..."
-label_settings = SubResource("LabelSettings_c3ue1")
-horizontal_alignment = 1
-vertical_alignment = 2
-autowrap_mode = 3
 
 [node name="AccountContainer" type="VBoxContainer" parent="." unique_id=1569943762]
 anchors_preset = 1
@@ -268,7 +247,7 @@ anchor_bottom = 1.0
 offset_top = -36.0
 offset_right = 80.0
 grow_vertical = 0
-text = "v0.0.0
+text = "0.0.0
 Renderer: -"
 label_settings = SubResource("LabelSettings_qrvv6")
 vertical_alignment = 2

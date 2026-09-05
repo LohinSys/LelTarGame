@@ -16,7 +16,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="Lel.tar"
 config/description="The endless search for the missing package..."
-config/version="0.3.1"
+config/version="a1.0.0-1000"
 config/tags=PackedStringArray("lohinsys", "schkewl")
 run/main_scene="uid://c47q0efltcsbo"
 config/features=PackedStringArray("4.7", "Forward Plus")
@@ -52,6 +52,7 @@ file_logging/log_path="user://logs/leltargame.log"
 window/size/viewport_width=800
 window/size/viewport_height=600
 window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_height"
 
 [dotnet]
 

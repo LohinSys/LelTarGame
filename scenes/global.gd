@@ -7,6 +7,7 @@ var sfxVolume: float = 1.0
 var musicVolume: float = 1.0
 
 var windowMode: int = 0
+var aspectRatio: int = 0
 var antiAliasType: int = 0
 var anisotropy: int = 2
 var scale3d: int = 4
@@ -33,10 +34,10 @@ var bonusFormula: int = 0:
 		bonusFormula = value
 		if bonusFormula < 0: bonusFormula = 0
 
-var verNote: String = "The adventure goes on..."
+var verNote: String = "Let's restart"
 var renderer: String = "-"
 
-var dbgInfoPrint: String = "v0.0.0\nRenderer: -"
+var dbgInfoPrint: String = "0.0.0\nRenderer: -"
 
 var firstFade: bool = true
 
@@ -70,6 +71,20 @@ func update_window_mode() -> void:
 	match windowMode:
 		0: DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 		1: DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+
+func update_aspect_ratio() -> void:
+	var win = get_window()
+	var win_size: Vector2i
+
+	match aspectRatio:
+		0: win_size = Vector2i(800,600)		#  4:3	(Standard)
+		1: win_size = Vector2i(1067,600)	# 16:9	(Widescreen)
+		2: win_size = Vector2i(960,600)		# 16:10	(Widescreen)
+		3: win_size = Vector2i(900,600)		#  3:2	(Standard)
+		4: win_size = Vector2i(1400,600)	# 21:9	(Ultrawide)
+
+	win.content_scale_size = win_size
+	win.size = win_size
 
 func update_vsync() -> void:
 	match vSync:
@@ -171,6 +186,7 @@ func load_settings() -> void:
 		musicVolume = setting.get_value("Volume", "music", 1.0)
 
 		windowMode = setting.get_value("Graphics", "windowMode", 0)
+		aspectRatio = setting.get_value("Graphics", "aspectRatio", 0)
 		antiAliasType = setting.get_value("Graphics", "antiAliasType", 0)
 		anisotropy = setting.get_value("Graphics", "anisotropy", 2)
 		scale3d = setting.get_value("Graphics", "scale3d", 4)
@@ -182,6 +198,8 @@ func load_settings() -> void:
 	else: return
 
 	print("\nApplying settings:")
+	print("Aspect Ratio...")
+	update_aspect_ratio()
 	print("Window Mode...")
 	update_window_mode()
 	print("Audio Volumes...")
@@ -207,7 +225,7 @@ func _ready() -> void:
 		"opengl3_es": renderer = "OpenGL ES"
 		"opengl3_angle": renderer = "ANGLE"
 
-	dbgInfoPrint = str("v",ProjectSettings.get_setting("application/config/version")," - ",verNote,"\nRenderer: ",renderer)
+	dbgInfoPrint = str(ProjectSettings.get_setting("application/config/version"),"\nRenderer: ",renderer)
 
-	print_rich("[b]Lel.tar ",dbgInfoPrint,"\nLohinSys (ɔ) 2024-2026[/b]")
+	print_rich("[b]Lel.tar ",dbgInfoPrint,"\nsz5ylv1a (ɔ) 2024-2026[/b]")
 	get_window().title = str("Lel.tar ",ProjectSettings.get_setting("application/config/version")," - ",verNote)

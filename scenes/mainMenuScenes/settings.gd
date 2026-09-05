@@ -91,6 +91,7 @@ func save_settings() -> void:
 	Global.setting.set_value("Volume", "music", %MusicVolSlider.value)
 
 	Global.setting.set_value("Graphics", "windowMode", Global.windowMode)
+	Global.setting.set_value("Graphics", "aspectRatio", Global.aspectRatio)
 	Global.setting.set_value("Graphics", "antiAliasType", Global.antiAliasType)
 	Global.setting.set_value("Graphics", "anisotropy", Global.anisotropy)
 	Global.setting.set_value("Graphics", "scale3d", Global.scale3d)

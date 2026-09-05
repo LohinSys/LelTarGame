@@ -69,7 +69,10 @@ func _on_speed_timeout() -> void:
 			$Speed.wait_time = 0.001
 		%Spellcard.stop()
 
-func _ready() -> void: $AnimatedSprite2D.play()
+func _ready() -> void:
+	$AnimatedSprite2D.play()
+	position = get_viewport().get_visible_rect().size / 2
+	position.y = 90
 
 func _on_spellcard_timeout() -> void: Global.boss_spellcard_time += 0.1
 

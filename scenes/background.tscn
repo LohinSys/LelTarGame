@@ -11,21 +11,30 @@ size = Vector2(20, 20)
 [node name="Background" type="Node3D" unique_id=614488735]
 script = ExtResource("1_y0upk")
 
-[node name="Clouds2D" type="Node2D" parent="." unique_id=830299305]
+[node name="2D" type="Control" parent="." unique_id=1438250646]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -400.0
+offset_right = -400.0
+grow_horizontal = 2
 
-[node name="Layer-1" type="Sprite2D" parent="Clouds2D" unique_id=1923062668]
+[node name="Clouds" type="Node2D" parent="2D" unique_id=830299305]
+
+[node name="Layer-1" type="Sprite2D" parent="2D/Clouds" unique_id=1923062668]
 texture = ExtResource("2_cbsqf")
 centered = false
 offset = Vector2(0, -5400)
 
-[node name="Layer-2" type="Sprite2D" parent="Clouds2D" unique_id=1965853676]
+[node name="Layer-2" type="Sprite2D" parent="2D/Clouds" unique_id=1965853676]
 visible = false
 self_modulate = Color(1, 1, 1, 0)
 texture = ExtResource("3_cbsqf")
 centered = false
 offset = Vector2(0, -5400)
 
-[node name="FadeTransition" type="Timer" parent="Clouds2D" unique_id=1061199720]
+[node name="FadeTransition" type="Timer" parent="2D/Clouds" unique_id=1061199720]
 process_callback = 0
 wait_time = 40.0
 one_shot = true
@@ -59,4 +68,4 @@ fov = 70.0
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=334656198]
 transform = Transform3D(0.8048524, 0.20298047, -0.5576842, 0.05373667, 0.91090775, 0.4090963, 0.5910373, -0.35923016, 0.72223866, -2.0676262, 1.6618488, 4.1917634)
 
-[connection signal="timeout" from="Clouds2D/FadeTransition" to="." method="_on_cloud_fade_transition_timeout"]
+[connection signal="timeout" from="2D/Clouds/FadeTransition" to="." method="_on_cloud_fade_transition_timeout"]
